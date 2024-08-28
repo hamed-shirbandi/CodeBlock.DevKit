@@ -25,13 +25,13 @@
 		<PackageReference Include="MongoDB.Driver" Version="2.28.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <ProjectReference Include="..\Core\Core.csproj" />
-	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
 		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
 	</Target>
-	
+
+	<ItemGroup>
+		<ProjectReference Include="..\Core\Core.csproj" />
+	</ItemGroup>
+
 </Project>

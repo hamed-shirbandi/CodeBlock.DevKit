@@ -8,7 +8,7 @@ public static class NotificationsExtensions
     /// <summary>
     ///
     /// </summary>
-    public static void AddINotificationService(this IServiceCollection services)
+    public static void AddNotificationService(this IServiceCollection services)
     {
         services.AddScoped<INotificationService, NotificationService>();
     }

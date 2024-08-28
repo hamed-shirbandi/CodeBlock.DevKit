@@ -5,6 +5,19 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AssemblyName>CodeBlock.DevKit.Infrastructure</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Infrastructure</RootNamespace>
+		<Description>CodeBlock Development Kit</Description>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Authors>hamed shirbandi</Authors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>CodeBlock.DevKit.Infrastructure</PackageId>
+		<PackageTags>ddd;cqrs;devkit</PackageTags>
+		<PackageProjectUrl>https://github.com/hamed-shirbandi/CodeBlock.DevKit</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<copyright>Copyright 2024 hamed shirbandi</copyright>
+		<PackageTargetFallback></PackageTargetFallback>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,6 +29,10 @@
 		<PackageReference Include="FluentValidation" Version="10.3.5" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.3" />
 	</ItemGroup>
+
+	<Target Name="PostcompileScript" AfterTargets="Build">
+		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
+	</Target>
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Application\Application.csproj" />
