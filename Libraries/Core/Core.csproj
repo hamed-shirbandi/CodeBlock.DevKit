@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Core</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Core</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionPrefix>1.0.1</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Core</PackageId>
@@ -23,6 +23,21 @@
 	<Target Name="PostcompileScript" AfterTargets="Build">
 		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
 	</Target>
+
+	<ItemGroup>
+	  <Compile Update="Resources\CommonResource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CommonResource.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\CommonResource.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CommonResource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
 
 	
 </Project>
