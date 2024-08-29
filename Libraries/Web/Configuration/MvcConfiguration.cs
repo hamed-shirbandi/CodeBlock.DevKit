@@ -1,18 +1,25 @@
 using CodeBlock.DevKit.Infrastructure.Extensions;
+using CodeBlock.DevKit.Web.Configuration.Captcha;
+using CodeBlock.DevKit.Web.Configuration.Metric;
+using CodeBlock.DevKit.Web.Configuration.Serilog;
+using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
 namespace CodeBlock.DevKit.Web.Configuration;
 
-public static class MvcExtensions
+public static class MvcConfiguration
 {
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication ConfigureMvcAppServices(
+    public static WebApplication AddMvcPreConfigured(
         this WebApplicationBuilder builder,
+        IConfiguration configuration,
         Type handlerAssemblyMarkerType,
         Type validatorAssemblyMarkerType
     )
@@ -23,13 +30,23 @@ public static class MvcExtensions
 
         builder.Services.AddControllersWithViews();
 
+        builder.Services.AddCaptcha();
+
+        builder.Services.AddHttpContextAccessor();
+
+        builder.Services.AddAuthenticatedUserService();
+
+        builder.Services.AddWebServerOptions();
+
+        builder.Services.AddMetrics(configuration);
+
         return builder.Build();
     }
 
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication ConfigureMvcAppPipeline(this WebApplication app)
+    public static WebApplication UseMvcPreConfigured(this WebApplication app, IConfiguration configuration)
     {
         app.UseSerilogRequestLogging();
 
@@ -42,14 +59,34 @@ public static class MvcExtensions
         }
 
         app.UseHttpsRedirection();
+
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseMetrics(configuration);
 
         app.UseAuthorization();
 
         app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
         return app;
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public static void AddWebServerOptions(this IServiceCollection services)
+    {
+        // If using Kestrel:
+        services.Configure<KestrelServerOptions>(options =>
+        {
+            options.AllowSynchronousIO = true;
+        });
+        // If using IIS:
+        services.Configure<IISServerOptions>(options =>
+        {
+            options.AllowSynchronousIO = true;
+        });
     }
 }
