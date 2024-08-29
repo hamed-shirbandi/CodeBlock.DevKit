@@ -37,7 +37,7 @@ public static class BlazorConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication AddBlazorPreConfigured(this WebApplication app, IConfiguration configuration)
+    public static WebApplication UseBlazorPreConfigured(this WebApplication app, IConfiguration configuration)
     {
         app.UseSerilogRequestLogging();
         if (!app.Environment.IsDevelopment())
