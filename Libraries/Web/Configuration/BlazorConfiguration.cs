@@ -13,7 +13,7 @@ public static class BlazorConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication AddBlazorPreConfigured(
+    public static void AddBlazorPreConfigured(
         this WebApplicationBuilder builder,
         IConfiguration configuration,
         Type handlerAssemblyMarkerType,
@@ -29,8 +29,6 @@ public static class BlazorConfiguration
         builder.Services.AddServerSideBlazor();
 
         builder.Services.AddMetrics(configuration);
-
-        return builder.Build();
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ public static class MvcConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication AddMvcPreConfigured(
+    public static void AddMvcPreConfigured(
         this WebApplicationBuilder builder,
         IConfiguration configuration,
         Type handlerAssemblyMarkerType,
@@ -38,8 +38,6 @@ public static class MvcConfiguration
         builder.Services.AddWebServerOptions();
 
         builder.Services.AddMetrics(configuration);
-
-        return builder.Build();
     }
 
     /// <summary>
