@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
 namespace CodeBlock.DevKit.Web.Configuration;
 
@@ -48,7 +47,7 @@ public static class MvcConfiguration
     /// </summary>
     public static WebApplication UseMvcPreConfigured(this WebApplication app, IConfiguration configuration)
     {
-        app.UseSerilogRequestLogging();
+        app.UseCustomSerilog(configuration);
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())

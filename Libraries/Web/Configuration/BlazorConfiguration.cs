@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
 namespace CodeBlock.DevKit.Web.Configuration;
 
@@ -39,7 +38,8 @@ public static class BlazorConfiguration
     /// </summary>
     public static WebApplication UseBlazorPreConfigured(this WebApplication app, IConfiguration configuration)
     {
-        app.UseSerilogRequestLogging();
+        app.UseCustomSerilog(configuration);
+
         if (!app.Environment.IsDevelopment())
         {
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

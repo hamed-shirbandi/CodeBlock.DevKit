@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 namespace CodeBlock.DevKit.Web.Configuration.Swagger;
@@ -10,17 +10,11 @@ public static class SwaggerConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static IServiceCollection AddSwaggerPreConfigured(this IServiceCollection services, Action<SwaggerOptions> setupAction)
+    public static void AddSwaggerPreConfigured(this IServiceCollection services, IConfiguration configuration)
     {
-        if (services == null)
-            throw new ArgumentNullException(nameof(services));
-
-        if (setupAction == null)
-            throw new ArgumentNullException(nameof(setupAction));
-
-        services.Configure(setupAction);
-
-        var options = services.BuildServiceProvider().GetRequiredService<IOptions<SwaggerOptions>>();
+        var swaggerOptions = configuration.GetSection("Swagger").Get<SwaggerOptions>();
+        if (swaggerOptions != null)
+            return;
 
         // Register the Swagger generator, defining one or more Swagger documents
         services.AddSwaggerGen(c =>
@@ -30,9 +24,9 @@ public static class SwaggerConfiguration
             //Hide some unwanted methods from documentation
             c.DocumentFilter<SwaggerHideInDocsFilter>();
             //swagger doc info
-            c.SwaggerDoc(options.Value.Version, new OpenApiInfo { Title = options.Value.Title, Version = options.Value.Version });
+            c.SwaggerDoc(swaggerOptions.Version, new OpenApiInfo { Title = swaggerOptions.Title, Version = swaggerOptions.Version });
             //include xml comments from xml files referred in appsetting
-            foreach (var includeXmlComment in options.Value.IncludeXmlComments.Split(","))
+            foreach (var includeXmlComment in swaggerOptions.IncludeXmlComments.Split(","))
             {
                 try
                 {
@@ -69,20 +63,16 @@ public static class SwaggerConfiguration
                 }
             );
         });
-        return services;
     }
 
     /// <summary>
     ///
     /// </summary>
-    public static IApplicationBuilder UseSwaggerPreConfigured(this IApplicationBuilder app)
+    public static void UseSwaggerPreConfigured(this WebApplication app, IConfiguration configuration)
     {
-        if (app == null)
-            throw new ArgumentNullException(nameof(app));
-
-        var options = app.ApplicationServices.GetRequiredService<IOptions<SwaggerOptions>>();
-        if (options == null)
-            throw new ArgumentNullException(nameof(options));
+        var swaggerOptions = configuration.GetSection("Swagger").Get<SwaggerOptions>();
+        if (swaggerOptions != null)
+            return;
 
         // Enable middleware to serve generated Swagger as a JSON endpoint.
         app.UseSwagger();
@@ -90,11 +80,9 @@ public static class SwaggerConfiguration
         // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/" + options.Value.Version + "/swagger.json", options.Value.Version);
+            c.SwaggerEndpoint("/swagger/" + swaggerOptions.Version + "/swagger.json", swaggerOptions.Version);
             //redirect root url to swagger ui
             c.RoutePrefix = "";
         });
-
-        return app;
     }
 }

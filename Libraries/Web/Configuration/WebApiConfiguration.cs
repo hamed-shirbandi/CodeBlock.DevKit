@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
 namespace CodeBlock.DevKit.Web.Configuration;
 
@@ -27,10 +26,7 @@ public static class WebApiConfiguration
 
         builder.Services.AddControllers().WithPreventAutoValidation();
 
-        builder.Services.AddSwaggerPreConfigured(options =>
-        {
-            configuration.GetSection("Swagger").Bind(options);
-        });
+        builder.Services.AddSwaggerPreConfigured(configuration);
 
         builder.Services.AddHttpContextAccessor();
 
@@ -50,16 +46,16 @@ public static class WebApiConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static void UseWebApiPreConfigured(this IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
+    public static void UseWebApiPreConfigured(this WebApplication app, IWebHostEnvironment env, IConfiguration configuration)
     {
-        app.UseSerilogRequestLogging();
+        app.UseCustomSerilog(configuration);
 
         if (env.IsDevelopment())
             app.UseDeveloperExceptionPage();
 
         app.UseGlobalExceptionHandler();
 
-        app.UseSwaggerPreConfigured();
+        app.UseSwaggerPreConfigured(configuration);
 
         app.UseHttpsRedirection();
 

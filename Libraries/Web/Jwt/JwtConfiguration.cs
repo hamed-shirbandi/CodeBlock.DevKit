@@ -12,6 +12,8 @@ public static class JwtConfiguration
     public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         var jwtOptions = configuration.GetSection("Jwt").Get<JwtOptions>();
+        if (jwtOptions == null)
+            return;
 
         services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

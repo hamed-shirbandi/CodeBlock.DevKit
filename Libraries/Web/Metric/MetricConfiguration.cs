@@ -10,6 +10,8 @@ public static class MetricConfiguration
     public static void AddMetrics(this IServiceCollection services, IConfiguration configuration)
     {
         var metricOptions = configuration.GetSection("Metric").Get<MetricOptions>();
+        if (metricOptions == null)
+            return;
 
         //It starts the metrics exporter as a background service using a stand alone kestrel
         if (metricOptions.StandAloneKestrelServerEnabled)
@@ -29,6 +31,8 @@ public static class MetricConfiguration
     public static void UseMetrics(this IApplicationBuilder app, IConfiguration configuration)
     {
         var metricOptions = configuration.GetSection("Metric").Get<MetricOptions>();
+        if (metricOptions == null)
+            return;
 
         //If kestrel server is not enabled then use current app server
         if (!metricOptions.StandAloneKestrelServerEnabled)

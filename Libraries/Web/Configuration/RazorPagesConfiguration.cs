@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
 namespace CodeBlock.DevKit.Web.Configuration;
 
@@ -36,9 +35,9 @@ public static class RazorPagesConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static void UseRazorPagesPreConfigured(this IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
+    public static void UseRazorPagesPreConfigured(this WebApplication app, IWebHostEnvironment env, IConfiguration configuration)
     {
-        app.UseSerilogRequestLogging();
+        app.UseCustomSerilog(configuration);
 
         if (env.IsDevelopment())
             app.UseDeveloperExceptionPage();
