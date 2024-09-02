@@ -1,6 +1,7 @@
 using CodeBlock.DevKit.Infrastructure.Extensions;
-using CodeBlock.DevKit.Web.Configuration.Metric;
-using CodeBlock.DevKit.Web.Configuration.Serilog;
+using CodeBlock.DevKit.Web.CookieAuthentication;
+using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,8 @@ public static class BlazorConfiguration
         builder.AddCustomSerilog();
 
         builder.Services.AddCodeBlockDevKitInfrastructure(validatorAssemblyMarkerType, handlerAssemblyMarkerType);
+
+        builder.Services.AddCookieAuthentication(configuration);
 
         builder.Services.AddRazorPages();
 
@@ -49,6 +52,10 @@ public static class BlazorConfiguration
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseAuthentication();
+
+        app.UseAuthorization();
 
         app.UseMetrics(configuration);
 

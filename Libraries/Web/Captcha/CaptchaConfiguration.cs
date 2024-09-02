@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Web.Configuration.Captcha;
+namespace CodeBlock.DevKit.Web.Captcha;
 
 public static class CaptchaConfiguration
 {

@@ -1,9 +1,9 @@
-﻿using CodeBlock.DevKit.Web.Configuration.Jwt;
-using CodeBlock.DevKit.Web.Configuration.Metric;
-using CodeBlock.DevKit.Web.Configuration.Serilog;
-using CodeBlock.DevKit.Web.Configuration.Swagger;
-using CodeBlock.DevKit.Web.Exceptions;
+﻿using CodeBlock.DevKit.Web.Exceptions;
+using CodeBlock.DevKit.Web.Jwt;
+using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
+using CodeBlock.DevKit.Web.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

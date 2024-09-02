@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Web.Configuration.Metric;
-using CodeBlock.DevKit.Web.Configuration.Serilog;
+﻿using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

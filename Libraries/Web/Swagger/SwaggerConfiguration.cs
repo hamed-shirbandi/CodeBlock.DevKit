@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace CodeBlock.DevKit.Web.Configuration.Swagger;
+namespace CodeBlock.DevKit.Web.Swagger;
 
 public static class SwaggerConfiguration
 {

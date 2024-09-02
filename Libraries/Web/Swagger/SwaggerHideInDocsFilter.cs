@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace CodeBlock.DevKit.Web.Configuration.Swagger;
+namespace CodeBlock.DevKit.Web.Swagger;
 
 /// <summary>
 /// Hide methods from sowagger documentation

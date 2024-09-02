@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.Configuration.Jwt;
+﻿namespace CodeBlock.DevKit.Web.Jwt;
 
 public class JwtOptions
 {

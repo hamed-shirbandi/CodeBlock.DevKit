@@ -1,7 +1,7 @@
 using CodeBlock.DevKit.Infrastructure.Extensions;
-using CodeBlock.DevKit.Web.Configuration.Captcha;
-using CodeBlock.DevKit.Web.Configuration.Metric;
-using CodeBlock.DevKit.Web.Configuration.Serilog;
+using CodeBlock.DevKit.Web.Captcha;
+using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;

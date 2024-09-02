@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.Configuration.Swagger;
+﻿namespace CodeBlock.DevKit.Web.Swagger;
 
 public class SwaggerOptions
 {

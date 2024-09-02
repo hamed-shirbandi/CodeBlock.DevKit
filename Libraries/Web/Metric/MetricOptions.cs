@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.Configuration.Metric;
+﻿namespace CodeBlock.DevKit.Web.Metric;
 
 public class MetricOptions
 {

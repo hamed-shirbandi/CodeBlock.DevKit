@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Prometheus;
 
-namespace CodeBlock.DevKit.Web.Configuration.Metric;
+namespace CodeBlock.DevKit.Web.Metric;
 
 public static class MetricConfiguration
 {

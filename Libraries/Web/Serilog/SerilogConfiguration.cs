@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Serilog;
 
-namespace CodeBlock.DevKit.Web.Configuration.Serilog;
+namespace CodeBlock.DevKit.Web.Serilog;
 
 public static class SerilogConfiguration
 {
