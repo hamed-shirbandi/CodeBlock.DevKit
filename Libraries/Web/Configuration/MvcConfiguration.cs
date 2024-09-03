@@ -25,7 +25,7 @@ public static class MvcConfiguration
     {
         builder.AddCustomSerilog();
 
-        builder.Services.AddCodeBlockDevKitInfrastructure(validatorAssemblyMarkerType, handlerAssemblyMarkerType);
+        builder.Services.AddCodeBlockDevKitInfrastructure(validatorAssemblyMarkerType, handlerAssemblyMarkerType, configuration);
 
         builder.Services.AddControllersWithViews();
 

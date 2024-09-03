@@ -73,7 +73,7 @@ public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     /// <summary>
     ///
     /// </summary>
-    private string GenerateKeyFromRequest(TRequest request)
+    private static string GenerateKeyFromRequest(TRequest request)
     {
         var properties = new List<PropertyInfo>(request.GetType().GetProperties());
         var key = request.GetType().Name;

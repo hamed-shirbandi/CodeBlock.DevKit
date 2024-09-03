@@ -3,6 +3,7 @@ using CodeBlock.DevKit.Infrastructure.Bus;
 using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Notifications;
 using CodeBlock.DevKit.Infrastructure.Security;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Infrastructure.Extensions;
@@ -15,11 +16,12 @@ public static class InfrastructureExtensions
     public static void AddCodeBlockDevKitInfrastructure(
         this IServiceCollection services,
         Type handlerAssemblyMarkerType,
-        Type validatorAssemblyMarkerType
+        Type validatorAssemblyMarkerType,
+        IConfiguration configuration
     )
     {
         services.AddApplicationExceptionHandlers();
-        services.AddApplicationBehaviors(validatorAssemblyMarkerType);
+        services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
         services.AddInMemoryBus(handlerAssemblyMarkerType);
         services.AddEncryptionService();

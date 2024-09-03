@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Infrastructure.Behaviors;
@@ -9,10 +10,10 @@ public static class BehaviorExtensions
     /// <summary>
     ///
     /// </summary>
-    public static void AddApplicationBehaviors(this IServiceCollection services, Type validatorAssemblyMarkerType)
+    public static void AddBehaviors(this IServiceCollection services, Type validatorAssemblyMarkerType, IConfiguration configuration)
     {
         services.AddValidationBehaviour(validatorAssemblyMarkerType);
-        services.AddCachingBehavior();
+        services.AddCachingBehavior(configuration);
     }
 
     /// <summary>
@@ -29,8 +30,12 @@ public static class BehaviorExtensions
     /// <summary>
     ///
     /// </summary>
-    public static void AddCachingBehavior(this IServiceCollection services)
+    public static void AddCachingBehavior(this IServiceCollection services, IConfiguration configuration)
     {
+        var cachingConfig = configuration.GetSection("Caching");
+        if (cachingConfig == null)
+            return;
+
         services.AddEasyCaching(option => option.UseInMemory());
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
     }
