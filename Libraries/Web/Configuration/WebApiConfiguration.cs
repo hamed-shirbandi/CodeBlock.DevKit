@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Web.Exceptions;
+﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+using CodeBlock.DevKit.Web.Exceptions;
 using CodeBlock.DevKit.Web.Jwt;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
@@ -20,9 +21,16 @@ public static class WebApiConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static void AddWebApiPreConfigured(this WebApplicationBuilder builder, IConfiguration configuration)
+    public static void AddWebApiPreConfigured(
+        this WebApplicationBuilder builder,
+        IConfiguration configuration,
+        Type handlerAssemblyMarkerType,
+        Type validatorAssemblyMarkerType
+    )
     {
         builder.AddCustomSerilog();
+
+        builder.Services.AddCodeBlockDevKitInfrastructure(handlerAssemblyMarkerType, validatorAssemblyMarkerType, configuration);
 
         builder.Services.AddControllers().WithPreventAutoValidation();
 

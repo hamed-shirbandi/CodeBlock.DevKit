@@ -23,7 +23,7 @@ public static class BlazorConfiguration
     {
         builder.AddCustomSerilog();
 
-        builder.Services.AddCodeBlockDevKitInfrastructure(validatorAssemblyMarkerType, handlerAssemblyMarkerType, configuration);
+        builder.Services.AddCodeBlockDevKitInfrastructure(handlerAssemblyMarkerType, validatorAssemblyMarkerType, configuration);
 
         builder.Services.AddCookieAuthentication(configuration);
 

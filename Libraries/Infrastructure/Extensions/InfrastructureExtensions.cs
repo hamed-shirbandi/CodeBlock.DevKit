@@ -20,10 +20,10 @@ public static class InfrastructureExtensions
         IConfiguration configuration
     )
     {
+        services.AddInMemoryBus(handlerAssemblyMarkerType);
         services.AddApplicationExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
-        services.AddInMemoryBus(handlerAssemblyMarkerType);
         services.AddEncryptionService();
     }
 }

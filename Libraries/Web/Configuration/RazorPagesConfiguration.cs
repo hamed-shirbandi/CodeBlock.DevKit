@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Web.Metric;
+﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
@@ -17,9 +18,16 @@ public static class RazorPagesConfiguration
     /// <summary>
     ///
     /// </summary>
-    public static void AddRazorPagesPreConfigured(this WebApplicationBuilder builder, IConfiguration configuration)
+    public static void AddRazorPagesPreConfigured(
+        this WebApplicationBuilder builder,
+        IConfiguration configuration,
+        Type handlerAssemblyMarkerType,
+        Type validatorAssemblyMarkerType
+    )
     {
         builder.AddCustomSerilog();
+
+        builder.Services.AddCodeBlockDevKitInfrastructure(handlerAssemblyMarkerType, validatorAssemblyMarkerType, configuration);
 
         builder.Services.AddRazorPages();
 
