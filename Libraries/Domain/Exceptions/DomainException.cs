@@ -1,4 +1,6 @@
-﻿namespace CodeBlock.DevKit.Domain.Exceptions;
+﻿using CodeBlock.DevKit.Core.Exceptions;
+
+namespace CodeBlock.DevKit.Domain.Exceptions;
 
 /// <summary>
 ///

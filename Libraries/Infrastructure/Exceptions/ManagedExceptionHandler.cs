@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using CodeBlock.DevKit.Application.Notifications;
-using CodeBlock.DevKit.Domain.Exceptions;
+using CodeBlock.DevKit.Core.Exceptions;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 
