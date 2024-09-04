@@ -1,0 +1,51 @@
+﻿@page "/"
+@using BlazorServerApp.Models
+@using BlazorServerApp.UserCases.GetUsers
+@using BlazorServerApp.UserCases.RegisterUser
+@using CodeBlock.DevKit.Application.Bus
+
+<PageTitle>Users List</PageTitle>
+
+@inject IInMemoryBus InMemoryBus
+
+<h1>Users List</h1>
+
+
+@if (users == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>userName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<UserDto> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var getUsersResult = await InMemoryBus.SendQuery(new GetUsersRequest());
+        users = getUsersResult.Value;
+
+        var result = await InMemoryBus.SendCommand(RegisterUserRequest.Create("admin"));
+        
+        users = getUsersResult.Value;
+    }
+}
