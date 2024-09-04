@@ -21,6 +21,9 @@ public static class BehaviorExtensions
     /// </summary>
     public static void AddValidationBehaviour(this IServiceCollection services, Type validatorAssemblyMarkerType)
     {
+        if (validatorAssemblyMarkerType == null)
+            return;
+
         //Load all fluent validation classes to be used in ValidationBehaviour
         services.AddValidatorsFromAssembly(validatorAssemblyMarkerType.Assembly);
 

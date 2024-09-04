@@ -12,8 +12,8 @@ public static class MapperExtensions
     /// </summary>
     public static void AddMapper(this IServiceCollection services, Type mappingProfileAssemblyMarkerType)
     {
-        if (services == null)
-            throw new ArgumentNullException(nameof(services));
+        if (mappingProfileAssemblyMarkerType == null)
+            return;
 
         //this will find all profiles in mappingProfileAssemblyMarkerType assemply
         services.AddAutoMapper(mappingProfileAssemblyMarkerType);

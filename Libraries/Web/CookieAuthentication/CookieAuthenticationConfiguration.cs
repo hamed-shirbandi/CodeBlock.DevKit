@@ -14,7 +14,7 @@ public static class CookieAuthenticationConfiguration
     public static void AddCookieAuthentication(this IServiceCollection services, IConfiguration configuration)
     {
         var authConfig = configuration.GetSection("CookieAuthentication");
-        if (authConfig == null)
+        if (authConfig.Value == null)
             return;
 
         Action<CookieAuthenticationOptions> setupAction = options =>

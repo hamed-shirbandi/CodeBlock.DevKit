@@ -11,8 +11,8 @@ public static class SerilogConfiguration
     /// </summary>
     public static void AddCustomSerilog(this WebApplicationBuilder builder)
     {
-        var serilogOptions = builder.Configuration.GetSection("Serilog");
-        if (serilogOptions == null)
+        var serilogConfig = builder.Configuration.GetSection("Serilog");
+        if (serilogConfig.Value == null)
             return;
 
         Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
@@ -21,8 +21,8 @@ public static class SerilogConfiguration
 
     public static void UseCustomSerilog(this WebApplication app, IConfiguration configuration)
     {
-        var serilogOptions = configuration.GetSection("Serilog");
-        if (serilogOptions == null)
+        var serilogConfig = configuration.GetSection("Serilog");
+        if (serilogConfig.Value == null)
             return;
 
         app.UseSerilogRequestLogging();

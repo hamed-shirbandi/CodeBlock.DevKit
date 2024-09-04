@@ -25,12 +25,18 @@ public static class WebApiConfiguration
         this WebApplicationBuilder builder,
         IConfiguration configuration,
         Type handlerAssemblyMarkerType,
-        Type validatorAssemblyMarkerType
+        Type validatorAssemblyMarkerType = null,
+        Type mappingProfileMarkerType = null
     )
     {
         builder.AddCustomSerilog();
 
-        builder.Services.AddCodeBlockDevKitInfrastructure(handlerAssemblyMarkerType, validatorAssemblyMarkerType, configuration);
+        builder.Services.AddCodeBlockDevKitInfrastructure(
+            configuration,
+            handlerAssemblyMarkerType,
+            validatorAssemblyMarkerType,
+            mappingProfileMarkerType
+        );
 
         builder.Services.AddControllers().WithPreventAutoValidation();
 

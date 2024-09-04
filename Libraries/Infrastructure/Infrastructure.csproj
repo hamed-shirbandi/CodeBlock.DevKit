@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Infrastructure</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Infrastructure</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.7</VersionPrefix>
+		<VersionPrefix>1.2.0</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Infrastructure</PackageId>
