@@ -120,6 +120,15 @@
   <data name="ALready_Exists" xml:space="preserve">
     <value>{0} already exists</value>
   </data>
+  <data name="Length_Error" xml:space="preserve">
+    <value>The {0} length must be between {1} and {2} characters</value>
+  </data>
+  <data name="Max_Length_Error" xml:space="preserve">
+    <value>The {0} length can not be more than {1} characters</value>
+  </data>
+  <data name="Min_Length_Error" xml:space="preserve">
+    <value>The {0} length must be greater than {1} characters</value>
+  </data>
   <data name="Not_Found" xml:space="preserve">
     <value>{0} not found</value>
   </data>
