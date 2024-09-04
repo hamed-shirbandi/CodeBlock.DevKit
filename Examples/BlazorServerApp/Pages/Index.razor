@@ -3,10 +3,10 @@
 @using BlazorServerApp.UserCases.GetUsers
 @using BlazorServerApp.UserCases.RegisterUser
 @using CodeBlock.DevKit.Application.Bus
+@inject IInMemoryBus InMemoryBus
 
 <PageTitle>Users List</PageTitle>
 
-@inject IInMemoryBus InMemoryBus
 
 <h1>Users List</h1>
 
@@ -44,8 +44,7 @@ else
         var getUsersResult = await InMemoryBus.SendQuery(new GetUsersRequest());
         users = getUsersResult.Value;
 
-        var result = await InMemoryBus.SendCommand(RegisterUserRequest.Create("admin"));
-        
-        users = getUsersResult.Value;
+        // var result = await InMemoryBus.SendCommand(RegisterUserRequest.Create("admin"));
+
     }
 }
