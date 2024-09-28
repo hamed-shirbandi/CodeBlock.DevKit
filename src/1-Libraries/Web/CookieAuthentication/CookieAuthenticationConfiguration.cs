@@ -17,10 +17,7 @@ public static class CookieAuthenticationConfiguration
         if (!authConfig.Exists())
             return;
 
-        Action<CookieAuthenticationOptions> setupAction = options =>
-        {
-            authConfig.Bind(options);
-        };
+        Action<CookieAuthenticationOptions> setupAction = authConfig.Bind;
 
         services.Configure(setupAction);
 

@@ -1,6 +1,7 @@
 using CodeBlock.DevKit.Infrastructure.Extensions;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Optimization;
 using CodeBlock.DevKit.Web.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +39,8 @@ public static class BlazorConfiguration
         builder.Services.AddServerSideBlazor();
 
         builder.Services.AddMetrics(configuration);
+
+        builder.Services.AddWebOptimizer(configuration);
     }
 
     /// <summary>
@@ -54,6 +57,8 @@ public static class BlazorConfiguration
         }
 
         app.UseHttpsRedirection();
+
+        app.UseWebOptimizer();
 
         app.UseStaticFiles();
 
