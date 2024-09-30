@@ -16,8 +16,11 @@ public static class WebOptimizerConfiguration
 
         services.AddWebOptimizer(pipeline =>
         {
-            pipeline.AddCssBundle(optimizationOptions.BundledCssOutputFile, optimizationOptions.CssFilesToBundle);
-            pipeline.AddJavaScriptBundle(optimizationOptions.BundledJsOutputFile, optimizationOptions.JsFilesToBundle);
+            if (optimizationOptions.ShouldBundleCssFiles())
+                pipeline.AddCssBundle(optimizationOptions.BundledCssOutputFile, optimizationOptions.CssFilesToBundle);
+
+            if (optimizationOptions.ShouldBundleJsFiles())
+                pipeline.AddJavaScriptBundle(optimizationOptions.BundledJsOutputFile, optimizationOptions.JsFilesToBundle);
         });
     }
 }
