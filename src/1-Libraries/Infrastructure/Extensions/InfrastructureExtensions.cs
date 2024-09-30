@@ -4,6 +4,7 @@ using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Mapping;
 using CodeBlock.DevKit.Infrastructure.Notifications;
 using CodeBlock.DevKit.Infrastructure.Security;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,7 +23,8 @@ public static class InfrastructureExtensions
         Type mappingProfileMarkerType = null
     )
     {
-        services.AddInMemoryBus(handlerAssemblyMarkerType);
+        services.AddMediatR(handlerAssemblyMarkerType);
+        services.AddInMemoryBus();
         services.AddApplicationExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();

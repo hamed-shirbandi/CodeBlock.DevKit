@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AssemblyName>CodeBlock.DevKit.Authorization</AssemblyName>
+		<RootNamespace>CodeBlock.DevKit.Authorization</RootNamespace>
+		<Description>CodeBlock Development Kit</Description>
+		<VersionPrefix>1.0.1</VersionPrefix>
+		<Authors>hamed shirbandi</Authors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>CodeBlock.DevKit.Authorization</PackageId>
+		<PackageTags>ddd;cqrs;devkit</PackageTags>
+		<PackageProjectUrl>https://github.com/hamed-shirbandi/CodeBlock.DevKit</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<copyright>Copyright 2024 hamed shirbandi</copyright>
+		<PackageTargetFallback></PackageTargetFallback>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+	</PropertyGroup>
+
+	<Target Name="PostcompileScript" AfterTargets="Build">
+		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
+	</Target>
+
+
+	<ItemGroup>
+		<Compile Update="Domain\AuthorizationResource.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>AuthorizationResource.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Domain\AuthorizationResource.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>AuthorizationResource.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\1-Libraries\Infrastructure\Infrastructure.csproj" />
+	</ItemGroup>
+
+
+</Project>
