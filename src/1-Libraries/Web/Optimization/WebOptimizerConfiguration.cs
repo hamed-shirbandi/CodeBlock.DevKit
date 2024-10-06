@@ -20,7 +20,7 @@ public static class WebOptimizerConfiguration
                 pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
 
             foreach (var item in optimizationOptions.BundledCssFiles)
-                pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
+                pipeline.AddCssBundle(item.BundledFile, item.FilesToBundle);
         });
     }
 }
