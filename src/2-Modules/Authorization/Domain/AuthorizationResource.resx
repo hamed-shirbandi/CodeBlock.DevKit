@@ -118,45 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Invalid_Credentials" xml:space="preserve">
-    <value>Invalid_Credentials</value>
-  </data>
-  <data name="Length_Error" xml:space="preserve">
-    <value>The {0} length must be between {1} and {2} characters</value>
+    <value>اطلاعات وارد شده معتبر نبود</value>
   </data>
   <data name="Only_Safe_Characters" xml:space="preserve">
-    <value>Only  Safe Characters</value>
+    <value>لطفا فقط از کارکتر های مجاز برای نمایش در آدرس پیج استفاده کنید. مثل حروف، اعداد، خط تیره، زیر خط و ...</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>رمز عبور</value>
   </data>
   <data name="PasswordHash" xml:space="preserve">
-    <value>PasswordHash</value>
+    <value>رمز عبور</value>
   </data>
   <data name="PasswordSalt" xml:space="preserve">
-    <value>PasswordSalt</value>
+    <value>رمز عبور</value>
   </data>
   <data name="UserName" xml:space="preserve">
-    <value>UserName</value>
+    <value>نام کاربری</value>
   </data>
   <data name="Invalid_UserName" xml:space="preserve">
-    <value>Invalid_UserName</value>
+    <value>نام کاربری اشتباه است</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>کاربر</value>
   </data>
   <data name="Mobile" xml:space="preserve">
-    <value>Mobile</value>
+    <value>موبایل</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>ایمیل</value>
   </data>
   <data name="Mobile_Or_Email_Is_Required" xml:space="preserve">
-    <value>Mobile_Or_Email_Is_Required</value>
+    <value>موبایل یا ایمیل را وارد کنید</value>
   </data>
   <data name="EmailOrMobile" xml:space="preserve">
-    <value>EmailOrMobile</value>
+    <value>ایمیل یا موبایل</value>
   </data>
   <data name="EmailOrMobile_Does_Not_Exist" xml:space="preserve">
-    <value>EmailOrMobile_Does_Not_Exist</value>
+    <value>ایمیل یا موبایل یافت نشد</value>
   </data>
 </root>

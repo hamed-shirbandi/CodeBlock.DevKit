@@ -61,7 +61,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} already exists.
+        ///   Looks up a localized string similar to {0} قبلا ثبت شده است.
         /// </summary>
         public static string ALready_Exists {
             get {
@@ -70,7 +70,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} length must be between {1} and {2} characters.
+        ///   Looks up a localized string similar to طول {0} میبایست بین {1} تا {2} کارکتر باشد.
         /// </summary>
         public static string Length_Error {
             get {
@@ -79,7 +79,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} length can not be more than {1} characters.
+        ///   Looks up a localized string similar to طول {0} نمیتواند بیشتر از {1} کارکتر باشد.
         /// </summary>
         public static string Max_Length_Error {
             get {
@@ -88,7 +88,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} length must be greater than {1} characters.
+        ///   Looks up a localized string similar to طول {0} نمیتواند کمتر از {1} کارکتر باشد.
         /// </summary>
         public static string Min_Length_Error {
             get {
@@ -97,7 +97,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} not found.
+        ///   Looks up a localized string similar to {0} پیدا نشد.
         /// </summary>
         public static string Not_Found {
             get {
@@ -106,7 +106,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is required.
+        ///   Looks up a localized string similar to {0} را وارد کنید.
         /// </summary>
         public static string Required {
             get {

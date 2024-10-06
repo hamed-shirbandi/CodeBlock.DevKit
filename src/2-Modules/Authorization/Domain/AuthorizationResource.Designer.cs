@@ -61,7 +61,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
+        ///   Looks up a localized string similar to ایمیل.
         /// </summary>
         public static string Email {
             get {
@@ -70,7 +70,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EmailOrMobile.
+        ///   Looks up a localized string similar to ایمیل یا موبایل.
         /// </summary>
         public static string EmailOrMobile {
             get {
@@ -79,7 +79,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EmailOrMobile_Does_Not_Exist.
+        ///   Looks up a localized string similar to ایمیل یا موبایل یافت نشد.
         /// </summary>
         public static string EmailOrMobile_Does_Not_Exist {
             get {
@@ -88,7 +88,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid_Credentials.
+        ///   Looks up a localized string similar to اطلاعات وارد شده معتبر نبود.
         /// </summary>
         public static string Invalid_Credentials {
             get {
@@ -97,7 +97,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid_UserName.
+        ///   Looks up a localized string similar to نام کاربری اشتباه است.
         /// </summary>
         public static string Invalid_UserName {
             get {
@@ -106,16 +106,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} length must be between {1} and {2} characters.
-        /// </summary>
-        public static string Length_Error {
-            get {
-                return ResourceManager.GetString("Length_Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mobile.
+        ///   Looks up a localized string similar to موبایل.
         /// </summary>
         public static string Mobile {
             get {
@@ -124,7 +115,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mobile_Or_Email_Is_Required.
+        ///   Looks up a localized string similar to موبایل یا ایمیل را وارد کنید.
         /// </summary>
         public static string Mobile_Or_Email_Is_Required {
             get {
@@ -133,7 +124,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only  Safe Characters.
+        ///   Looks up a localized string similar to لطفا فقط از کارکتر های مجاز برای نمایش در آدرس پیج استفاده کنید. مثل حروف، اعداد، خط تیره، زیر خط و ....
         /// </summary>
         public static string Only_Safe_Characters {
             get {
@@ -142,7 +133,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to رمز عبور.
         /// </summary>
         public static string Password {
             get {
@@ -151,7 +142,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PasswordHash.
+        ///   Looks up a localized string similar to رمز عبور.
         /// </summary>
         public static string PasswordHash {
             get {
@@ -160,7 +151,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PasswordSalt.
+        ///   Looks up a localized string similar to رمز عبور.
         /// </summary>
         public static string PasswordSalt {
             get {
@@ -169,7 +160,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User.
+        ///   Looks up a localized string similar to کاربر.
         /// </summary>
         public static string User {
             get {
@@ -178,7 +169,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UserName.
+        ///   Looks up a localized string similar to نام کاربری.
         /// </summary>
         public static string UserName {
             get {
