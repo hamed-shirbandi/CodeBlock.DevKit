@@ -16,11 +16,11 @@ public static class WebOptimizerConfiguration
 
         services.AddWebOptimizer(pipeline =>
         {
-            if (optimizationOptions.ShouldBundleCssFiles())
-                pipeline.AddCssBundle(optimizationOptions.BundledCssOutputFile, optimizationOptions.CssFilesToBundle);
+            foreach (var item in optimizationOptions.BundledJsFiles)
+                pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
 
-            if (optimizationOptions.ShouldBundleJsFiles())
-                pipeline.AddJavaScriptBundle(optimizationOptions.BundledJsOutputFile, optimizationOptions.JsFilesToBundle);
+            foreach (var item in optimizationOptions.BundledCssFiles)
+                pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
         });
     }
 }

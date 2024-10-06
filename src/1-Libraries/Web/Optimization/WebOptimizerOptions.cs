@@ -4,23 +4,18 @@ public class WebOptimizerOptions
 {
     public WebOptimizerOptions()
     {
-        CssFilesToBundle = [];
-        JsFilesToBundle = [];
+        BundledCssFiles = [];
+        BundledJsFiles = [];
     }
 
     public bool Enabled { get; set; }
-    public string BundledCssOutputFile { get; set; }
-    public string BundledJsOutputFile { get; set; }
-    public string[] CssFilesToBundle { get; set; }
-    public string[] JsFilesToBundle { get; set; }
 
-    public bool ShouldBundleCssFiles()
-    {
-        return !string.IsNullOrEmpty(BundledCssOutputFile) && CssFilesToBundle.Length > 0;
-    }
+    public IEnumerable<BundleModel> BundledCssFiles { get; set; }
+    public IEnumerable<BundleModel> BundledJsFiles { get; set; }
+}
 
-    public bool ShouldBundleJsFiles()
-    {
-        return !string.IsNullOrEmpty(BundledJsOutputFile) && JsFilesToBundle.Length > 0;
-    }
+public class BundleModel
+{
+    public string BundledFile { get; init; }
+    public string[] FilesToBundle { get; set; }
 }
