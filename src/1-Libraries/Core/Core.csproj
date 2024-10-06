@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Core</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Core</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.2.1</VersionPrefix>
+		<VersionPrefix>3.3.0</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Core</PackageId>
