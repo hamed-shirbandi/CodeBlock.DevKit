@@ -135,4 +135,7 @@
   <data name="Length_Error" xml:space="preserve">
     <value>طول {0} میبایست بین {1} تا {2} کارکتر باشد</value>
   </data>
+  <data name="UnknownExceptionHappened" xml:space="preserve">
+    <value>یک خطای ناشناخته رخ داد</value>
+  </data>
 </root>

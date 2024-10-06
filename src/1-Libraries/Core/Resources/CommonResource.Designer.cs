@@ -113,5 +113,14 @@ namespace CodeBlock.DevKit.Core.Resources {
                 return ResourceManager.GetString("Required", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to یک خطای ناشناخته رخ داد.
+        /// </summary>
+        public static string UnknownExceptionHappened {
+            get {
+                return ResourceManager.GetString("UnknownExceptionHappened", resourceCulture);
+            }
+        }
     }
 }

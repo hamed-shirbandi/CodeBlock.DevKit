@@ -67,14 +67,14 @@ public static class AuthorizationDbInitialization
         dbContext.Users.Indexes.CreateOneAsync(
             new CreateIndexModel<User>(
                 Builders<User>.IndexKeys.Ascending(x => x.Email),
-                new CreateIndexOptions() { Name = nameof(User.Email), Unique = true }
+                new CreateIndexOptions() { Name = nameof(User.Email), Unique = false }
             )
         );
 
         dbContext.Users.Indexes.CreateOneAsync(
             new CreateIndexModel<User>(
                 Builders<User>.IndexKeys.Ascending(x => x.Mobile),
-                new CreateIndexOptions() { Name = nameof(User.Mobile), Unique = true }
+                new CreateIndexOptions() { Name = nameof(User.Mobile), Unique = false }
             )
         );
     }

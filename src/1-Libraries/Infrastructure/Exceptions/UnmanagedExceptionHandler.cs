@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using CodeBlock.DevKit.Application.Notifications;
+using CodeBlock.DevKit.Core.Resources;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 
@@ -39,7 +40,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     /// </summary>
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
-        _notifications.Add("Unknown Exception", "Unknown exception happened");
+        _notifications.Add("Unknown Exception", CommonResource.UnknownExceptionHappened);
 
         _logger.LogError(exception, $"request : {JsonSerializer.Serialize(request)}");
 
