@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Web.Optimization;
@@ -22,5 +23,17 @@ public static class WebOptimizerConfiguration
             foreach (var item in optimizationOptions.BundledCssFiles)
                 pipeline.AddCssBundle(item.BundledFile, item.FilesToBundle);
         });
+    }
+
+    public static void UseWebOptimizer(this IApplicationBuilder app, IConfiguration configuration)
+    {
+        var optimizationOptions = configuration.GetSection("Optimization").Get<WebOptimizerOptions>();
+        if (optimizationOptions == null)
+            return;
+
+        if (!optimizationOptions.Enabled)
+            return;
+
+        app.UseWebOptimizer();
     }
 }
