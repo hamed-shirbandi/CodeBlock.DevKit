@@ -19,15 +19,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\1-Libraries\Cor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Examples", "4-Examples", "{2588A76E-DF3E-4429-8DD5-669E4C1411B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerApp", "src\2-Examples\BlazorServerApp\BlazorServerApp.csproj", "{166417E7-89CA-486D-A5A9-7ED65B8B8579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerApp", "src\4-Examples\BlazorServerApp\BlazorServerApp.csproj", "{166417E7-89CA-486D-A5A9-7ED65B8B8579}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Build", "5-Build", "{58919C84-A426-40F9-85C3-8BFF52AA0E45}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "src\4-Build\Build.csproj", "{AEF55F97-DA32-4318-A6FC-A6C02C28B1AA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiApp", "src\2-Examples\WebApiApp\WebApiApp.csproj", "{4856AFCF-948C-4DCC-9E9D-0A229F3E95AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiApp", "src\4-Examples\WebApiApp\WebApiApp.csproj", "{4856AFCF-948C-4DCC-9E9D-0A229F3E95AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcApp", "src\2-Examples\MvcApp\MvcApp.csproj", "{99A574AB-93EF-4C85-858E-11C44DC31123}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcApp", "src\4-Examples\MvcApp\MvcApp.csproj", "{99A574AB-93EF-4C85-858E-11C44DC31123}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Unit.Tests", "src\3-Tests\Core.Unit.Tests\Core.Unit.Tests.csproj", "{F3F5A6FF-F685-4A1D-AA81-D789659606B8}"
 EndProject

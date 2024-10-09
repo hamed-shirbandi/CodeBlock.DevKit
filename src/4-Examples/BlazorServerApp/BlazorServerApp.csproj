@@ -6,18 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-		<PackageReference Include="MediatR" Version="9.0.0" />
-		<PackageReference Include="AutoMapper" Version="10.1.1" />
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
-
-
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\Libraries\Application\Application.csproj" />
-		<ProjectReference Include="..\..\Libraries\Core\Core.csproj" />
-		<ProjectReference Include="..\..\Libraries\Web\Web.csproj" />
+		<ProjectReference Include="..\..\1-Libraries\Web\Web.csproj" />
 	</ItemGroup>
 
 </Project>
