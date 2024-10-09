@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Unit.Tests", "src\3-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Modules", "2-Modules", "{DA6EB0D9-7F64-40D0-B03A-73DA02215FBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "src\2-Modules\Authorization\Authorization.csproj", "{9D005E5A-BFC9-4EDD-9D07-D2FC229D8294}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "src\2-Modules\Authorization\Authorization.csproj", "{9D005E5A-BFC9-4EDD-9D07-D2FC229D8294}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

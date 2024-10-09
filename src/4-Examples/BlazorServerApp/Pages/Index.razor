@@ -43,9 +43,5 @@ else
     {
         var getUsersResult = await InMemoryBus.SendQuery(new GetUsersRequest());
         users = getUsersResult.Value;
-
-        // var result = await InMemoryBus.SendCommand(RegisterUserRequest.Create("admin"));
-
-        throw new Exception("A TEST EXCEPTION");
     }
 }
