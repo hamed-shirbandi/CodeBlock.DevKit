@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>3.3.3</VersionPrefix>
+		<VersionPrefix>3.3.5</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web</PackageId>

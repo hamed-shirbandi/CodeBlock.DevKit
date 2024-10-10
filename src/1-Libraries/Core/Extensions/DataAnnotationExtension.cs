@@ -12,7 +12,7 @@ public static class DataAnnotationExtension
         return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
     }
 
-    public static string GetDisplayName(this Enum enumValue)
+    public static string GetEnumDisplayName(this Enum enumValue)
     {
         return enumValue.GetType().GetMember(enumValue.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName();
     }
