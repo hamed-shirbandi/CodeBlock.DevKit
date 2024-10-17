@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Components</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Components</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.1</VersionPrefix>
+		<VersionPrefix>1.0.2</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Components</PackageId>
