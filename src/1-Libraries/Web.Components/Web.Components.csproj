@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Components</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Components</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.2</VersionPrefix>
+		<VersionPrefix>1.0.4</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Components</PackageId>
@@ -22,11 +22,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="Pages\Shared\_ServerValidationSummary.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Pages\Shared\_ServerValidationSummary.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\" />
+	  <Folder Include="Partials\" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
