@@ -1,0 +1,40 @@
+﻿
+<nav>
+    <ul class="pagination justify-content-center">
+
+        <li class="page-item">
+            <span class="page-link @(CurrentPage > 1?"":"disabled")" @onclick="() => SetCurrentPage(CurrentPage-1)">&laquo;</span>
+        </li>
+
+        @for (int i = 1; i <= TotalPages; i++)
+        {
+            var j = i;
+
+            <li class="page-item @(i==CurrentPage?"active":"")">
+                <span class="page-link" @onclick="() => SetCurrentPage(j)">@i</span>
+            </li>
+        }
+
+        <li class="page-item">
+            <span class="page-link @(CurrentPage<TotalPages?"":"disabled")" @onclick="() => SetCurrentPage(CurrentPage+1)">&raquo;</span>
+        </li>
+
+    </ul>
+</nav>
+
+@code {
+    [Parameter]
+    public int CurrentPage { get; set; }
+
+    [Parameter]
+    public int TotalPages { get; set; }
+
+    [Parameter]
+    public EventCallback<int> PageChangedCallback { get; set; }
+
+    private async Task SetCurrentPage(int pageNumber)
+    {
+        CurrentPage = pageNumber;
+        await PageChangedCallback.InvokeAsync(pageNumber);
+    }
+}
