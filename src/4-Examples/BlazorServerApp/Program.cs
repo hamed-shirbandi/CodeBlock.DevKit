@@ -1,6 +1,7 @@
 using BlazorServerApp.Infrastructure;
 using BlazorServerApp.UserCases.GetUsers;
 using BlazorServerApp.UserCases.RegisterUser;
+using CodeBlock.DevKit.Authorization.UI.Configuration;
 using CodeBlock.DevKit.Web.Components.Configuration;
 using CodeBlock.DevKit.Web.Configuration;
 
@@ -17,7 +18,9 @@ internal class Program
             mappingProfileMarkerType: typeof(MappingProfile)
         );
 
-        builder.Services.AddUiComponents(builder.Environment);
+        builder.Services.AddUiComponents();
+        builder.Services.AddAuthorization();
+        builder.Services.AddAuthorizationUI();
 
         builder.Services.AddSingleton<Database>();
 

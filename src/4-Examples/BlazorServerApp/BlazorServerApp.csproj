@@ -8,6 +8,8 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\1-Libraries\Web.Components\Web.Components.csproj" />
 		<ProjectReference Include="..\..\1-Libraries\Web\Web.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization.UI\Authorization.UI.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.csproj" />
 	</ItemGroup>
 
 </Project>
