@@ -5,10 +5,10 @@
 
 }
 
-@if (ViewData["ErrorMessage"] != null)
+@if (ViewData["Message"] != null)
 {
     <div class="border border-danger text-danger">
-        <h6>@ViewData["ErrorMessage"]</h6>
+        <h6>@ViewData["Message"]</h6>
         @if (errors.Count > 0)
         {
             <ul>
