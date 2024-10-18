@@ -1,0 +1,13 @@
+﻿@page "/logout"
+@using CodeBlock.DevKit.Web.CookieAuthentication
+@using Microsoft.AspNetCore.Authorization
+@inject ICookieAuthenticationService CookieAuthenticationService
+@attribute [AllowAnonymous]
+@functions
+{
+    public async Task<IActionResult> OnGet()
+    {
+        await CookieAuthenticationService.SignOutAsync();
+        return Redirect("/login");
+    }
+}

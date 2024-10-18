@@ -1,0 +1,45 @@
+﻿@page "/register"
+@using CodeBlock.DevKit.Authorization.UI.Pages
+@model RegisterModel
+@{
+    ViewData["Title"] = "ایجاد پروفایل";
+    Layout = "_Layout";
+}
+
+<div class="card bg-form text-white-50 shadow min-height-20rem width-xs-90 width-sm-40 width-md-40">
+    <div class="card-header h2 p-3">ابتدا یه پروفایل ایجاد کن!</div>
+    <div class="card-body p-3">
+        <form method="post">
+
+            <partial name="_ServerValidationSummary" />
+
+            @Html.AntiForgeryToken()
+
+            <ul class="text-secondary fw-light">
+                <li><small>بین موبایل و ایمیل، حداقل یکیشون الزامیه</small></li>
+                <li><small>هیچکس نمیتونه ایمیل و موبایل شمارو ببینه</small></li>
+                <li><small>شما موقع فراموشی رمز عبور بهشون نیاز دارید</small></li>
+            </ul>
+
+            <div class="form-group p-2">
+                <input asp-for="RegisterUserRequest.Email" class="form-control" placeholder="ایمیل" />
+                <span asp-validation-for="RegisterUserRequest.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2">
+                <input asp-for="RegisterUserRequest.Mobile" class="form-control" placeholder="موبایل" />
+                <span asp-validation-for="RegisterUserRequest.Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2">
+                <input asp-for="RegisterUserRequest.Password" class="form-control" placeholder="رمز عبور" />
+                <span asp-validation-for="RegisterUserRequest.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2">
+                <button id="loginBtn" type="submit" class="btn btn-success">ایجاد پروفایل</button>
+                <a class="btn btn-outline-primary" href="/login">پروفایل دارم</a>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer text-secondary fw-light">
+        <small><i class="bi bi-info-circle-fill"></i> در مرحله ی بعدی اطلاعات پروفایلتو تکمیل میکنی</small>
+    </div>
+</div>
