@@ -31,10 +31,7 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Partials\" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
