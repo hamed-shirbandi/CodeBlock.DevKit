@@ -1,6 +1,7 @@
 using BlazorServerApp.Infrastructure;
 using BlazorServerApp.UserCases.GetUsers;
 using BlazorServerApp.UserCases.RegisterUser;
+using CodeBlock.DevKit.Web.Components.Configuration;
 using CodeBlock.DevKit.Web.Configuration;
 
 internal class Program
@@ -15,6 +16,8 @@ internal class Program
             handlerAssemblyMarkerType: typeof(GetUsersUseCase),
             mappingProfileMarkerType: typeof(MappingProfile)
         );
+
+        builder.Services.AddUiComponents(builder.Environment);
 
         builder.Services.AddSingleton<Database>();
 

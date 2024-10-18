@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Components</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Components</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.4</VersionPrefix>
+		<VersionPrefix>1.0.8</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Components</PackageId>
@@ -20,14 +20,6 @@
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <Content Remove="Pages\Shared\_ServerValidationSummary.cshtml" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Include="Pages\Shared\_ServerValidationSummary.cshtml" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
