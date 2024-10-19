@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\1-Libraries\Web.Components\Web.Components.csproj" />
     <ProjectReference Include="..\..\1-Libraries\Web\Web.csproj" />
     <ProjectReference Include="..\Authorization\Authorization.csproj" />
   </ItemGroup>

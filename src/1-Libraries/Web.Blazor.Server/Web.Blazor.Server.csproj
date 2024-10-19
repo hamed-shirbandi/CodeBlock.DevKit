@@ -1,16 +1,16 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<AssemblyName>CodeBlock.DevKit.Web.Components</AssemblyName>
-		<RootNamespace>CodeBlock.DevKit.Web.Components</RootNamespace>
+		<AssemblyName>CodeBlock.DevKit.Web.Blazor.Server</AssemblyName>
+		<RootNamespace>CodeBlock.DevKit.Web.Blazor.Server</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.9</VersionPrefix>
+		<VersionPrefix>1.0.0</VersionPrefix>
 		<Authors>hamed shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>CodeBlock.DevKit.Web.Components</PackageId>
+		<PackageId>CodeBlock.DevKit.Web.Blazor.Server</PackageId>
 		<PackageTags>ddd;cqrs;devkit;aspnet;blazor</PackageTags>
 		<PackageProjectUrl>https://github.com/hamed-shirbandi/CodeBlock.DevKit</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Core\Core.csproj" />
+		<ProjectReference Include="..\Web\Web.csproj" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
