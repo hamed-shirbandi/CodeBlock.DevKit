@@ -83,20 +83,6 @@
     min-height: 22rem !important;
 }
 
-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-    background: #033bbd;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #002f9b;
-    border-radius: 20px;
-    border: 1px solid #1a1a1a;
-}
-
 .background-none {
     background: none !important;
 }

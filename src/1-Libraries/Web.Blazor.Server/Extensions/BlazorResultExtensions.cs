@@ -3,7 +3,7 @@ using Blazored.Toast.Services;
 using CodeBlock.DevKit.Core.Helpers;
 using Microsoft.AspNetCore.Components;
 
-namespace CodeBlock.DevKit.Web.Components.Extensions;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Extensions;
 
 public static class BlazorResultExtensions
 {

@@ -67,21 +67,21 @@
       "BundledCssFiles": [
         {
           "BundledFile": "/css/spa.web.components.min.css",
-          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Components/css/animate.min.css", "_content/Blazored.Toast/blazored-toast.min.css", "_content/Blazored.Modal/blazored-modal.css", "_content/CodeBlock.DevKit.Web.Components/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Components/css/component.css" ]
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/css/animate.min.css", "_content/Blazored.Toast/blazored-toast.min.css", "_content/Blazored.Modal/blazored-modal.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/css/component.css" ]
         },
         {
           "BundledFile": "/css/nspa.web.components.min.css",
-          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Components/css/animate.min.css", "_content/CodeBlock.DevKit.Web.Components/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Components/css/component.css" ]
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/css/animate.min.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Blazor.Server/css/component.css" ]
         }
       ],
       "BundledJsFiles": [
         {
           "BundledFile": "/js/spa.web.components.min.js",
-          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Components/js/bootstrap.min.js", "_content/Blazored.Modal/blazored.modal.js", "_content/CodeBlock.DevKit.Web.Components/js/component.js" ]
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/bootstrap.min.js", "_content/Blazored.Modal/blazored.modal.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/component.js" ]
         },
         {
           "BundledFile": "/js/nspa.web.components.min.js",
-          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.validate.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.validate.unobtrusive.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.unobtrusive-ajax.min.js", "_content/CodeBlock.DevKit.Web.Components/js/bootstrap.min.js", "_content/CodeBlock.DevKit.Web.Components/js/component.js" ]
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.validate.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.validate.unobtrusive.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.unobtrusive-ajax.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/bootstrap.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/component.js" ]
         }
       ]
     }

@@ -1,24 +1,25 @@
 using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
-namespace CodeBlock.DevKit.Web.Components.Configuration;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Configuration;
 
 public static class ComponentConfiguration
 {
-    public static void AddUiComponents(this IServiceCollection services, ConfigurationManager configuration)
+    public static void AddComponents(this WebApplicationBuilder builder)
     {
-        configuration.AddSharedAppSettingsFile();
+        builder.Configuration.AddSharedAppSettingsFile();
 
-        services.AddRazorFileProvider();
+        builder.Services.AddRazorFileProvider();
 
-        services.AddBlazoredToast();
+        builder.Services.AddBlazoredToast();
 
-        services.AddBlazoredModal();
+        builder.Services.AddBlazoredModal();
     }
 
     /// <summary>
