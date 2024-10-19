@@ -6,10 +6,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<!--<PackageReference Include="CodeBlock.DevKit.Web" Version="3.3.7" />
+		<PackageReference Include="CodeBlock.DevKit.Authorization" Version="3.3.2" />-->
+		<!--<PackageReference Include="CodeBlock.DevKit.Web.Components" Version="1.0.9" />-->
+	</ItemGroup>
+	
+	<ItemGroup>
 		<ProjectReference Include="..\..\1-Libraries\Web.Components\Web.Components.csproj" />
 		<ProjectReference Include="..\..\1-Libraries\Web\Web.csproj" />
 		<ProjectReference Include="..\..\2-Modules\Authorization.UI\Authorization.UI.csproj" />
 		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\css\" />
 	</ItemGroup>
 
 </Project>
