@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Mvc.ViewEngines
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <base href="~/" />
+    <link href="css/nspa.devkit.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="css/nspa.app.min.css" rel="stylesheet" asp-append-version="true" />
+</head>
+<body class="bg-primary">
+
+    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        @RenderBody()
+    </div>
+
+    <script src="~/js/nspa.devkit.min.js" asp-append-version="true"></script>
+    <script src="~/js/nspa.app.min.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

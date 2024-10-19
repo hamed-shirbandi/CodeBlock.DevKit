@@ -1,6 +1,6 @@
+using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.CookieAuthentication;
-using CodeBlock.DevKit.Web.Optimization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

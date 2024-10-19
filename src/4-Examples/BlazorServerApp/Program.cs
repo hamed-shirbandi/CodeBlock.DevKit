@@ -2,8 +2,7 @@ using BlazorServerApp.Infrastructure;
 using BlazorServerApp.UserCases.GetUsers;
 using BlazorServerApp.UserCases.RegisterUser;
 using CodeBlock.DevKit.Authorization.UI.Configuration;
-using CodeBlock.DevKit.Web.Components.Configuration;
-using CodeBlock.DevKit.Web.Configuration;
+using CodeBlock.DevKit.Web.Blazor.Server.Configuration;
 
 internal class Program
 {
@@ -18,7 +17,6 @@ internal class Program
             mappingProfileMarkerType: typeof(MappingProfile)
         );
 
-        builder.Services.AddUiComponents(builder.Configuration);
         builder.Services.AddAuthorization();
         builder.Services.AddAuthorizationUI();
 

@@ -1,0 +1,24 @@
+﻿@using Blazored.Toast
+@using Blazored.Toast.Configuration
+@inherits LayoutComponentBase
+
+<BlazoredToasts Position="ToastPosition.BottomCenter"
+                Timeout="5"
+                IconType="IconType.Material"
+                ErrorIcon=""
+                InfoIcon=""
+                SuccessIcon=""
+                WarningIcon=""
+                ShowProgressBar="true" />
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <article class="content px-4 mt-3">
+            @Body
+        </article>
+    </main>
+</div>
