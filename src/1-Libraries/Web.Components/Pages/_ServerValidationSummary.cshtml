@@ -1,6 +1,4 @@
 @{
-    var message = ViewData["Message"];
-
     var errors = new List<string>();
 
     if (ViewData["Errors"] != null)
@@ -9,15 +7,14 @@
     bool hasError = errors.Count > 0;
 }
 
-@if (!string.IsNullOrEmpty(message) || hasError)
+@if (ViewData["Message"] != null || hasError)
 {
     <div class="border @(hasError?"border-danger text-danger":"border-success text-success")">
-        <h6>@message</h6>
+        <h6>@ViewData["Message"]</h6>
         @if (hasError)
         {
             <ul>
                 @foreach (var error in errors)
-
                 {
                     <li>@error</li>
                 }
