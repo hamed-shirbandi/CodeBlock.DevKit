@@ -7,16 +7,16 @@ namespace CodeBlock.DevKit.Web.Metric;
 
 public static class MetricConfiguration
 {
-    public static void AddMetrics(this IServiceCollection services, IConfiguration configuration)
+    public static void AddMetrics(this WebApplicationBuilder builder)
     {
-        var metricOptions = configuration.GetSection("Metric").Get<MetricOptions>();
+        var metricOptions = builder.Configuration.GetSection("Metric").Get<MetricOptions>();
         if (metricOptions == null)
             return;
 
         //It starts the metrics exporter as a background service using a stand alone kestrel
         if (metricOptions.StandAloneKestrelServerEnabled)
         {
-            services.AddMetricServer(options =>
+            builder.Services.AddMetricServer(options =>
             {
                 options.Port = metricOptions.Port;
                 options.Url = metricOptions.Url;
@@ -25,12 +25,12 @@ public static class MetricConfiguration
         }
 
         //Inject IMetricFactory to be used in application objects instead of coupling their implementation with Metrics
-        services.AddSingleton<IMetricFactory>(Metrics.DefaultFactory);
+        builder.Services.AddSingleton<IMetricFactory>(Metrics.DefaultFactory);
     }
 
-    public static void UseMetrics(this IApplicationBuilder app, IConfiguration configuration)
+    public static void UseMetrics(this WebApplication app)
     {
-        var metricOptions = configuration.GetSection("Metric").Get<MetricOptions>();
+        var metricOptions = app.Configuration.GetSection("Metric").Get<MetricOptions>();
         if (metricOptions == null)
             return;
 

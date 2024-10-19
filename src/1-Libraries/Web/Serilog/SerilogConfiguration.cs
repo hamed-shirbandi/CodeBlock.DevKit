@@ -19,9 +19,9 @@ public static class SerilogConfiguration
         builder.Host.UseSerilog((ctx, lc) => lc.ReadFrom.Configuration(ctx.Configuration));
     }
 
-    public static void UseCustomSerilog(this WebApplication app, IConfiguration configuration)
+    public static void UseCustomSerilog(this WebApplication app)
     {
-        var serilogConfig = configuration.GetSection("Serilog");
+        var serilogConfig = app.Configuration.GetSection("Serilog");
         if (!serilogConfig.Exists())
             return;
 

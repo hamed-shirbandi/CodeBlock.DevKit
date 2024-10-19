@@ -4,7 +4,6 @@ using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,14 +12,10 @@ namespace CodeBlock.DevKit.Web.Configuration;
 /// <summary>
 ///
 /// </summary>
-public static class RazorPagesConfiguration
+public static class WebConfiguration
 {
-    /// <summary>
-    ///
-    /// </summary>
-    public static void AddRazorPagesPreConfigured(
+    public static void AddCodeBlockDevKitWeb(
         this WebApplicationBuilder builder,
-        IConfiguration configuration,
         Type handlerAssemblyMarkerType,
         Type validatorAssemblyMarkerType = null,
         Type mappingProfileMarkerType = null
@@ -29,39 +24,29 @@ public static class RazorPagesConfiguration
         builder.AddCustomSerilog();
 
         builder.Services.AddCodeBlockDevKitInfrastructure(
-            configuration,
+            builder.Configuration,
             handlerAssemblyMarkerType,
             validatorAssemblyMarkerType,
             mappingProfileMarkerType
         );
 
-        builder.Services.AddRazorPages();
-
-        builder.Services.AddAuthentication();
-
         builder.Services.AddHttpContextAccessor();
 
         builder.Services.AddAuthenticatedUserService();
 
-        builder.Services.AddMetrics(configuration);
+        builder.AddMetrics();
     }
 
     /// <summary>
     ///
     /// </summary>
-    public static void UseRazorPagesPreConfigured(this WebApplication app, IWebHostEnvironment env, IConfiguration configuration)
+    public static void UseCodeBlockDevKitWeb(this WebApplication app)
     {
-        app.UseCustomSerilog(configuration);
+        app.UseCustomSerilog();
 
-        if (env.IsDevelopment())
+        if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();
 
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseMetrics(configuration);
-
-        app.UseAuthorization();
+        app.UseMetrics();
     }
 }
