@@ -1,10 +1,9 @@
 ﻿using Blazored.Modal;
 using Blazored.Toast.Services;
 using CodeBlock.DevKit.Core.Helpers;
-using CodeBlock.DevKit.Web.Helpers;
 using Microsoft.AspNetCore.Components;
 
-namespace CodeBlock.DevKit.Web.Extensions;
+namespace CodeBlock.DevKit.Web.Components.Extensions;
 
 public static class BlazorResultExtensions
 {
@@ -53,4 +52,23 @@ public static class BlazorResultExtensions
 
         return result;
     }
+
+    private static RenderFragment ParseToFragment(this List<string> errors)
+    {
+        RenderFragment content = null;
+
+        if (!errors.Any())
+            return content;
+
+        foreach (var error in errors)
+            content += AddMarkupContent($"<text><strong>-</strong> {error} <br/></text>");
+
+        return content;
+    }
+
+    private static RenderFragment AddMarkupContent(string txt) =>
+        builder =>
+        {
+            builder.AddMarkupContent(1, txt);
+        };
 }

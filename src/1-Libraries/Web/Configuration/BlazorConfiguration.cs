@@ -1,5 +1,3 @@
-using Blazored.Modal;
-using Blazored.Toast;
 using CodeBlock.DevKit.Infrastructure.Extensions;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using CodeBlock.DevKit.Web.Metric;
@@ -43,10 +41,6 @@ public static class BlazorConfiguration
         builder.Services.AddMetrics(configuration);
 
         builder.Services.AddWebOptimizer(configuration);
-
-        builder.Services.AddBlazoredToast();
-
-        builder.Services.AddBlazoredModal();
     }
 
     /// <summary>

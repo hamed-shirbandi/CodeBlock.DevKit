@@ -1,4 +1,6 @@
 using System.Reflection;
+using Blazored.Modal;
+using Blazored.Toast;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -15,5 +17,9 @@ public static class ComponentConfiguration
         {
             options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
         });
+
+        services.AddBlazoredToast();
+
+        services.AddBlazoredModal();
     }
 }
