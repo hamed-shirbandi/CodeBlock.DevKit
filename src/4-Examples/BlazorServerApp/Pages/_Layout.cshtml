@@ -8,8 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    <link rel="stylesheet" href="_content/CodeBlock.DevKit.Web.Components/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="_content/CodeBlock.DevKit.Web.Components/css/component.css" />
+    <link href="css/sp.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="BlazorServerApp.styles.css" rel="stylesheet" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
@@ -27,6 +26,7 @@
         <a class="dismiss">🗙</a>
     </div>
 
+    <script src="~/js/sp.min.js" asp-append-version="true"></script>
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>

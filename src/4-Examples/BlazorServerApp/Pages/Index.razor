@@ -3,10 +3,14 @@
 @using BlazorServerApp.UserCases.GetUsers
 @using BlazorServerApp.UserCases.RegisterUser
 @using CodeBlock.DevKit.Application.Bus
+@using Microsoft.Extensions.Configuration;
+
 @inject IInMemoryBus InMemoryBus
+@inject IConfiguration Configuration
 
 <PageTitle>Users List</PageTitle>
 
+<h2>@Configuration["shared"]</h2>
 
 <h1>Users List</h1>
 
@@ -41,6 +45,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        var asda = @Configuration["Optimization"];
         var getUsersResult = await InMemoryBus.SendQuery(new GetUsersRequest());
         users = getUsersResult.Value;
     }

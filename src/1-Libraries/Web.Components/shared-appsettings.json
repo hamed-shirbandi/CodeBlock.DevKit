@@ -1,0 +1,89 @@
+{
+  "shared": "I am shared thing!",
+  "AllowedHosts": "*",
+  "MongoDB": {
+    "Connection": "mongodb://localhost:27017",
+    "DatabaseName": "InManam"
+  },
+  "SuperUser": {
+    "Email": "admin@inmanam.ir",
+    "Mobile": "09000000000",
+    "Password": "009999"
+  },
+  "Serilog": {
+    "Using": [ "Serilog.Exceptions" ],
+    "Enrich": [ "WithExceptionDetails" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Error",
+        "Microsoft.Hosting.Lifetime": "Error"
+      }
+    },
+    "Filter": [
+      {
+        "Name": "ByExcluding",
+        "Args": { "expression": "@mt = 'An unhandled exception has occurred while executing the request.'" }
+      }
+    ],
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "./bin/logs/Logs.txt",
+          "rollingInterval": "Day"
+        }
+      },
+      {
+        "Name": "Seq",
+        "Args": { "serverUrl": "http://localhost:5341" }
+      }
+    ]
+  },
+  "Metric": {
+    "StandAloneKestrelServerEnabled": false,
+    "Port": 5025,
+    "Url": "/metrics",
+    "Hostname": "+",
+    "HttpMetricsEnabled": true,
+    "SuppressDefaultMetrics": false
+  },
+  "CookieAuthentication": {
+    "CookieName": "CodeBlock.DevKit.AuthCookie",
+    "CookieHttpOnly": true,
+    "LoginPath": "/login",
+    "LogoutPath": "/logout",
+    "ExpireFromMinute": 120,
+    "SlidingExpiration": false,
+    "AllowRefresh": true
+  },
+  "Caching": {
+    "CacheTimeInMinutes": 60,
+    "Enabled": true
+  },
+  "Optimization": {
+    "Enabled": true,
+    "framework": {
+      "BundledCssFiles": [
+        {
+          "BundledFile": "/css/spa.web.components.min.css",
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Components/css/animate.min.css", "_content/Blazored.Toast/blazored-toast.min.css", "_content/Blazored.Modal/blazored-modal.css", "_content/CodeBlock.DevKit.Web.Components/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Components/css/component.css" ]
+        },
+        {
+          "BundledFile": "/css/nspa.web.components.min.css",
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/css/bootstrap.rtl.min.css", "_content/CodeBlock.DevKit.Web.Components/css/animate.min.css", "_content/CodeBlock.DevKit.Web.Components/icons/bootstrap-icons/font/icons/bootstrap-icons.min.css", "_content/CodeBlock.DevKit.Web.Components/css/component.css" ]
+        }
+      ],
+      "BundledJsFiles": [
+        {
+          "BundledFile": "/js/spa.web.components.min.js",
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Components/js/bootstrap.min.js", "_content/Blazored.Modal/blazored.modal.js", "_content/CodeBlock.DevKit.Web.Components/js/component.js" ]
+        },
+        {
+          "BundledFile": "/js/nspa.web.components.min.js",
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Components/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.validate.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.validate.unobtrusive.min.js", "_content/CodeBlock.DevKit.Web.Components/js/jquery.unobtrusive-ajax.min.js", "_content/CodeBlock.DevKit.Web.Components/js/bootstrap.min.js", "_content/CodeBlock.DevKit.Web.Components/js/component.js" ]
+        }
+      ]
+    }
+  }
+}

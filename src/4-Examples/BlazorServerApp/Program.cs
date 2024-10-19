@@ -18,7 +18,7 @@ internal class Program
             mappingProfileMarkerType: typeof(MappingProfile)
         );
 
-        builder.Services.AddUiComponents();
+        builder.Services.AddUiComponents(builder.Configuration);
         builder.Services.AddAuthorization();
         builder.Services.AddAuthorizationUI();
 

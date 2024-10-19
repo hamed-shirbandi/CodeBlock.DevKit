@@ -17,10 +17,16 @@ public static class WebOptimizerConfiguration
 
         services.AddWebOptimizer(pipeline =>
         {
-            foreach (var item in optimizationOptions.BundledJsFiles)
+            foreach (var item in optimizationOptions.Framework.BundledJsFiles)
                 pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
 
-            foreach (var item in optimizationOptions.BundledCssFiles)
+            foreach (var item in optimizationOptions.Framework.BundledCssFiles)
+                pipeline.AddCssBundle(item.BundledFile, item.FilesToBundle);
+
+            foreach (var item in optimizationOptions.App.BundledJsFiles)
+                pipeline.AddJavaScriptBundle(item.BundledFile, item.FilesToBundle);
+
+            foreach (var item in optimizationOptions.App.BundledCssFiles)
                 pipeline.AddCssBundle(item.BundledFile, item.FilesToBundle);
         });
     }

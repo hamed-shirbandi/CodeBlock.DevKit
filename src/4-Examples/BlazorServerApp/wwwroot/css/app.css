@@ -1,3 +1,9 @@
+@font-face {
+    font-family: vazir;
+    src: url("./fonts/Vazir.woff") format("woff"),url("./fonts/Vazir.woff2") format("woff2");
+}
+
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
@@ -50,25 +56,12 @@
     display: block;
 }
 
-
 .bg-form {
     background: #353536;
 }
 
-.bg-accordion-header {
-    background-color: #555656 !important;
-    color: #b8b8b6 !important;
-}
-
-.bg-accordion-body {
-    background-color: #666666 !important;
-    color: #222222 !important;
-}
-
-.form-control {
-    background-color: #555656 !important;
-    border: none !important;
-    color: #b8b8b6 !important;
+html, body {
+    font-family: vazir;
 }
 
 .min-height-17rem {
@@ -83,18 +76,26 @@
     min-height: 22rem !important;
 }
 
+#page-contact-links a {
+    color: #c1bfbf !important;
+}
+
+#side-nave a {
+    color: #f1f0f0 !important;
+}
+
 body::-webkit-scrollbar {
-    width: 8px;
+    width: 8px; /* width of the entire scrollbar */
 }
 
 body::-webkit-scrollbar-track {
-    background: #033bbd;
+    background: #033bbd; /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #002f9b;
-    border-radius: 20px;
-    border: 1px solid #1a1a1a;
+    background-color: #002f9b; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 1px solid #1a1a1a; /* creates padding around scroll thumb */
 }
 
 .background-none {
@@ -125,12 +126,20 @@ body::-webkit-scrollbar-thumb {
     min-height: 90vh;
 }
 
+.bg-primary {
+    background-color: #352AEC !important;
+}
+
 .opacity-30 {
     opacity: 0.3 !important;
 }
 
 .opacity-100 {
     opacity: 0.9 !important;
+}
+
+.page-item span {
+    cursor: pointer;
 }
 
 .disabled {
@@ -142,6 +151,7 @@ body::-webkit-scrollbar-thumb {
 .blazored-toast-container {
     z-index: 999 !important;
 }
+
 /* XS breakpoint*/
 @media (min-width: 0px) {
     .width-xs-10 {
