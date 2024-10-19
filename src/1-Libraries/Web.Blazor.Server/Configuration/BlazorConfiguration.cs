@@ -2,7 +2,6 @@ using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -15,7 +14,6 @@ public static class BlazorConfiguration
     /// </summary>
     public static void AddBlazorPreConfigured(
         this WebApplicationBuilder builder,
-        IConfiguration configuration,
         Type handlerAssemblyMarkerType,
         Type validatorAssemblyMarkerType = null,
         Type mappingProfileMarkerType = null
@@ -25,19 +23,19 @@ public static class BlazorConfiguration
 
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
-        builder.Services.AddCookieAuthentication(configuration);
+        builder.Services.AddCookieAuthentication(builder.Configuration);
 
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
 
-        builder.Services.AddWebOptimizer(configuration);
+        builder.Services.AddWebOptimization(builder.Configuration);
     }
 
     /// <summary>
     ///
     /// </summary>
-    public static WebApplication UseBlazorPreConfigured(this WebApplication app, IConfiguration configuration)
+    public static WebApplication UseBlazorPreConfigured(this WebApplication app)
     {
         app.UseCodeBlockDevKitWeb();
 
@@ -51,7 +49,7 @@ public static class BlazorConfiguration
 
         app.UseHttpsRedirection();
 
-        app.UseWebOptimizer(configuration);
+        app.UseWebOptimization();
 
         app.UseStaticFiles();
 

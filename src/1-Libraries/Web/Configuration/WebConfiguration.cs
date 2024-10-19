@@ -1,9 +1,11 @@
-﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+﻿using System.Reflection;
+using CodeBlock.DevKit.Infrastructure.Extensions;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -21,6 +23,8 @@ public static class WebConfiguration
         Type mappingProfileMarkerType = null
     )
     {
+        builder.Configuration.AddSharedAppSettingsFile();
+
         builder.AddCustomSerilog();
 
         builder.Services.AddCodeBlockDevKitInfrastructure(
@@ -48,5 +52,15 @@ public static class WebConfiguration
             app.UseDeveloperExceptionPage();
 
         app.UseMetrics();
+    }
+
+    private static void AddSharedAppSettingsFile(this ConfigurationManager configuration)
+    {
+        string libraryPath = typeof(WebConfiguration).GetTypeInfo().Assembly.Location;
+        var libraryFolder = Path.GetDirectoryName(libraryPath);
+
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "web-appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.Development.json"));
     }
 }

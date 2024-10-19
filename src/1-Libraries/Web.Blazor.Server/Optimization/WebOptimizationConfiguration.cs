@@ -1,15 +1,14 @@
-﻿using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 
-public static class WebOptimizerConfiguration
+public static class WebOptimizationConfiguration
 {
-    public static void AddWebOptimizer(this IServiceCollection services, IConfiguration configuration)
+    public static void AddWebOptimization(this IServiceCollection services, IConfiguration configuration)
     {
-        var optimizationOptions = configuration.GetSection("Optimization").Get<WebOptimizerOptions>();
+        var optimizationOptions = configuration.GetSection("Optimization").Get<WebOptimizationOptions>();
         if (optimizationOptions == null)
             return;
 
@@ -41,9 +40,9 @@ public static class WebOptimizerConfiguration
         );
     }
 
-    public static void UseWebOptimizer(this IApplicationBuilder app, IConfiguration configuration)
+    public static void UseWebOptimization(this WebApplication app)
     {
-        var optimizationOptions = configuration.GetSection("Optimization").Get<WebOptimizerOptions>();
+        var optimizationOptions = app.Configuration.GetSection("Optimization").Get<WebOptimizationOptions>();
         if (optimizationOptions == null)
             return;
 

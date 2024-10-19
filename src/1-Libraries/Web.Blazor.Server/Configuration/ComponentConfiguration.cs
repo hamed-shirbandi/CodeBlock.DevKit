@@ -40,8 +40,8 @@ public static class ComponentConfiguration
         string libraryPath = typeof(ComponentConfiguration).GetTypeInfo().Assembly.Location;
         var libraryFolder = Path.GetDirectoryName(libraryPath);
 
-        configuration.AddJsonFile(Path.Combine(libraryFolder, "shared-appsettings.json"));
-
-        configuration.AddJsonFile(Path.Combine(libraryFolder, "shared-appsettings.Development.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "web-blazor-server-appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.Development.json"));
     }
 }

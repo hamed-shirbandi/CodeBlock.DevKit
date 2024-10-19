@@ -13,7 +13,7 @@ public static class SwaggerConfiguration
     public static void AddSwaggerPreConfigured(this IServiceCollection services, IConfiguration configuration)
     {
         var swaggerOptions = configuration.GetSection("Swagger").Get<SwaggerOptions>();
-        if (swaggerOptions != null)
+        if (swaggerOptions == null)
             return;
 
         // Register the Swagger generator, defining one or more Swagger documents
@@ -21,8 +21,6 @@ public static class SwaggerConfiguration
         {
             c.EnableAnnotations();
 
-            //Hide some unwanted methods from documentation
-            c.DocumentFilter<SwaggerHideInDocsFilter>();
             //swagger doc info
             c.SwaggerDoc(swaggerOptions.Version, new OpenApiInfo { Title = swaggerOptions.Title, Version = swaggerOptions.Version });
             //include xml comments from xml files referred in appsetting
@@ -71,7 +69,7 @@ public static class SwaggerConfiguration
     public static void UseSwaggerPreConfigured(this WebApplication app, IConfiguration configuration)
     {
         var swaggerOptions = configuration.GetSection("Swagger").Get<SwaggerOptions>();
-        if (swaggerOptions != null)
+        if (swaggerOptions == null)
             return;
 
         // Enable middleware to serve generated Swagger as a JSON endpoint.

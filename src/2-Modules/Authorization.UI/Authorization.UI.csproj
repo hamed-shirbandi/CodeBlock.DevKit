@@ -25,7 +25,6 @@
 	  <Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
   </Target>
 
-
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
@@ -34,7 +33,5 @@
     <ProjectReference Include="..\..\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj" />
     <ProjectReference Include="..\Authorization\Authorization.csproj" />
   </ItemGroup>
-
-
 
 </Project>

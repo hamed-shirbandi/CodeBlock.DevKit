@@ -11,20 +11,20 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         builder.AddBlazorPreConfigured(
-            builder.Configuration,
             validatorAssemblyMarkerType: typeof(RegisterUserValidation),
             handlerAssemblyMarkerType: typeof(GetUsersUseCase),
             mappingProfileMarkerType: typeof(MappingProfile)
         );
 
         builder.Services.AddAuthorization();
-        builder.Services.AddAuthorizationUI();
+
+        builder.AddAuthorizationUI();
 
         builder.Services.AddSingleton<Database>();
 
         var app = builder.Build();
 
-        app.UseBlazorPreConfigured(builder.Configuration);
+        app.UseBlazorPreConfigured();
 
         app.Run();
     }

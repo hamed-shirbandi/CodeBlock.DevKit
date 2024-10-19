@@ -1,8 +1,8 @@
 ﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 
-public class WebOptimizerOptions
+public class WebOptimizationOptions
 {
-    public WebOptimizerOptions()
+    public WebOptimizationOptions()
     {
         Framework = new();
         App = new();

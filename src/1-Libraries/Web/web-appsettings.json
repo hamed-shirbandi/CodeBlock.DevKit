@@ -1,0 +1,58 @@
+{
+  "AllowedHosts": "*",
+  "MongoDB": {
+    "Connection": "mongodb://localhost:27017",
+    "DatabaseName": "InManam"
+  },
+  "Serilog": {
+    "Using": [ "Serilog.Exceptions" ],
+    "Enrich": [ "WithExceptionDetails" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Error",
+        "Microsoft.Hosting.Lifetime": "Error"
+      }
+    },
+    "Filter": [
+      {
+        "Name": "ByExcluding",
+        "Args": { "expression": "@mt = 'An unhandled exception has occurred while executing the request.'" }
+      }
+    ],
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "./bin/logs/Logs.txt",
+          "rollingInterval": "Day"
+        }
+      },
+      {
+        "Name": "Seq",
+        "Args": { "serverUrl": "http://localhost:5341" }
+      }
+    ]
+  },
+  "Metric": {
+    "StandAloneKestrelServerEnabled": false,
+    "Port": 5025,
+    "Url": "/metrics",
+    "Hostname": "+",
+    "HttpMetricsEnabled": true,
+    "SuppressDefaultMetrics": false
+  },
+  "CookieAuthentication": {
+    "CookieName": "CodeBlock.DevKit.AuthCookie",
+    "CookieHttpOnly": true,
+    "LoginPath": "/login",
+    "LogoutPath": "/logout",
+    "ExpireFromMinute": 120,
+    "SlidingExpiration": false,
+    "AllowRefresh": true
+  },
+  "Caching": {
+    "CacheTimeInMinutes": 60,
+    "Enabled": true
+  }
+}

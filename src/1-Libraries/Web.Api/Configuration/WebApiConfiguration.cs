@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Web.Api.Exceptions;
+﻿using System.Reflection;
+using CodeBlock.DevKit.Web.Api.Exceptions;
 using CodeBlock.DevKit.Web.Api.Jwt;
 using CodeBlock.DevKit.Web.Api.Swagger;
 using CodeBlock.DevKit.Web.Configuration;
@@ -6,6 +7,7 @@ using CodeBlock.DevKit.Web.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -26,6 +28,8 @@ public static class WebApiConfiguration
         Type mappingProfileMarkerType = null
     )
     {
+        builder.Configuration.AddSharedAppSettingsFile();
+
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
         builder.Services.AddControllers().WithPreventAutoValidation();
@@ -37,10 +41,6 @@ public static class WebApiConfiguration
         builder.Services.AddCors();
 
         builder.Services.AddWebServerOptions();
-
-        builder.Services.AddJwtAuthentication(builder.Configuration);
-
-        builder.Services.AddCors();
 
         builder.Services.AddGlobalExceptionHandler();
     }
@@ -64,6 +64,8 @@ public static class WebApiConfiguration
         app.UseAuthentication();
 
         app.UseAuthorization();
+
+        app.MapControllers();
     }
 
     /// <summary>
@@ -99,5 +101,15 @@ public static class WebApiConfiguration
         {
             options.AllowSynchronousIO = true;
         });
+    }
+
+    private static void AddSharedAppSettingsFile(this ConfigurationManager configuration)
+    {
+        string libraryPath = typeof(WebApiConfiguration).GetTypeInfo().Assembly.Location;
+        var libraryFolder = Path.GetDirectoryName(libraryPath);
+
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "web-api-appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.json"));
+        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.Development.json"));
     }
 }

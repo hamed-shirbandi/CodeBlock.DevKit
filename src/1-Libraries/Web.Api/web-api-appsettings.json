@@ -1,0 +1,18 @@
+{
+  "Swagger": {
+    "Title": "CodeBlock DevKit Api Documentation",
+    "Version": "v1",
+    "IncludeXmlComments": ""
+  },
+  "Jwt": {
+    "Authority": "https://api.test.ir",
+    "Audience": "changeme",
+    "Policies": [
+      {
+        "Name": "changeme",
+        "RequireAuthenticatedUser": true,
+        "AllowedScopes": [ "changeme" ]
+      }
+    ]
+  }
+}
