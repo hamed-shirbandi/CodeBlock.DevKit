@@ -1,7 +1,7 @@
 using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Authorization.UseCases.VerifyUserPassword;
+using CodeBlock.DevKit.Web.Blazor.Server.Models;
 using CodeBlock.DevKit.Web.CookieAuthentication;
-using CodeBlock.DevKit.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\1-Libraries\Web\Web.csproj" />
+    <ProjectReference Include="..\..\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj" />
     <ProjectReference Include="..\Authorization\Authorization.csproj" />
   </ItemGroup>
 
