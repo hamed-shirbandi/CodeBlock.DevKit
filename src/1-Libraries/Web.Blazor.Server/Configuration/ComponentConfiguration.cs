@@ -3,7 +3,6 @@ using Blazored.Modal;
 using Blazored.Toast;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
@@ -13,8 +12,6 @@ public static class ComponentConfiguration
 {
     public static void AddComponents(this WebApplicationBuilder builder)
     {
-        builder.Configuration.AddSharedAppSettingsFile();
-
         builder.Services.AddRazorFileProvider();
 
         builder.Services.AddBlazoredToast();
@@ -33,15 +30,5 @@ public static class ComponentConfiguration
         {
             options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
         });
-    }
-
-    private static void AddSharedAppSettingsFile(this ConfigurationManager configuration)
-    {
-        string libraryPath = typeof(ComponentConfiguration).GetTypeInfo().Assembly.Location;
-        var libraryFolder = Path.GetDirectoryName(libraryPath);
-
-        configuration.AddJsonFile(Path.Combine(libraryFolder, "web-blazor-server-appsettings.json"));
-        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.json"));
-        configuration.AddJsonFile(Path.Combine(libraryFolder, "appsettings.Development.json"));
     }
 }

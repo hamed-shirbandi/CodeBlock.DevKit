@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Blazor.Server</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Blazor.Server</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>10.0.2</VersionPrefix>
+		<VersionPrefix>10.0.10</VersionPrefix>
 		<Authors>Hamed Shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Blazor.Server</PackageId>
@@ -19,6 +19,7 @@
 		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -30,13 +31,12 @@
 		<PackageReference Include="LigerShark.WebOptimizer.Core" Version="3.0.426" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Web\Web.csproj" />
-	</ItemGroup>
-
 	<Target Name="PostcompileScript" AfterTargets="Build">
 		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
 	</Target>
 
+	<ItemGroup>
+		<ProjectReference Include="..\Web\Web.csproj" />
+	</ItemGroup>
 
 </Project>

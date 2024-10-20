@@ -35,11 +35,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Modules", "2-Modules", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "src\2-Modules\Authorization\Authorization.csproj", "{9D005E5A-BFC9-4EDD-9D07-D2FC229D8294}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization.UI", "src\2-Modules\Authorization.UI\Authorization.UI.csproj", "{69945555-8252-4114-BBC6-33D7733A0AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization.UI", "src\2-Modules\Authorization.UI\Authorization.UI.csproj", "{69945555-8252-4114-BBC6-33D7733A0AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Blazor.Server", "src\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj", "{BB78665B-4AA6-4DCA-97E5-BCC3CC43A70E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Blazor.Server", "src\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj", "{BB78665B-4AA6-4DCA-97E5-BCC3CC43A70E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "src\1-Libraries\Web.Api\Web.Api.csproj", "{79FDCCB0-5889-4C30-9987-CE0E80037F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "src\1-Libraries\Web.Api\Web.Api.csproj", "{79FDCCB0-5889-4C30-9987-CE0E80037F13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
