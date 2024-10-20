@@ -19,7 +19,7 @@
       "BundledJsFiles": [
         {
           "BundledFile": "/js/spa.devkit.min.js",
-          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/bootstrap.min.js", "_content/Blazored.Modal/blazored.modal.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/component.js" ]
+          "FilesToBundle": [ "_content/CodeBlock.DevKit.Web.Blazor.Server/js/jquery.min.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/bootstrap.min.js", "_content/Blazored.Modal/blazored.modal.js", "_content/Blazorise.Animate/blazorise.animate.js", "_content/CodeBlock.DevKit.Web.Blazor.Server/js/component.js" ]
         },
         {
           "BundledFile": "/js/nspa.devkit.min.js",
