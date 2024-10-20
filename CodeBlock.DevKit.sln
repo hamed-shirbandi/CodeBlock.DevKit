@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerApp", "src\4-Ex
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Build", "5-Build", "{58919C84-A426-40F9-85C3-8BFF52AA0E45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "src\4-Build\Build.csproj", "{AEF55F97-DA32-4318-A6FC-A6C02C28B1AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "src\5-Build\Build.csproj", "{AEF55F97-DA32-4318-A6FC-A6C02C28B1AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiApp", "src\4-Examples\WebApiApp\WebApiApp.csproj", "{4856AFCF-948C-4DCC-9E9D-0A229F3E95AB}"
 EndProject
