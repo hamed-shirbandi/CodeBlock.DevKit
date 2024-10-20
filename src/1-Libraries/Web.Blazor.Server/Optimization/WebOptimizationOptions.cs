@@ -4,8 +4,8 @@ public class WebOptimizationOptions
 {
     public WebOptimizationOptions()
     {
-        Framework = new();
-        App = new();
+        BundledCssFiles = [];
+        BundledJsFiles = [];
     }
 
     public bool Enabled { get; set; }
@@ -13,18 +13,6 @@ public class WebOptimizationOptions
     public bool EnableMemoryCache { get; set; }
     public bool EnableDiskCache { get; set; }
     public bool AllowEmptyBundle { get; set; }
-
-    public OptimizationTarget Framework { get; set; }
-    public OptimizationTarget App { get; set; }
-}
-
-public class OptimizationTarget
-{
-    public OptimizationTarget()
-    {
-        BundledCssFiles = [];
-        BundledJsFiles = [];
-    }
 
     public IEnumerable<OptimizationBundleModel> BundledCssFiles { get; set; }
     public IEnumerable<OptimizationBundleModel> BundledJsFiles { get; set; }
