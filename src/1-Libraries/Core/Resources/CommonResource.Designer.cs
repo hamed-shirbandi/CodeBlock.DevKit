@@ -9,8 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace CodeBlock.DevKit.Core.Resources {
-    using System;
-    
     
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -29,7 +27,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonResource() {
+        public CommonResource() {
         }
         
         /// <summary>

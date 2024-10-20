@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Domain</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Domain</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionPrefix>10.0.0</VersionPrefix>
 		<Authors>Hamed Shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Domain</PackageId>

@@ -4,7 +4,7 @@ using BlazorServerApp.UserCases.RegisterUser;
 using CodeBlock.DevKit.Authorization.UI.Configuration;
 using CodeBlock.DevKit.Web.Blazor.Server.Configuration;
 
-internal class Program
+public class Program
 {
     private static void Main(string[] args)
     {

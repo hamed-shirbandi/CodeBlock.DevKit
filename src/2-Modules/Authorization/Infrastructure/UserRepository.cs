@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-internal class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepository
+public class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepository
 {
     #region Fields
 
