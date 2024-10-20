@@ -6,8 +6,8 @@
 		<AssemblyName>CodeBlock.DevKit.Core</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Core</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>3.3.2</VersionPrefix>
-		<Authors>hamed shirbandi</Authors>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<Authors>Hamed Shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Core</PackageId>
 		<PackageTags>ddd;cqrs;devkit</PackageTags>
