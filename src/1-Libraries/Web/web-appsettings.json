@@ -2,7 +2,7 @@
   "AllowedHosts": "*",
   "MongoDB": {
     "Connection": "mongodb://localhost:27017",
-    "DatabaseName": "InManam"
+    "DatabaseName": "TestDb"
   },
   "Serilog": {
     "Using": [ "Serilog.Exceptions" ],
