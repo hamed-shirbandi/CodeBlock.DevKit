@@ -1,5 +1,6 @@
 <Project>
     <PropertyGroup>
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <NoWarn>CS1998;IDE0270;CA2254;CA1822</NoWarn>
     </PropertyGroup>
 </Project>
