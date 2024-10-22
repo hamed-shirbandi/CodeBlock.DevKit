@@ -11,7 +11,7 @@
 @if (ViewData["Message"] != null || hasError)
 
 {
-    <div class="border @(ViewData["IsSuccess"]==false?"border-danger text-danger":"border-success text-success")">
+    <div class="border @((bool)ViewData["IsSuccess"]==false?"border-danger text-danger":"border-success text-success")">
         <h6>@ViewData["Message"]</h6>
         @if (hasError)
         {
