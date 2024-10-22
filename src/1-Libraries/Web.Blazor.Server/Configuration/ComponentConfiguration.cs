@@ -1,6 +1,7 @@
 using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
+using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,8 @@ public static class ComponentConfiguration
         builder.Services.AddBlazoredToast();
 
         builder.Services.AddBlazoredModal();
+
+        builder.Services.AddMessageService();
     }
 
     /// <summary>
@@ -30,5 +33,10 @@ public static class ComponentConfiguration
         {
             options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
         });
+    }
+
+    private static void AddMessageService(this IServiceCollection services)
+    {
+        services.AddScoped<MessageService>();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Toast.Services;
 using CodeBlock.DevKit.Core.Helpers;
+using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.Extensions;
@@ -49,6 +50,24 @@ public static class BlazorResultExtensions
     {
         if (result.IsSuccess)
             navigationManager.NavigateTo(url);
+
+        return result;
+    }
+
+    public static Result<T> PublishMessage<T>(
+        this Result<T> result,
+        MessageService messageService,
+        string onSuccessResultMessageKey = "",
+        string onFailedResultMessageKey = ""
+    )
+    {
+        if (string.IsNullOrEmpty(onSuccessResultMessageKey) && string.IsNullOrEmpty(onFailedResultMessageKey))
+            return result;
+
+        if (result.IsSuccess)
+            messageService.SendMessage(onSuccessResultMessageKey);
+        else
+            messageService.SendMessage(onFailedResultMessageKey);
 
         return result;
     }
