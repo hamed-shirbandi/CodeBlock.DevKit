@@ -15,6 +15,7 @@ public class BasePageModel : PageModel
 
     protected void ParseResultToViewData<T>(Result<T> result)
     {
+        ViewData["IsSuccess"] = result.IsSuccess;
         ViewData["Message"] = result.Message;
         ViewData["Errors"] = result.Errors;
     }
