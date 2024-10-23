@@ -1,6 +1,7 @@
 using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Authorization.UseCases.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.Models;
+using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 public class RegisterModel : BasePageModel
 {
     private readonly ICookieAuthenticationService _cookieAuthenticationService;
+    private readonly AuthenticationStateService _authenticationStateService;
 
     public RegisterModel(ICookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
         : base(inMemoryBus)
@@ -43,6 +45,8 @@ public class RegisterModel : BasePageModel
                 isPersistent: true
             );
         }
+
+        _authenticationStateService.AddUserId(registerUserResult.Value.EntityId);
 
         ParseResultToViewData(registerUserResult);
         return Page();
