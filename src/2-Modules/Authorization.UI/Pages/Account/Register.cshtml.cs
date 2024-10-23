@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CodeBlock.DevKit.Authorization.UI.Pages;
+namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 
 [AllowAnonymous]
 public class RegisterModel : BasePageModel
