@@ -8,7 +8,7 @@ namespace CodeBlock.DevKit.Authorization.UI.Configuration;
 
 public static class AuthorizationConfiguration
 {
-    public static void AddAuthorizationUI(this WebApplicationBuilder builder)
+    public static void AddAuthorizationUiModule(this WebApplicationBuilder builder)
     {
         builder.Services.AddRazorFileProvider();
     }

@@ -18,7 +18,7 @@ public class Program
 
         builder.Services.AddAuthorization();
 
-        builder.AddAuthorizationUI();
+        builder.AddAuthorizationUiModule();
 
         builder.Services.AddSingleton<Database>();
 
