@@ -1,15 +1,12 @@
-﻿@using Microsoft.JSInterop
+﻿@inject NavigationManager NavigationManager
+
 @code
 {
-
     [Parameter]
     public string Path { get; set; }
 
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
-        await JSRuntime.InvokeVoidAsync("Helpers.RedirectTo", Path);
+        NavigationManager.NavigateTo(Path, true);
     }
 }

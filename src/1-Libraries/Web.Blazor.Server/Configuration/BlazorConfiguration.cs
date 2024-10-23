@@ -1,8 +1,14 @@
+using System.Reflection;
+using Blazored.Modal;
+using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
+using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.Configuration;
@@ -19,15 +25,25 @@ public static class BlazorConfiguration
         Type mappingProfileMarkerType = null
     )
     {
-        builder.AddComponents();
-
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
-        builder.Services.AddCookieAuthentication(builder.Configuration);
+        builder.Services.AddRazorFileProvider();
+
+        builder.Services.AddBlazoredToast();
+
+        builder.Services.AddBlazoredModal();
+
+        builder.Services.AddMessageService();
 
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
+
+        builder.Services.AddCookieAuthentication(builder.Configuration);
+
+        builder.Services.AddAuthenticationStateService();
+
+        builder.Services.AddAuthenticationStateValidator();
 
         builder.Services.AddWebOptimization(builder.Configuration);
     }
@@ -64,5 +80,33 @@ public static class BlazorConfiguration
         app.MapFallbackToPage("/_Host");
 
         return app;
+    }
+
+    /// <summary>
+    /// It shares all the razor views and components with consumer applications
+    /// </summary>
+    private static void AddRazorFileProvider(this IServiceCollection services)
+    {
+        string libraryPath = typeof(BlazorConfiguration).GetTypeInfo().Assembly.Location;
+
+        services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
+        {
+            options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
+        });
+    }
+
+    private static void AddMessageService(this IServiceCollection services)
+    {
+        services.AddScoped<MessageService>();
+    }
+
+    private static void AddAuthenticationStateValidator(this IServiceCollection services)
+    {
+        services.AddScoped<AuthenticationStateValidator>();
+    }
+
+    private static void AddAuthenticationStateService(this IServiceCollection services)
+    {
+        services.AddSingleton<AuthenticationStateService>();
     }
 }
