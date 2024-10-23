@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Blazor.Server</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Blazor.Server</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>10.0.18</VersionPrefix>
+		<VersionPrefix>10.0.19</VersionPrefix>
 		<Authors>Hamed Shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Blazor.Server</PackageId>

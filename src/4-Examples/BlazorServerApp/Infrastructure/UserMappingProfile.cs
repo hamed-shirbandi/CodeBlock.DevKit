@@ -3,9 +3,9 @@ using BlazorServerApp.Models;
 
 namespace BlazorServerApp.Infrastructure;
 
-public class MappingProfile : Profile
+public class UserMappingProfile : Profile
 {
-    public MappingProfile()
+    public UserMappingProfile()
     {
         CreateMap<User, UserDto>();
     }

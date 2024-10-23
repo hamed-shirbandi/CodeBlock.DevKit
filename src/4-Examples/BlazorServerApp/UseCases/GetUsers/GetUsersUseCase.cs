@@ -4,7 +4,7 @@ using BlazorServerApp.Models;
 using CodeBlock.DevKit.Application.Queries;
 using MediatR;
 
-namespace BlazorServerApp.UserCases.GetUsers;
+namespace BlazorServerApp.UseCases.GetUsers;
 
 public class GetUsersUseCase : BaseQueryHandler, IRequestHandler<GetUsersRequest, IEnumerable<UserDto>>
 {

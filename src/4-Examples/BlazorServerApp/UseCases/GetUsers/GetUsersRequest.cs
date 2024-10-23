@@ -1,7 +1,7 @@
 ﻿using BlazorServerApp.Models;
 using CodeBlock.DevKit.Application.Queries;
 
-namespace BlazorServerApp.UserCases.GetUsers;
+namespace BlazorServerApp.UseCases.GetUsers;
 
 public class GetUsersRequest : BaseQuery<IEnumerable<UserDto>>
 {

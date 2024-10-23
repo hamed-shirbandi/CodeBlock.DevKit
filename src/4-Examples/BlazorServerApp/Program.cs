@@ -1,7 +1,7 @@
 using BlazorServerApp.Infrastructure;
-using BlazorServerApp.UserCases.GetUsers;
-using BlazorServerApp.UserCases.RegisterUser;
+using BlazorServerApp.UseCases.GetUsers;
 using CodeBlock.DevKit.Authorization;
+using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Authorization.UI.Configuration;
 using CodeBlock.DevKit.Web.Blazor.Server.Configuration;
 
@@ -13,11 +13,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.AddBlazorPreConfigured(
-            validatorAssemblyMarkerType: typeof(RegisterUserValidation),
-            handlerAssemblyMarkerType: typeof(GetUsersUseCase),
-            mappingProfileMarkerType: typeof(MappingProfile)
-        );
+        builder.AddBlazorPreConfigured(handlerAssemblyMarkerType: typeof(GetUsersUseCase), mappingProfileMarkerType: typeof(UserMappingProfile));
 
         builder.Services.AddAuthorizationModule(builder.Configuration);
 
@@ -28,6 +24,8 @@ public class Program
         var app = builder.Build();
 
         app.UseBlazorPreConfigured();
+
+        app.Services.InitialAuthorizationDb();
 
         app.Run();
     }

@@ -1,0 +1,13 @@
+﻿@inject NavigationManager NavigationManager
+
+@code
+{
+    [Parameter]
+    public string LoginPath { get; set; } = "/login";
+    public string ReturnUrlParameterName { get; set; } = "returnUrl";
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.NavigateTo($"{LoginPath}?{ReturnUrlParameterName}=/{Uri.EscapeDataString(NavigationManager.ToBaseRelativePath(NavigationManager.Uri))}", true);
+    }
+}
