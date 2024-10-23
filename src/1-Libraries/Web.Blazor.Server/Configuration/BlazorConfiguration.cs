@@ -6,6 +6,7 @@ using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -29,12 +30,6 @@ public static class BlazorConfiguration
 
         builder.Services.AddRazorFileProvider();
 
-        builder.Services.AddBlazoredToast();
-
-        builder.Services.AddBlazoredModal();
-
-        builder.Services.AddMessageService();
-
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
@@ -46,6 +41,12 @@ public static class BlazorConfiguration
         builder.Services.AddAuthenticationStateValidator();
 
         builder.Services.AddWebOptimization(builder.Configuration);
+
+        builder.Services.AddBlazoredToast();
+
+        builder.Services.AddBlazoredModal();
+
+        builder.Services.AddMessageService();
     }
 
     /// <summary>
@@ -102,7 +103,7 @@ public static class BlazorConfiguration
 
     private static void AddAuthenticationStateValidator(this IServiceCollection services)
     {
-        services.AddScoped<AuthenticationStateValidator>();
+        services.AddScoped<AuthenticationStateProvider, AuthenticationStateValidator>();
     }
 
     private static void AddAuthenticationStateService(this IServiceCollection services)
