@@ -29,7 +29,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public AuthorizationResource() {
+        internal AuthorizationResource() {
         }
         
         /// <summary>
@@ -124,6 +124,15 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نام.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to لطفا فقط از کارکتر های مجاز برای نمایش در آدرس پیج استفاده کنید. مثل حروف، اعداد، خط تیره، زیر خط و ....
         /// </summary>
         public static string Only_Safe_Characters {
@@ -156,6 +165,15 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         public static string PasswordSalt {
             get {
                 return ResourceManager.GetString("PasswordSalt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نقش.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
             }
         }
         

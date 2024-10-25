@@ -7,22 +7,11 @@ namespace CodeBlock.DevKit.Authorization.Domain;
 
 public class User : AggregateRoot
 {
-    private User(IUserRepository userRepository, IEncryptionService encryptionService, string mobile, string email, string password)
-    {
-        Mobile = mobile;
-        Email = email;
-
-        SetPassword(encryptionService, password);
-
-        CheckPolicies(userRepository);
-    }
-
     private User(IUserRepository userRepository, string mobile, string email)
     {
         Mobile = mobile;
         Email = email;
-        PasswordHash = Guid.NewGuid().ToString();
-        PasswordSalt = Guid.NewGuid().ToString();
+        Roles = new List<string>();
 
         CheckPolicies(userRepository);
     }
@@ -31,13 +20,9 @@ public class User : AggregateRoot
     public string Email { get; private set; }
     public string PasswordHash { get; private set; }
     public string PasswordSalt { get; private set; }
+    public List<string> Roles { get; private set; }
 
-    public static User Register(IUserRepository userRepository, IEncryptionService encryptionService, string mobile, string email, string password)
-    {
-        return new User(userRepository, encryptionService, mobile, email, password);
-    }
-
-    public static User RegisterWithoutPassword(IUserRepository userRepository, string mobile, string email)
+    public static User Register(IUserRepository userRepository, string mobile, string email)
     {
         return new User(userRepository, mobile, email);
     }
@@ -50,14 +35,7 @@ public class User : AggregateRoot
         CheckPolicies(userRepository);
     }
 
-    public void ChangePassword(IUserRepository userRepository, IEncryptionService encryptionService, string newPassword)
-    {
-        SetPassword(encryptionService, newPassword);
-
-        CheckPolicies(userRepository);
-    }
-
-    private void SetPassword(IEncryptionService encryptionService, string newPassword)
+    public void SetPassword(IEncryptionService encryptionService, string newPassword)
     {
         PasswordSalt = encryptionService.CreateSaltKey(5);
         PasswordHash = encryptionService.CreatePasswordHash(newPassword, PasswordSalt);
@@ -67,6 +45,14 @@ public class User : AggregateRoot
     {
         var newPasswordHash = encryptionService.CreatePasswordHash(password, PasswordSalt);
         return newPasswordHash == PasswordHash;
+    }
+
+    public void AddRole(string role)
+    {
+        if (Roles.Contains(role))
+            return;
+
+        Roles.Add(role);
     }
 
     protected override void CheckInvariants() { }

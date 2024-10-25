@@ -156,4 +156,10 @@
   <data name="EmailOrMobile_Does_Not_Exist" xml:space="preserve">
     <value>ایمیل یا موبایل یافت نشد</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>نقش</value>
+  </data>
 </root>
