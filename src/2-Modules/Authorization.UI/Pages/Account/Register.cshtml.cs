@@ -14,10 +14,15 @@ public class RegisterModel : BasePageModel
     private readonly ICookieAuthenticationService _cookieAuthenticationService;
     private readonly AuthenticationStateService _authenticationStateService;
 
-    public RegisterModel(ICookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
+    public RegisterModel(
+        ICookieAuthenticationService cookieAuthenticationService,
+        IInMemoryBus inMemoryBus,
+        AuthenticationStateService authenticationStateService
+    )
         : base(inMemoryBus)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
+        _authenticationStateService = authenticationStateService;
     }
 
     [BindProperty]
