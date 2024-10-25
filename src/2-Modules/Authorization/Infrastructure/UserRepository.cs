@@ -24,20 +24,14 @@ public class UserRepository : MongoDbBaseAggregateRepository<User>, IUserReposit
 
     #region Public Methods
 
-    public async Task<User> GetByEmailOrMobileAsync(string emailOrMobile)
+    public async Task<User> GetByEmailAsync(string email)
     {
-        return await _users.Find(e => e.Email == emailOrMobile || e.Mobile == emailOrMobile).FirstOrDefaultAsync();
+        return await _users.Find(e => e.Email == email).FirstOrDefaultAsync();
     }
 
     public bool EmailIsUnique(string userId, string email)
     {
         var user = _users.Find(e => e.Email == email).FirstOrDefault();
-        return user == null || user.Id == userId;
-    }
-
-    public bool MobileIsUnique(string userId, string mobile)
-    {
-        var user = _users.Find(e => e.Mobile == mobile).FirstOrDefault();
         return user == null || user.Id == userId;
     }
 

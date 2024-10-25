@@ -24,7 +24,7 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
         if (user is null)
             throw new ApplicationException(string.Format(CommonResource.Not_Found, AuthorizationResource.User));
 
-        user.Update(_userRepository, request.Mobile, request.Email);
+        user.Update(_userRepository, request.Email);
 
         await _userRepository.UpdateAsync(user);
 

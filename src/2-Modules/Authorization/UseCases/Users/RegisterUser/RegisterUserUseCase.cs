@@ -30,7 +30,7 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
 
     public async Task<CommandResult> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
     {
-        var user = User.Register(_userRepository, request.Mobile, request.Email);
+        var user = User.Register(_userRepository, request.Email);
 
         user.SetPassword(_encryptionService, request.Password);
 

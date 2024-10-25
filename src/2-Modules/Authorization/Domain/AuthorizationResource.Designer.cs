@@ -70,74 +70,11 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ایمیل یا موبایل.
-        /// </summary>
-        public static string EmailOrMobile {
-            get {
-                return ResourceManager.GetString("EmailOrMobile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ایمیل یا موبایل یافت نشد.
-        /// </summary>
-        public static string EmailOrMobile_Does_Not_Exist {
-            get {
-                return ResourceManager.GetString("EmailOrMobile_Does_Not_Exist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to اطلاعات وارد شده معتبر نبود.
         /// </summary>
         public static string Invalid_Credentials {
             get {
                 return ResourceManager.GetString("Invalid_Credentials", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to نام کاربری اشتباه است.
-        /// </summary>
-        public static string Invalid_UserName {
-            get {
-                return ResourceManager.GetString("Invalid_UserName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to موبایل.
-        /// </summary>
-        public static string Mobile {
-            get {
-                return ResourceManager.GetString("Mobile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to موبایل یا ایمیل را وارد کنید.
-        /// </summary>
-        public static string Mobile_Or_Email_Is_Required {
-            get {
-                return ResourceManager.GetString("Mobile_Or_Email_Is_Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to نام.
-        /// </summary>
-        public static string Name {
-            get {
-                return ResourceManager.GetString("Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to لطفا فقط از کارکتر های مجاز برای نمایش در آدرس پیج استفاده کنید. مثل حروف، اعداد، خط تیره، زیر خط و ....
-        /// </summary>
-        public static string Only_Safe_Characters {
-            get {
-                return ResourceManager.GetString("Only_Safe_Characters", resourceCulture);
             }
         }
         
@@ -151,24 +88,6 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to رمز عبور.
-        /// </summary>
-        public static string PasswordHash {
-            get {
-                return ResourceManager.GetString("PasswordHash", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to رمز عبور.
-        /// </summary>
-        public static string PasswordSalt {
-            get {
-                return ResourceManager.GetString("PasswordSalt", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to نقش.
         /// </summary>
         public static string Role {
@@ -178,20 +97,20 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نام.
+        /// </summary>
+        public static string Role_Name {
+            get {
+                return ResourceManager.GetString("Role_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to کاربر.
         /// </summary>
         public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to نام کاربری.
-        /// </summary>
-        public static string UserName {
-            get {
-                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }

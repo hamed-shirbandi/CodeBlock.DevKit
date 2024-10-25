@@ -22,7 +22,7 @@ public class VerifyUserPasswordUseCase : BaseQueryHandler, IRequestHandler<Verif
 
     public async Task<GetUserDto> Handle(VerifyUserPasswordRequest request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetByEmailOrMobileAsync(request.EmailOrMobile);
+        var user = await _userRepository.GetByEmailAsync(request.Email);
         if (user is null)
             throw new ApplicationException(AuthorizationResource.Invalid_Credentials);
 

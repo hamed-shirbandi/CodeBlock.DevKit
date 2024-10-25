@@ -15,8 +15,8 @@
             @Html.AntiForgeryToken()
 
             <div class="form-group p-2">
-                <input asp-for="VerifyUserPasswordRequest.EmailOrMobile" class="form-control" placeholder="ایمیل یا موبایل" />
-                <span asp-validation-for="VerifyUserPasswordRequest.EmailOrMobile" class="text-danger"></span>
+                <input asp-for="VerifyUserPasswordRequest.Email" class="form-control" placeholder="ایمیل یا موبایل" />
+                <span asp-validation-for="VerifyUserPasswordRequest.Email" class="text-danger"></span>
             </div>
             <div class="form-group p-2">
                 <input asp-for="VerifyUserPasswordRequest.Password" class="form-control" placeholder="پسورد" />

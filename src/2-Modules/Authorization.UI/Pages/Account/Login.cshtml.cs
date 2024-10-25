@@ -49,11 +49,7 @@ public class LoginModel : BasePageModel
             return Page();
         }
 
-        await _cookieAuthenticationService.SignInAsync(
-            verifyUserPasswordResult.Value.Id,
-            verifyUserPasswordResult.Value.UserName,
-            isPersistent: true
-        );
+        await _cookieAuthenticationService.SignInAsync(verifyUserPasswordResult.Value.Id, verifyUserPasswordResult.Value.Email, isPersistent: true);
 
         _authenticationStateService.AddUserId(verifyUserPasswordResult.Value.Id);
 

@@ -7,7 +7,7 @@ namespace CodeBlock.DevKit.Authorization.UseCases.Users.SetRandomUserPassword;
 
 public class ChangeUserPasswordRequest : BaseCommand
 {
-    [Display(Name = nameof(AuthorizationResource.EmailOrMobile), ResourceType = typeof(AuthorizationResource))]
+    [Display(Name = nameof(AuthorizationResource.Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CommonResource.Required), ErrorMessageResourceType = typeof(CommonResource))]
-    public string EmailOrMobile { get; set; }
+    public string Email { get; set; }
 }

@@ -4,7 +4,6 @@ namespace CodeBlock.DevKit.Authorization.Domain;
 
 public interface IUserRepository : IBaseAggregateRepository<User>
 {
-    Task<User> GetByEmailOrMobileAsync(string emailOrMobile);
-    bool MobileIsUnique(string id, string mobile);
+    Task<User> GetByEmailAsync(string emailOrMobile);
     public bool EmailIsUnique(string id, string email);
 }

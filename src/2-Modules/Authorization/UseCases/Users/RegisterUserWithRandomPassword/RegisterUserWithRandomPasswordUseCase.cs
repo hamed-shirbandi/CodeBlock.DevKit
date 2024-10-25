@@ -31,7 +31,7 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
 
     public async Task<CommandResult> Handle(RegisterUserWithRandomPasswordRequest request, CancellationToken cancellationToken)
     {
-        var user = User.Register(_userRepository, request.Mobile, request.Email);
+        var user = User.Register(_userRepository, request.Email);
 
         user.AddRole(_options.DefaultRole);
 

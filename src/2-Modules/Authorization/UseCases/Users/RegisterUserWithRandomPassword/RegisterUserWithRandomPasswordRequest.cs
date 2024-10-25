@@ -7,10 +7,6 @@ namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUserWithRandomPa
 
 public class RegisterUserWithRandomPasswordRequest : BaseCommand
 {
-    [Display(Name = nameof(AuthorizationResource.Mobile), ResourceType = typeof(AuthorizationResource))]
-    [Required(ErrorMessageResourceName = nameof(CommonResource.Required), ErrorMessageResourceType = typeof(CommonResource))]
-    public string Mobile { get; set; }
-
     [Display(Name = nameof(AuthorizationResource.Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CommonResource.Required), ErrorMessageResourceType = typeof(CommonResource))]
     [DataType(DataType.Password)]

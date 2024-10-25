@@ -32,9 +32,9 @@ public class Role : AggregateRoot
     private void CheckPolicies(IRoleRepository roleRepository)
     {
         if (string.IsNullOrEmpty(Name))
-            throw new DomainException(string.Format(CommonResource.Required, AuthorizationResource.Name));
+            throw new DomainException(string.Format(CommonResource.Required, AuthorizationResource.Role_Name));
 
         if (!roleRepository.NameIsUnique(Id, Name))
-            throw new DomainException(string.Format(CommonResource.ALready_Exists, AuthorizationResource.Name));
+            throw new DomainException(string.Format(CommonResource.ALready_Exists, AuthorizationResource.Role_Name));
     }
 }

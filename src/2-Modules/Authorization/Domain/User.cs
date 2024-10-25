@@ -7,29 +7,26 @@ namespace CodeBlock.DevKit.Authorization.Domain;
 
 public class User : AggregateRoot
 {
-    private User(IUserRepository userRepository, string mobile, string email)
+    private User(IUserRepository userRepository, string email)
     {
-        Mobile = mobile;
         Email = email;
         Roles = new List<string>();
 
         CheckPolicies(userRepository);
     }
 
-    public string Mobile { get; private set; }
     public string Email { get; private set; }
     public string PasswordHash { get; private set; }
     public string PasswordSalt { get; private set; }
     public List<string> Roles { get; private set; }
 
-    public static User Register(IUserRepository userRepository, string mobile, string email)
+    public static User Register(IUserRepository userRepository, string email)
     {
-        return new User(userRepository, mobile, email);
+        return new User(userRepository, email);
     }
 
-    public void Update(IUserRepository userRepository, string mobile, string email)
+    public void Update(IUserRepository userRepository, string email)
     {
-        Mobile = mobile;
         Email = email;
 
         CheckPolicies(userRepository);
@@ -59,25 +56,10 @@ public class User : AggregateRoot
 
     private void CheckPolicies(IUserRepository userRepository)
     {
-        if (string.IsNullOrEmpty(PasswordHash))
-            throw new DomainException(string.Format(CommonResource.Required, AuthorizationResource.PasswordHash));
+        if (string.IsNullOrEmpty(Email))
+            throw new DomainException(string.Format(CommonResource.Required, AuthorizationResource.Email));
 
-        if (string.IsNullOrEmpty(PasswordSalt))
-            throw new DomainException(string.Format(CommonResource.Required, AuthorizationResource.PasswordSalt));
-
-        if (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Mobile))
-            throw new DomainException(AuthorizationResource.Mobile_Or_Email_Is_Required);
-
-        if (!string.IsNullOrEmpty(Mobile))
-        {
-            if (!userRepository.MobileIsUnique(Id, Mobile))
-                throw new DomainException(string.Format(CommonResource.ALready_Exists, AuthorizationResource.Mobile));
-        }
-
-        if (!string.IsNullOrEmpty(Email))
-        {
-            if (!userRepository.EmailIsUnique(Id, Email))
-                throw new DomainException(string.Format(CommonResource.ALready_Exists, AuthorizationResource.Email));
-        }
+        if (!userRepository.EmailIsUnique(Id, Email))
+            throw new DomainException(string.Format(CommonResource.ALready_Exists, AuthorizationResource.Email));
     }
 }

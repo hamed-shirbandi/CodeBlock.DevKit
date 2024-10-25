@@ -43,13 +43,7 @@ public class RegisterModel : BasePageModel
 
         var registerUserResult = await _inMemoryBus.SendCommand(RegisterUserRequest);
         if (registerUserResult.IsSuccess)
-        {
-            await _cookieAuthenticationService.SignInAsync(
-                registerUserResult.Value.EntityId,
-                RegisterUserRequest.Email ?? RegisterUserRequest.Mobile,
-                isPersistent: true
-            );
-        }
+            await _cookieAuthenticationService.SignInAsync(registerUserResult.Value.EntityId, RegisterUserRequest.Email, isPersistent: true);
 
         _authenticationStateService.AddUserId(registerUserResult.Value.EntityId);
 

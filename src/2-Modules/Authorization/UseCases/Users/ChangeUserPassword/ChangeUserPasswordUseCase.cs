@@ -2,6 +2,7 @@
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Core.Helpers;
+using CodeBlock.DevKit.Core.Resources;
 using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 
@@ -21,9 +22,9 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
 
     public async Task<CommandResult> Handle(ChangeUserPasswordRequest request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetByEmailOrMobileAsync(request.EmailOrMobile);
+        var user = await _userRepository.GetByEmailAsync(request.Email);
         if (user is null)
-            throw new ApplicationException(AuthorizationResource.Invalid_UserName);
+            throw new ApplicationException(string.Format(CommonResource.Not_Found, AuthorizationResource.Email));
 
         user.SetPassword(_encryptionService, request.Password);
 

@@ -14,19 +14,9 @@
 
             @Html.AntiForgeryToken()
 
-            <ul class="text-secondary fw-light">
-                <li><small>بین موبایل و ایمیل، حداقل یکیشون الزامیه</small></li>
-                <li><small>هیچکس نمیتونه ایمیل و موبایل شمارو ببینه</small></li>
-                <li><small>شما موقع فراموشی رمز عبور بهشون نیاز دارید</small></li>
-            </ul>
-
             <div class="form-group p-2">
                 <input asp-for="RegisterUserRequest.Email" class="form-control" placeholder="ایمیل" />
                 <span asp-validation-for="RegisterUserRequest.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group p-2">
-                <input asp-for="RegisterUserRequest.Mobile" class="form-control" placeholder="موبایل" />
-                <span asp-validation-for="RegisterUserRequest.Mobile" class="text-danger"></span>
             </div>
             <div class="form-group p-2">
                 <input asp-for="RegisterUserRequest.Password" class="form-control" placeholder="رمز عبور" />

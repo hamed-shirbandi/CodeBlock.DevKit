@@ -38,7 +38,7 @@ public static class AuthorizationDbInitialization
         var userRepository = serviceScope.ServiceProvider.GetService<IUserRepository>();
         var encryptionService = serviceScope.ServiceProvider.GetService<IEncryptionService>();
 
-        var user = User.Register(userRepository, options.AdminUser.Mobile, options.AdminUser.Email);
+        var user = User.Register(userRepository, options.AdminUser.Email);
 
         user.SetPassword(encryptionService, options.AdminUser.Password);
 
@@ -73,14 +73,7 @@ public static class AuthorizationDbInitialization
         dbContext.Users.Indexes.CreateOneAsync(
             new CreateIndexModel<User>(
                 Builders<User>.IndexKeys.Ascending(x => x.Email),
-                new CreateIndexOptions() { Name = nameof(User.Email), Unique = false }
-            )
-        );
-
-        dbContext.Users.Indexes.CreateOneAsync(
-            new CreateIndexModel<User>(
-                Builders<User>.IndexKeys.Ascending(x => x.Mobile),
-                new CreateIndexOptions() { Name = nameof(User.Mobile), Unique = false }
+                new CreateIndexOptions() { Name = nameof(User.Email), Unique = true }
             )
         );
 
