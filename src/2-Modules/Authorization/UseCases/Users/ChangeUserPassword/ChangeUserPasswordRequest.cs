@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CodeBlock.DevKit.Application.Queries;
+using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Authorization.Domain;
-using CodeBlock.DevKit.Authorization.Dtos;
 using CodeBlock.DevKit.Core.Resources;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.VerifyUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.ChangeUserPassword;
 
-public class VerifyUserPasswordRequest : BaseQuery<GetUserDto>
+public class ChangeUserPasswordRequest : BaseCommand
 {
     [Display(Name = nameof(AuthorizationResource.EmailOrMobile), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CommonResource.Required), ErrorMessageResourceType = typeof(CommonResource))]

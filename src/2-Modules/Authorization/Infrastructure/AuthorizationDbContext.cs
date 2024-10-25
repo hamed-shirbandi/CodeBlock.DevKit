@@ -14,7 +14,9 @@ public class AuthorizationDbContext : MongoDbContext
         : base(mongoDbOptions)
     {
         Users = GetCollection<User>();
+        Roles = GetCollection<Role>();
     }
 
     public IMongoCollection<User> Users { get; }
+    public IMongoCollection<Role> Roles { get; }
 }

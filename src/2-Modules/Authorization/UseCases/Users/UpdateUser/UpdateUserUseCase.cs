@@ -6,7 +6,7 @@ using CodeBlock.DevKit.Core.Resources;
 using MediatR;
 using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.UpdateUser;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.UpdateUser;
 
 public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserRequest, CommandResult>
 {

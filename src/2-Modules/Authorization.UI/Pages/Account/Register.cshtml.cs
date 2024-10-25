@@ -1,5 +1,5 @@
 using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Authorization.UseCases.RegisterUser;
+using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.Models;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.CookieAuthentication;

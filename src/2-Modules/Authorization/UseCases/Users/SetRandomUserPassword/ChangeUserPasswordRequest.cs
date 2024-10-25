@@ -3,7 +3,7 @@ using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Core.Resources;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.SetRandomUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.SetRandomUserPassword;
 
 public class ChangeUserPasswordRequest : BaseCommand
 {

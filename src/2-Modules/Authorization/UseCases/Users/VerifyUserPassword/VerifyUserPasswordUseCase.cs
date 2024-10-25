@@ -6,7 +6,7 @@ using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.VerifyUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.VerifyUserPassword;
 
 public class VerifyUserPasswordUseCase : BaseQueryHandler, IRequestHandler<VerifyUserPasswordRequest, GetUserDto>
 {

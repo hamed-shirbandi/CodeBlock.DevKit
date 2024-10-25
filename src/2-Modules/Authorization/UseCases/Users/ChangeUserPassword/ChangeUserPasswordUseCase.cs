@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.ChangeUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.ChangeUserPassword;
 
 public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<ChangeUserPasswordRequest, CommandResult>
 {
@@ -25,7 +25,7 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
         if (user is null)
             throw new ApplicationException(AuthorizationResource.Invalid_UserName);
 
-        user.ChangePassword(_userRepository, _encryptionService, request.Password);
+        user.SetPassword(_encryptionService, request.Password);
 
         await _userRepository.UpdateAsync(user);
 

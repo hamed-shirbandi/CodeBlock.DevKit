@@ -6,7 +6,7 @@ using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.SetRandomUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.SetRandomUserPassword;
 
 public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<ChangeUserPasswordRequest, CommandResult>
 {
@@ -28,7 +28,7 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
 
         var randomPassword = RandomDataGenerator.GetRandomNumber(length: 4);
 
-        user.ChangePassword(_userRepository, _encryptionService, randomPassword);
+        user.SetPassword(_encryptionService, randomPassword);
 
         await _userRepository.UpdateAsync(user);
 
