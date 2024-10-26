@@ -17,7 +17,7 @@
 @using CodeBlock.DevKit.Web.Blazor.Server.Components
 
 @inject NavigationManager NavigationManager
-@attribute [Authorize]
+@attribute [Authorize(Roles= "admin")]
 @inject IToastService ToastService
 @inject IModalService ModalService
 @inject IInMemoryBus InMemoryBus

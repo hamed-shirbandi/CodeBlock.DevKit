@@ -1,4 +1,5 @@
 ﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+using CodeBlock.DevKit.Web.CookieAuthentication;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
@@ -33,6 +34,8 @@ public static class WebConfiguration
         builder.Services.AddHttpContextAccessor();
 
         builder.Services.AddAuthenticatedUserService();
+
+        builder.Services.AddCookieAuthentication(builder.Configuration);
 
         builder.AddMetrics();
     }

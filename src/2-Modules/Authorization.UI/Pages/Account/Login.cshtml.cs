@@ -11,11 +11,11 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 [AllowAnonymous]
 public class LoginModel : BasePageModel
 {
-    private readonly ICookieAuthenticationService _cookieAuthenticationService;
+    private readonly CookieAuthenticationService _cookieAuthenticationService;
     private readonly AuthenticationStateService _authenticationStateService;
 
     public LoginModel(
-        ICookieAuthenticationService cookieAuthenticationService,
+        CookieAuthenticationService cookieAuthenticationService,
         IInMemoryBus inMemoryBus,
         AuthenticationStateService authenticationStateService
     )
@@ -49,7 +49,12 @@ public class LoginModel : BasePageModel
             return Page();
         }
 
-        await _cookieAuthenticationService.SignInAsync(verifyUserPasswordResult.Value.Id, verifyUserPasswordResult.Value.Email, isPersistent: true);
+        await _cookieAuthenticationService.SignInAsync(
+            verifyUserPasswordResult.Value.Id,
+            verifyUserPasswordResult.Value.Email,
+            verifyUserPasswordResult.Value.Roles,
+            isPersistent: true
+        );
 
         _authenticationStateService.AddUserId(verifyUserPasswordResult.Value.Id);
 

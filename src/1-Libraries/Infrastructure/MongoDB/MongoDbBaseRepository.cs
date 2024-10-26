@@ -78,7 +78,6 @@ public class MongoDbBaseRepository<TEntity> : IBaseRepository<TEntity>
     /// </summary>
     public void Dispose()
     {
-        //   Db.Dispose();
         GC.SuppressFinalize(this);
     }
 

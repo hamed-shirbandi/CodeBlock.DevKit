@@ -4,7 +4,6 @@ using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.Configuration;
-using CodeBlock.DevKit.Web.CookieAuthentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,8 +31,6 @@ public static class BlazorConfiguration
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
-
-        builder.Services.AddCookieAuthentication(builder.Configuration);
 
         builder.Services.AddWebOptimization(builder.Configuration);
 

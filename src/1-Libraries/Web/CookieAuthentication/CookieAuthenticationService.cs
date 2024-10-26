@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Web.CookieAuthentication;
 
-public class CookieAuthenticationService : ICookieAuthenticationService
+public class CookieAuthenticationService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly CookieAuthenticationOptions _options;
@@ -17,9 +17,9 @@ public class CookieAuthenticationService : ICookieAuthenticationService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public async Task SignInAsync(string userId, string userName, bool isPersistent)
+    public async Task SignInAsync(string userId, string userName, IEnumerable<string> roles, bool isPersistent)
     {
-        var claims = GetClaims(userId, userName);
+        var claims = GetClaims(userId, userName, roles);
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var authProperties = new AuthenticationProperties
@@ -41,9 +41,12 @@ public class CookieAuthenticationService : ICookieAuthenticationService
         await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
     }
 
-    public List<Claim> GetClaims(string userId, string userName)
+    public List<Claim> GetClaims(string userId, string userName, IEnumerable<string> roles)
     {
         var claims = new List<Claim> { new Claim(ClaimTypes.Name, userName), new Claim(ClaimTypes.NameIdentifier, userId) };
+
+        foreach (var role in roles)
+            claims.Add(new Claim(ClaimTypes.Role, role));
 
         return claims;
     }

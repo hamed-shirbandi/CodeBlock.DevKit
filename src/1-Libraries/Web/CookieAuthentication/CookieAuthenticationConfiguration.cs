@@ -24,7 +24,7 @@ public static class CookieAuthenticationConfiguration
         var options = services.BuildServiceProvider().GetRequiredService<IOptions<CookieAuthenticationOptions>>();
 
         services.AddHttpContextAccessor();
-        services.AddScoped<ICookieAuthenticationService, CookieAuthenticationService>();
+        services.AddScoped<CookieAuthenticationService>();
 
         services
             .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

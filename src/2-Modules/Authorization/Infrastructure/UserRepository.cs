@@ -35,6 +35,11 @@ public class UserRepository : MongoDbBaseAggregateRepository<User>, IUserReposit
         return user == null || user.Id == userId;
     }
 
+    public async Task<long> CountByRoleAsync(string role)
+    {
+        return await _users.CountDocumentsAsync(u => u.Roles.Contains(role));
+    }
+
     #endregion
 
     #region Private Methods

@@ -1,5 +1,6 @@
 using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Authorization.UI.Services;
+using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.Models;
 using CodeBlock.DevKit.Web.CookieAuthentication;
@@ -11,11 +12,11 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 [AllowAnonymous]
 public class RegisterModel : BasePageModel
 {
-    private readonly ICookieAuthenticationService _cookieAuthenticationService;
+    private readonly CookieAuthenticationService _cookieAuthenticationService;
     private readonly AuthenticationStateService _authenticationStateService;
 
     public RegisterModel(
-        ICookieAuthenticationService cookieAuthenticationService,
+        CookieAuthenticationService cookieAuthenticationService,
         IInMemoryBus inMemoryBus,
         AuthenticationStateService authenticationStateService
     )
@@ -49,7 +50,14 @@ public class RegisterModel : BasePageModel
             return Page();
         }
 
-        await _cookieAuthenticationService.SignInAsync(registerUserResult.Value.EntityId, RegisterUserRequest.Email, isPersistent: true);
+        var getUserResult = await _inMemoryBus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
+
+        await _cookieAuthenticationService.SignInAsync(
+            getUserResult.Value.Id,
+            getUserResult.Value.Email,
+            getUserResult.Value.Roles,
+            isPersistent: true
+        );
 
         _authenticationStateService.AddUserId(registerUserResult.Value.EntityId);
 

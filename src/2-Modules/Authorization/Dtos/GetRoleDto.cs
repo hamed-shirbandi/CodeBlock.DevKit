@@ -4,4 +4,5 @@ public class GetRoleDto
 {
     public string Id { get; set; }
     public string Name { get; set; }
+    public long UsersCount { get; set; }
 }
