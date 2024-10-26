@@ -6,16 +6,16 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 
 public static class WebOptimizationConfiguration
 {
-    public static void AddWebOptimization(this IServiceCollection services, IConfiguration configuration)
+    public static void AddWebOptimization(this WebApplicationBuilder builder)
     {
-        var optimizationOptions = configuration.GetSection("Optimization").Get<WebOptimizationOptions>();
+        var optimizationOptions = builder.Configuration.GetSection("Optimization").Get<WebOptimizationOptions>();
         if (optimizationOptions == null)
             return;
 
         if (!optimizationOptions.Enabled)
             return;
 
-        services.AddWebOptimizer(
+        builder.Services.AddWebOptimizer(
             pipeline =>
             {
                 foreach (var item in optimizationOptions.BundledJsFiles)

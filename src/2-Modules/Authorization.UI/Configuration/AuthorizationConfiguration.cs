@@ -1,8 +1,11 @@
 using System.Reflection;
+using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Authorization.UI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
@@ -15,6 +18,8 @@ public static class AuthorizationConfiguration
         builder.Services.AddRazorFileProvider();
 
         builder.Services.AddAuthenticationStateValidator();
+
+        builder.AddAdminRolePolicy();
     }
 
     /// <summary>
@@ -35,5 +40,15 @@ public static class AuthorizationConfiguration
         services.AddSingleton<AuthenticationStateService>();
 
         services.AddScoped<AuthenticationStateProvider, AuthenticationStateValidator>();
+    }
+
+    private static void AddAdminRolePolicy(this WebApplicationBuilder builder)
+    {
+        var authorizationSettings = builder.Configuration.GetSection("Authorization").Get<AuthorizationSettings>();
+
+        builder.Services.PostConfigure<AuthorizationOptions>(options =>
+        {
+            options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationSettings.AdminRole));
+        });
     }
 }

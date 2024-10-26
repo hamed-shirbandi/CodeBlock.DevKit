@@ -1,6 +1,7 @@
 using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
+using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.Configuration;
@@ -26,13 +27,17 @@ public static class BlazorConfiguration
     {
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
+        builder.AddCookieAuthentication();
+
+        builder.Services.AddAuthorization();
+
         builder.Services.AddRazorFileProvider();
 
         builder.Services.AddRazorPages();
 
         builder.Services.AddServerSideBlazor();
 
-        builder.Services.AddWebOptimization(builder.Configuration);
+        builder.AddWebOptimization();
 
         builder.Services.AddBlazoredToast();
 

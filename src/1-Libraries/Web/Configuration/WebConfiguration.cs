@@ -1,5 +1,4 @@
 ﻿using CodeBlock.DevKit.Infrastructure.Extensions;
-using CodeBlock.DevKit.Web.CookieAuthentication;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
@@ -35,14 +34,9 @@ public static class WebConfiguration
 
         builder.Services.AddAuthenticatedUserService();
 
-        builder.Services.AddCookieAuthentication(builder.Configuration);
-
         builder.AddMetrics();
     }
 
-    /// <summary>
-    ///
-    /// </summary>
     public static void UseCodeBlockDevKitWeb(this WebApplication app)
     {
         app.UseCustomSerilog();
@@ -51,5 +45,10 @@ public static class WebConfiguration
             app.UseDeveloperExceptionPage();
 
         app.UseMetrics();
+    }
+
+    private static IServiceCollection AddAuthenticatedUserService(this IServiceCollection services)
+    {
+        return services.AddScoped<AuthenticatedUserService>();
     }
 }

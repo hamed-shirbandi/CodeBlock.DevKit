@@ -20,41 +20,45 @@ public static class AuthorizationDbInitialization
 
     private static void SeedEssentialData(IServiceScope serviceScope, AuthorizationDbContext dbContext)
     {
-        var options = serviceScope.ServiceProvider.GetService<IOptions<AuthorizationOptions>>();
+        var authorizationSettings = serviceScope.ServiceProvider.GetService<IOptions<AuthorizationSettings>>();
 
-        if (options == null)
+        if (authorizationSettings == null)
             return;
 
-        serviceScope.SeedDefaultRole(dbContext, options.Value);
-        serviceScope.SeedAdminRole(dbContext, options.Value);
-        serviceScope.SeedAdminUser(dbContext, options.Value);
+        serviceScope.SeedDefaultRole(dbContext, authorizationSettings.Value);
+        serviceScope.SeedAdminRole(dbContext, authorizationSettings.Value);
+        serviceScope.SeedAdminUser(dbContext, authorizationSettings.Value);
     }
 
-    private static void SeedAdminUser(this IServiceScope serviceScope, AuthorizationDbContext dbContext, AuthorizationOptions options)
+    private static void SeedAdminUser(this IServiceScope serviceScope, AuthorizationDbContext dbContext, AuthorizationSettings authorizationSettings)
     {
-        if (dbContext.Users.Find(u => u.Email == options.AdminUser.Email).Any())
+        if (dbContext.Users.Find(u => u.Email == authorizationSettings.AdminUser.Email).Any())
             return;
 
         var userRepository = serviceScope.ServiceProvider.GetService<IUserRepository>();
         var encryptionService = serviceScope.ServiceProvider.GetService<IEncryptionService>();
 
-        var user = User.Register(userRepository, options.AdminUser.Email);
+        var user = User.Register(userRepository, authorizationSettings.AdminUser.Email);
 
-        user.SetPassword(encryptionService, options.AdminUser.Password);
+        user.SetPassword(encryptionService, authorizationSettings.AdminUser.Password);
 
-        user.AddRole(options.AdminRole);
+        user.AddRole(authorizationSettings.AdminRole);
 
         userRepository.AddAsync(user).GetAwaiter().GetResult();
     }
 
-    private static void SeedDefaultRole(this IServiceScope serviceScope, AuthorizationDbContext dbContext, AuthorizationOptions options)
+    private static void SeedDefaultRole(
+        this IServiceScope serviceScope,
+        AuthorizationDbContext dbContext,
+        AuthorizationSettings authorizationSettings
+    )
     {
-        serviceScope.CreateRole(dbContext, options.DefaultRole);
+        serviceScope.CreateRole(dbContext, authorizationSettings.DefaultRole);
     }
 
-    private static void SeedAdminRole(this IServiceScope serviceScope, AuthorizationDbContext dbContext, AuthorizationOptions options)
+    private static void SeedAdminRole(this IServiceScope serviceScope, AuthorizationDbContext dbContext, AuthorizationSettings authorizationSettings)
     {
-        serviceScope.CreateRole(dbContext, options.AdminRole);
+        serviceScope.CreateRole(dbContext, authorizationSettings.AdminRole);
     }
 
     private static void CreateRole(this IServiceScope serviceScope, AuthorizationDbContext dbContext, string roleName)

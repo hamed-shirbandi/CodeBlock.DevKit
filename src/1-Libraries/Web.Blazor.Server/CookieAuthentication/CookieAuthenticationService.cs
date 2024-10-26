@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
-namespace CodeBlock.DevKit.Web.CookieAuthentication;
+namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 
 public class CookieAuthenticationService
 {

@@ -1,33 +1,34 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace CodeBlock.DevKit.Web.CookieAuthentication;
+namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 
 public static class CookieAuthenticationConfiguration
 {
     /// <summary>
     ///
     /// </summary>
-    public static void AddCookieAuthentication(this IServiceCollection services, IConfiguration configuration)
+    public static void AddCookieAuthentication(this WebApplicationBuilder builder)
     {
-        var authConfig = configuration.GetSection("CookieAuthentication");
+        var authConfig = builder.Configuration.GetSection("CookieAuthentication");
         if (!authConfig.Exists())
             return;
 
         Action<CookieAuthenticationOptions> setupAction = authConfig.Bind;
 
-        services.Configure(setupAction);
+        builder.Services.Configure(setupAction);
 
-        var options = services.BuildServiceProvider().GetRequiredService<IOptions<CookieAuthenticationOptions>>();
+        var options = builder.Services.BuildServiceProvider().GetRequiredService<IOptions<CookieAuthenticationOptions>>();
 
-        services.AddHttpContextAccessor();
-        services.AddScoped<CookieAuthenticationService>();
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<CookieAuthenticationService>();
 
-        services
-            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        builder
+            .Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(option =>
             {
                 option.Cookie.SecurePolicy = CookieSecurePolicy.None; // env.IsDevelopment() ? CookieSecurePolicy.None : CookieSecurePolicy.Always;

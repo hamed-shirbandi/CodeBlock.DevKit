@@ -13,13 +13,13 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
 {
     private readonly IUserRepository _userRepository;
     private readonly IEncryptionService _encryptionService;
-    private readonly AuthorizationOptions _options;
+    private readonly AuthorizationSettings _options;
 
     public RegisterUserUseCase(
         IUserRepository userRepository,
         IEncryptionService encryptionService,
         IInMemoryBus inMemoryBus,
-        IOptions<AuthorizationOptions> options
+        IOptions<AuthorizationSettings> options
     )
         : base(inMemoryBus)
     {

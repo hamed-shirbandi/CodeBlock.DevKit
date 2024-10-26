@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 
-public class AuthenticatedUserService : IAuthenticatedUserService
+public class AuthenticatedUserService
 {
     #region Fields
 

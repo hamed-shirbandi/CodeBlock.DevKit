@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.CookieAuthentication;
+﻿namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 
 public class CookieAuthenticationOptions
 {
