@@ -8,6 +8,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<User, GetUserDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email));
+        CreateMap<User, GetUserDto>();
+        CreateMap<Role, GetRoleDto>();
     }
 }
