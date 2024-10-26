@@ -36,18 +36,23 @@ public class RegisterModel : BasePageModel
     /// <summary>
     ///
     /// </summary>
-    public async Task<IActionResult> OnPostAsync()
+    public async Task<IActionResult> OnPostAsync([FromQuery] string returnUrl)
     {
         if (!ModelState.IsValid)
             return Page();
 
         var registerUserResult = await _inMemoryBus.SendCommand(RegisterUserRequest);
-        if (registerUserResult.IsSuccess)
-            await _cookieAuthenticationService.SignInAsync(registerUserResult.Value.EntityId, RegisterUserRequest.Email, isPersistent: true);
+
+        if (!registerUserResult.IsSuccess)
+        {
+            ParseResultToViewData(registerUserResult);
+            return Page();
+        }
+
+        await _cookieAuthenticationService.SignInAsync(registerUserResult.Value.EntityId, RegisterUserRequest.Email, isPersistent: true);
 
         _authenticationStateService.AddUserId(registerUserResult.Value.EntityId);
 
-        ParseResultToViewData(registerUserResult);
-        return Page();
+        return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }
 }

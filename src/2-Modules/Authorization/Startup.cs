@@ -33,6 +33,7 @@ public static class Startup
     private static void AddRepositories(this IServiceCollection services)
     {
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
     }
 
     private static void AddMapper(this IServiceCollection services)
