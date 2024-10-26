@@ -1,0 +1,22 @@
+﻿@using System.Net.Http
+@using Blazored.Modal.Services
+@using Blazored.Toast.Services
+@using Blazored.Modal
+@using CodeBlock.DevKit.Application.Bus
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+@using CodeBlock.DevKit.Core.Extensions
+@using CodeBlock.DevKit.Web.Blazor.Server.Extensions
+@using CodeBlock.DevKit.Web.Blazor.Server.Components
+@using CodeBlock.DevKit.Authorization.Dtos
+
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+@inject IToastService ToastService
+@inject IModalService ModalService
+@inject IInMemoryBus InMemoryBus

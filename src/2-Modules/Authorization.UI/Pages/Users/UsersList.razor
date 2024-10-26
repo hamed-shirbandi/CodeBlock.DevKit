@@ -1,0 +1,38 @@
+﻿@using CodeBlock.DevKit.Authorization.UseCases.Users.GetUsers
+
+<table class="table table-striped table-hover mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    private IEnumerable<GetUserDto> Model = new List<GetUserDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetUsers();
+    }
+
+    private async Task GetUsers()
+    {
+        var result = await InMemoryBus.SendQuery(new GetUsersRequest());
+        result.ShowErrorToast(ToastService);
+
+        if (result.IsSuccess)
+            Model = result.Value;
+    }
+}

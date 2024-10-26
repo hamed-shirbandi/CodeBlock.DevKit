@@ -1,5 +1,3 @@
-using BlazorServerApp.Infrastructure;
-using BlazorServerApp.UseCases.GetUsers;
 using CodeBlock.DevKit.Authorization;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Authorization.UI.Configuration;
@@ -13,13 +11,11 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.AddBlazorPreConfigured(handlerAssemblyMarkerType: typeof(GetUsersUseCase), mappingProfileMarkerType: typeof(UserMappingProfile));
+        builder.AddBlazorPreConfigured(handlerAssemblyMarkerType: typeof(Program));
 
         builder.Services.AddAuthorizationModule(builder.Configuration);
 
         builder.AddAuthorizationUiModule();
-
-        builder.Services.AddSingleton<Database>();
 
         var app = builder.Build();
 

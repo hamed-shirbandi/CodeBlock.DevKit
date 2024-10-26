@@ -1,48 +1,13 @@
 ﻿@page "/users"
-@using BlazorServerApp.Models
-@using BlazorServerApp.UseCases.GetUsers
-@using CodeBlock.DevKit.Application.Bus
-@using Microsoft.Extensions.Configuration;
-@inject IInMemoryBus InMemoryBus
-@inject IConfiguration Configuration
+@using CodeBlock.DevKit.Authorization.UI.Pages.Users
 
 <PageTitle>Users List</PageTitle>
 
 <h1>Users List</h1>
 
+<UsersList />
 
-@if (users == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>userName</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var user in users)
-            {
-                <tr>
-                    <td>@user.Id</td>
-                    <td>@user.UserName</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
 
 @code {
-    private IEnumerable<UserDto> users;
 
-    protected override async Task OnInitializedAsync()
-    {
-        var asda = @Configuration["Optimization"];
-        var getUsersResult = await InMemoryBus.SendQuery(new GetUsersRequest());
-        users = getUsersResult.Value;
-    }
 }
