@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.Extensions.Logging;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.Services;
+namespace CodeBlock.DevKit.Authorization.UI.Services;
 
 public class AuthenticationStateValidator : RevalidatingServerAuthenticationStateProvider
 {

@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Services;
+﻿namespace CodeBlock.DevKit.Authorization.UI.Services;
 
 public class AuthenticationStateService
 {

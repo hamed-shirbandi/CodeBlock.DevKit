@@ -1,3 +1,24 @@
 @using Microsoft.AspNetCore.Identity
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@using CodeBlock.DevKit.Application.Bus
+@using CodeBlock.DevKit.Authorization.UI.Services
+@using CodeBlock.DevKit.Web.CookieAuthentication
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using CodeBlock.DevKit.Core.Extensions
+@using CodeBlock.DevKit.Web.Blazor.Server.Extensions
+@using CodeBlock.DevKit.Web.Blazor.Server.Components
+@using CodeBlock.DevKit.Authorization.Dtos
+@using CodeBlock.DevKit.Web.Blazor.Server.Services
+@using System.Security.Claims
+
+@inject IInMemoryBus InMemoryBus
+@inject ICookieAuthenticationService CookieAuthenticationService
+@inject AuthenticationStateService AuthenticationStateService
