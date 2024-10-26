@@ -7,7 +7,7 @@
 	  <AssemblyName>CodeBlock.DevKit.Authorization.UI</AssemblyName>
 	  <RootNamespace>CodeBlock.DevKit.Authorization.UI</RootNamespace>
 	  <Description>CodeBlock Development Kit</Description>
-	  <VersionPrefix>10.0.4</VersionPrefix>
+	  <VersionPrefix>10.0.5</VersionPrefix>
 	  <Authors>Hamed Shirbandi</Authors>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageId>CodeBlock.DevKit.Authorization.UI</PackageId>
