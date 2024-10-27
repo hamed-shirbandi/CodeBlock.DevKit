@@ -25,10 +25,10 @@ public class VerifyUserPasswordUseCase : BaseQueryHandler, IRequestHandler<Verif
     {
         var user = await _userRepository.GetByEmailAsync(request.Email);
         if (user is null)
-            throw new ApplicationException(AuthorizationResource.Invalid_Credentials);
+            throw new ApplicationException(AuthorizationResource.User_Email_Is_Wrong);
 
         if (!user.VerifyPassword(_encryptionService, request.Password))
-            throw new ApplicationException(AuthorizationResource.Invalid_Credentials);
+            throw new ApplicationException(AuthorizationResource.User_Password_Is_Wrong);
 
         return _mapper.Map<GetUserDto>(user);
     }

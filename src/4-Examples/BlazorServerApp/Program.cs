@@ -9,7 +9,7 @@ namespace BlazorServerApp;
 
 public enum TestEnum
 {
-    [Display(Name = nameof(AuthorizationResource.Email), ResourceType = typeof(AuthorizationResource))]
+    [Display(Name = nameof(AuthorizationResource.User_Email), ResourceType = typeof(AuthorizationResource))]
     First,
 }
 

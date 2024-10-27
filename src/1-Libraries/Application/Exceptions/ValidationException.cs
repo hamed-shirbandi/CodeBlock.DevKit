@@ -13,13 +13,7 @@ public class ValidationException : ManagedException
     ///
     /// </summary>
     public ValidationException()
-        : base("") { }
-
-    /// <summary>
-    ///
-    /// </summary>
-    public ValidationException(string message)
-        : base(message) { }
+        : base() { }
 
     #endregion
 }

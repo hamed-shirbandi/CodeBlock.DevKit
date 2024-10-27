@@ -2,6 +2,7 @@
 using CodeBlock.DevKit.Application.Notifications;
 using CodeBlock.DevKit.Core.Exceptions;
 using MediatR.Pipeline;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 
 namespace CodeBlock.DevKit.Infrastructure.Exceptions;
@@ -12,46 +13,49 @@ namespace CodeBlock.DevKit.Infrastructure.Exceptions;
 public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequestExceptionHandler<TRequest, TResponse, TException>
     where TException : ManagedException
 {
-    #region Fields
-
-
     private readonly INotificationService _notifications;
     private readonly ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> _logger;
+    private readonly IStringLocalizerFactory _localizerFactory;
 
-    #endregion
-
-    #region Ctors
-
-
-    public ManagedExceptionHandler(INotificationService notifications, ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> logger)
+    public ManagedExceptionHandler(
+        INotificationService notifications,
+        ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> logger,
+        IStringLocalizerFactory localizerFactory
+    )
     {
         _notifications = notifications;
         _logger = logger;
+        _localizerFactory = localizerFactory;
     }
 
-    #endregion
-
-    #region Handler
-
-
-
-    /// <summary>
-    ///
-    /// </summary>
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
-        var exceptionType = exception.GetType();
+        if (exception.HasResourceMessage())
+        {
+            // Retrieve the main message using the main resource key and type
+            var localizer = _localizerFactory.Create(exception.MessageResourceType);
+            var mainMessage = localizer[exception.MessageResourceKey];
 
-        //notify exception message if any
-        if (!string.IsNullOrEmpty(exception.Message))
-            _notifications.Add(exceptionType.Name, exception.Message);
+            // Fetch each placeholder resource
+            var placeholders = exception
+                .PlaceholderResourceKeys.Select(kvp =>
+                {
+                    var placeholderLocalizer = _localizerFactory.Create(kvp.Value);
+                    return placeholderLocalizer[kvp.Key];
+                })
+                .ToArray();
 
-        _logger.LogWarning(exception, message: $"request : {JsonSerializer.Serialize(request)}");
+            // Format the main message with placeholders
+            var formattedMessage = string.Format(mainMessage, placeholders);
+
+            // Notify using the formatted message
+            _notifications.Add(exception.MessageResourceKey, formattedMessage);
+        }
+
+        _logger.LogDebug(exception, message: $"request : {JsonSerializer.Serialize(request)}");
 
         state.SetHandled(default);
 
         return Task.CompletedTask;
     }
-
-    #endregion
 }

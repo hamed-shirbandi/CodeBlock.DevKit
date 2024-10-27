@@ -117,25 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="User_Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="User_Email_Is_Wrong" xml:space="preserve">
-    <value>Email is wrong</value>
-  </data>
-  <data name="User_Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="Role" xml:space="preserve">
-    <value>Role</value>
-  </data>
-  <data name="Role_Name" xml:space="preserve">
-    <value>Role Name</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="User_Password_Is_Wrong" xml:space="preserve">
-    <value>Password is wrong</value>
+  <data name="Aggregate_Concurrency_Error" xml:space="preserve">
+    <value>این اطلاعات قبل از اینکه شما آن را تغییر دهید، تغییر کرده است</value>
   </data>
 </root>

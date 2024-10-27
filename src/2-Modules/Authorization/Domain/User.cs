@@ -1,7 +1,4 @@
-﻿using CodeBlock.DevKit.Authorization.Resources;
-using CodeBlock.DevKit.Core.Resources;
-using CodeBlock.DevKit.Domain.Entities;
-using CodeBlock.DevKit.Domain.Exceptions;
+﻿using CodeBlock.DevKit.Domain.Entities;
 using CodeBlock.DevKit.Domain.Services;
 
 namespace CodeBlock.DevKit.Authorization.Domain;
@@ -58,9 +55,9 @@ public class User : AggregateRoot
     private void CheckPolicies(IUserRepository userRepository)
     {
         if (string.IsNullOrEmpty(Email))
-            throw new DomainException(string.Format(CoreResource.Required, AuthorizationResource.Email));
+            throw AuthorizationExceptions.UserEmailIsRequired();
 
         if (!userRepository.EmailIsUnique(Id, Email))
-            throw new DomainException(string.Format(CoreResource.ALready_Exists, AuthorizationResource.Email));
+            throw AuthorizationExceptions.UserEmailMustBeUnique();
     }
 }

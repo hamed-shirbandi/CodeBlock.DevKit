@@ -7,11 +7,11 @@ namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 
 public class RegisterUserRequest : BaseCommand
 {
-    [Display(Name = nameof(AuthorizationResource.Email), ResourceType = typeof(AuthorizationResource))]
+    [Display(Name = nameof(AuthorizationResource.User_Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     public string Email { get; set; }
 
-    [Display(Name = nameof(AuthorizationResource.Password), ResourceType = typeof(AuthorizationResource))]
+    [Display(Name = nameof(AuthorizationResource.User_Password), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     [DataType(DataType.Password)]
     public string Password { get; set; }

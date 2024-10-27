@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CodeBlock.DevKit.Authorization.Resources {
+namespace CodeBlock.DevKit.Infrastructure.Resources {
+    using System;
+    
     
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -20,14 +22,14 @@ namespace CodeBlock.DevKit.Authorization.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class AuthorizationResource {
+    public class InfrastructureResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AuthorizationResource() {
+        internal InfrastructureResource() {
         }
         
         /// <summary>
@@ -37,7 +39,7 @@ namespace CodeBlock.DevKit.Authorization.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Authorization.Resources.AuthorizationResource", typeof(AuthorizationResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Infrastructure.Resources.InfrastructureResource", typeof(InfrastructureResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -59,65 +61,11 @@ namespace CodeBlock.DevKit.Authorization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Role.
+        ///   Looks up a localized string similar to This data was modified before you could change it.
         /// </summary>
-        public static string Role {
+        public static string Aggregate_Concurrency_Error {
             get {
-                return ResourceManager.GetString("Role", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Role Name.
-        /// </summary>
-        public static string Role_Name {
-            get {
-                return ResourceManager.GetString("Role_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User.
-        /// </summary>
-        public static string User {
-            get {
-                return ResourceManager.GetString("User", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email.
-        /// </summary>
-        public static string User_Email {
-            get {
-                return ResourceManager.GetString("User_Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email is wrong.
-        /// </summary>
-        public static string User_Email_Is_Wrong {
-            get {
-                return ResourceManager.GetString("User_Email_Is_Wrong", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Password.
-        /// </summary>
-        public static string User_Password {
-            get {
-                return ResourceManager.GetString("User_Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Password is wrong.
-        /// </summary>
-        public static string User_Password_Is_Wrong {
-            get {
-                return ResourceManager.GetString("User_Password_Is_Wrong", resourceCulture);
+                return ResourceManager.GetString("Aggregate_Concurrency_Error", resourceCulture);
             }
         }
     }

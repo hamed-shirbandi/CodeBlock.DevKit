@@ -25,7 +25,7 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
     {
         var user = await _userRepository.GetByEmailAsync(request.Email);
         if (user is null)
-            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.Email));
+            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.User_Email));
 
         user.SetPassword(_encryptionService, request.Password);
 

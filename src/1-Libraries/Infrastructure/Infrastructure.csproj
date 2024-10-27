@@ -29,6 +29,7 @@
 		<PackageReference Include="EasyCaching.InMemory" Version="1.6.0" />
 		<PackageReference Include="FluentValidation" Version="10.3.5" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.3" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.10" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
@@ -37,6 +38,21 @@
 	
 	<ItemGroup>
 	  <ProjectReference Include="..\Application\Application.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Compile Update="Resources\InfrastructureResource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>InfrastructureResource.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\InfrastructureResource.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>InfrastructureResource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>
