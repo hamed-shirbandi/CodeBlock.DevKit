@@ -16,9 +16,13 @@
 @using CodeBlock.DevKit.Web.Blazor.Server.Extensions
 @using CodeBlock.DevKit.Web.Blazor.Server.Components
 @using Microsoft.Extensions.Localization
+@using Microsoft.Extensions.Localization
+@using BlazorServerApp.Resources
 
 @inject NavigationManager NavigationManager
-@attribute [Authorize(Roles= "admin")]
+@attribute [Authorize(Policy = "AdminRolePolicy")]
 @inject IToastService ToastService
 @inject IModalService ModalService
 @inject IInMemoryBus InMemoryBus
+
+@inject IStringLocalizer<BlazorServerAppResource> Localizer

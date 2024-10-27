@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>تست تست تست</value>
+  <data name="Error_Authorization_Title" xml:space="preserve">
+    <value>Authorizing ...</value>
+  </data>
+  <data name="Error_Authorization_Message" xml:space="preserve">
+    <value>We are authorizing, please wait.</value>
+  </data>
+  <data name="Error_NotFound_Message" xml:space="preserve">
+    <value>Sorry! It seems the page that you are looking for, does not exist.</value>
+  </data>
+  <data name="Error_NotFound_Title" xml:space="preserve">
+    <value>Page not found!</value>
+  </data>
+  <data name="Nav_Menu_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Nav_Menu_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Nav_Menu_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Nav_Menu_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Home_Page_Welcome" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
+  <data name="App_Name" xml:space="preserve">
+    <value>BlazorServerApp</value>
   </data>
 </root>

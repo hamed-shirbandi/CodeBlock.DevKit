@@ -8,7 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BlazorServerApp.Locals {
+namespace CodeBlock.DevKit.Web.Blazor.Server.Resources {
+    using System;
     
     
     /// <summary>
@@ -21,14 +22,14 @@ namespace BlazorServerApp.Locals {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class App {
+    public class BlazorResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public App() {
+        internal BlazorResource() {
         }
         
         /// <summary>
@@ -38,7 +39,7 @@ namespace BlazorServerApp.Locals {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorServerApp.Locals.App", typeof(App).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Web.Blazor.Server.Resources.BlazorResource", typeof(BlazorResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,11 +61,29 @@ namespace BlazorServerApp.Locals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Test Test Test Test.
+        ///   Looks up a localized string similar to We are sorry! We were unable to process your request at this time. Our technical team was informed about this issue and it will be investigated soon. Thank you for your patience..
         /// </summary>
-        public static string Test {
+        public static string Error_Page_Content {
             get {
-                return ResourceManager.GetString("Test", resourceCulture);
+                return ResourceManager.GetString("Error_Page_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go to home page!.
+        /// </summary>
+        public static string Error_Page_Home_Btn {
+            get {
+                return ResourceManager.GetString("Error_Page_Home_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong!.
+        /// </summary>
+        public static string Error_Page_Title {
+            get {
+                return ResourceManager.GetString("Error_Page_Title", resourceCulture);
             }
         }
     }

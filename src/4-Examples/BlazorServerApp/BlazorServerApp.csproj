@@ -16,17 +16,17 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Compile Update="Locals\App.Designer.cs">
+	  <Compile Update="Resources\BlazorServerAppResource.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>App.resx</DependentUpon>
+	    <DependentUpon>BlazorServerAppResource.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <EmbeddedResource Update="Locals\App.resx">
+	  <EmbeddedResource Update="Resources\BlazorServerAppResource.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>App.Designer.cs</LastGenOutput>
+	    <LastGenOutput>BlazorServerAppResource.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

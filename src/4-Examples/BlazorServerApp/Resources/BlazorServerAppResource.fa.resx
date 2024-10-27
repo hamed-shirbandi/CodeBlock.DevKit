@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>Test Test Test Test</value>
+  <data name="Error_Authorization_Title" xml:space="preserve">
+    <value>در حال احراز هویت ...</value>
+  </data>
+  <data name="Error_Authorization_Message" xml:space="preserve">
+    <value>شما به تازگی به سیستم وارد شدی، کمی زمان نیاز داریم که این موضوع رو بررسی کنیم</value>
+  </data>
+  <data name="Error_NotFound_Message" xml:space="preserve">
+    <value>متاسفیم! صفحه ای که دنبالش بودی پیدا نشد.</value>
+  </data>
+  <data name="Error_NotFound_Title" xml:space="preserve">
+    <value>صفحه ی مورد نظر پیدا نشد!</value>
+  </data>
+  <data name="Nav_Menu_Users" xml:space="preserve">
+    <value>کاربرها</value>
+  </data>
+  <data name="Nav_Menu_Roles" xml:space="preserve">
+    <value>نقش ها</value>
+  </data>
+  <data name="Nav_Menu_Home" xml:space="preserve">
+    <value>خانه</value>
+  </data>
+  <data name="Nav_Menu_Logout" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Home_Page_Welcome" xml:space="preserve">
+    <value>خوش آمدید</value>
+  </data>
+  <data name="App_Name" xml:space="preserve">
+    <value>اپلیکیشن بلیزور</value>
   </data>
 </root>

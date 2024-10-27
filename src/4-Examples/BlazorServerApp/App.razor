@@ -3,7 +3,7 @@
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <Authorizing>
-                    <Error ShowIndexLink=false Title="Authorizing ..." Message="We are authorizing, please wait." />
+                    <Error ShowIndexLink=false Title="@Localizer[BlazorServerAppResource.Error_Authorization_Title]" Message="@Localizer[BlazorServerAppResource.Error_Authorization_Message]" />
                 </Authorizing>
                 <NotAuthorized>
                     <RedirectToLogin />
@@ -12,7 +12,7 @@
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(MainLayout)">
-                <Error Title="Page not found!" Message="Sorry! It seems the page that you are looking for, does not exist." />
+                <Error Title="@Localizer[BlazorServerAppResource.Error_NotFound_Title]" Message="@Localizer[BlazorServerAppResource.Error_NotFound_Message]" />
             </LayoutView>
         </NotFound>
     </Router>
