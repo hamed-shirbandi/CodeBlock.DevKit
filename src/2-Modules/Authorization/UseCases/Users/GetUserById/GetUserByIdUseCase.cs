@@ -2,6 +2,7 @@
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Authorization.Dtos;
+using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Resources;
 using MediatR;
 
@@ -21,7 +22,7 @@ public class GetUserByIdUseCase : BaseQueryHandler, IRequestHandler<GetUserByIdR
     {
         var users = await _userRepository.GetByIdAsync(request.Id);
         if (users is null)
-            throw new ApplicationException(string.Format(CommonResource.Not_Found, AuthorizationResource.User));
+            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.User));
 
         return _mapper.Map<GetUserDto>(users);
     }

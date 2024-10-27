@@ -1,13 +1,4 @@
 ﻿@page "/"
-@using Microsoft.Extensions.Localization
-@using CodeBlock.DevKit.Core.Resources
-
-@inject IStringLocalizer<CommonResource> CommonResource
 
 <h1>Welcome!</h1>
 
-<SupportedCultures/>
-
-<h2>Key= @CommonResource["UnknownExceptionHappened"]</h2>
-<h2>CurrentCulture: @Thread.CurrentThread.CurrentCulture</h2>
-<h2>CurrentUICulture: @Thread.CurrentThread.CurrentUICulture</h2>

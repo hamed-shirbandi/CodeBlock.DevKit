@@ -22,7 +22,7 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
     {
         var role = await _roleRepository.GetByIdAsync(request.Id);
         if (role is null)
-            throw new ApplicationException(string.Format(CommonResource.Not_Found, AuthorizationResource.Role));
+            throw new ApplicationException(string.Format(CoreResource.Not_Found, Resources.AuthorizationResource.Role));
 
         role.Update(_roleRepository, request.Name);
 

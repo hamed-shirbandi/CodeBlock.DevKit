@@ -8,7 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CodeBlock.DevKit.Core.Resources {
+namespace CodeBlock.DevKit.Authorization.Resources {
+  
     
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -20,14 +21,14 @@ namespace CodeBlock.DevKit.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CommonResource {
+    public class AuthorizationResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public CommonResource() {
+        internal AuthorizationResource() {
         }
         
         /// <summary>
@@ -37,7 +38,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Core.Resources.CommonResource", typeof(CommonResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Authorization.Resources.AuthorizationResource", typeof(AuthorizationResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -59,65 +60,56 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} قبلا ثبت شده است.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string ALready_Exists {
+        public static string Email {
             get {
-                return ResourceManager.GetString("ALready_Exists", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to طول {0} میبایست بین {1} تا {2} کارکتر باشد.
+        ///   Looks up a localized string similar to Invalid credentials.
         /// </summary>
-        public static string Length_Error {
+        public static string Invalid_Credentials {
             get {
-                return ResourceManager.GetString("Length_Error", resourceCulture);
+                return ResourceManager.GetString("Invalid_Credentials", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to طول {0} نمیتواند بیشتر از {1} کارکتر باشد.
+        ///   Looks up a localized string similar to Password.
         /// </summary>
-        public static string Max_Length_Error {
+        public static string Password {
             get {
-                return ResourceManager.GetString("Max_Length_Error", resourceCulture);
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to طول {0} نمیتواند کمتر از {1} کارکتر باشد.
+        ///   Looks up a localized string similar to Role.
         /// </summary>
-        public static string Min_Length_Error {
+        public static string Role {
             get {
-                return ResourceManager.GetString("Min_Length_Error", resourceCulture);
+                return ResourceManager.GetString("Role", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} پیدا نشد.
+        ///   Looks up a localized string similar to Role Name.
         /// </summary>
-        public static string Not_Found {
+        public static string Role_Name {
             get {
-                return ResourceManager.GetString("Not_Found", resourceCulture);
+                return ResourceManager.GetString("Role_Name", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} را وارد کنید.
+        ///   Looks up a localized string similar to User.
         /// </summary>
-        public static string Required {
+        public static string User {
             get {
-                return ResourceManager.GetString("Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to یک خطای ناشناخته رخ داد.
-        /// </summary>
-        public static string UnknownExceptionHappened {
-            get {
-                return ResourceManager.GetString("UnknownExceptionHappened", resourceCulture);
+                return ResourceManager.GetString("User", resourceCulture);
             }
         }
     }

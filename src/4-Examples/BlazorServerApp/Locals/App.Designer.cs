@@ -8,8 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CodeBlock.DevKit.Authorization.Domain {
-    using System;
+namespace BlazorServerApp.Locals {
     
     
     /// <summary>
@@ -22,14 +21,14 @@ namespace CodeBlock.DevKit.Authorization.Domain {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class AuthorizationResource {
+    public class App {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AuthorizationResource() {
+        public App() {
         }
         
         /// <summary>
@@ -39,7 +38,7 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeBlock.DevKit.Authorization.Domain.AuthorizationResource", typeof(AuthorizationResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorServerApp.Locals.App", typeof(App).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +60,11 @@ namespace CodeBlock.DevKit.Authorization.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ایمیل.
+        ///   Looks up a localized string similar to Test Test Test Test.
         /// </summary>
-        public static string Email {
+        public static string Test {
             get {
-                return ResourceManager.GetString("Email", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to اطلاعات وارد شده معتبر نبود.
-        /// </summary>
-        public static string Invalid_Credentials {
-            get {
-                return ResourceManager.GetString("Invalid_Credentials", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to رمز عبور.
-        /// </summary>
-        public static string Password {
-            get {
-                return ResourceManager.GetString("Password", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to نقش.
-        /// </summary>
-        public static string Role {
-            get {
-                return ResourceManager.GetString("Role", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to نام.
-        /// </summary>
-        public static string Role_Name {
-            get {
-                return ResourceManager.GetString("Role_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to کاربر.
-        /// </summary>
-        public static string User {
-            get {
-                return ResourceManager.GetString("User", resourceCulture);
+                return ResourceManager.GetString("Test", resourceCulture);
             }
         }
     }

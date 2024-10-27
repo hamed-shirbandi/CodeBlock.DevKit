@@ -20,10 +20,15 @@ public static class LocalizationConfiguration
     {
         var localizationSettings = app.Services.GetService<LocalizationSettings>();
 
+        if (!localizationSettings.HasMultipleLanguages())
+        {
+            app.UseRequestLocalization(localizationSettings.GetFirstLanguageCode());
+            return;
+        }
+
         var localizationOptions = new RequestLocalizationOptions()
-            .SetDefaultCulture(localizationSettings.GetDefaultLanguage().Code)
-            .AddSupportedCultures(localizationSettings.GetLanguages())
-            .AddSupportedUICultures(localizationSettings.GetLanguages());
+            .AddSupportedCultures(localizationSettings.GetLanguageCodes())
+            .AddSupportedUICultures(localizationSettings.GetLanguageCodes());
 
         app.UseRequestLocalization(localizationOptions);
     }

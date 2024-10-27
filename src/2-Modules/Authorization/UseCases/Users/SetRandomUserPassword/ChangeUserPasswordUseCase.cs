@@ -1,6 +1,7 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Extensions;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Core.Resources;
@@ -25,7 +26,7 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
     {
         var user = await _userRepository.GetByEmailAsync(request.Email);
         if (user is null)
-            throw new ApplicationException(string.Format(CommonResource.Not_Found, AuthorizationResource.Email));
+            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.Email));
 
         var randomPassword = RandomDataGenerator.GetRandomNumber(length: 4);
 

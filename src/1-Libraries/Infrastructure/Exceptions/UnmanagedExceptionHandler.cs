@@ -40,7 +40,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     /// </summary>
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
-        _notifications.Add("Unknown Exception", CommonResource.UnknownExceptionHappened);
+        _notifications.Add("Unknown Exception", CoreResource.UnknownExceptionHappened);
 
         _logger.LogError(exception, $"request : {JsonSerializer.Serialize(request)}");
 

@@ -2,6 +2,7 @@
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Authorization.Dtos;
+using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;

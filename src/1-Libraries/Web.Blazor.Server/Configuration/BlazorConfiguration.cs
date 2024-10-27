@@ -23,9 +23,9 @@ public static class BlazorConfiguration
         Type mappingProfileMarkerType = null
     )
     {
-        builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
-
         builder.AddLocalization();
+
+        builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
         builder.AddCookieAuthentication();
 
@@ -48,9 +48,9 @@ public static class BlazorConfiguration
 
     public static WebApplication UseBlazorPreConfigured(this WebApplication app)
     {
-        app.UseCodeBlockDevKitWeb();
-
         app.UseLocalization();
+
+        app.UseCodeBlockDevKitWeb();
 
         if (!app.Environment.IsDevelopment())
         {
