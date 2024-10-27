@@ -2,7 +2,7 @@
 using CodeBlock.DevKit.Core.Helpers;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.Models;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Pages;
 
 public class BasePageModel : PageModel
 {

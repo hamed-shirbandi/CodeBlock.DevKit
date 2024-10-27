@@ -3,7 +3,7 @@ using CodeBlock.DevKit.Authorization.UI.Services;
 using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
-using CodeBlock.DevKit.Web.Blazor.Server.Models;
+using CodeBlock.DevKit.Web.Blazor.Server.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

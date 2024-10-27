@@ -117,25 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ALready_Exists" xml:space="preserve">
-    <value>{0} قبلا ثبت شده است</value>
-  </data>
-  <data name="Length_Error" xml:space="preserve">
-    <value>طول {0} میبایست بین {1} تا {2} کارکتر باشد</value>
-  </data>
-  <data name="Max_Length_Error" xml:space="preserve">
-    <value>طول {0} نمیتواند بیشتر از {1} کارکتر باشد</value>
-  </data>
-  <data name="Min_Length_Error" xml:space="preserve">
-    <value>طول {0} نمیتواند کمتر از {1} کارکتر باشد</value>
-  </data>
-  <data name="Not_Found" xml:space="preserve">
-    <value>{0} پیدا نشد</value>
-  </data>
-  <data name="Required" xml:space="preserve">
-    <value>{0} را وارد کنید</value>
-  </data>
-  <data name="UnknownExceptionHappened" xml:space="preserve">
-    <value>یک خطای ناشناخته رخ داد</value>
-  </data>
 </root>

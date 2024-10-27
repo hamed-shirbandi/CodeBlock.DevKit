@@ -1,0 +1,22 @@
+﻿@page "/setculture"
+@using CodeBlock.DevKit.Web.Blazor.Server.Localization
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Localization
+@attribute [AllowAnonymous]
+@inject LocalizationSettings LocalizationSettings
+
+@functions
+{
+
+    public async Task<IActionResult> OnGet([FromQuery] string lang,[FromQuery] string returnUrl)
+    {
+        if (LocalizationSettings.HasLanguageCode(lang))
+        {
+            HttpContext.Response.Cookies.Append(
+          CookieRequestCultureProvider.DefaultCookieName,
+          CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(lang)));
+        }
+
+        return LocalRedirect(returnUrl ?? Url.Content("~/"));
+    }
+}
