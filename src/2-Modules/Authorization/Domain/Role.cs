@@ -1,7 +1,4 @@
-﻿using CodeBlock.DevKit.Authorization.Resources;
-using CodeBlock.DevKit.Core.Resources;
-using CodeBlock.DevKit.Domain.Entities;
-using CodeBlock.DevKit.Domain.Exceptions;
+﻿using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain;
 
@@ -33,9 +30,9 @@ public class Role : AggregateRoot
     private void CheckPolicies(IRoleRepository roleRepository)
     {
         if (string.IsNullOrEmpty(Name))
-            throw new DomainException(string.Format(CoreResource.Required, AuthorizationResource.Role_Name));
+            throw AuthorizationExceptions.RoleNameIsRequired();
 
         if (!roleRepository.NameIsUnique(Id, Name))
-            throw new DomainException(string.Format(CoreResource.ALready_Exists, AuthorizationResource.Role_Name));
+            throw AuthorizationExceptions.RoleNameMustBeUnique();
     }
 }
