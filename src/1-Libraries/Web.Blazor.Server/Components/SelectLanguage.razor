@@ -9,20 +9,20 @@
     <ul class="dropdown-menu">
         @foreach (var item in LocalizationSettings.Languages)
         {
-            <li><a class="dropdown-item" href="/setculture?lang=@item.Code&returnUrl=/@ReturnUrl">@item.Name</a></li>
+            <li><a class="dropdown-item" @onclick="@(() => RedirectToSetCulturePage(item.Code))">@item.Name</a></li>
         }
     </ul>
 </div>
 
 @code {
 
-    private string selectedLanguageCode;
-    private string ReturnUrl;
+    private string selectedLanguageCode= Thread.CurrentThread.CurrentCulture.Name;
 
-    protected override void OnInitialized()
+    private void RedirectToSetCulturePage(string languageCode)
     {
-        selectedLanguageCode = Thread.CurrentThread.CurrentCulture.Name;
+        var returnUrl = Uri.EscapeDataString(NavigationManager.ToBaseRelativePath(NavigationManager.Uri));
 
-        ReturnUrl = Uri.EscapeDataString(NavigationManager.ToBaseRelativePath(NavigationManager.Uri));
+        var setCultureUrl = $"/setculture?lang={languageCode}&returnUrl=/{returnUrl}";
+        NavigationManager.NavigateTo(setCultureUrl, true);
     }
 }
