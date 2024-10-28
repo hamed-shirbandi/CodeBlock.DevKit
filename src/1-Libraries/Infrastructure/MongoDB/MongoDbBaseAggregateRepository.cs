@@ -1,7 +1,8 @@
 ﻿using CodeBlock.DevKit.Domain.Entities;
-using CodeBlock.DevKit.Domain.Exceptions;
 using CodeBlock.DevKit.Domain.Services;
+using CodeBlock.DevKit.Infrastructure.Resources;
 using MongoDB.Driver;
+using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
 
 namespace CodeBlock.DevKit.Infrastructure.MongoDB;
 
@@ -50,7 +51,7 @@ public class MongoDbBaseAggregateRepository<TEntity> : MongoDbBaseRepository<TEn
     {
         var versionExists = await _collection.Find(e => e.Id == id && e.Version == loadedVersion).AnyAsync();
         if (!versionExists)
-            throw new DomainException($"Concurrency Error. entity:{nameof(TEntity)} id:{id} loadedVersion:{loadedVersion}");
+            throw new ApplicationException(nameof(InfrastructureResource.Aggregate_Concurrency_Error), typeof(InfrastructureResource));
     }
 
     #endregion

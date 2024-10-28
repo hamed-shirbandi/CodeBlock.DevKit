@@ -1,25 +1,17 @@
 ﻿namespace CodeBlock.DevKit.Core.Exceptions;
 
-public class ManagedException : Exception
+public abstract class ManagedException : Exception
 {
     public string MessageResourceKey { get; }
     public Type MessageResourceType { get; }
     public Dictionary<string, Type> PlaceholderResourceKeys { get; }
 
-    public ManagedException(string messageResourceKey, Type messageResourceType, Dictionary<string, Type> placeholderResourceKeys)
+    public ManagedException(string messageResourceKey, Type messageResourceType, Dictionary<string, Type> placeholderResourceKeys = null)
         : base()
     {
         MessageResourceKey = messageResourceKey;
         MessageResourceType = messageResourceType;
         PlaceholderResourceKeys = placeholderResourceKeys ?? new Dictionary<string, Type>();
-    }
-
-    public ManagedException(string messageResourceKey, Type messageResourceType)
-        : base()
-    {
-        MessageResourceKey = messageResourceKey;
-        MessageResourceType = messageResourceType;
-        PlaceholderResourceKeys = new Dictionary<string, Type>();
     }
 
     public ManagedException()

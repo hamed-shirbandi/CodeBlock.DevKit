@@ -30,32 +30,36 @@ public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequest
 
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
+        var message = exception.Message;
+
         if (exception.HasResourceMessage())
-        {
-            // Retrieve the main message using the main resource key and type
-            var localizer = _localizerFactory.Create(exception.MessageResourceType);
-            var mainMessage = localizer[exception.MessageResourceKey];
+            message = GetLocalizedMessage(exception);
 
-            // Fetch each placeholder resource
-            var placeholders = exception
-                .PlaceholderResourceKeys.Select(kvp =>
-                {
-                    var placeholderLocalizer = _localizerFactory.Create(kvp.Value);
-                    return placeholderLocalizer[kvp.Key];
-                })
-                .ToArray();
-
-            // Format the main message with placeholders
-            var formattedMessage = string.Format(mainMessage, placeholders);
-
-            // Notify using the formatted message
-            _notifications.Add(exception.MessageResourceKey, formattedMessage);
-        }
+        _notifications.Add(exception.MessageResourceKey ?? exception.GetType().Name, message);
 
         _logger.LogDebug(exception, message: $"request : {JsonSerializer.Serialize(request)}");
 
         state.SetHandled(default);
 
         return Task.CompletedTask;
+    }
+
+    private string GetLocalizedMessage(TException exception)
+    {
+        // Retrieve the main message using the main resource key and type
+        var localizer = _localizerFactory.Create(exception.MessageResourceType);
+        var mainMessage = localizer[exception.MessageResourceKey];
+
+        // Fetch each placeholder resource
+        var placeholders = exception
+            .PlaceholderResourceKeys.Select(kvp =>
+            {
+                var placeholderLocalizer = _localizerFactory.Create(kvp.Value);
+                return placeholderLocalizer[kvp.Key];
+            })
+            .ToArray();
+
+        // Format the main message with placeholders
+        return string.Format(mainMessage, placeholders);
     }
 }

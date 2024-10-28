@@ -2,25 +2,11 @@
 
 namespace CodeBlock.DevKit.Application.Exceptions;
 
-/// <summary>
-///
-/// </summary>
 public class ApplicationException : ManagedException
 {
-    #region Ctors
+    public ApplicationException(string messageResourceKey, Type messageResourceType, Dictionary<string, Type> placeholderResourceKeys = null)
+        : base(messageResourceKey, messageResourceType, placeholderResourceKeys) { }
 
-
-    /// <summary>
-    ///
-    /// </summary>
     public ApplicationException(string message)
         : base(message) { }
-
-    /// <summary>
-    ///
-    /// </summary>
-    public ApplicationException(string message, string metadata)
-        : base(string.Format(message, metadata)) { }
-
-    #endregion
 }
