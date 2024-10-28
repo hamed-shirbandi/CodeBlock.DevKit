@@ -1,9 +1,7 @@
 using System.Reflection;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using CodeBlock.DevKit.Authorization.UI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +14,6 @@ public static class AuthorizationConfiguration
     public static void AddAuthorizationUiModule(this WebApplicationBuilder builder)
     {
         builder.Services.AddRazorFileProvider();
-
-        builder.Services.AddAuthenticationStateValidator();
 
         builder.AddAdminRolePolicy();
     }
@@ -33,13 +29,6 @@ public static class AuthorizationConfiguration
         {
             options.FileProviders.Add(new PhysicalFileProvider(libraryPath));
         });
-    }
-
-    private static void AddAuthenticationStateValidator(this IServiceCollection services)
-    {
-        services.AddSingleton<AuthenticationStateService>();
-
-        services.AddScoped<AuthenticationStateProvider, AuthenticationStateValidator>();
     }
 
     private static void AddAdminRolePolicy(this WebApplicationBuilder builder)

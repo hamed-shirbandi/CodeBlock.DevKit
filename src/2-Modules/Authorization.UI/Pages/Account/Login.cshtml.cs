@@ -1,5 +1,4 @@
 using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Authorization.UI.Services;
 using CodeBlock.DevKit.Authorization.UseCases.Users.VerifyUserPassword;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Pages;
@@ -12,17 +11,11 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 public class LoginModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
-    private readonly AuthenticationStateService _authenticationStateService;
 
-    public LoginModel(
-        CookieAuthenticationService cookieAuthenticationService,
-        IInMemoryBus inMemoryBus,
-        AuthenticationStateService authenticationStateService
-    )
+    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
         : base(inMemoryBus)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
-        _authenticationStateService = authenticationStateService;
     }
 
     [BindProperty]
@@ -55,8 +48,6 @@ public class LoginModel : BasePageModel
             verifyUserPasswordResult.Value.Roles,
             isPersistent: true
         );
-
-        _authenticationStateService.AddUserId(verifyUserPasswordResult.Value.Id);
 
         return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }

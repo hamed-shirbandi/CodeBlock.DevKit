@@ -4,15 +4,8 @@
 {
     public async Task<IActionResult> OnGet()
     {
-
         if (User.Identity.IsAuthenticated)
-        {
-            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            AuthenticationStateService.RemoveUserId(currentUserId);
-
             await CookieAuthenticationService.SignOutAsync();
-        }
 
         return Redirect("/login");
     }

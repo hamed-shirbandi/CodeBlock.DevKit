@@ -1,5 +1,4 @@
 using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Authorization.UI.Services;
 using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
@@ -13,17 +12,11 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 public class RegisterModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
-    private readonly AuthenticationStateService _authenticationStateService;
 
-    public RegisterModel(
-        CookieAuthenticationService cookieAuthenticationService,
-        IInMemoryBus inMemoryBus,
-        AuthenticationStateService authenticationStateService
-    )
+    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
         : base(inMemoryBus)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
-        _authenticationStateService = authenticationStateService;
     }
 
     [BindProperty]
@@ -58,8 +51,6 @@ public class RegisterModel : BasePageModel
             getUserResult.Value.Roles,
             isPersistent: true
         );
-
-        _authenticationStateService.AddUserId(registerUserResult.Value.EntityId);
 
         return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }
