@@ -68,5 +68,14 @@ namespace CodeBlock.DevKit.Infrastructure.Resources {
                 return ResourceManager.GetString("Aggregate_Concurrency_Error", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to unknown exception happened.
+        /// </summary>
+        public static string Unknown_Exception_Error {
+            get {
+                return ResourceManager.GetString("Unknown_Exception_Error", resourceCulture);
+            }
+        }
     }
 }

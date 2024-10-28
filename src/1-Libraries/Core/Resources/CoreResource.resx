@@ -135,7 +135,4 @@
   <data name="Required" xml:space="preserve">
     <value>{0} is required</value>
   </data>
-  <data name="UnknownExceptionHappened" xml:space="preserve">
-    <value>unknown exception happened</value>
-  </data>
 </root>
