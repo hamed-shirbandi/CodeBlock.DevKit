@@ -1,24 +1,17 @@
 ﻿using CodeBlock.DevKit.Web.Api.Exceptions;
-using CodeBlock.DevKit.Web.Api.Jwt;
+using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
 using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace CodeBlock.DevKit.Web.Api.Configuration;
 
-/// <summary>
-///
-/// </summary>
 public static class WebApiConfiguration
 {
-    /// <summary>
-    ///
-    /// </summary>
     public static void AddWebApiPreConfigured(
         this WebApplicationBuilder builder,
         Type handlerAssemblyMarkerType,
@@ -32,18 +25,13 @@ public static class WebApiConfiguration
 
         builder.Services.AddSwaggerPreConfigured(builder.Configuration);
 
-        builder.Services.AddJwtAuthentication(builder.Configuration);
+        builder.AddJwtAuthentication();
 
         builder.Services.AddCors();
-
-        builder.Services.AddWebServerOptions();
 
         builder.Services.AddGlobalExceptionHandler();
     }
 
-    /// <summary>
-    ///
-    /// </summary>
     public static void UseWebApiPreConfigured(this WebApplication app)
     {
         app.UseCustomSerilog();
@@ -64,9 +52,6 @@ public static class WebApiConfiguration
         app.MapControllers();
     }
 
-    /// <summary>
-    /// Prevent auto validate on model binding
-    /// </summary>
     private static void WithPreventAutoValidation(this IMvcBuilder builder)
     {
         builder.ConfigureApiBehaviorOptions(options =>
@@ -83,19 +68,5 @@ public static class WebApiConfiguration
     private static void AddGlobalExceptionHandler(this IServiceCollection services)
     {
         services.AddTransient<HttpGlobalExceptionHandler>();
-    }
-
-    private static void AddWebServerOptions(this IServiceCollection services)
-    {
-        // If using Kestrel:
-        services.Configure<KestrelServerOptions>(options =>
-        {
-            options.AllowSynchronousIO = true;
-        });
-        // If using IIS:
-        services.Configure<IISServerOptions>(options =>
-        {
-            options.AllowSynchronousIO = true;
-        });
     }
 }

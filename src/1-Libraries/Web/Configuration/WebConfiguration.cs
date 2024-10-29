@@ -5,6 +5,7 @@ using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -37,6 +38,8 @@ public static class WebConfiguration
 
         builder.Services.AddAuthenticatedUserService();
 
+        builder.Services.AddWebServerOptions();
+
         builder.AddMetrics();
     }
 
@@ -55,5 +58,19 @@ public static class WebConfiguration
     private static IServiceCollection AddAuthenticatedUserService(this IServiceCollection services)
     {
         return services.AddScoped<AuthenticatedUserService>();
+    }
+
+    private static void AddWebServerOptions(this IServiceCollection services)
+    {
+        // If using Kestrel:
+        services.Configure<KestrelServerOptions>(options =>
+        {
+            options.AllowSynchronousIO = true;
+        });
+        // If using IIS:
+        services.Configure<IISServerOptions>(options =>
+        {
+            options.AllowSynchronousIO = true;
+        });
     }
 }
