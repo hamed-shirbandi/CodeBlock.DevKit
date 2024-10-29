@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CodeBlock.DevKit.Web.Localization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.Localization;
+namespace CodeBlock.DevKit.Web.Localization;
 
 public static class LocalizationConfiguration
 {

@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Localization;
+﻿namespace CodeBlock.DevKit.Web.Localization;
 
 public class LocalizationSettings
 {

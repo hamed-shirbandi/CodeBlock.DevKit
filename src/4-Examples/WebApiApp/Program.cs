@@ -1,8 +1,6 @@
 using CodeBlock.DevKit.Authorization;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using CodeBlock.DevKit.Authorization.UI.Configuration;
 using CodeBlock.DevKit.Web.Api.Configuration;
-using CodeBlock.DevKit.Web.Blazor.Server.Configuration;
 
 namespace WebApiApp;
 

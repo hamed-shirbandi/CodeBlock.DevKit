@@ -2,7 +2,6 @@ using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
-using CodeBlock.DevKit.Web.Blazor.Server.Localization;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using CodeBlock.DevKit.Web.Configuration;
@@ -23,8 +22,6 @@ public static class BlazorConfiguration
         Type mappingProfileMarkerType = null
     )
     {
-        builder.AddLocalization();
-
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
         builder.AddCookieAuthentication();
@@ -48,8 +45,6 @@ public static class BlazorConfiguration
 
     public static WebApplication UseBlazorPreConfigured(this WebApplication app)
     {
-        app.UseLocalization();
-
         app.UseCodeBlockDevKitWeb();
 
         if (!app.Environment.IsDevelopment())

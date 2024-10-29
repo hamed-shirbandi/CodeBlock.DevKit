@@ -1,4 +1,5 @@
 ﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+using CodeBlock.DevKit.Web.Localization;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
@@ -23,6 +24,8 @@ public static class WebConfiguration
     {
         builder.AddCustomSerilog();
 
+        builder.AddLocalization();
+
         builder.Services.AddCodeBlockDevKitInfrastructure(
             builder.Configuration,
             handlerAssemblyMarkerType,
@@ -40,6 +43,8 @@ public static class WebConfiguration
     public static void UseCodeBlockDevKitWeb(this WebApplication app)
     {
         app.UseCustomSerilog();
+
+        app.UseLocalization();
 
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();
