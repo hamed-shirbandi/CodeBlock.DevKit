@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using CodeBlock.DevKit.Application.Notifications;
-using CodeBlock.DevKit.Infrastructure.Resources;
+using CodeBlock.DevKit.Core.Resources;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -18,7 +18,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
 
     private readonly INotificationService _notifications;
     private readonly ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> _logger;
-    private readonly IStringLocalizer<InfrastructureResource> _localizer;
+    private readonly IStringLocalizer<CoreResource> _localizer;
     #endregion
 
     #region Ctors
@@ -27,7 +27,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     public UnmanagedExceptionHandler(
         INotificationService notifications,
         ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> logger,
-        IStringLocalizer<InfrastructureResource> localizer
+        IStringLocalizer<CoreResource> localizer
     )
     {
         _notifications = notifications;
@@ -46,7 +46,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     /// </summary>
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
-        _notifications.Add(exception.GetType().Name, _localizer[InfrastructureResource.Unknown_Exception_Error]);
+        _notifications.Add(exception.GetType().Name, _localizer[CoreResource.Unknown_Exception_Error]);
 
         _logger.LogError(exception, $"request : {JsonSerializer.Serialize(request)}");
 

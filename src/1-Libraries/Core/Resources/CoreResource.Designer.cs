@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace CodeBlock.DevKit.Core.Resources {
-    using System;
     
     
     /// <summary>
@@ -117,9 +116,9 @@ namespace CodeBlock.DevKit.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to unknown exception happened.
         /// </summary>
-        public static string UnknownExceptionHappened {
+        public static string Unknown_Exception_Error {
             get {
-                return ResourceManager.GetString("UnknownExceptionHappened", resourceCulture);
+                return ResourceManager.GetString("Unknown_Exception_Error", resourceCulture);
             }
         }
     }

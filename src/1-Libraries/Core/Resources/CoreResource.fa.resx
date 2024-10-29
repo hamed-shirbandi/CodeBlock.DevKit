@@ -135,4 +135,7 @@
   <data name="Required" xml:space="preserve">
     <value>{0} را وارد کنید</value>
   </data>
+  <data name="Unknown_Exception_Error" xml:space="preserve">
+    <value>یک خطای ناشناخته رخ داد</value>
+  </data>
 </root>

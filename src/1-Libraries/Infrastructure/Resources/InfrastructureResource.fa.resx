@@ -120,7 +120,4 @@
   <data name="Aggregate_Concurrency_Error" xml:space="preserve">
     <value>این اطلاعات قبل از اینکه شما آن را تغییر دهید، تغییر کرده است</value>
   </data>
-  <data name="UnknownExceptionHappened" xml:space="preserve">
-    <value>یک خطای ناشناخته رخ داد</value>
-  </data>
 </root>

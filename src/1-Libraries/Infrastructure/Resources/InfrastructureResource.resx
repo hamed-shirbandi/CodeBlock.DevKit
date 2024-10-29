@@ -120,7 +120,4 @@
   <data name="Aggregate_Concurrency_Error" xml:space="preserve">
     <value>This data was modified before you could change it</value>
   </data>
-  <data name="Unknown_Exception_Error" xml:space="preserve">
-    <value>unknown exception happened</value>
-  </data>
 </root>
