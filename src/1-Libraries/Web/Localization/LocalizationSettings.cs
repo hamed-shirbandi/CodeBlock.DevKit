@@ -4,12 +4,7 @@ public class LocalizationSettings
 {
     public IEnumerable<SupportedLanguage> Languages { get; set; }
 
-    public bool HasMultipleLanguages()
-    {
-        return Languages.Count() > 1;
-    }
-
-    public bool HasLanguageCode(string code)
+    public bool HasLanguage(string code)
     {
         return Languages.Any(l => l.Code == code);
     }
@@ -21,11 +16,12 @@ public class LocalizationSettings
         return language?.Name;
     }
 
-    public string GetFirstLanguageCode()
+    public string GetDefaultLanguageCode()
     {
-        var language = Languages.FirstOrDefault();
+        var defaultLanguage = Languages.FirstOrDefault(l => l.IsDefault);
+        var firstLanguage = Languages.FirstOrDefault();
 
-        return language?.Code;
+        return defaultLanguage?.Code ?? firstLanguage?.Code;
     }
 
     public string[] GetLanguageCodes()
@@ -49,4 +45,5 @@ public class SupportedLanguage
 {
     public string Name { get; set; }
     public string Code { get; set; }
+    public bool IsDefault { get; set; }
 }

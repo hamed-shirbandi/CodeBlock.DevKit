@@ -1,5 +1,6 @@
 ﻿using CodeBlock.DevKit.Web.Localization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,15 +22,14 @@ public static class LocalizationConfiguration
     {
         var localizationSettings = app.Services.GetService<LocalizationSettings>();
 
-        if (!localizationSettings.HasMultipleLanguages())
-        {
-            app.UseRequestLocalization(localizationSettings.GetFirstLanguageCode());
-            return;
-        }
-
         var localizationOptions = new RequestLocalizationOptions()
+            .SetDefaultCulture(localizationSettings.GetDefaultLanguageCode())
             .AddSupportedCultures(localizationSettings.GetLanguageCodes())
             .AddSupportedUICultures(localizationSettings.GetLanguageCodes());
+
+        localizationOptions.RequestCultureProviders.Clear();
+
+        localizationOptions.RequestCultureProviders.Add(new CookieRequestCultureProvider());
 
         app.UseRequestLocalization(localizationOptions);
     }
