@@ -1,4 +1,5 @@
 using CodeBlock.DevKit.Authorization;
+using CodeBlock.DevKit.Authorization.Api.Configuration;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Web.Api.Configuration;
 
@@ -13,6 +14,8 @@ public class Program
         builder.AddWebApiPreConfigured(handlerAssemblyMarkerType: typeof(Program));
 
         builder.Services.AddAuthorizationModule(builder.Configuration);
+
+        builder.AddAuthorizationApiModule();
 
         var app = builder.Build();
 

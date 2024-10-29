@@ -1,5 +1,5 @@
 using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Authorization.UseCases.Users.VerifyUserPassword;
+using CodeBlock.DevKit.Authorization.UseCases.Users.LoginUser;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Pages;
 using Microsoft.AspNetCore.Authorization;
@@ -19,7 +19,7 @@ public class LoginModel : BasePageModel
     }
 
     [BindProperty]
-    public VerifyUserPasswordRequest VerifyUserPasswordRequest { get; set; }
+    public LoginUserRequest VerifyUserPasswordRequest { get; set; }
 
     /// <summary>
     ///

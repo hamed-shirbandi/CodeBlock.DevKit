@@ -36,7 +36,7 @@ public class User : AggregateRoot
         PasswordHash = encryptionService.CreatePasswordHash(newPassword, PasswordSalt);
     }
 
-    public bool VerifyPassword(IEncryptionService encryptionService, string password)
+    public bool IsValidPassword(IEncryptionService encryptionService, string password)
     {
         var newPasswordHash = encryptionService.CreatePasswordHash(password, PasswordSalt);
         return newPasswordHash == PasswordHash;

@@ -4,9 +4,9 @@ using CodeBlock.DevKit.Authorization.Dtos;
 using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Resources;
 
-namespace CodeBlock.DevKit.Authorization.UseCases.Users.VerifyUserPassword;
+namespace CodeBlock.DevKit.Authorization.UseCases.Users.LoginUser;
 
-public class VerifyUserPasswordRequest : BaseQuery<GetUserDto>
+public class LoginUserRequest : BaseQuery<GetUserDto>
 {
     [Display(Name = nameof(AuthorizationResource.User_Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]

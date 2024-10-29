@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<AssemblyName>CodeBlock.DevKit.Authorization.Api</AssemblyName>
+		<RootNamespace>CodeBlock.DevKit.Authorization.Api</RootNamespace>
+		<Description>CodeBlock Development Kit</Description>
+		<VersionPrefix>10.0.6</VersionPrefix>
+		<Authors>Hamed Shirbandi</Authors>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageId>CodeBlock.DevKit.Authorization.Api</PackageId>
+		<PackageTags>ddd;cqrs;devkit</PackageTags>
+		<PackageProjectUrl>https://github.com/hamed-shirbandi/CodeBlock.DevKit</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<copyright>Copyright 2024 hamed shirbandi</copyright>
+		<PackageTargetFallback></PackageTargetFallback>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+	</PropertyGroup>
+
+	<Target Name="PostcompileScript" AfterTargets="Build">
+		<Exec Command="dotnet pack --no-build --configuration $(Configuration)" />
+	</Target>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\1-Libraries\Web.Api\Web.Api.csproj" />
+		<ProjectReference Include="..\Authorization\Authorization.csproj" />
+	</ItemGroup>
+
+</Project>
