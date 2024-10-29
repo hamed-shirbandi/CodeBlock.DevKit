@@ -1,4 +1,5 @@
 ﻿using CodeBlock.DevKit.Web.Api.Exceptions;
+using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
 using CodeBlock.DevKit.Web.Configuration;
@@ -38,6 +39,8 @@ public static class WebApiConfiguration
 
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();
+
+        app.UseMiddleware<LocalizationMiddleware>();
 
         app.UseGlobalExceptionHandler();
 
