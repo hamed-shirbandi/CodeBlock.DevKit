@@ -6,11 +6,11 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.Pages;
 
 public class BasePageModel : PageModel
 {
-    protected readonly IInMemoryBus _inMemoryBus;
+    protected readonly IBus _bus;
 
-    protected BasePageModel(IInMemoryBus inMemoryBus)
+    protected BasePageModel(IBus bus)
     {
-        _inMemoryBus = inMemoryBus;
+        _bus = bus;
     }
 
     protected void ParseResultToViewData<T>(Result<T> result)

@@ -8,10 +8,10 @@ namespace CodeBlock.DevKit.Web.Api.Filters;
 [ModelStateValidating]
 public class BaseApiController : ControllerBase
 {
-    protected readonly IInMemoryBus _inMemoryBus;
+    protected readonly IBus _bus;
 
-    public BaseApiController(IInMemoryBus inMemoryBus)
+    public BaseApiController(IBus bus)
     {
-        _inMemoryBus = inMemoryBus;
+        _bus = bus;
     }
 }

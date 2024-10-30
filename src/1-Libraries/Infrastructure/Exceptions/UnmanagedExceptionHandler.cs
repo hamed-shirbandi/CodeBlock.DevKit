@@ -16,7 +16,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     #region Fields
 
 
-    private readonly INotificationService _notifications;
+    private readonly NotificationService _notifications;
     private readonly ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> _logger;
     private readonly IStringLocalizer<CoreResource> _localizer;
     #endregion
@@ -25,7 +25,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
 
 
     public UnmanagedExceptionHandler(
-        INotificationService notifications,
+        NotificationService notifications,
         ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> logger,
         IStringLocalizer<CoreResource> localizer
     )
@@ -46,7 +46,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     /// </summary>
     public Task Handle(TRequest request, TException exception, RequestExceptionHandlerState<TResponse> state, CancellationToken cancellationToken)
     {
-        _notifications.Add(exception.GetType().Name, _localizer[CoreResource.Unknown_Exception_Error]);
+        _notifications.Add(_localizer[CoreResource.Unknown_Exception_Error]);
 
         _logger.LogError(exception, $"request : {JsonSerializer.Serialize(request)}");
 

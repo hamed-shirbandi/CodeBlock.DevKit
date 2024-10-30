@@ -15,8 +15,8 @@ public class AccountController : BaseApiController
 {
     private readonly JwtAuthenticationService _jwtAuthenticationService;
 
-    public AccountController(IInMemoryBus inMemoryBus, JwtAuthenticationService jwtAuthenticationService)
-        : base(inMemoryBus)
+    public AccountController(IBus bus, JwtAuthenticationService jwtAuthenticationService)
+        : base(bus)
     {
         _jwtAuthenticationService = jwtAuthenticationService;
     }
@@ -25,7 +25,7 @@ public class AccountController : BaseApiController
     [HttpPost]
     public async Task<Result<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
     {
-        var loginUserResult = await _inMemoryBus.SendQuery(loginUserRequest);
+        var loginUserResult = await _bus.SendQuery(loginUserRequest);
         if (!loginUserResult.IsSuccess)
             return Result.Failure<LoginUserResponse>(loginUserResult.Errors, loginUserResult.Message);
 
@@ -42,12 +42,12 @@ public class AccountController : BaseApiController
     [HttpPost]
     public async Task<Result<RegisterUserResponse>> Register(RegisterUserRequest registerUserRequest)
     {
-        var registerUserResult = await _inMemoryBus.SendCommand(registerUserRequest);
+        var registerUserResult = await _bus.SendCommand(registerUserRequest);
 
         if (!registerUserResult.IsSuccess)
             return Result.Failure<RegisterUserResponse>(registerUserResult.Errors, registerUserResult.Message);
 
-        var getUserResult = await _inMemoryBus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
+        var getUserResult = await _bus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
 
         var loginUserResponse = new RegisterUserResponse
         {

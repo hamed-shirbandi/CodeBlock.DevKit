@@ -13,8 +13,8 @@ public class RegisterModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
 
-    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IBus bus)
+        : base(bus)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
     }
@@ -35,7 +35,7 @@ public class RegisterModel : BasePageModel
         if (!ModelState.IsValid)
             return Page();
 
-        var registerUserResult = await _inMemoryBus.SendCommand(RegisterUserRequest);
+        var registerUserResult = await _bus.SendCommand(RegisterUserRequest);
 
         if (!registerUserResult.IsSuccess)
         {
@@ -43,7 +43,7 @@ public class RegisterModel : BasePageModel
             return Page();
         }
 
-        var getUserResult = await _inMemoryBus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
+        var getUserResult = await _bus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
 
         await _cookieAuthenticationService.SignInAsync(
             getUserResult.Value.Id,

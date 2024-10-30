@@ -10,8 +10,8 @@ public class CreateRoleUseCase : BaseCommandHandler, IRequestHandler<CreateRoleR
 {
     private readonly IRoleRepository _roleRepository;
 
-    public CreateRoleUseCase(IRoleRepository roleRepository, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public CreateRoleUseCase(IRoleRepository roleRepository, IBus bus)
+        : base(bus)
     {
         _roleRepository = roleRepository;
     }

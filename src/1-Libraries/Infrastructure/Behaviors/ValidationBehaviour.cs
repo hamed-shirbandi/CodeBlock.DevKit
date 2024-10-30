@@ -15,13 +15,13 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
     #region Fields
 
     private readonly IEnumerable<IValidator<TRequest>> _validators;
-    private readonly INotificationService _notifications;
+    private readonly NotificationService _notifications;
 
     #endregion
 
     #region Ctors
 
-    public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators, INotificationService notifications)
+    public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators, NotificationService notifications)
     {
         _validators = validators;
         _notifications = notifications;
@@ -68,7 +68,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
         // add data annotation errors to notifications
         foreach (var result in results)
-            NotifyValidationError(request, result.ErrorMessage);
+            NotifyValidationError(result.ErrorMessage);
 
         return false;
     }
@@ -86,7 +86,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
         // add data annotation errors to notifications
         foreach (var failure in failures)
-            NotifyValidationError(request, failure.ErrorMessage);
+            NotifyValidationError(failure.ErrorMessage);
 
         return false;
     }
@@ -94,9 +94,9 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
     /// <summary>
     /// add error to notifications
     /// </summary>
-    protected void NotifyValidationError(BaseCommand request, string error)
+    protected void NotifyValidationError(string error)
     {
-        _notifications.Add(request.GetType().Name, error);
+        _notifications.Add(error);
     }
 
     #endregion

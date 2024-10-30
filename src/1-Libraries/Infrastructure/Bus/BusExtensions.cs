@@ -10,6 +10,6 @@ public static class BusExtensions
     /// </summary>
     public static void AddInMemoryBus(this IServiceCollection services)
     {
-        services.AddScoped<IInMemoryBus, InMemoryBus>();
+        services.AddScoped<IBus, InMemoryBus>();
     }
 }

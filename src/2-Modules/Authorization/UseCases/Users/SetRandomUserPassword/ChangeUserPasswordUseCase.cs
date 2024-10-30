@@ -15,8 +15,8 @@ public class ChangeUserPasswordUseCase : BaseCommandHandler, IRequestHandler<Cha
     private readonly IUserRepository _userRepository;
     private readonly IEncryptionService _encryptionService;
 
-    public ChangeUserPasswordUseCase(IUserRepository userRepository, IEncryptionService encryptionService, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public ChangeUserPasswordUseCase(IUserRepository userRepository, IEncryptionService encryptionService, IBus bus)
+        : base(bus)
     {
         _userRepository = userRepository;
         _encryptionService = encryptionService;

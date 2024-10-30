@@ -29,7 +29,7 @@
 
     private async Task GetRoles()
     {
-        var result = await InMemoryBus.SendQuery(new GetRolesRequest());
+        var result = await Bus.SendQuery(new GetRolesRequest());
         result.ShowErrorToast(ToastService);
 
         if (result.IsSuccess)

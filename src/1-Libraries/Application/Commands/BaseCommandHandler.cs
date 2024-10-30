@@ -11,16 +11,16 @@ public abstract class BaseCommandHandler
     #region Fields
 
 
-    private readonly IInMemoryBus _inMemoryBus;
+    private readonly IBus _bus;
 
     #endregion
 
     #region Ctors
 
 
-    protected BaseCommandHandler(IInMemoryBus inMemoryBus)
+    protected BaseCommandHandler(IBus bus)
     {
-        _inMemoryBus = inMemoryBus;
+        _bus = bus;
     }
 
     #endregion
@@ -43,7 +43,7 @@ public abstract class BaseCommandHandler
     /// </summary>
     protected async Task PublishDomainEventsAsync(DomainEvent domainEvent)
     {
-        await _inMemoryBus.PublishEvent(domainEvent);
+        await _bus.PublishEvent(domainEvent);
     }
 
     #endregion

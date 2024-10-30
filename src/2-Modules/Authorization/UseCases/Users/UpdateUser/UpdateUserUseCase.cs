@@ -13,8 +13,8 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
 {
     private readonly IUserRepository _userRepository;
 
-    public UpdateUserUseCase(IUserRepository userRepository, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public UpdateUserUseCase(IUserRepository userRepository, IBus bus)
+        : base(bus)
     {
         _userRepository = userRepository;
     }

@@ -9,7 +9,7 @@ public interface ICacheableQuery
     /// To enable caching for a query, call EnableCaching() beafor sending the query:
     /// var query=new GetSomeQuery()
     /// query.EnableCaching();
-    /// _inMemoryBus.SendQuery(query)
+    /// _bus.SendQuery(query)
     /// </summary>
     void EnableCaching();
     bool CachingIsEnabled();

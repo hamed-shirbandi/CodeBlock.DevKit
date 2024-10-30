@@ -19,10 +19,10 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
     public RegisterUserWithRandomPasswordUseCase(
         IUserRepository userRepository,
         IEncryptionService encryptionService,
-        IInMemoryBus inMemoryBus,
+        IBus bus,
         IOptions<AuthorizationSettings> options
     )
-        : base(inMemoryBus)
+        : base(bus)
     {
         _userRepository = userRepository;
         _encryptionService = encryptionService;

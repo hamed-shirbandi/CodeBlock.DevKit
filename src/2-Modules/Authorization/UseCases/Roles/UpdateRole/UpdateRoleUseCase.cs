@@ -12,8 +12,8 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
 {
     private readonly IRoleRepository _roleRepository;
 
-    public UpdateRoleUseCase(IRoleRepository roleRepository, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public UpdateRoleUseCase(IRoleRepository roleRepository, IBus bus)
+        : base(bus)
     {
         _roleRepository = roleRepository;
     }

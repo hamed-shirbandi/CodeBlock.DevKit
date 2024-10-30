@@ -11,8 +11,8 @@ namespace WebApiApp.Controllers;
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TestController : BaseApiController
 {
-    public TestController(IInMemoryBus inMemoryBus)
-        : base(inMemoryBus) { }
+    public TestController(IBus bus)
+        : base(bus) { }
 
     [HttpGet]
     public async Task<Result> Get()

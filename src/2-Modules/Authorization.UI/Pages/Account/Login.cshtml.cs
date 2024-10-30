@@ -12,8 +12,8 @@ public class LoginModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
 
-    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IInMemoryBus inMemoryBus)
-        : base(inMemoryBus)
+    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IBus bus)
+        : base(bus)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
     }
@@ -34,7 +34,7 @@ public class LoginModel : BasePageModel
         if (!ModelState.IsValid)
             return Page();
 
-        var verifyUserPasswordResult = await _inMemoryBus.SendQuery(VerifyUserPasswordRequest);
+        var verifyUserPasswordResult = await _bus.SendQuery(VerifyUserPasswordRequest);
 
         if (!verifyUserPasswordResult.IsSuccess)
         {

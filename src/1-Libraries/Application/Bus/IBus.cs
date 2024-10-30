@@ -8,7 +8,7 @@ namespace CodeBlock.DevKit.Application.Bus;
 /// <summary>
 /// It is used as a mediator to send and handle requests inside a service (in-process)
 /// </summary>
-public interface IInMemoryBus
+public interface IBus
 {
     Task<Result<CommandResult>> SendCommand<TCommand>(TCommand cmd)
         where TCommand : BaseCommand;

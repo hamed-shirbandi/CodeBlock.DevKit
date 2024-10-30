@@ -11,18 +11,18 @@ namespace CodeBlock.DevKit.Infrastructure.Bus;
 /// <summary>
 ///
 /// </summary>
-public class InMemoryBus : IInMemoryBus
+public class InMemoryBus : IBus
 {
     #region Fields
 
     private readonly IMediator _mediator;
-    private readonly INotificationService _notifications;
+    private readonly NotificationService _notifications;
 
     #endregion
 
     #region Ctors
 
-    public InMemoryBus(IMediator mediator, INotificationService notifications)
+    public InMemoryBus(IMediator mediator, NotificationService notifications)
     {
         _mediator = mediator;
         _notifications = notifications;
@@ -46,7 +46,7 @@ public class InMemoryBus : IInMemoryBus
         var result = await _mediator.Send(cmd);
 
         //get notification errors
-        var errors = _notifications.GetErrors();
+        var errors = _notifications.GetList();
 
         //result is null when throw application or domain exception
         if (result == null)
@@ -66,7 +66,7 @@ public class InMemoryBus : IInMemoryBus
     {
         var result = await _mediator.Send(query);
         if (_notifications.HasAny())
-            return Result.Failure<TQueryResult>(_notifications.GetErrors());
+            return Result.Failure<TQueryResult>(_notifications.GetList());
 
         return Result.Success(result);
     }

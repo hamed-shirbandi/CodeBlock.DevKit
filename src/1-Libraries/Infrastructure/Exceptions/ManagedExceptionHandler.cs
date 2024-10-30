@@ -13,12 +13,12 @@ namespace CodeBlock.DevKit.Infrastructure.Exceptions;
 public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequestExceptionHandler<TRequest, TResponse, TException>
     where TException : ManagedException
 {
-    private readonly INotificationService _notifications;
+    private readonly NotificationService _notifications;
     private readonly ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> _logger;
     private readonly IStringLocalizerFactory _localizerFactory;
 
     public ManagedExceptionHandler(
-        INotificationService notifications,
+        NotificationService notifications,
         ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> logger,
         IStringLocalizerFactory localizerFactory
     )
@@ -35,7 +35,7 @@ public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequest
         if (exception.HasResourceMessage())
             message = GetLocalizedMessage(exception);
 
-        _notifications.Add(exception.MessageResourceKey ?? exception.GetType().Name, message);
+        _notifications.Add(message);
 
         _logger.LogDebug(exception, message: $"request : {JsonSerializer.Serialize(request)}");
 

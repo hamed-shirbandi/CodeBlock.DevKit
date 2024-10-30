@@ -22,6 +22,6 @@
 @attribute [Authorize(Policy = "AdminRolePolicy")]
 @inject IToastService ToastService
 @inject IModalService ModalService
-@inject IInMemoryBus InMemoryBus
+@inject IBus Bus
 
 @inject IStringLocalizer<BlazorServerAppResource> Localizer
