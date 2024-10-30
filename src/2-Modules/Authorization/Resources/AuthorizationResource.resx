@@ -138,4 +138,10 @@
   <data name="User_Password_Is_Wrong" xml:space="preserve">
     <value>Password is wrong</value>
   </data>
+  <data name="Role_Users_Count" xml:space="preserve">
+    <value>Users Count</value>
+  </data>
+  <data name="User_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
 </root>

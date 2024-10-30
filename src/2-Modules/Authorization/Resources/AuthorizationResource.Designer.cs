@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 namespace CodeBlock.DevKit.Authorization.Resources {
+    using System;
+    
     
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -77,6 +79,15 @@ namespace CodeBlock.DevKit.Authorization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Users Count.
+        /// </summary>
+        public static string Role_Users_Count {
+            get {
+                return ResourceManager.GetString("Role_Users_Count", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
         public static string User {
@@ -118,6 +129,15 @@ namespace CodeBlock.DevKit.Authorization.Resources {
         public static string User_Password_Is_Wrong {
             get {
                 return ResourceManager.GetString("User_Password_Is_Wrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string User_Roles {
+            get {
+                return ResourceManager.GetString("User_Roles", resourceCulture);
             }
         }
     }
