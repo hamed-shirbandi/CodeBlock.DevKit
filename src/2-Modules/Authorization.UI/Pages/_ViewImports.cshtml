@@ -1,8 +1,7 @@
-@using Microsoft.AspNetCore.Identity
-
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-
+@using CodeBlock.DevKit.Authorization.Resources
+@using Microsoft.AspNetCore.Identity
 @using CodeBlock.DevKit.Application.Bus
 @using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication
 @using Microsoft.AspNetCore.Authorization
@@ -17,6 +16,9 @@
 @using CodeBlock.DevKit.Authorization.Dtos
 @using CodeBlock.DevKit.Web.Blazor.Server.Services
 @using System.Security.Claims
+@using Microsoft.Extensions.Localization
 
 @inject IBus Bus
 @inject CookieAuthenticationService CookieAuthenticationService
+@inject IStringLocalizer<AuthorizationResource> Localizer
+

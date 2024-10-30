@@ -3,6 +3,7 @@
 @using Blazored.Toast.Services
 @using Blazored.Modal
 @using CodeBlock.DevKit.Application.Bus
+@using CodeBlock.DevKit.Authorization.Resources
 @using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
@@ -17,10 +18,13 @@
 @using CodeBlock.DevKit.Authorization.Dtos
 @using CodeBlock.DevKit.Web.Blazor.Server.Services
 @using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.Extensions.Localization
 
+@inject CookieAuthenticationService CookieAuthenticationService
 @inject NavigationManager NavigationManager
 @attribute [Authorize]
+@inject IStringLocalizer<AuthorizationResource> Localizer
 @inject IToastService ToastService
 @inject IModalService ModalService
 @inject IBus Bus
-@inject CookieAuthenticationService CookieAuthenticationService
