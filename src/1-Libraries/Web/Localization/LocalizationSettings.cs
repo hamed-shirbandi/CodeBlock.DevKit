@@ -16,12 +16,18 @@ public class LocalizationSettings
         return language?.Name;
     }
 
+    public string GetLanguageDirection(string code)
+    {
+        var language = Languages.FirstOrDefault(l => l.Code == code);
+
+        return language?.Direction;
+    }
+
     public string GetDefaultLanguageCode()
     {
-        var defaultLanguage = Languages.FirstOrDefault(l => l.IsDefault);
-        var firstLanguage = Languages.FirstOrDefault();
+        var defaultLanguage = GetDefaultLanguage();
 
-        return defaultLanguage?.Code ?? firstLanguage?.Code;
+        return defaultLanguage.Code;
     }
 
     public string[] GetLanguageCodes()
@@ -35,15 +41,35 @@ public class LocalizationSettings
         {
             Languages = new List<SupportedLanguage>
             {
-                new SupportedLanguage { Name = "English", Code = "en-US" },
+                new SupportedLanguage
+                {
+                    Name = "English",
+                    Code = "en-US",
+                    IsDefault = true,
+                    Direction = "ltr",
+                },
             },
         };
+    }
+
+    private SupportedLanguage GetDefaultLanguage()
+    {
+        var defaultLanguage = Languages.FirstOrDefault(l => l.IsDefault);
+        var firstLanguage = Languages.FirstOrDefault();
+
+        return defaultLanguage ?? firstLanguage;
     }
 }
 
 public class SupportedLanguage
 {
+    public SupportedLanguage()
+    {
+        Direction = "ltr";
+    }
+
     public string Name { get; set; }
     public string Code { get; set; }
+    public string Direction { get; set; }
     public bool IsDefault { get; set; }
 }

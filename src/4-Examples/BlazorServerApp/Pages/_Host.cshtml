@@ -2,14 +2,16 @@
 @namespace BlazorServerApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using CodeBlock.DevKit.Web.Blazor.Server.Components
+@using CodeBlock.DevKit.Web.Localization
 @using Microsoft.AspNetCore.Components.Web
+@inject LocalizationSettings LocalizationSettings
 
 @{
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html dir="@LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name)" lang="@Thread.CurrentThread.CurrentCulture.Name">
 <head>
     <meta charset="utf-8" />
     <base href="~/" />

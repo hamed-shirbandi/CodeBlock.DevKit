@@ -1,22 +1,25 @@
-﻿@using Microsoft.AspNetCore.Hosting
+﻿@using CodeBlock.DevKit.Web.Blazor.Server.Components
+@using CodeBlock.DevKit.Web.Localization
+@using Microsoft.AspNetCore.Hosting
 @using Microsoft.AspNetCore.Mvc.ViewEngines
+@inject LocalizationSettings LocalizationSettings
 
 <!DOCTYPE html>
-<html>
+<html dir="@LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name)" lang="@Thread.CurrentThread.CurrentCulture.Name">
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
     <base href="~/" />
-    <link href="css/nspa.devkit.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="css/nspa.min.css" rel="stylesheet" asp-append-version="true" />
 </head>
 <body class="bg-primary">
+
+    <partial name="_SelectLanguage" />
 
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         @RenderBody()
     </div>
 
-    <script src="~/js/nspa.devkit.min.js" asp-append-version="true"></script>
     <script src="~/js/nspa.min.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
