@@ -1,0 +1,18 @@
+﻿@using CodeBlock.DevKit.Web.Localization
+@using Microsoft.AspNetCore.Http.Extensions;
+@inject LocalizationSettings LocalizationSettings
+
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        @LocalizationSettings.GetLanguageName(Thread.CurrentThread.CurrentCulture.Name)
+    </button>
+    <ul class="dropdown-menu">
+        @foreach (var item in LocalizationSettings.Languages)
+        {
+            var setCultureUrl = $"/setculture?lang={item.Code}&returnUrl={Context.Request.GetEncodedPathAndQuery()}";
+
+            <li><a class="dropdown-item" href="@setCultureUrl">@item.Name</a></li>
+        }
+    </ul>
+</div>
+

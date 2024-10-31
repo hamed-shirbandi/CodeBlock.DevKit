@@ -61,6 +61,96 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trying to connect to the server. Please wait....
+        /// </summary>
+        public static string Connection_State_Disconnect_Content {
+            get {
+                return ResourceManager.GetString("Connection_State_Disconnect_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection lost!.
+        /// </summary>
+        public static string Connection_State_Disconnect_Title {
+            get {
+                return ResourceManager.GetString("Connection_State_Disconnect_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong! please refresh the page using the button below.
+        /// </summary>
+        public static string Connection_State_Error_Content {
+            get {
+                return ResourceManager.GetString("Connection_State_Error_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong!.
+        /// </summary>
+        public static string Connection_State_Error_Title {
+            get {
+                return ResourceManager.GetString("Connection_State_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unfortunately, the automatic attempt to reconnect with the server was not successful, please try again through the button below.
+        /// </summary>
+        public static string Connection_State_Reconnect_Content {
+            get {
+                return ResourceManager.GetString("Connection_State_Reconnect_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection was not successful!.
+        /// </summary>
+        public static string Connection_State_Reconnect_Title {
+            get {
+                return ResourceManager.GetString("Connection_State_Reconnect_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The connection with the server is established, but the connection request was rejected from the server side. Please try again using the button below..
+        /// </summary>
+        public static string Connection_State_Reject_Content {
+            get {
+                return ResourceManager.GetString("Connection_State_Reject_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection request was rejected!.
+        /// </summary>
+        public static string Connection_State_Reject_Title {
+            get {
+                return ResourceManager.GetString("Connection_State_Reject_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reload.
+        /// </summary>
+        public static string Connection_State_Reload_Btn {
+            get {
+                return ResourceManager.GetString("Connection_State_Reload_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retry connection.
+        /// </summary>
+        public static string Connection_State_Retry_Btn {
+            get {
+                return ResourceManager.GetString("Connection_State_Retry_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We are sorry! We were unable to process your request at this time. Our technical team was informed about this issue and it will be investigated soon. Thank you for your patience..
         /// </summary>
         public static string Error_Page_Content {

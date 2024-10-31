@@ -126,4 +126,34 @@
   <data name="Error_Page_Home_Btn" xml:space="preserve">
     <value>Go to home page!</value>
   </data>
+  <data name="Connection_State_Error_Title" xml:space="preserve">
+    <value>Something went wrong!</value>
+  </data>
+  <data name="Connection_State_Error_Content" xml:space="preserve">
+    <value>Something went wrong! please refresh the page using the button below</value>
+  </data>
+  <data name="Connection_State_Disconnect_Title" xml:space="preserve">
+    <value>Connection lost!</value>
+  </data>
+  <data name="Connection_State_Disconnect_Content" xml:space="preserve">
+    <value>Trying to connect to the server. Please wait...</value>
+  </data>
+  <data name="Connection_State_Reconnect_Content" xml:space="preserve">
+    <value>Unfortunately, the automatic attempt to reconnect with the server was not successful, please try again through the button below</value>
+  </data>
+  <data name="Connection_State_Reconnect_Title" xml:space="preserve">
+    <value>Connection was not successful!</value>
+  </data>
+  <data name="Connection_State_Reject_Content" xml:space="preserve">
+    <value>The connection with the server is established, but the connection request was rejected from the server side. Please try again using the button below.</value>
+  </data>
+  <data name="Connection_State_Reject_Title" xml:space="preserve">
+    <value>Connection request was rejected!</value>
+  </data>
+  <data name="Connection_State_Retry_Btn" xml:space="preserve">
+    <value>Retry connection</value>
+  </data>
+  <data name="Connection_State_Reload_Btn" xml:space="preserve">
+    <value>Reload</value>
+  </data>
 </root>

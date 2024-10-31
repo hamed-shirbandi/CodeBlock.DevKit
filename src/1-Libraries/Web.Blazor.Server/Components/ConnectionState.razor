@@ -1,15 +1,15 @@
 ﻿<div id="blazor-error-ui" class="reconnect-modal">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <div class="card bg-form shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
-            <div class="card-header text-warning text-center h2 p-3">متاسفانه مشکلی به وجود اومده!</div>
+            <div class="card-header text-warning text-center h2 p-3">@Localizer[BlazorResource.Connection_State_Error_Title]</div>
             <div class="card-body p-3 text-center text-white-50">
                 <p>
-                    ظاهرا مشکلی از سمت برنامه به وجود اومده، لطفا از طریق دکمه ی زیر، صفحه رو رفرش کنید
+                    @Localizer[BlazorResource.Connection_State_Error_Content]
                 </p>
                 <i class="bi bi-exclamation-triangle-fill opacity-30" style="font-size:8rem;"></i>
             </div>
             <div class="card-footer">
-                <a onclick="location.reload()" class="btn btn-warning d-block">رفرش کردن صفحه</a>
+                <a onclick="location.reload()" class="btn btn-warning d-block">@Localizer[BlazorResource.Connection_State_Reload_Btn]</a>
             </div>
         </div>
     </div>
@@ -20,10 +20,10 @@
     <div class="show">
         <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div class="card bg-form shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
-                <div class="card-header text-warning text-center h2 p-3">متاسفانه ارتباط با سرور قطع شده!</div>
+                <div class="card-header text-warning text-center h2 p-3">@Localizer[BlazorResource.Connection_State_Disconnect_Title]</div>
                 <div class="card-body p-3 text-center text-white-50">
                     <p>
-                        در حال تلاش برای اتصال به سرور. لطفا منتظر بمانید ...
+                        @Localizer[BlazorResource.Connection_State_Disconnect_Title]
                     </p>
                     <i class="bi bi-exclamation-triangle-fill opacity-30" style="font-size:8rem;"></i>
                 </div>
@@ -34,15 +34,15 @@
     <div class="failed">
         <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div class="card bg-form shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
-                <div class="card-header text-warning text-center h2 p-3">متاسفانه ارتباط با سرور موفق نبود!</div>
+                <div class="card-header text-warning text-center h2 p-3">@Localizer[BlazorResource.Connection_State_Reconnect_Title]</div>
                 <div class="card-body p-3 text-center text-white-50">
                     <p>
-                        متاسفانه تلاش خودکار برای ارتباط مجدد با سرور موفق نبود، لطفا از طریق دکمه ی زیر مجددا تلاش کنید
+                        @Localizer[BlazorResource.Connection_State_Reject_Content]
                     </p>
                     <i class="bi bi-exclamation-triangle-fill opacity-30" style="font-size:8rem;"></i>
                 </div>
                 <div class="card-footer">
-                    <a onclick="window.Blazor.reconnect()" class="btn btn-warning d-block">اتلاش دوباره!</a>
+                    <a onclick="window.Blazor.reconnect()" class="btn btn-warning d-block">@Localizer[BlazorResource.Connection_State_Retry_Btn]</a>
                 </div>
             </div>
         </div>
@@ -51,15 +51,15 @@
     <div class="rejected">
         <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div class="card bg-form shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
-                <div class="card-header text-warning text-center h2 p-3">متاسفانه درخواست اتصال رد شد!</div>
+                <div class="card-header text-warning text-center h2 p-3">@Localizer[BlazorResource.Connection_State_Reject_Title]</div>
                 <div class="card-body p-3 text-center text-white-50">
                     <p>
-                        ارتباط با سرور برقراره ولی درخواست اتصال از سمت سرور رد شد. لطفا با استفاده از دکمه ی زیر مجددا تلاش کنید.
+                        @Localizer[BlazorResource.Connection_State_Reject_Content]
                     </p>
                     <i class="bi bi-exclamation-triangle-fill opacity-30" style="font-size:8rem;"></i>
                 </div>
                 <div class="card-footer">
-                    <a onclick="location.reload()" class="btn btn-warning d-block">تلاش دوباره!</a>
+                    <a onclick="location.reload()" class="btn btn-warning d-block">@Localizer[BlazorResource.Connection_State_Retry_Btn]</a>
                 </div>
             </div>
         </div>

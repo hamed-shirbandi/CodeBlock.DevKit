@@ -126,4 +126,34 @@
   <data name="Error_Page_Home_Btn" xml:space="preserve">
     <value>برو به صفحه ی اصلی!</value>
   </data>
+  <data name="Connection_State_Error_Title" xml:space="preserve">
+    <value>متاسفانه مشکلی به وجود اومده!</value>
+  </data>
+  <data name="Connection_State_Error_Content" xml:space="preserve">
+    <value> ظاهرا مشکلی از سمت برنامه به وجود اومده، لطفا از طریق دکمه ی زیر، صفحه رو رفرش کنید</value>
+  </data>
+  <data name="Connection_State_Disconnect_Title" xml:space="preserve">
+    <value>متاسفانه ارتباط با سرور قطع شده!</value>
+  </data>
+  <data name="Connection_State_Disconnect_Content" xml:space="preserve">
+    <value>در حال تلاش برای اتصال به سرور. لطفا منتظر بمانید ...</value>
+  </data>
+  <data name="Connection_State_Reconnect_Content" xml:space="preserve">
+    <value> متاسفانه تلاش خودکار برای ارتباط مجدد با سرور موفق نبود، لطفا از طریق دکمه ی زیر مجددا تلاش کنید</value>
+  </data>
+  <data name="Connection_State_Reconnect_Title" xml:space="preserve">
+    <value>متاسفانه ارتباط با سرور موفق نبود!</value>
+  </data>
+  <data name="Connection_State_Reject_Content" xml:space="preserve">
+    <value> ارتباط با سرور برقراره ولی درخواست اتصال از سمت سرور رد شد. لطفا با استفاده از دکمه ی زیر مجددا تلاش کنید.</value>
+  </data>
+  <data name="Connection_State_Reject_Title" xml:space="preserve">
+    <value>متاسفانه درخواست اتصال رد شد!</value>
+  </data>
+  <data name="Connection_State_Retry_Btn" xml:space="preserve">
+    <value>تلاش دوباره</value>
+  </data>
+  <data name="Connection_State_Reload_Btn" xml:space="preserve">
+    <value>رفرش کردن صفحه</value>
+  </data>
 </root>
