@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Api</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Api</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>10.0.0</VersionPrefix>
+		<VersionPrefix>11.0.0</VersionPrefix>
 		<Authors>Hamed Shirbandi</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Api</PackageId>
