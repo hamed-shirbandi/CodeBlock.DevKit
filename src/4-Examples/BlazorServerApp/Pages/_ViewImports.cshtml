@@ -1,4 +1,10 @@
+@using CodeBlock.DevKit.Authorization.Resources
+@using CodeBlock.DevKit.Authorization.UI.Resources
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.Extensions.Localization
 
 BlazorServerApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject IStringLocalizer<AuthorizationUiResource> AuthorizationUiLocalizer
+@inject IStringLocalizer<AuthorizationResource> AuthorizationLocalizer
