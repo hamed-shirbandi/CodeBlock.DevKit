@@ -4,6 +4,7 @@
 @using Blazored.Modal
 @using CodeBlock.DevKit.Application.Bus
 @using CodeBlock.DevKit.Authorization.Resources
+@using CodeBlock.DevKit.Authorization.UI.Resources
 @using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
@@ -24,7 +25,8 @@
 @inject CookieAuthenticationService CookieAuthenticationService
 @inject NavigationManager NavigationManager
 @attribute [Authorize]
-@inject IStringLocalizer<AuthorizationResource> Localizer
+@inject IStringLocalizer<AuthorizationUiResource> AuthorizationUiLocalizer
+@inject IStringLocalizer<AuthorizationResource> AuthorizationLocalizer
 @inject IToastService ToastService
 @inject IModalService ModalService
 @inject IBus Bus

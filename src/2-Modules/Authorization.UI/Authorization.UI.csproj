@@ -35,17 +35,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\AuthorizationResource.Designer.cs">
+    <Compile Update="Resources\AuthorizationUiResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>AuthorizationResource.resx</DependentUpon>
+      <DependentUpon>AuthorizationUiResource.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\AuthorizationResource.resx">
+    <EmbeddedResource Update="Resources\AuthorizationUiResource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AuthorizationResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>AuthorizationUiResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
