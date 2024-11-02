@@ -2,6 +2,8 @@
 @using Blazored.Toast.Configuration
 @inherits LayoutComponentBase
 
+<PageTitle>پنل مدیریت این منم</PageTitle>
+
 <BlazoredToasts Position="ToastPosition.BottomCenter"
                 Timeout="5"
                 IconType="IconType.Material"
@@ -17,10 +19,18 @@
     </div>
 
     <main>
-        <article class="content px-4 mt-3">
+        <div class="top-row px-4">
 
             <SelectLanguage />
 
+
+            <NavLink class="nav-link" href="logout">
+                <span class="bi bi-power" aria-hidden="true"></span>
+            </NavLink>
+
+        </div>
+
+        <article class="content px-4 mt-3">
             @Body
         </article>
     </main>

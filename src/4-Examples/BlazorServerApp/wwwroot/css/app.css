@@ -1,3 +1,30 @@
-.test{
-    color:red;
+@font-face {
+    font-family: vazir;
+    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/Vazir.woff") format("woff"),url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/Vazir.woff2") format("woff2");
+}
+
+.form-control {
+    background-color: #fff !important;
+    border: 1px solid #ced4da !important;
+    color: #212529 !important;
+}
+
+html, body {
+    font-family: vazir;
+}
+
+#side-nave a {
+    color: #f1f0f0 !important;
+}
+
+.bg-primary {
+    background-color: #352AEC !important;
+}
+
+.page-item span {
+    cursor: pointer !important;
+}
+
+.page-item span {
+    cursor: pointer !important;
 }
