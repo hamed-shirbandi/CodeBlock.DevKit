@@ -1,16 +1,17 @@
 ﻿using System.Net;
 using System.Net.Mail;
+using CodeBlock.DevKit.Application.Srvices;
 
-namespace WebApiApp.Controllers;
+namespace CodeBlock.DevKit.Infrastructure.Services;
 
-public class EmailSender
+public class EmailService : IEmailService
 {
     private readonly string _smtpServer;
     private readonly int _smtpPort;
     private readonly string _smtpUser;
     private readonly string _smtpPass;
 
-    public EmailSender(string smtpServer, int smtpPort, string smtpUser, string smtpPass)
+    public EmailService(string smtpServer, int smtpPort, string smtpUser, string smtpPass)
     {
         _smtpServer = smtpServer;
         _smtpPort = smtpPort;
@@ -18,7 +19,7 @@ public class EmailSender
         _smtpPass = smtpPass;
     }
 
-    public async Task SendEmailAsync(string to, string subject, string body, bool isBodyHtml = true)
+    public async Task SendAsync(string to, string subject, string body, bool isBodyHtml = true)
     {
         using (var client = new SmtpClient(_smtpServer, _smtpPort))
         {

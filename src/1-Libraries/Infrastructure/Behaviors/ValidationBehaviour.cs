@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Application.Notifications;
 using CodeBlock.DevKit.Core.Extensions;
+using CodeBlock.DevKit.Infrastructure.Services;
 using FluentValidation;
 using MediatR;
 

@@ -1,9 +1,9 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Application.Notifications;
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Events;
+using CodeBlock.DevKit.Infrastructure.Services;
 using MediatR;
 
 namespace CodeBlock.DevKit.Infrastructure.Bus;

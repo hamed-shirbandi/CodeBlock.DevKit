@@ -1,6 +1,8 @@
-﻿namespace CodeBlock.DevKit.Application.Notifications;
+﻿using CodeBlock.DevKit.Application.Srvices;
 
-public class NotificationService
+namespace CodeBlock.DevKit.Infrastructure.Services;
+
+public class NotificationService : INotificationService
 {
     private List<string> notifications;
 

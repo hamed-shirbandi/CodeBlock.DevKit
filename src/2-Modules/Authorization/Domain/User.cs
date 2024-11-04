@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Domain.Entities;
-using CodeBlock.DevKit.Domain.Services;
+﻿using CodeBlock.DevKit.Application.Srvices;
+using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain;
 

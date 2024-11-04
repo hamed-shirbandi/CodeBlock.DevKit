@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Domain.Services;
+﻿namespace CodeBlock.DevKit.Application.Srvices;
 
 public interface IEncryptionService
 {

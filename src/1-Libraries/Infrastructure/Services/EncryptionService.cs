@@ -1,8 +1,8 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using CodeBlock.DevKit.Domain.Services;
+using CodeBlock.DevKit.Application.Srvices;
 
-namespace CodeBlock.DevKit.Infrastructure.Security;
+namespace CodeBlock.DevKit.Infrastructure.Services;
 
 public class EncryptionService : IEncryptionService
 {

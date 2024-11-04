@@ -1,10 +1,10 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Core.Resources;
-using CodeBlock.DevKit.Domain.Services;
 using MediatR;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.ChangeUserPassword;
