@@ -3,6 +3,7 @@ using CodeBlock.DevKit.Infrastructure.Behaviors;
 using CodeBlock.DevKit.Infrastructure.Bus;
 using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Mapping;
+using CodeBlock.DevKit.Infrastructure.Models;
 using CodeBlock.DevKit.Infrastructure.Services;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +30,7 @@ public static class InfrastructureExtensions
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
         services.AddEncryptionService();
-        services.AddEmailService();
+        services.AddEmailService(configuration);
         services.AddMapper(mappingProfileMarkerType);
     }
 
@@ -43,8 +44,15 @@ public static class InfrastructureExtensions
         services.AddScoped<IEncryptionService, EncryptionService>();
     }
 
-    public static void AddEmailService(this IServiceCollection services)
+    public static void AddEmailService(this IServiceCollection services, IConfiguration configuration)
     {
+        var EmailConfig = configuration.GetSection("Email");
+        if (!EmailConfig.Exists())
+            return;
+
+        Action<EmailSetting> setupAction = EmailConfig.Bind;
+
+        services.Configure(setupAction);
         services.AddScoped<IEmailService, EmailService>();
     }
 }

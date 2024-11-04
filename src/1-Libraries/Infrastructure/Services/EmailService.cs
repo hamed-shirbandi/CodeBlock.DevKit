@@ -1,34 +1,30 @@
 ﻿using System.Net;
 using System.Net.Mail;
 using CodeBlock.DevKit.Application.Srvices;
+using CodeBlock.DevKit.Infrastructure.Models;
+using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Infrastructure.Services;
 
 public class EmailService : IEmailService
 {
-    private readonly string _smtpServer;
-    private readonly int _smtpPort;
-    private readonly string _smtpUser;
-    private readonly string _smtpPass;
+    private readonly EmailSetting _emailSetting;
 
-    public EmailService(string smtpServer, int smtpPort, string smtpUser, string smtpPass)
+    public EmailService(IOptions<EmailSetting> emailSetting)
     {
-        _smtpServer = smtpServer;
-        _smtpPort = smtpPort;
-        _smtpUser = smtpUser;
-        _smtpPass = smtpPass;
+        _emailSetting = emailSetting.Value;
     }
 
     public async Task SendAsync(string to, string subject, string body, bool isBodyHtml = true)
     {
-        using (var client = new SmtpClient(_smtpServer, _smtpPort))
+        using (var client = new SmtpClient(_emailSetting.SmtpServer, _emailSetting.SmtpPort))
         {
-            client.Credentials = new NetworkCredential(_smtpUser, _smtpPass);
-            client.EnableSsl = false; // Ensure SSL is enabled
+            client.Credentials = new NetworkCredential(_emailSetting.SmtpUser, _emailSetting.SmtpPassword);
+            client.EnableSsl = _emailSetting.EnableSsl;
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(_smtpUser),
+                From = new MailAddress(_emailSetting.SmtpUser),
                 Subject = subject,
                 Body = body,
                 IsBodyHtml = isBodyHtml,
