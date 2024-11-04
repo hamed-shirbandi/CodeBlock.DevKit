@@ -41,4 +41,13 @@ public static class AuthorizationExceptions
             new Dictionary<string, Type> { { AuthorizationResource.Role_Name, typeof(AuthorizationResource) } }
         );
     }
+
+    public static Exception PasswordIsRequired()
+    {
+        return new DomainException(
+            nameof(CoreResource.Required),
+            typeof(CoreResource),
+            new Dictionary<string, Type> { { AuthorizationResource.User_Password, typeof(AuthorizationResource) } }
+        );
+    }
 }

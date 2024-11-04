@@ -27,7 +27,9 @@ public class LoginUserUseCase : BaseQueryHandler, IRequestHandler<LoginUserReque
         if (user is null)
             throw new ApplicationException(AuthorizationResource.User_Email_Is_Wrong);
 
-        if (!user.IsValidPassword(_encryptionService, request.Password))
+        var passwordHash = _encryptionService.CreatePasswordHash(request.Password, user.PasswordSalt);
+
+        if (!user.IsValidPassword(passwordHash))
             throw new ApplicationException(AuthorizationResource.User_Password_Is_Wrong);
 
         return _mapper.Map<GetUserDto>(user);

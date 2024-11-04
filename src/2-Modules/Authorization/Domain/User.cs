@@ -1,14 +1,15 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
-using CodeBlock.DevKit.Domain.Entities;
+﻿using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain;
 
 public class User : AggregateRoot
 {
-    private User(IUserRepository userRepository, string email)
+    private User(IUserRepository userRepository, string email, string passwordSalt, string passwordHash)
     {
         Email = email;
         Roles = new List<string>();
+        PasswordSalt = passwordSalt;
+        PasswordHash = passwordHash;
 
         CheckPolicies(userRepository);
     }
@@ -18,9 +19,9 @@ public class User : AggregateRoot
     public string PasswordSalt { get; private set; }
     public List<string> Roles { get; private set; }
 
-    public static User Register(IUserRepository userRepository, string email)
+    public static User Register(IUserRepository userRepository, string email, string passwordSalt, string passwordHash)
     {
-        return new User(userRepository, email);
+        return new User(userRepository, email, passwordSalt, passwordHash);
     }
 
     public void Update(IUserRepository userRepository, string email)
@@ -30,16 +31,15 @@ public class User : AggregateRoot
         CheckPolicies(userRepository);
     }
 
-    public void SetPassword(IEncryptionService encryptionService, string newPassword)
+    public void SetPassword(string passwordSalt, string passwordHash)
     {
-        PasswordSalt = encryptionService.CreateSaltKey(5);
-        PasswordHash = encryptionService.CreatePasswordHash(newPassword, PasswordSalt);
+        PasswordSalt = passwordSalt;
+        PasswordHash = passwordHash;
     }
 
-    public bool IsValidPassword(IEncryptionService encryptionService, string password)
+    public bool IsValidPassword(string passwordHash)
     {
-        var newPasswordHash = encryptionService.CreatePasswordHash(password, PasswordSalt);
-        return newPasswordHash == PasswordHash;
+        return PasswordHash == passwordHash;
     }
 
     public void AddRole(string role)
@@ -56,6 +56,12 @@ public class User : AggregateRoot
     {
         if (string.IsNullOrEmpty(Email))
             throw AuthorizationExceptions.UserEmailIsRequired();
+
+        if (string.IsNullOrEmpty(PasswordSalt))
+            throw AuthorizationExceptions.PasswordIsRequired();
+
+        if (string.IsNullOrEmpty(PasswordHash))
+            throw AuthorizationExceptions.PasswordIsRequired();
 
         if (!userRepository.EmailIsUnique(Id, Email))
             throw AuthorizationExceptions.UserEmailMustBeUnique();

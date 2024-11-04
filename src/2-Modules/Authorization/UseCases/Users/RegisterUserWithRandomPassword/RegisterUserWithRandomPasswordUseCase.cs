@@ -31,13 +31,13 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
 
     public async Task<CommandResult> Handle(RegisterUserWithRandomPasswordRequest request, CancellationToken cancellationToken)
     {
-        var user = User.Register(_userRepository, request.Email);
+        var randomPassword = RandomDataGenerator.GetRandomNumber(length: 4);
+        var passwordSalt = _encryptionService.CreateSaltKey(5);
+        var passwordHash = _encryptionService.CreatePasswordHash(randomPassword, passwordSalt);
+
+        var user = User.Register(_userRepository, request.Email, passwordSalt, passwordHash);
 
         user.AddRole(_options.DefaultRole);
-
-        var randomPassword = RandomDataGenerator.GetRandomNumber(length: 4);
-
-        user.SetPassword(_encryptionService, randomPassword);
 
         await _userRepository.AddAsync(user);
 

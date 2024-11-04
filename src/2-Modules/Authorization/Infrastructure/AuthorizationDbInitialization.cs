@@ -38,9 +38,10 @@ public static class AuthorizationDbInitialization
         var userRepository = serviceScope.ServiceProvider.GetService<IUserRepository>();
         var encryptionService = serviceScope.ServiceProvider.GetService<IEncryptionService>();
 
-        var user = User.Register(userRepository, authorizationSettings.AdminUser.Email);
+        var passwordSalt = encryptionService.CreateSaltKey(5);
+        var passwordHash = encryptionService.CreatePasswordHash(authorizationSettings.AdminUser.Password, passwordSalt);
 
-        user.SetPassword(encryptionService, authorizationSettings.AdminUser.Password);
+        var user = User.Register(userRepository, authorizationSettings.AdminUser.Email, passwordSalt, passwordHash);
 
         user.AddRole(authorizationSettings.AdminRole);
 
