@@ -13,19 +13,19 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
 {
     private readonly IUserRepository _userRepository;
     private readonly IEncryptionService _encryptionService;
-    private readonly AuthorizationSettings _authorizationSettings;
+    private readonly AuthorizationOptions _authorizationOptions;
 
     public RegisterUserUseCase(
         IUserRepository userRepository,
         IEncryptionService encryptionService,
         IBus bus,
-        IOptions<AuthorizationSettings> options
+        IOptions<AuthorizationOptions> authorizationOptions
     )
         : base(bus)
     {
         _userRepository = userRepository;
         _encryptionService = encryptionService;
-        _authorizationSettings = options.Value;
+        _authorizationOptions = authorizationOptions.Value;
     }
 
     public async Task<CommandResult> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
@@ -35,7 +35,7 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
 
         var user = User.Register(_userRepository, request.Email, passwordSalt, passwordHash);
 
-        user.AddRole(_authorizationSettings.DefaultRole);
+        user.AddRole(_authorizationOptions.DefaultRole);
 
         await _userRepository.AddAsync(user);
 

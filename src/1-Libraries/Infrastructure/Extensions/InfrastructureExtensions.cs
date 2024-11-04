@@ -50,7 +50,7 @@ public static class InfrastructureExtensions
         if (!EmailConfig.Exists())
             return;
 
-        Action<EmailSetting> setupAction = EmailConfig.Bind;
+        Action<EmailOptions> setupAction = EmailConfig.Bind;
 
         services.Configure(setupAction);
         services.AddScoped<IEmailService, EmailService>();

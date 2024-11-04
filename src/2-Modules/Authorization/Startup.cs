@@ -47,7 +47,7 @@ public static class Startup
         if (!authConfig.Exists())
             return;
 
-        Action<AuthorizationSettings> setupAction = authConfig.Bind;
+        Action<AuthorizationOptions> setupAction = authConfig.Bind;
 
         services.Configure(setupAction);
     }

@@ -14,13 +14,13 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
 {
     private readonly IUserRepository _userRepository;
     private readonly IEncryptionService _encryptionService;
-    private readonly AuthorizationSettings _options;
+    private readonly AuthorizationOptions _options;
 
     public RegisterUserWithRandomPasswordUseCase(
         IUserRepository userRepository,
         IEncryptionService encryptionService,
         IBus bus,
-        IOptions<AuthorizationSettings> options
+        IOptions<AuthorizationOptions> options
     )
         : base(bus)
     {

@@ -8,23 +8,23 @@ namespace CodeBlock.DevKit.Infrastructure.Services;
 
 public class EmailService : IEmailService
 {
-    private readonly EmailSetting _emailSetting;
+    private readonly EmailOptions _emailOptions;
 
-    public EmailService(IOptions<EmailSetting> emailSetting)
+    public EmailService(IOptions<EmailOptions> emailOptions)
     {
-        _emailSetting = emailSetting.Value;
+        _emailOptions = emailOptions.Value;
     }
 
     public async Task SendAsync(string to, string subject, string body, bool isBodyHtml = true)
     {
-        using (var client = new SmtpClient(_emailSetting.SmtpServer, _emailSetting.SmtpPort))
+        using (var client = new SmtpClient(_emailOptions.SmtpServer, _emailOptions.SmtpPort))
         {
-            client.Credentials = new NetworkCredential(_emailSetting.SmtpUser, _emailSetting.SmtpPassword);
-            client.EnableSsl = _emailSetting.EnableSsl;
+            client.Credentials = new NetworkCredential(_emailOptions.SmtpUser, _emailOptions.SmtpPassword);
+            client.EnableSsl = _emailOptions.EnableSsl;
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(_emailSetting.SmtpUser),
+                From = new MailAddress(_emailOptions.SmtpUser),
                 Subject = subject,
                 Body = body,
                 IsBodyHtml = isBodyHtml,

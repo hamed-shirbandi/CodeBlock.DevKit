@@ -1,6 +1,6 @@
 ﻿namespace CodeBlock.DevKit.Infrastructure.Models;
 
-public class EmailSetting
+public class EmailOptions
 {
     public string SmtpServer { get; set; }
     public int SmtpPort { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-public class AuthorizationSettings
+public class AuthorizationOptions
 {
     public string AdminRole { get; set; }
     public string DefaultRole { get; set; }

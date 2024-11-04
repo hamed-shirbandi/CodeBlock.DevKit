@@ -33,11 +33,13 @@ public static class AuthorizationConfiguration
 
     private static void AddAdminRolePolicy(this WebApplicationBuilder builder)
     {
-        var authorizationSettings = builder.Configuration.GetSection("Authorization").Get<AuthorizationSettings>();
+        var authorizationOptions = builder.Configuration.GetSection("Authorization").Get<Infrastructure.AuthorizationOptions>();
 
-        builder.Services.PostConfigure<AuthorizationOptions>(options =>
-        {
-            options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationSettings.AdminRole));
-        });
+        builder.Services.PostConfigure(
+            (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>
+            {
+                options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationOptions.AdminRole));
+            }
+        );
     }
 }
