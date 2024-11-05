@@ -1,9 +1,9 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Queries;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Events;
-using CodeBlock.DevKit.Infrastructure.Services;
 using MediatR;
 
 namespace CodeBlock.DevKit.Infrastructure.Bus;
@@ -16,13 +16,13 @@ public class InMemoryBus : IBus
     #region Fields
 
     private readonly IMediator _mediator;
-    private readonly NotificationService _notifications;
+    private readonly INotificationService _notifications;
 
     #endregion
 
     #region Ctors
 
-    public InMemoryBus(IMediator mediator, NotificationService notifications)
+    public InMemoryBus(IMediator mediator, INotificationService notifications)
     {
         _mediator = mediator;
         _notifications = notifications;

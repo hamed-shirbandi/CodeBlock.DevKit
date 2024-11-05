@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Resources;
-using CodeBlock.DevKit.Infrastructure.Services;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -16,7 +16,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
     #region Fields
 
 
-    private readonly NotificationService _notifications;
+    private readonly INotificationService _notifications;
     private readonly ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> _logger;
     private readonly IStringLocalizer<CoreResource> _localizer;
     #endregion
@@ -25,7 +25,7 @@ public class UnmanagedExceptionHandler<TRequest, TResponse, TException> : IReque
 
 
     public UnmanagedExceptionHandler(
-        NotificationService notifications,
+        INotificationService notifications,
         ILogger<UnmanagedExceptionHandler<TRequest, TResponse, TException>> logger,
         IStringLocalizer<CoreResource> localizer
     )

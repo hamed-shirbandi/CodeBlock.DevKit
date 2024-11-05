@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Extensions;
-using CodeBlock.DevKit.Infrastructure.Services;
 using FluentValidation;
 using MediatR;
 
@@ -15,13 +15,13 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
     #region Fields
 
     private readonly IEnumerable<IValidator<TRequest>> _validators;
-    private readonly NotificationService _notifications;
+    private readonly INotificationService _notifications;
 
     #endregion
 
     #region Ctors
 
-    public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators, NotificationService notifications)
+    public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators, INotificationService notifications)
     {
         _validators = validators;
         _notifications = notifications;

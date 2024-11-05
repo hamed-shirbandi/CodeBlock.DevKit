@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Exceptions;
-using CodeBlock.DevKit.Infrastructure.Services;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
@@ -13,12 +13,12 @@ namespace CodeBlock.DevKit.Infrastructure.Exceptions;
 public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequestExceptionHandler<TRequest, TResponse, TException>
     where TException : ManagedException
 {
-    private readonly NotificationService _notifications;
+    private readonly INotificationService _notifications;
     private readonly ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> _logger;
     private readonly IStringLocalizerFactory _localizerFactory;
 
     public ManagedExceptionHandler(
-        NotificationService notifications,
+        INotificationService notifications,
         ILogger<ManagedExceptionHandler<TRequest, TResponse, TException>> logger,
         IStringLocalizerFactory localizerFactory
     )
