@@ -1,7 +1,7 @@
 using CodeBlock.DevKit.Authorization;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using CodeBlock.DevKit.Authorization.UI.Configuration;
-using CodeBlock.DevKit.Web.Blazor.Server.Configuration;
+using CodeBlock.DevKit.Authorization.UI;
+using CodeBlock.DevKit.Web.Blazor.Server;
 
 namespace BlazorServerApp;
 

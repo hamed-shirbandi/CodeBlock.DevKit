@@ -2,16 +2,14 @@
 using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
-using CodeBlock.DevKit.Web.Configuration;
 using CodeBlock.DevKit.Web.Serilog;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CodeBlock.DevKit.Web.Api.Configuration;
+namespace CodeBlock.DevKit.Web.Api;
 
-public static class WebApiConfiguration
+public static class Startup
 {
     public static void AddWebApiPreConfigured(
         this WebApplicationBuilder builder,

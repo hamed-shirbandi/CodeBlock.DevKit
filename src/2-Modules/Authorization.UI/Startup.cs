@@ -1,15 +1,14 @@
-using System.Reflection;
+﻿using System.Reflection;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
-namespace CodeBlock.DevKit.Authorization.UI.Configuration;
+namespace CodeBlock.DevKit.Authorization.UI;
 
-public static class AuthorizationConfiguration
+public static class Startup
 {
     public static void AddAuthorizationUiModule(this WebApplicationBuilder builder)
     {
@@ -23,7 +22,7 @@ public static class AuthorizationConfiguration
     /// </summary>
     private static void AddRazorFileProvider(this IServiceCollection services)
     {
-        string libraryPath = typeof(AuthorizationConfiguration).GetTypeInfo().Assembly.Location;
+        string libraryPath = typeof(Startup).GetTypeInfo().Assembly.Location;
 
         services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
         {
@@ -33,7 +32,7 @@ public static class AuthorizationConfiguration
 
     private static void AddAdminRolePolicy(this WebApplicationBuilder builder)
     {
-        var authorizationOptions = builder.Configuration.GetSection("Authorization").Get<Infrastructure.AuthorizationOptions>();
+        var authorizationOptions = builder.Configuration.GetSection("Authorization").Get<AuthorizationOptions>();
 
         builder.Services.PostConfigure(
             (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>

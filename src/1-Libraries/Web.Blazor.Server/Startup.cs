@@ -1,19 +1,18 @@
-using System.Reflection;
+﻿using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
-using CodeBlock.DevKit.Web.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.Configuration;
+namespace CodeBlock.DevKit.Web.Blazor.Server;
 
-public static class BlazorConfiguration
+public static class Startup
 {
     public static void AddBlazorPreConfigured(
         this WebApplicationBuilder builder,
@@ -79,7 +78,7 @@ public static class BlazorConfiguration
     /// </summary>
     private static void AddRazorFileProvider(this IServiceCollection services)
     {
-        string libraryPath = typeof(BlazorConfiguration).GetTypeInfo().Assembly.Location;
+        string libraryPath = typeof(Startup).GetTypeInfo().Assembly.Location;
 
         services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
         {

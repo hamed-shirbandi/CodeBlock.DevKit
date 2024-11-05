@@ -1,12 +1,10 @@
-using CodeBlock.DevKit.Authorization.Infrastructure;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Authorization.Api.Configuration;
+namespace CodeBlock.DevKit.Authorization.Api;
 
-public static class AuthorizationConfiguration
+public static class Startup
 {
     public static void AddAuthorizationApiModule(this WebApplicationBuilder builder)
     {

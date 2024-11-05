@@ -1,7 +1,7 @@
 using CodeBlock.DevKit.Authorization;
-using CodeBlock.DevKit.Authorization.Api.Configuration;
+using CodeBlock.DevKit.Authorization.Api;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using CodeBlock.DevKit.Web.Api.Configuration;
+using CodeBlock.DevKit.Web.Api;
 
 namespace WebApiApp;
 

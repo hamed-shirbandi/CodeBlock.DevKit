@@ -9,9 +9,9 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Infrastructure.Extensions;
+namespace CodeBlock.DevKit.Infrastructure;
 
-public static class InfrastructureExtensions
+public static class Startup
 {
     /// <summary>
     ///

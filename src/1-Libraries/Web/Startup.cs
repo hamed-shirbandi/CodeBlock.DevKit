@@ -1,20 +1,16 @@
-﻿using CodeBlock.DevKit.Infrastructure.Extensions;
+﻿using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CodeBlock.DevKit.Web.Configuration;
+namespace CodeBlock.DevKit.Web;
 
-/// <summary>
-///
-/// </summary>
-public static class WebConfiguration
+public static class Startup
 {
     public static void AddCodeBlockDevKitWeb(
         this WebApplicationBuilder builder,
