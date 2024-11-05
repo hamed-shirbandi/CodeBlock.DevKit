@@ -4,29 +4,66 @@ public abstract class ManagedException : Exception
 {
     public string MessageResourceKey { get; }
     public Type MessageResourceType { get; }
-    public Dictionary<string, Type> PlaceholderResourceKeys { get; }
+    public IEnumerable<MessagePlaceholder> MessagePlaceholders { get; }
 
-    public ManagedException(string messageResourceKey, Type messageResourceType, Dictionary<string, Type> placeholderResourceKeys = null)
+    public ManagedException(string messageResourceKey, Type messageResourceType, IEnumerable<MessagePlaceholder> messagePlaceholders = null)
         : base()
     {
         MessageResourceKey = messageResourceKey;
         MessageResourceType = messageResourceType;
-        PlaceholderResourceKeys = placeholderResourceKeys ?? new Dictionary<string, Type>();
+        MessagePlaceholders = messagePlaceholders ?? new List<MessagePlaceholder>();
     }
 
     public ManagedException()
     {
-        PlaceholderResourceKeys = new Dictionary<string, Type>();
+        MessagePlaceholders = new List<MessagePlaceholder>();
     }
 
     public ManagedException(string message)
         : base(message)
     {
-        PlaceholderResourceKeys = new Dictionary<string, Type>();
+        MessagePlaceholders = new List<MessagePlaceholder>();
     }
 
     public bool HasResourceMessage()
     {
         return !string.IsNullOrEmpty(MessageResourceKey) && MessageResourceType != null;
     }
+}
+
+public class MessagePlaceholder
+{
+    private MessagePlaceholder(string plainText)
+    {
+        Type = MessagePlaceholderType.PlainText;
+        PlainText = plainText;
+    }
+
+    private MessagePlaceholder(string resourceKey, Type resourceType)
+    {
+        Type = MessagePlaceholderType.Resource;
+        ResourceKey = resourceKey;
+        ResourceType = resourceType;
+    }
+
+    public static MessagePlaceholder CreatePlainText(string plainText)
+    {
+        return new MessagePlaceholder(plainText);
+    }
+
+    public static MessagePlaceholder CreateResource(string resourceKey, Type resourceType)
+    {
+        return new MessagePlaceholder(resourceKey, resourceType);
+    }
+
+    public MessagePlaceholderType Type { get; }
+    public string ResourceKey { get; }
+    public Type ResourceType { get; }
+    public string PlainText { get; }
+}
+
+public enum MessagePlaceholderType
+{
+    Resource,
+    PlainText,
 }

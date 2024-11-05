@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Core.Extensions;
 using CodeBlock.DevKit.Core.Helpers;

@@ -1,10 +1,9 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Roles;
+using CodeBlock.DevKit.Authorization.Exceptions;
 using CodeBlock.DevKit.Core.Helpers;
-using CodeBlock.DevKit.Core.Resources;
 using MediatR;
-using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Roles.UpdateRole;
 
@@ -22,7 +21,7 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
     {
         var role = await _roleRepository.GetByIdAsync(request.Id);
         if (role is null)
-            throw new ApplicationException(string.Format(CoreResource.Not_Found, Resources.AuthorizationResource.Role));
+            throw AuthorizationExceptions.RoleNotFound(request.Id);
 
         role.Update(_roleRepository, request.Name);
 

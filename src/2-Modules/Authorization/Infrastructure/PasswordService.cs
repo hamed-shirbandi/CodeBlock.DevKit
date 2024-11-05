@@ -1,5 +1,5 @@
 ﻿using CodeBlock.DevKit.Application.Srvices;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 

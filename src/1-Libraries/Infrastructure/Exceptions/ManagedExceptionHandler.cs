@@ -52,10 +52,17 @@ public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequest
 
         // Fetch each placeholder resource
         var placeholders = exception
-            .PlaceholderResourceKeys.Select(kvp =>
+            .MessagePlaceholders.Select(mph =>
             {
-                var placeholderLocalizer = _localizerFactory.Create(kvp.Value);
-                return placeholderLocalizer[kvp.Key];
+                if (mph.Type == MessagePlaceholderType.Resource)
+                {
+                    var placeholderLocalizer = _localizerFactory.Create(mph.ResourceType);
+                    return placeholderLocalizer[mph.ResourceKey];
+                }
+                else
+                {
+                    return mph.PlainText;
+                }
             })
             .ToArray();
 

@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Authorization.Domain;
+﻿using CodeBlock.DevKit.Authorization.Domain.Roles;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;

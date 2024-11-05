@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Authorization.Domain;
+﻿using CodeBlock.DevKit.Authorization.Domain.Roles;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Infrastructure.MongoDB;
 using MediatR;

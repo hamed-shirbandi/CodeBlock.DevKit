@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Domain.Entities;
 
-namespace CodeBlock.DevKit.Authorization.Domain;
+namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
 public class User : AggregateRoot
 {
@@ -51,9 +51,9 @@ public class User : AggregateRoot
     private void CheckPolicies(IUserRepository userRepository)
     {
         if (string.IsNullOrEmpty(Email))
-            throw AuthorizationExceptions.UserEmailIsRequired();
+            throw UserExceptions.EmailIsRequired();
 
         if (!userRepository.EmailIsUnique(Id, Email))
-            throw AuthorizationExceptions.UserEmailMustBeUnique();
+            throw UserExceptions.EmailMustBeUnique();
     }
 }

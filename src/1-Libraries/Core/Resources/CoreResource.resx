@@ -138,4 +138,8 @@
   <data name="Unknown_Exception_Error" xml:space="preserve">
     <value>unknown exception happened</value>
   </data>
+  <data name="Record_Not_Found" xml:space="preserve">
+    <value>{0} {1} not found</value>
+    <comment>example: Role 256 not found</comment>
+  </data>
 </root>

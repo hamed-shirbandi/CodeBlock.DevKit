@@ -51,7 +51,7 @@ public class MongoDbBaseAggregateRepository<TEntity> : MongoDbBaseRepository<TEn
     {
         var versionExists = await _collection.Find(e => e.Id == id && e.Version == loadedVersion).AnyAsync();
         if (!versionExists)
-            throw new ApplicationException(nameof(InfrastructureResource.Aggregate_Concurrency_Error), typeof(InfrastructureResource));
+            throw new ApplicationException(InfrastructureResource.Aggregate_Concurrency_Error, typeof(InfrastructureResource));
     }
 
     #endregion

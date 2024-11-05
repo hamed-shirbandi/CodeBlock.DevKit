@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Domain.Services;
 
-namespace CodeBlock.DevKit.Authorization.Domain;
+namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
 public interface IRoleRepository : IBaseAggregateRepository<Role>
 {

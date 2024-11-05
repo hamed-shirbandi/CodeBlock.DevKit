@@ -1,11 +1,9 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Authorization.Domain;
-using CodeBlock.DevKit.Authorization.Resources;
+using CodeBlock.DevKit.Authorization.Domain.Users;
+using CodeBlock.DevKit.Authorization.Exceptions;
 using CodeBlock.DevKit.Core.Helpers;
-using CodeBlock.DevKit.Core.Resources;
 using MediatR;
-using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.UpdateUser;
 
@@ -23,7 +21,7 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
     {
         var user = await _userRepository.GetByIdAsync(request.Id);
         if (user is null)
-            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.User));
+            throw AuthorizationExceptions.UserNotFound(request.Id);
 
         user.Update(_userRepository, request.Email);
 

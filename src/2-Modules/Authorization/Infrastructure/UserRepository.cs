@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Authorization.Domain;
+﻿using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Infrastructure.MongoDB;
 using MongoDB.Driver;
 

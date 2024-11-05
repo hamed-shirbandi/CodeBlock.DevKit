@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace CodeBlock.DevKit.Core.Resources {
+    using System;
     
     
     /// <summary>
@@ -101,6 +102,15 @@ namespace CodeBlock.DevKit.Core.Resources {
         public static string Not_Found {
             get {
                 return ResourceManager.GetString("Not_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} not found.
+        /// </summary>
+        public static string Record_Not_Found {
+            get {
+                return ResourceManager.GetString("Record_Not_Found", resourceCulture);
             }
         }
         

@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Domain.ValueObjects;
 
-namespace CodeBlock.DevKit.Authorization.Domain;
+namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
 public record UserPassword : BaseValueObject
 {
@@ -34,9 +34,9 @@ public record UserPassword : BaseValueObject
     protected override void CheckPolicies()
     {
         if (string.IsNullOrEmpty(Salt))
-            throw AuthorizationExceptions.PasswordIsRequired();
+            throw UserExceptions.PasswordIsRequired();
 
         if (string.IsNullOrEmpty(Hash))
-            throw AuthorizationExceptions.PasswordIsRequired();
+            throw UserExceptions.PasswordIsRequired();
     }
 }

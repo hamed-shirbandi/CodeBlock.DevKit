@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Authorization.Domain;
+﻿namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
 public interface IPasswordService
 {

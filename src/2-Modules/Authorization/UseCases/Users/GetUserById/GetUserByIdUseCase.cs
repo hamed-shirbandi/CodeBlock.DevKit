@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using CodeBlock.DevKit.Application.Queries;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Dtos;
-using CodeBlock.DevKit.Authorization.Resources;
-using CodeBlock.DevKit.Core.Resources;
+using CodeBlock.DevKit.Authorization.Exceptions;
 using MediatR;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
@@ -20,10 +19,10 @@ public class GetUserByIdUseCase : BaseQueryHandler, IRequestHandler<GetUserByIdR
 
     public async Task<GetUserDto> Handle(GetUserByIdRequest request, CancellationToken cancellationToken)
     {
-        var users = await _userRepository.GetByIdAsync(request.Id);
-        if (users is null)
-            throw new ApplicationException(string.Format(CoreResource.Not_Found, AuthorizationResource.User));
+        var user = await _userRepository.GetByIdAsync(request.Id);
+        if (user is null)
+            throw AuthorizationExceptions.UserNotFound(request.Id);
 
-        return _mapper.Map<GetUserDto>(users);
+        return _mapper.Map<GetUserDto>(user);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CodeBlock.DevKit.Application.Queries;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Dtos;
 using MediatR;
 

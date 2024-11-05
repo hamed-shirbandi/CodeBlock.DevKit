@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Authorization.Domain;
+using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Core.Helpers;
 using MediatR;
 

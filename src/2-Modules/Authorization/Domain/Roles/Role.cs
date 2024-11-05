@@ -1,6 +1,6 @@
 ﻿using CodeBlock.DevKit.Domain.Entities;
 
-namespace CodeBlock.DevKit.Authorization.Domain;
+namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
 public class Role : AggregateRoot
 {
@@ -30,9 +30,9 @@ public class Role : AggregateRoot
     private void CheckPolicies(IRoleRepository roleRepository)
     {
         if (string.IsNullOrEmpty(Name))
-            throw AuthorizationExceptions.RoleNameIsRequired();
+            throw RoleExceptions.NameIsRequired();
 
         if (!roleRepository.NameIsUnique(Id, Name))
-            throw AuthorizationExceptions.RoleNameMustBeUnique();
+            throw RoleExceptions.NameMustBeUnique();
     }
 }
