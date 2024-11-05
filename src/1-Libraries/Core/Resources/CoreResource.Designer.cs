@@ -61,7 +61,7 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} is already existed.
+        ///   Looks up a localized string similar to {0} already exists.
         /// </summary>
         public static string ALready_Exists {
             get {
