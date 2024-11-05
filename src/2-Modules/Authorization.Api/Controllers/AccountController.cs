@@ -21,6 +21,9 @@ public class AccountController : BaseApiController
         _jwtAuthenticationService = jwtAuthenticationService;
     }
 
+    /// <summary>
+    /// Jwt login
+    /// </summary>
     [Route("login")]
     [HttpPost]
     public async Task<Result<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
@@ -38,6 +41,9 @@ public class AccountController : BaseApiController
         return Result.Success(loginUserResponse);
     }
 
+    /// <summary>
+    /// Register new user
+    /// </summary>
     [Route("register")]
     [HttpPost]
     public async Task<Result<RegisterUserResponse>> Register(RegisterUserRequest registerUserRequest)

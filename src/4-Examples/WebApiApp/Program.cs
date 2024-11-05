@@ -13,7 +13,7 @@ public class Program
 
         builder.AddWebApiPreConfigured(handlerAssemblyMarkerType: typeof(Program));
 
-        builder.Services.AddAuthorizationModule(builder.Configuration);
+        // builder.Services.AddAuthorizationModule(builder.Configuration);
 
         builder.AddAuthorizationApiModule();
 

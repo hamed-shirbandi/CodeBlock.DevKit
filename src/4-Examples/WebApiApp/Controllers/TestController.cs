@@ -14,6 +14,9 @@ public class TestController : BaseApiController
     public TestController(IBus bus)
         : base(bus) { }
 
+    /// <summary>
+    /// This is just a test!
+    /// </summary>
     [HttpGet]
     public async Task<Result> Get()
     {

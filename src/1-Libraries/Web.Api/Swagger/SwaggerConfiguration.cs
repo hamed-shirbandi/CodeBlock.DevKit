@@ -23,15 +23,12 @@ public static class SwaggerConfiguration
 
             //swagger doc info
             c.SwaggerDoc(swaggerOptions.Version, new OpenApiInfo { Title = swaggerOptions.Title, Version = swaggerOptions.Version });
+
             //include xml comments from xml files referred in appsetting
-            foreach (var includeXmlComment in swaggerOptions.IncludeXmlComments.Split(","))
-            {
-                try
-                {
-                    c.IncludeXmlComments(string.Format(@"{0}\{1}", AppDomain.CurrentDomain.BaseDirectory, includeXmlComment));
-                }
-                catch { }
-            }
+            var xmlFiles = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.xml");
+
+            foreach (var xmlFile in xmlFiles)
+                c.IncludeXmlComments(xmlFile);
 
             //define Bearer security
             c.AddSecurityDefinition(
