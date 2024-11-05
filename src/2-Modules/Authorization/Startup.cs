@@ -15,6 +15,7 @@ public static class Startup
         services.AddMongoDbContext(configuration);
         services.AddAddAuthorizationOptions(configuration);
         services.AddRepositories();
+        services.AddDomainServices();
         services.AddMapper();
     }
 
@@ -50,5 +51,10 @@ public static class Startup
         Action<AuthorizationOptions> setupAction = authConfig.Bind;
 
         services.Configure(setupAction);
+    }
+
+    public static void AddDomainServices(this IServiceCollection services)
+    {
+        services.AddScoped<IPasswordService, PasswordService>();
     }
 }

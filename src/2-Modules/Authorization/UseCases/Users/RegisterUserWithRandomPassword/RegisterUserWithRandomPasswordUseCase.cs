@@ -1,6 +1,5 @@
 ﻿using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Application.Commands;
-using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Core.Extensions;
@@ -13,29 +12,27 @@ namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUserWithRandomPa
 public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IRequestHandler<RegisterUserWithRandomPasswordRequest, CommandResult>
 {
     private readonly IUserRepository _userRepository;
-    private readonly IEncryptionService _encryptionService;
+    private readonly IPasswordService _passwordService;
     private readonly AuthorizationOptions _options;
 
     public RegisterUserWithRandomPasswordUseCase(
         IUserRepository userRepository,
-        IEncryptionService encryptionService,
+        IPasswordService passwordService,
         IBus bus,
         IOptions<AuthorizationOptions> options
     )
         : base(bus)
     {
         _userRepository = userRepository;
-        _encryptionService = encryptionService;
+        _passwordService = passwordService;
         _options = options.Value;
     }
 
     public async Task<CommandResult> Handle(RegisterUserWithRandomPasswordRequest request, CancellationToken cancellationToken)
     {
         var randomPassword = RandomDataGenerator.GetRandomNumber(length: 4);
-        var passwordSalt = _encryptionService.CreateSaltKey(5);
-        var passwordHash = _encryptionService.CreatePasswordHash(randomPassword, passwordSalt);
 
-        var user = User.Register(_userRepository, request.Email, passwordSalt, passwordHash);
+        var user = User.Register(_userRepository, _passwordService, request.Email, randomPassword);
 
         user.AddRole(_options.DefaultRole);
 

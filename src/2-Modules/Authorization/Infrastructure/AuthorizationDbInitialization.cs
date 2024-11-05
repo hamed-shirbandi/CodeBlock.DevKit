@@ -1,5 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
-using CodeBlock.DevKit.Authorization.Domain;
+﻿using CodeBlock.DevKit.Authorization.Domain;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -36,12 +35,9 @@ public static class AuthorizationDbInitialization
             return;
 
         var userRepository = serviceScope.ServiceProvider.GetService<IUserRepository>();
-        var encryptionService = serviceScope.ServiceProvider.GetService<IEncryptionService>();
+        var passwordService = serviceScope.ServiceProvider.GetService<IPasswordService>();
 
-        var passwordSalt = encryptionService.CreateSaltKey(5);
-        var passwordHash = encryptionService.CreatePasswordHash(authorizationOptions.AdminUser.Password, passwordSalt);
-
-        var user = User.Register(userRepository, authorizationOptions.AdminUser.Email, passwordSalt, passwordHash);
+        var user = User.Register(userRepository, passwordService, authorizationOptions.AdminUser.Email, authorizationOptions.AdminUser.Password);
 
         user.AddRole(authorizationOptions.AdminRole);
 

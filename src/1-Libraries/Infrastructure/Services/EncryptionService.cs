@@ -6,18 +6,9 @@ namespace CodeBlock.DevKit.Infrastructure.Services;
 
 public class EncryptionService : IEncryptionService
 {
-    #region Ctors
-
     public EncryptionService() { }
 
-    #endregion
-
-    #region Public Methods
-
-    /// <summary>
-    /// Create a password hash by SHA256
-    /// </summary>
-    public string CreateSaltKey(int size)
+    public string CreateSalt(int size)
     {
         var rng = RandomNumberGenerator.Create();
         var buff = new byte[size];
@@ -25,21 +16,15 @@ public class EncryptionService : IEncryptionService
         return Convert.ToBase64String(buff);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public string CreatePasswordHash(string password, string saltkey)
+    public string CreateHash(string plainText, string salt)
     {
-        var saltAndPassword = string.Concat(password, saltkey);
+        var saltAndText = string.Concat(plainText, salt);
         HashAlgorithm algorithm = SHA256.Create();
 
-        var hashByteArray = algorithm.ComputeHash(Encoding.UTF8.GetBytes(saltAndPassword));
+        var hashByteArray = algorithm.ComputeHash(Encoding.UTF8.GetBytes(saltAndText));
         return BitConverter.ToString(hashByteArray).Replace("-", "");
     }
 
-    /// <summary>
-    /// Decrypt text
-    /// </summary>
     public string EncryptText(string plainText, string privateKey)
     {
         if (string.IsNullOrEmpty(plainText))
@@ -57,9 +42,6 @@ public class EncryptionService : IEncryptionService
         return Convert.ToBase64String(encryptedBinary);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
     public string DecryptText(string cipherText, string encryptionPrivateKey)
     {
         if (string.IsNullOrEmpty(cipherText))
@@ -75,12 +57,6 @@ public class EncryptionService : IEncryptionService
         byte[] buffer = Convert.FromBase64String(cipherText);
         return DecryptTextFromMemory(buffer, tDES.Key, tDES.IV);
     }
-
-    #endregion
-
-    #region Private Methods
-
-
 
     /// <summary>
     ///
@@ -100,9 +76,6 @@ public class EncryptionService : IEncryptionService
         }
     }
 
-    /// <summary>
-    ///
-    /// </summary>
     private string DecryptTextFromMemory(byte[] data, byte[] key, byte[] iv)
     {
         using (var ms = new MemoryStream(data))
@@ -114,6 +87,4 @@ public class EncryptionService : IEncryptionService
             }
         }
     }
-
-    #endregion
 }
