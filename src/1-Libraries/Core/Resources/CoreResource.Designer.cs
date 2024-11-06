@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace CodeBlock.DevKit.Core.Resources {
-    using System;
     
     
     /// <summary>

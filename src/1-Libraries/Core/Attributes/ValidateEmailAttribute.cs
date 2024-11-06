@@ -5,17 +5,19 @@ namespace CodeBlock.DevKit.Core.Attributes;
 
 public class ValidateEmailAttribute : ValidationAttribute
 {
-    public ValidateEmailAttribute()
-    {
-        ErrorMessage = "Invalid email format.";
-    }
-
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
         if (value is string email && EmailValidator.IsValid(email))
+        {
             return ValidationResult.Success;
+        }
 
-        // If the validation fails, return the error message from resources or default message.
-        return new ValidationResult(ErrorMessageString);
+        // Retrieve the display name from the context, if available
+        var displayName = validationContext.DisplayName;
+
+        // Format the error message using the display name, replacing {0} with it
+        var errorMessage = string.Format(ErrorMessageString ?? "{0} is not valid", displayName);
+
+        return new ValidationResult(errorMessage);
     }
 }

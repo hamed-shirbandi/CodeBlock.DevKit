@@ -141,4 +141,7 @@
   <data name="Record_Not_Found" xml:space="preserve">
     <value>{0} {1} پیدا نشد</value>
   </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>{0} معتبر نیست</value>
+  </data>
 </root>
