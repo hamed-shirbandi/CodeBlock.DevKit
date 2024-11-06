@@ -1,9 +1,12 @@
-﻿@using CodeBlock.DevKit.Web.Localization
+﻿@model string
+@using CodeBlock.DevKit.Web.Localization
 @using Microsoft.AspNetCore.Http.Extensions;
 @inject LocalizationSettings LocalizationSettings
-
-<div class="btn-group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+@{
+    string BtnClass = Model ?? "btn btn-outline-primary";
+}
+<div id="select-language" class="btn-group">
+    <button type="button" class="@BtnClass dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         @LocalizationSettings.GetLanguageName(Thread.CurrentThread.CurrentCulture.Name)
     </button>
     <ul class="dropdown-menu">

@@ -23,6 +23,13 @@ public class LocalizationSettings
         return language?.Direction;
     }
 
+    public string GetFont(string code)
+    {
+        var language = Languages.FirstOrDefault(l => l.Code == code);
+
+        return language?.Font;
+    }
+
     public string GetDefaultLanguageCode()
     {
         var defaultLanguage = GetDefaultLanguage();
@@ -66,10 +73,12 @@ public class SupportedLanguage
     public SupportedLanguage()
     {
         Direction = "ltr";
+        Font = "OpenSans-Regular";
     }
 
     public string Name { get; set; }
     public string Code { get; set; }
     public string Direction { get; set; }
+    public string Font { get; set; }
     public bool IsDefault { get; set; }
 }

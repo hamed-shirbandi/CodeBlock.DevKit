@@ -1,6 +1,11 @@
 @font-face {
-    font-family: vazir;
-    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/Vazir.woff") format("woff"),url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/Vazir.woff2") format("woff2");
+    font-family: Vazir;
+    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/persian/Vazir.woff") format("woff"),url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/persian/Vazir.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/english/OpenSans-Regular.woff") format("woff");
 }
 
 .form-control {
@@ -10,7 +15,7 @@
 }
 
 html, body {
-    font-family: vazir;
+    font-family: OpenSans-Regular;
 }
 
 #side-nave a {

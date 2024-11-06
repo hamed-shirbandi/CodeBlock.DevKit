@@ -11,14 +11,15 @@
 }
 
 <!DOCTYPE html>
-<html dir="@LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name)" lang="@Thread.CurrentThread.CurrentCulture.Name">
+<html dir="@LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name)" lang="@Thread.CurrentThread.CurrentCulture.Name" style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
 <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <base href="~/" />
     <link href="css/spa.min.css" rel="stylesheet" asp-append-version="true" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
-<body>
+<body style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
 
     <div class="spinner-loading"></div>
 
