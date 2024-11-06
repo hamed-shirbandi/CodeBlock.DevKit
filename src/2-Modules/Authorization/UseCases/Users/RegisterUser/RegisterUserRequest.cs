@@ -11,7 +11,6 @@ public class RegisterUserRequest : BaseCommand
     [Display(Name = nameof(AuthorizationResource.User_Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     [ValidateEmail(ErrorMessageResourceName = nameof(CoreResource.Invalid), ErrorMessageResourceType = typeof(CoreResource))]
-    [DataType(DataType.EmailAddress)]
     public string Email { get; set; }
 
     [Display(Name = nameof(AuthorizationResource.User_Password), ResourceType = typeof(AuthorizationResource))]
