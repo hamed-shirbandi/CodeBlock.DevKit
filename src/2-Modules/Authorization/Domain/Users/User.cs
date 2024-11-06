@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Domain.Entities;
+﻿using CodeBlock.DevKit.Core.Helpers;
+using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
@@ -52,6 +53,9 @@ public class User : AggregateRoot
     {
         if (string.IsNullOrEmpty(Email))
             throw UserExceptions.EmailIsRequired();
+
+        if (!EmailValidator.IsValid(Email))
+            throw UserExceptions.EmailIsNotValid();
 
         if (!userRepository.EmailIsUnique(Id, Email))
             throw UserExceptions.EmailMustBeUnique();

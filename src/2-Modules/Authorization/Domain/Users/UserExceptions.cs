@@ -16,6 +16,15 @@ public static class UserExceptions
         );
     }
 
+    public static DomainException EmailIsNotValid()
+    {
+        return new DomainException(
+            nameof(CoreResource.Invalid),
+            typeof(CoreResource),
+            new List<MessagePlaceholder> { MessagePlaceholder.CreateResource(AuthorizationResource.User_Email, typeof(AuthorizationResource)) }
+        );
+    }
+
     public static DomainException EmailMustBeUnique()
     {
         return new DomainException(

@@ -70,6 +70,15 @@ namespace CodeBlock.DevKit.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is not valid.
+        /// </summary>
+        public static string Invalid {
+            get {
+                return ResourceManager.GetString("Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} length must be between {1} to {2} chars.
         /// </summary>
         public static string Length_Error {
