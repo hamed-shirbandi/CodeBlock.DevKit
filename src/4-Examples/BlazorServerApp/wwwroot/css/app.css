@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: OpenSans-Regular;
-    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/english/OpenSans-Regular.woff") format("woff");
+    font-family: Roboto-Regular;
+    src: url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/english/Roboto-Regular.woff") format("woff"),url("/_content/CodeBlock.DevKit.Web.Blazor.Server/fonts/english/Roboto-Regular.woff2") format("woff2");
 }
 
 .form-control {
@@ -15,7 +15,7 @@
 }
 
 html, body {
-    font-family: OpenSans-Regular;
+    font-family: Roboto-Regular;
 }
 
 #side-nave a {

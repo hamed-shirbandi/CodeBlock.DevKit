@@ -73,7 +73,7 @@ public class SupportedLanguage
     public SupportedLanguage()
     {
         Direction = "ltr";
-        Font = "OpenSans-Regular";
+        Font = "RobotoMedium";
     }
 
     public string Name { get; set; }
