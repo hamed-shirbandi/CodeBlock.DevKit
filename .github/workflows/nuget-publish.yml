@@ -1,0 +1,43 @@
+name: Publish NuGet Packages
+
+on:
+  release:
+    types: [published] # Trigger on release creation
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.0.x" # Set your required .NET version here
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build the solution
+        run: dotnet build CodeBlock.DevKit.sln --configuration Release
+
+      - name: Pack NuGet Packages
+        run: |
+          # Pack all NuGet packages inside the solution
+          dotnet pack CodeBlock.DevKit.sln --configuration Release --no-build --output ./nupkgs
+
+      - name: Push NuGet packages to NuGet.org
+        run: |
+          # For each .nupkg, push it to NuGet.org
+          for pkg in ./nupkgs/*.nupkg; do
+            dotnet nuget push "$pkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          done
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Clean up
+        run: |
+          # Optionally, clean up the generated .nupkg files after pushing
+          rm -rf ./nupkgs
