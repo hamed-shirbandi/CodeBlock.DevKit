@@ -2,42 +2,39 @@ name: Publish NuGet Packages
 
 on:
   release:
-    types: [published] # Trigger on release creation
+    types: [published] # Triggers only when a new release is published
 
 jobs:
-  publish:
+  publish_nuget:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v3
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: "8.0.x" # Set your required .NET version here
+          dotnet-version: "8.0.x" # Ensure this matches your project version
 
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build the solution
-        run: dotnet build CodeBlock.DevKit.sln --configuration Release
+      - name: Build the project
+        run: dotnet build --configuration Release
 
-      - name: Pack NuGet Packages
-        run: |
-          # Pack all NuGet packages inside the solution
-          dotnet pack CodeBlock.DevKit.sln --configuration Release --no-build --output ./nupkgs
+      - name: Pack the project
+        run: dotnet pack --configuration Release --output ./nupkgs
 
-      - name: Push NuGet packages to NuGet.org
+      - name: Publish NuGet packages
+        shell: pwsh
         run: |
-          # For each .nupkg, push it to NuGet.org
-          for pkg in ./nupkgs/*.nupkg; do
-            dotnet nuget push "$pkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-          done
+          $nugetApiKey = $env:NUGET_API_KEY
+          $nugetUrl = "https://api.nuget.org/v3/index.json"
+          $packages = Get-ChildItem -Path ./nupkgs -Filter *.nupkg
+
+          foreach ($pkg in $packages) {
+              dotnet nuget push $pkg.FullName --api-key $nugetApiKey --source $nugetUrl
+          }
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-
-      - name: Clean up
-        run: |
-          # Optionally, clean up the generated .nupkg files after pushing
-          rm -rf ./nupkgs
