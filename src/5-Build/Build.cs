@@ -128,7 +128,7 @@ public class Build : NukeBuild
     /// It is almost the same as Lint but in this step, it only checks if there is still any rule violation or not.
     /// It doesn't apply any change to the source code.
     /// If there is any violation, it will break the build and log the reason
-    /// Run directly : cmd> nuke LintCheck
+    /// Run directly: cmd> nuke LintCheck
     /// </summary>
     private Target LintCheck =>
         _ =>
