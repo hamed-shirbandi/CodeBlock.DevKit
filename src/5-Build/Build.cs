@@ -8,16 +8,16 @@ using Nuke.Common.Tools.DotNet;
 using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-namespace TaskoMask.Build;
+namespace CodeBlock.Dev.Build;
 
 public class Build : NukeBuild
 {
     /// <summary>
     /// It will be run when you run the nuke command without any target
     /// The best practice is to always run it before pushing the changes to source
-    /// Run directyly : cmd> nuke
+    /// Run directly : cmd> nuke
     /// </summary>
-    public static int Main() => Execute<Build>(x => x.RunMutationTests);
+    public static int Main() => Execute<Build>(x => x.RunUnitTests);
 
     [Parameter]
     private readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
@@ -30,7 +30,7 @@ public class Build : NukeBuild
 
     /// <summary>
     /// I just logs some information
-    /// Run directyly : cmd> nuke LogInformation
+    /// Run directly : cmd> nuke LogInformation
     /// </summary>
     private Target LogInformation =>
         _ =>
@@ -43,8 +43,8 @@ public class Build : NukeBuild
             });
 
     /// <summary>
-    /// I prepare the build artifacts
-    /// Run directyly : cmd> nuke Preparation
+    /// It prepares the build artifacts
+    /// Run directly : cmd> nuke Preparation
     /// </summary>
     private Target Preparation =>
         _ =>
@@ -57,7 +57,7 @@ public class Build : NukeBuild
     /// <summary>
     /// It will restore all the dotnet tools mentioned in ./.config/dotnet-tools.json
     /// We use those tools in the following (like stryker and csharpier)
-    /// Run directyly : cmd> nuke RestoreDotNetTools
+    /// Run directly : cmd> nuke RestoreDotNetTools
     /// </summary>
     private Target RestoreDotNetTools =>
         _ =>
@@ -68,7 +68,7 @@ public class Build : NukeBuild
 
     /// <summary>
     /// It will clean the solution
-    /// Run directyly : cmd> nuke Clean
+    /// Run directly : cmd> nuke Clean
     /// </summary>
     private Target Clean =>
         _ =>
@@ -80,7 +80,7 @@ public class Build : NukeBuild
 
     /// <summary>
     /// It will restore all the nuget packages
-    /// Run directyly : cmd> nuke Restore
+    /// Run directly : cmd> nuke Restore
     /// </summary>
     private Target Restore =>
         _ =>
@@ -92,7 +92,7 @@ public class Build : NukeBuild
 
     /// <summary>
     /// It will Compile the solution
-    /// Run directyly : cmd> nuke Compile
+    /// Run directly : cmd> nuke Compile
     /// </summary>
     private Target Compile =>
         _ =>
@@ -128,7 +128,7 @@ public class Build : NukeBuild
     /// It is almost the same as Lint but in this step, it only checks if there is still any rule violation or not.
     /// It doesn't apply any change to the source code.
     /// If there is any violation, it will break the build and log the reason
-    /// Run directyly : cmd> nuke LintCheck
+    /// Run directly : cmd> nuke LintCheck
     /// </summary>
     private Target LintCheck =>
         _ =>
@@ -144,7 +144,7 @@ public class Build : NukeBuild
 
     /// <summary>
     /// It will run all the unit tests
-    /// Run directyly : cmd> nuke RunUnitTests
+    /// Run directly : cmd> nuke RunUnitTests
     /// </summary>
     private Target RunUnitTests =>
         _ =>
@@ -171,27 +171,5 @@ public class Build : NukeBuild
                                         .SetCoverletOutput(TestResultDirectory + $"{z.Name}.xml")
                             )
                     );
-                });
-
-    /// <summary>
-    /// It will run mutation testing against our unit tests
-    /// Run directyly : cmd> nuke RunMutationTests
-    /// </summary>
-    private Target RunMutationTests =>
-        _ =>
-            _.DependsOn(RunUnitTests)
-                .Executes(() =>
-                {
-                    //It will add dashboard reporter for CI
-                    string reporter = "--reporter dashboard";
-
-                    //It just uses the reporters specified in reporters section in stryker-config.json
-                    if (IsLocalBuild)
-                        reporter = "";
-
-                    var testProjects = Solution.AllProjects.Where(s => s.Name.EndsWith(".Tests.Unit"));
-
-                    foreach (var testProject in testProjects)
-                        DotNet(workingDirectory: testProject.Directory, arguments: $"stryker {reporter}");
                 });
 }
