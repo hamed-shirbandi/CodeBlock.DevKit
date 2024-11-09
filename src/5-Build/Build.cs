@@ -8,7 +8,7 @@ using Nuke.Common.Tools.DotNet;
 using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-namespace CodeBlock.Dev.Build;
+namespace CodeBlock.DevKit.Build;
 
 public class Build : NukeBuild
 {
