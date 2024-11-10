@@ -1,4 +1,4 @@
-name: Build and publish
+name: Build and Publish NuGet Packages
 
 on:
   push:
@@ -27,3 +27,37 @@ jobs:
 
       - name: Unit Test
         run: ./build.ps1 RunUnitTests --skip LintCheck
+
+  publish_nuget:
+    runs-on: windows-latest
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build the project in Release configuration
+        run: dotnet build --configuration Release
+
+      - name: Pack the project
+        run: dotnet pack --configuration Release --output ./nupkgs
+
+      - name: Publish NuGet packages
+        shell: pwsh
+        run: |
+          $nugetApiKey = $env:NUGET_API_KEY
+          $nugetUrl = "https://api.nuget.org/v3/index.json"
+          $packages = Get-ChildItem -Path ./nupkgs -Filter *.nupkg
+
+          foreach ($pkg in $packages) {
+              dotnet nuget push $pkg.FullName --api-key $nugetApiKey --source $nugetUrl --skip-duplicate
+          }
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
