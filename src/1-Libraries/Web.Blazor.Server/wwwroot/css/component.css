@@ -195,6 +195,10 @@
         min-height: 80vh;
     }
 
+    .height-xs-85 {
+        min-height: 85vh;
+    }
+
     .height-xs-90 {
         min-height: 90vh;
     }
@@ -316,6 +320,10 @@
         min-height: 80vh;
     }
 
+    .height-sm-85 {
+        min-height: 85vh;
+    }
+
     .height-sm-90 {
         min-height: 90vh;
     }
@@ -434,6 +442,10 @@
 
     .height-md-80 {
         min-height: 80vh;
+    }
+
+    .height-md-85 {
+        min-height: 85vh;
     }
 
     .height-md-90 {
