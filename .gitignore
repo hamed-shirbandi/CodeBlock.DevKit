@@ -666,12 +666,7 @@ fabric.properties
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore,visualstudio,visualstudiocode,rider,csharp
-*.ncrunchsolution
-*.ncrunchproject
-*.feature.cs
-**/wwwroot/bundled
-ocelot.json
-/src/2-Services/Identity/Api/Identity.Api/keys
-/src/6-Docker/mssqldata/Entropy.bin
+
 /.nuke/temp/execution-plan.html
 /.nuke/build.schema.json
+appsettings*.json
