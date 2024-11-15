@@ -8,15 +8,18 @@
 
 @{
     Layout = null;
-} 
+    string currentLangCode = Thread.CurrentThread.CurrentCulture.Name;
+    string currentLangDir = LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name);
+}
 
 <!DOCTYPE html>
-<html dir="@LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name)" lang="@Thread.CurrentThread.CurrentCulture.Name" style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
+<html dir="@currentLangDir" lang="@currentLangCode" style="font-family: @LocalizationSettings.GetFont(currentLangCode) !important">
+
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <base href="~/" />
-    <link href="css/spa.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="css/spa.@(currentLangDir.ToLower()).min.css" rel="stylesheet" asp-append-version="true" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
 <body style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
