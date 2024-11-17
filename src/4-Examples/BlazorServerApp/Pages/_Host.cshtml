@@ -6,23 +6,17 @@
 @using Microsoft.AspNetCore.Components.Web
 @inject LocalizationSettings LocalizationSettings
 
-@{
-    Layout = null;
-    string currentLangCode = Thread.CurrentThread.CurrentCulture.Name;
-    string currentLangDir = LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name);
-}
-
 <!DOCTYPE html>
-<html dir="@currentLangDir" lang="@currentLangCode" style="font-family: @LocalizationSettings.GetFont(currentLangCode) !important">
+<html dir="@LocalizationSettings.GetCurrentLanguageDirection()" lang="@LocalizationSettings.GetCurrentLanguageCode()" style="font-family: @LocalizationSettings.GetCurrentLanguageFont() !important">
 
 <head>
     <meta charset="utf-8" />
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <base href="~/" />
-    <link href="css/spa.@(currentLangDir.ToLower()).min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="css/spa.@(LocalizationSettings.GetCurrentLanguageDirection().ToLower()).min.css" rel="stylesheet" asp-append-version="true" />
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
 </head>
-<body style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
+<body style="font-family: @LocalizationSettings.GetCurrentLanguageFont() !important">
 
     <div class="spinner-loading"></div>
 

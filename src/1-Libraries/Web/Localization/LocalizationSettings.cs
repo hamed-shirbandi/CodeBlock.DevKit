@@ -16,16 +16,16 @@ public class LocalizationSettings
         return language?.Name;
     }
 
-    public string GetLanguageDirection(string code)
+    public string GetCurrentLanguageDirection()
     {
-        var language = Languages.FirstOrDefault(l => l.Code == code);
+        var language = Languages.FirstOrDefault(l => l.Code == GetCurrentLanguageCode());
 
         return language?.Direction;
     }
 
-    public string GetFont(string code)
+    public string GetFont(string langeCode)
     {
-        var language = Languages.FirstOrDefault(l => l.Code == code);
+        var language = Languages.FirstOrDefault(l => l.Code == langeCode);
 
         return language?.Font;
     }
@@ -47,21 +47,16 @@ public class LocalizationSettings
         return Thread.CurrentThread.CurrentCulture.Name;
     }
 
+    public string GetCurrentLanguageFont()
+    {
+        var language = Languages.FirstOrDefault(l => l.Code == GetCurrentLanguageCode());
+
+        return language?.Font;
+    }
+
     public static LocalizationSettings CreateDefault()
     {
-        return new LocalizationSettings
-        {
-            Languages = new List<SupportedLanguage>
-            {
-                new SupportedLanguage
-                {
-                    Name = "English",
-                    Code = "en-US",
-                    IsDefault = true,
-                    Direction = "ltr",
-                },
-            },
-        };
+        return new LocalizationSettings { Languages = new List<SupportedLanguage> { SupportedLanguage.CreateDefault() } };
     }
 
     private SupportedLanguage GetDefaultLanguage()
@@ -75,10 +70,18 @@ public class LocalizationSettings
 
 public class SupportedLanguage
 {
-    public SupportedLanguage()
+    private SupportedLanguage()
     {
         Direction = "ltr";
         Font = "RobotoMedium";
+        Name = "English";
+        Code = "en-US";
+        IsDefault = true;
+    }
+
+    public static SupportedLanguage CreateDefault()
+    {
+        return new SupportedLanguage();
     }
 
     public string Name { get; set; }

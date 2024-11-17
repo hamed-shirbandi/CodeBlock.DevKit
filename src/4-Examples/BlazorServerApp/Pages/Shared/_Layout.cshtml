@@ -3,21 +3,18 @@
 @using Microsoft.AspNetCore.Mvc.ViewEngines
 @using CodeBlock.DevKit.Web.Localization
 @inject LocalizationSettings LocalizationSettings
-@{
-    string currentLangCode = Thread.CurrentThread.CurrentCulture.Name;
-    string currentLangDir = LocalizationSettings.GetLanguageDirection(Thread.CurrentThread.CurrentCulture.Name);
-}
+
 <!DOCTYPE html>
-<html dir="@currentLangDir" lang="@currentLangCode" style="font-family: @LocalizationSettings.GetFont(currentLangCode) !important">
+<html dir="@LocalizationSettings.GetCurrentLanguageDirection()" lang="@LocalizationSettings.GetCurrentLanguageCode()" style="font-family: @LocalizationSettings.GetCurrentLanguageFont() !important">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <title>@ViewData["Title"]</title>
     <base href="~/" />
-    <link href="css/nspa.@(currentLangDir.ToLower()).min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="css/nspa.@(LocalizationSettings.GetCurrentLanguageDirection().ToLower()).min.css" rel="stylesheet" asp-append-version="true" />
 </head>
-<body class="bg-primary" style="font-family: @LocalizationSettings.GetFont(Thread.CurrentThread.CurrentCulture.Name) !important">
+<body class="bg-primary" style="font-family: @LocalizationSettings.GetCurrentLanguageFont() !important">
    
     <partial name="_SelectLanguage" model="@("btn btn-danger")" />
 
