@@ -29,7 +29,7 @@ public static class LocalizationConfiguration
 
         localizationOptions.RequestCultureProviders.Clear();
 
-        localizationOptions.RequestCultureProviders.Add(new CookieRequestCultureProvider());
+        localizationOptions.RequestCultureProviders.Add(new CookieRequestCultureProvider { CookieName = localizationSettings.CookieName });
 
         app.UseRequestLocalization(localizationOptions);
     }

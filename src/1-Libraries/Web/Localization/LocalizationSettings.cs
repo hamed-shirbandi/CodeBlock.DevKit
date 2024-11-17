@@ -2,6 +2,14 @@
 
 public class LocalizationSettings
 {
+    private const string DEFAULT_COOKIE_NAME = "CodeBlock.DevKit.Culture";
+
+    public LocalizationSettings()
+    {
+        CookieName = DEFAULT_COOKIE_NAME;
+    }
+
+    public string CookieName { get; set; }
     public List<SupportedLanguage> Languages { get; set; }
 
     public bool HasLanguage(string code)
@@ -56,12 +64,11 @@ public class LocalizationSettings
 
     public static LocalizationSettings CreateDefault()
     {
-        var defaultLanguage = SupportedLanguage.CreateDefault();
-
-        var localizationSettings = new LocalizationSettings();
-        localizationSettings.Languages.Add(defaultLanguage);
-
-        return localizationSettings;
+        return new LocalizationSettings
+        {
+            CookieName = DEFAULT_COOKIE_NAME,
+            Languages = new List<SupportedLanguage> { SupportedLanguage.CreateDefault() },
+        };
     }
 
     private SupportedLanguage GetDefaultLanguage()
