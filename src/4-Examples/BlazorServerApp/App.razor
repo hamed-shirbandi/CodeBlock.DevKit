@@ -4,7 +4,7 @@
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                 <Authorizing>
                     <LayoutView Layout="@typeof(SimpleLayout)">
-                        <Error ShowIndexLink=false Title="@AppLocalizer[BlazorResource.Error_Authorization_Title]" Message="@AppLocalizer[BlazorResource.Error_Authorization_Message]" />
+                        <Error ShowIndexLink=false Title="@BlazorLocalizer[BlazorResource.Error_Authorization_Title]" Message="@BlazorLocalizer[BlazorResource.Error_Authorization_Message]" />
                     </LayoutView>
                 </Authorizing>
                 <NotAuthorized>
@@ -16,7 +16,7 @@
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(SimpleLayout)">
-                <Error Title="@BlazorLocalizer[BlazorResource.Error_NotFound_Title]" Message="@AppLocalizer[BlazorResource.Error_NotFound_Message]" />
+                <Error Title="@BlazorLocalizer[BlazorResource.Error_NotFound_Title]" Message="@BlazorLocalizer[BlazorResource.Error_NotFound_Message]" />
             </LayoutView>
         </NotFound>
     </Router>
