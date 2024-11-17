@@ -15,6 +15,7 @@
 @using CodeBlock.DevKit.Core.Extensions
 @using CodeBlock.DevKit.Web.Blazor.Server.Extensions
 @using CodeBlock.DevKit.Web.Blazor.Server.Components
+@using CodeBlock.DevKit.Web.Blazor.Server.Resources
 @using Microsoft.Extensions.Localization
 @using BlazorServerApp.Resources
 
@@ -24,4 +25,5 @@
 @inject IModalService ModalService
 @inject IBus Bus
 
-@inject IStringLocalizer<BlazorServerAppResource> Localizer
+@inject IStringLocalizer<BlazorServerAppResource> AppLocalizer
+@inject IStringLocalizer<BlazorResource> BlazorLocalizer

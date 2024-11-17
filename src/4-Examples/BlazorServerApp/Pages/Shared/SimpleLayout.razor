@@ -1,0 +1,16 @@
+﻿@using Blazored.Toast
+@using Blazored.Toast.Configuration
+@inherits LayoutComponentBase
+
+<div class="bg-primary">
+    <div class="fixed-top background-none p-0 h1">
+        <div class="card-body">
+            <SelectLanguage BtnClass="btn btn-outline-primary text-white" />
+        </div>
+    </div>
+
+
+    <div class="d-flex flex-column min-height-100 justify-content-center align-items-center">
+        @Body
+    </div>
+</div>

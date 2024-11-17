@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error_Authorization_Title" xml:space="preserve">
-    <value>Authorizing ...</value>
-  </data>
-  <data name="Error_Authorization_Message" xml:space="preserve">
-    <value>We are authorizing, please wait.</value>
-  </data>
-  <data name="Error_NotFound_Message" xml:space="preserve">
-    <value>Sorry! It seems the page that you are looking for, does not exist.</value>
-  </data>
-  <data name="Error_NotFound_Title" xml:space="preserve">
-    <value>Page not found!</value>
-  </data>
   <data name="Nav_Menu_Users" xml:space="preserve">
     <value>Users</value>
   </data>

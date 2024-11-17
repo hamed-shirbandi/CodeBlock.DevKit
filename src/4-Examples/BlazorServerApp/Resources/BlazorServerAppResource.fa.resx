@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error_Authorization_Title" xml:space="preserve">
-    <value>در حال احراز هویت ...</value>
-  </data>
-  <data name="Error_Authorization_Message" xml:space="preserve">
-    <value>شما به تازگی به سیستم وارد شدی، کمی زمان نیاز داریم که این موضوع رو بررسی کنیم</value>
-  </data>
-  <data name="Error_NotFound_Message" xml:space="preserve">
-    <value>متاسفیم! صفحه ای که دنبالش بودی پیدا نشد.</value>
-  </data>
-  <data name="Error_NotFound_Title" xml:space="preserve">
-    <value>صفحه ی مورد نظر پیدا نشد!</value>
-  </data>
   <data name="Nav_Menu_Users" xml:space="preserve">
     <value>کاربرها</value>
   </data>

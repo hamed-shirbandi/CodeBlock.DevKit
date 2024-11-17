@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">@Localizer[BlazorServerAppResource.App_Name]</a>
+        <a class="navbar-brand" href="">@AppLocalizer[BlazorServerAppResource.App_Name]</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,25 +11,25 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-fill p-1" aria-hidden="true"></span> @Localizer[BlazorServerAppResource.Nav_Menu_Home]
+                <span class="bi bi-house-fill p-1" aria-hidden="true"></span> @AppLocalizer[BlazorServerAppResource.Nav_Menu_Home]
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/users">
-                <span class="bi bi-people-fill p-1" aria-hidden="true"></span> @Localizer[BlazorServerAppResource.Nav_Menu_Users]
+                <span class="bi bi-people-fill p-1" aria-hidden="true"></span> @AppLocalizer[BlazorServerAppResource.Nav_Menu_Users]
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/roles">
-                <span class="bi bi-command p-1" aria-hidden="true"></span> @Localizer[BlazorServerAppResource.Nav_Menu_Roles]
+                <span class="bi bi-command p-1" aria-hidden="true"></span> @AppLocalizer[BlazorServerAppResource.Nav_Menu_Roles]
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="/logout">
-                <span class="bi bi-power p-1" aria-hidden="true"></span> @Localizer[BlazorServerAppResource.Nav_Menu_Logout]
+                <span class="bi bi-power p-1" aria-hidden="true"></span> @AppLocalizer[BlazorServerAppResource.Nav_Menu_Logout]
             </NavLink>
         </div> 
     </nav> 

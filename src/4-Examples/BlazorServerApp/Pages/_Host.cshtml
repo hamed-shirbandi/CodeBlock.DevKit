@@ -5,6 +5,9 @@
 @using CodeBlock.DevKit.Web.Localization
 @using Microsoft.AspNetCore.Components.Web
 @inject LocalizationSettings LocalizationSettings
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
 <html dir="@LocalizationSettings.GetCurrentLanguageDirection()" lang="@LocalizationSettings.GetCurrentLanguageCode()" style="font-family: @LocalizationSettings.GetCurrentLanguageFont() !important">

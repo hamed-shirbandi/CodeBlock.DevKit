@@ -151,6 +151,42 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to We are authorizing, please wait..
+        /// </summary>
+        public static string Error_Authorization_Message {
+            get {
+                return ResourceManager.GetString("Error_Authorization_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authorizing ....
+        /// </summary>
+        public static string Error_Authorization_Title {
+            get {
+                return ResourceManager.GetString("Error_Authorization_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry! It seems the page that you are looking for, does not exist..
+        /// </summary>
+        public static string Error_NotFound_Message {
+            get {
+                return ResourceManager.GetString("Error_NotFound_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page not found!.
+        /// </summary>
+        public static string Error_NotFound_Title {
+            get {
+                return ResourceManager.GetString("Error_NotFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We are sorry! We were unable to process your request at this time. Our technical team was informed about this issue and it will be investigated soon. Thank you for your patience..
         /// </summary>
         public static string Error_Page_Content {
