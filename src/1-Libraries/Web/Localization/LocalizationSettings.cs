@@ -2,7 +2,7 @@
 
 public class LocalizationSettings
 {
-    public IEnumerable<SupportedLanguage> Languages { get; set; }
+    public List<SupportedLanguage> Languages { get; set; }
 
     public bool HasLanguage(string code)
     {
@@ -56,7 +56,12 @@ public class LocalizationSettings
 
     public static LocalizationSettings CreateDefault()
     {
-        return new LocalizationSettings { Languages = new List<SupportedLanguage> { SupportedLanguage.CreateDefault() } };
+        var defaultLanguage = SupportedLanguage.CreateDefault();
+
+        var localizationSettings = new LocalizationSettings();
+        localizationSettings.Languages.Add(defaultLanguage);
+
+        return localizationSettings;
     }
 
     private SupportedLanguage GetDefaultLanguage()
@@ -70,23 +75,21 @@ public class LocalizationSettings
 
 public class SupportedLanguage
 {
-    private SupportedLanguage()
-    {
-        Direction = "ltr";
-        Font = "RobotoMedium";
-        Name = "English";
-        Code = "en-US";
-        IsDefault = true;
-    }
-
-    public static SupportedLanguage CreateDefault()
-    {
-        return new SupportedLanguage();
-    }
-
     public string Name { get; set; }
     public string Code { get; set; }
     public string Direction { get; set; }
     public string Font { get; set; }
     public bool IsDefault { get; set; }
+
+    public static SupportedLanguage CreateDefault()
+    {
+        return new SupportedLanguage()
+        {
+            Direction = "ltr",
+            Font = "RobotoMedium",
+            Name = "English",
+            Code = "en-US",
+            IsDefault = true,
+        };
+    }
 }
