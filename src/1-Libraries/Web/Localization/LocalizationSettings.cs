@@ -42,6 +42,11 @@ public class LocalizationSettings
         return Languages.Select(l => l.Code).ToArray();
     }
 
+    public string GetCurrentLanguageCode()
+    {
+        return Thread.CurrentThread.CurrentCulture.Name;
+    }
+
     public static LocalizationSettings CreateDefault()
     {
         return new LocalizationSettings
