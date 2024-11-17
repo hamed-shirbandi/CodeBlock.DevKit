@@ -1,12 +1,12 @@
 ﻿
 
-<div class="d-flex flex-column min-height-90 justify-content-center align-items-center">
+<div class="@(WrapperClass)">
 
     <div class="card bg-form shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
         <div class="card-header text-center text-@Type h2 p-3">@Title</div>
         <div class="card-body p-3 text-center text-white-50">
             <p>
-               @Message
+                @Message
             </p>
             <i class="bi bi-exclamation-triangle-fill opacity-30" style="font-size:8rem;"></i>
         </div>
@@ -22,6 +22,9 @@
 
 
 @code {
+    [Parameter]
+    public string WrapperClass { get; set; } = "d-flex flex-column min-height-90 justify-content-center align-items-center";
+
     [Parameter]
     public string Type { get; set; } = "warning";
 
