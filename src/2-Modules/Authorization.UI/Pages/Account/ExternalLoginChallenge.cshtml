@@ -1,0 +1,25 @@
+﻿@page "/externalLoginChallenge/{provider}"
+@using Microsoft.AspNetCore.Authentication
+@attribute [AllowAnonymous]
+@functions
+{
+    public async Task<IActionResult> OnGet(string provider, string returnUrl = "")
+    {
+        var redirectUrl = $"/externalLoginCallback?returnUrl={returnUrl}";
+        var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+
+        switch (provider.ToLower())
+        {
+            case "google":
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+            case "twitter":
+            return Challenge(properties, "Twitter");
+            case "facebook":
+            return Challenge(properties, "Facebook");
+            case "microsoft":
+            return Challenge(properties, "Microsoft");
+            default:
+            return BadRequest("Unsupported authentication provider.");
+        }
+    }
+}

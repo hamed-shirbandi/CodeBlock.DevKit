@@ -5,10 +5,10 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 
 public static class GoogleAuthenticationConfiguration
 {
-    public static void AddGoogleAuthentication(this AuthenticationBuilder builder, CookieAuthenticationSettings cookieAuthenticationOptions)
+    public static AuthenticationBuilder AddGoogle(this AuthenticationBuilder builder, CookieAuthenticationSettings cookieAuthenticationOptions)
     {
         if (!cookieAuthenticationOptions.Google.Enabled)
-            return;
+            return builder;
 
         builder.AddGoogle(options =>
         {
@@ -16,5 +16,7 @@ public static class GoogleAuthenticationConfiguration
             options.ClientSecret = cookieAuthenticationOptions.Google.ClientSecret;
             options.CallbackPath = cookieAuthenticationOptions.Google.CallbackPath;
         });
+
+        return builder;
     }
 }

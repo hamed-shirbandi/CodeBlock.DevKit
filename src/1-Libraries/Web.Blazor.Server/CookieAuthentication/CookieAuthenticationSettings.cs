@@ -15,6 +15,7 @@ public class CookieAuthenticationSettings
     public bool SlidingExpiration { get; set; }
     public bool AllowRefresh { get; set; }
     public GoogleAuthentication Google { get; set; }
+    public TwitterAuthentication Twitter { get; set; }
 }
 
 public class GoogleAuthentication
@@ -28,5 +29,19 @@ public class GoogleAuthentication
     public bool Enabled { get; set; }
     public string ClientId { get; set; }
     public string ClientSecret { get; set; }
+    public string CallbackPath { get; set; }
+}
+
+public class TwitterAuthentication
+{
+    public TwitterAuthentication()
+    {
+        Enabled = false;
+        CallbackPath = "/signin-twitter";
+    }
+
+    public bool Enabled { get; set; }
+    public string ConsumerKey { get; set; }
+    public string ConsumerSecret { get; set; }
     public string CallbackPath { get; set; }
 }

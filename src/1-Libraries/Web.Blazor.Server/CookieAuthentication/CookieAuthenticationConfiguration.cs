@@ -31,6 +31,7 @@ public static class CookieAuthenticationConfiguration
                 option.ExpireTimeSpan = TimeSpan.FromMinutes(authenticationSettings.ExpireFromMinute);
                 option.SlidingExpiration = authenticationSettings.SlidingExpiration;
             })
-            .AddGoogleAuthentication(authenticationSettings);
+            .AddGoogle(authenticationSettings)
+            .AddTwitter(authenticationSettings);
     }
 }

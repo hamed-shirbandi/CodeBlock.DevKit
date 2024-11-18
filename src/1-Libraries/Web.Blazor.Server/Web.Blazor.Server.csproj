@@ -25,6 +25,8 @@
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="8.0.11" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="8.0.11" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
 		<PackageReference Include="Blazored.Modal" Version="6.0.1" />
 		<PackageReference Include="Blazored.Toast" Version="3.2.2" />
