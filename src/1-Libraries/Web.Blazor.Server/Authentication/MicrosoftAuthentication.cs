@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 
-public static class MicrosoftAuthenticationConfiguration
+public static class MicrosoftAuthentication
 {
-    public static AuthenticationBuilder AddMicrosoft(this AuthenticationBuilder builder, CookieAuthenticationSettings cookieAuthenticationOptions)
+    public static AuthenticationBuilder AddMicrosoft(this AuthenticationBuilder builder, AuthenticationSettings cookieAuthenticationOptions)
     {
         if (!cookieAuthenticationOptions.Microsoft.Enabled)
             return builder;

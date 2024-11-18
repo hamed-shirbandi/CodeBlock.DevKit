@@ -1,7 +1,7 @@
 ﻿@page "/login"
-@using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication
+@using CodeBlock.DevKit.Web.Blazor.Server.Authentication
 @model CodeBlock.DevKit.Authorization.UI.Pages.Account.LoginModel
-@inject CookieAuthenticationSettings CookieAuthenticationSettings
+@inject AuthenticationSettings AuthenticationSettings
 
 @{
     Layout = "_Layout";
@@ -35,27 +35,33 @@
 
         <div class="form-group p-2">
 
-            @if (CookieAuthenticationSettings.Google.Enabled)
+            @if (AuthenticationSettings.Google.Enabled)
             {
                 <a href="/externalLoginChallenge/google/@(returnUrlQuery)" class="btn btn-outline-danger">
                     <i class="bi bi-google"></i> Google
                 </a>
             }
 
-            @if (CookieAuthenticationSettings.Twitter.Enabled)
+            @if (AuthenticationSettings.Twitter.Enabled)
             {
                 <a href="/externalLoginChallenge/twitter/@(returnUrlQuery)" class="btn btn-outline-primary">
                     <i class="bi bi-twitter"></i> Twitter
                 </a>
             }
 
-            @if (CookieAuthenticationSettings.Microsoft.Enabled)
+            @if (AuthenticationSettings.Microsoft.Enabled)
             {
-                <a href="/externalLoginChallenge/microsoft/@(returnUrlQuery)" class="btn btn-outline-primary">
+                <a href="/externalLoginChallenge/microsoft/@(returnUrlQuery)" class="btn btn-outline-dark">
                     <i class="bi bi-microsoft"></i> Microsoft
                 </a>
             }
 
+            @if (AuthenticationSettings.Facebook.Enabled)
+            {
+                <a href="/externalLoginChallenge/facebook/@(returnUrlQuery)" class="btn btn-outline-info">
+                    <i class="bi bi-facebook"></i> Facebook
+                </a>
+            }
         </div>
 
     </div>

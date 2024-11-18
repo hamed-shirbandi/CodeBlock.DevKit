@@ -1,11 +1,12 @@
 ﻿using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
-using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +24,7 @@ public static class Startup
     {
         builder.AddCodeBlockDevKitWeb(handlerAssemblyMarkerType, validatorAssemblyMarkerType, mappingProfileMarkerType);
 
-        builder.AddCookieAuthentication();
+        builder.AddAuthentications();
 
         builder.Services.AddAuthorization();
 
@@ -89,5 +90,23 @@ public static class Startup
     private static void AddMessageService(this IServiceCollection services)
     {
         services.AddScoped<MessageService>();
+    }
+
+    private static void AddAuthentications(this WebApplicationBuilder builder)
+    {
+        var authenticationBuilder = builder.Services.AddAuthentication();
+
+        var authenticationSettings = builder.Configuration.GetSection("Authentication").Get<AuthenticationSettings>();
+        if (authenticationSettings is null)
+            return;
+
+        builder.Services.AddSingleton(authenticationSettings);
+
+        authenticationBuilder
+            .AddCookie(authenticationSettings, builder.Services)
+            .AddGoogle(authenticationSettings)
+            .AddTwitter(authenticationSettings)
+            .AddMicrosoft(authenticationSettings)
+            .AddFacebook(authenticationSettings);
     }
 }

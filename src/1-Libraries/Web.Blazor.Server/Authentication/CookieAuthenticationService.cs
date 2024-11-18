@@ -3,16 +3,16 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 
 public class CookieAuthenticationService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly CookieAuthenticationSettings _settings;
 
-    public CookieAuthenticationService(IHttpContextAccessor httpContextAccessor, CookieAuthenticationSettings settings)
+    public CookieAuthenticationService(IHttpContextAccessor httpContextAccessor, AuthenticationSettings settings)
     {
-        _settings = settings;
+        _settings = settings.Cookie;
         _httpContextAccessor = httpContextAccessor;
     }
 

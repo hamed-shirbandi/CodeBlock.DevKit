@@ -1,6 +1,6 @@
 using CodeBlock.DevKit.Application.Bus;
 using CodeBlock.DevKit.Authorization.UseCases.Users.LoginUser;
-using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Pages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

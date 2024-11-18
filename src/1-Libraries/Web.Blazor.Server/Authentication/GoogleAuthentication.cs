@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 
-public static class GoogleAuthenticationConfiguration
+public static class GoogleAuthentication
 {
-    public static AuthenticationBuilder AddGoogle(this AuthenticationBuilder builder, CookieAuthenticationSettings cookieAuthenticationOptions)
+    public static AuthenticationBuilder AddGoogle(this AuthenticationBuilder builder, AuthenticationSettings cookieAuthenticationOptions)
     {
         if (!cookieAuthenticationOptions.Google.Enabled)
             return builder;

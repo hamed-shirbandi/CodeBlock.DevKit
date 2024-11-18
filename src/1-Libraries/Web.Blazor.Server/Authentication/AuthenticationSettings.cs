@@ -1,8 +1,8 @@
-﻿namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
+﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 
-public class CookieAuthenticationSettings
+public class AuthenticationSettings
 {
-    public CookieAuthenticationSettings()
+    public AuthenticationSettings()
     {
         Cookie = new();
         Google = new();
@@ -10,15 +10,16 @@ public class CookieAuthenticationSettings
         Microsoft = new();
     }
 
-    public CookieAuthentication Cookie { get; set; }
-    public GoogleAuthentication Google { get; set; }
-    public TwitterAuthentication Twitter { get; set; }
-    public MicrosoftAuthentication Microsoft { get; set; }
+    public CookieAuthenticationSettings Cookie { get; set; }
+    public GoogleAuthenticationSettings Google { get; set; }
+    public TwitterAuthenticationSettings Twitter { get; set; }
+    public MicrosoftAuthenticationSettings Microsoft { get; set; }
+    public FacebookAuthenticationSettings Facebook { get; set; }
 }
 
-public class CookieAuthentication
+public class CookieAuthenticationSettings
 {
-    public CookieAuthentication()
+    public CookieAuthenticationSettings()
     {
         Enabled = false;
     }
@@ -33,9 +34,9 @@ public class CookieAuthentication
     public bool AllowRefresh { get; set; }
 }
 
-public class GoogleAuthentication
+public class GoogleAuthenticationSettings
 {
-    public GoogleAuthentication()
+    public GoogleAuthenticationSettings()
     {
         Enabled = false;
         CallbackPath = "/signin-google";
@@ -47,9 +48,9 @@ public class GoogleAuthentication
     public string CallbackPath { get; set; }
 }
 
-public class TwitterAuthentication
+public class TwitterAuthenticationSettings
 {
-    public TwitterAuthentication()
+    public TwitterAuthenticationSettings()
     {
         Enabled = false;
         CallbackPath = "/signin-twitter";
@@ -61,9 +62,9 @@ public class TwitterAuthentication
     public string CallbackPath { get; set; }
 }
 
-public class MicrosoftAuthentication
+public class MicrosoftAuthenticationSettings
 {
-    public MicrosoftAuthentication()
+    public MicrosoftAuthenticationSettings()
     {
         Enabled = false;
         CallbackPath = "/signin-microsoft";
@@ -72,5 +73,19 @@ public class MicrosoftAuthentication
     public bool Enabled { get; set; }
     public string ClientId { get; set; }
     public string ClientSecret { get; set; }
+    public string CallbackPath { get; set; }
+}
+
+public class FacebookAuthenticationSettings
+{
+    public FacebookAuthenticationSettings()
+    {
+        Enabled = false;
+        CallbackPath = "/signin-facebook";
+    }
+
+    public bool Enabled { get; set; }
+    public string AppId { get; set; }
+    public string AppSecret { get; set; }
     public string CallbackPath { get; set; }
 }
