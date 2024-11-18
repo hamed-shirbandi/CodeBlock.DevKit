@@ -1,8 +1,12 @@
 ﻿@page "/login"
+@using CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication
 @model CodeBlock.DevKit.Authorization.UI.Pages.Account.LoginModel
+@inject CookieAuthenticationSettings CookieAuthenticationSettings
+
 @{
-    ViewData["Title"] = @AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Title];
     Layout = "_Layout";
+    ViewData["Title"] = @AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Title];
+    string returnUrl = Request.Query["returnUrl"].ToString();
 }
 
 <div class="card bg-form text-white-50 shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
@@ -24,8 +28,18 @@
             </div>
             <div class="form-group p-2">
                 <button id="loginBtn" type="submit" class="btn btn-success">@AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Submit_Btn]</button>
-                <a class="btn btn-outline-primary" href="/register">@AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Register_Btn]</a>
+                <a class="btn btn-outline-primary" href="/register@(string.IsNullOrEmpty(returnUrl)?"": $"?returnUrl={returnUrl}")">@AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Register_Btn]</a>
             </div>
         </form>
+
+        @if (CookieAuthenticationSettings.Google.Enabled)
+        {
+            <div class="form-group p-2">
+                <a href="/challengeGoogle@(string.IsNullOrEmpty(returnUrl)?"": $"?returnUrl={returnUrl}")" class="btn btn-danger">
+                    <i class="bi bi-google"></i> Login with Google
+                </a>
+            </div>
+        }
+
     </div>
 </div>

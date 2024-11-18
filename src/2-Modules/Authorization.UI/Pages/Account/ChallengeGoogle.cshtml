@@ -1,0 +1,13 @@
+﻿@page "/challengeGoogle"
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Google
+@attribute [AllowAnonymous]
+@functions
+{
+    public async Task<IActionResult> OnGet(string returnUrl = "")
+    {
+        var redirectUrl = $"/externalLoginCallback?returnUrl={returnUrl}";
+        var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+        return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+    }
+}

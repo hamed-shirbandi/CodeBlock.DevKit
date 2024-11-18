@@ -1,0 +1,30 @@
+﻿@page "/externalLoginCallback"
+@using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserByEmail
+@inject CookieAuthenticationService CookieAuthenticationService
+@inject IBus Bus
+
+<h1>externalLoginCallback</h1>
+
+@functions
+{
+    public async Task<IActionResult> OnGet(string returnUrl = "")
+    {
+        var userClaims = User.Claims;
+
+        // Find the claim for email
+        var emailClaim = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
+
+        //TODO: check if email exists or not then proceed with login or register
+
+        var getUserResult = await Bus.SendQuery(new GetUserByEmailRequest(emailClaim.Value));
+
+        await CookieAuthenticationService.SignInAsync(
+            getUserResult.Value.Id,
+            getUserResult.Value.Email,
+            getUserResult.Value.Roles,
+            isPersistent: true
+        );
+
+        return LocalRedirect(Url.Content(returnUrl ?? "~/"));
+    }
+}

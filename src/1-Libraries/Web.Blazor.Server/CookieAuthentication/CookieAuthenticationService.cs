@@ -2,18 +2,17 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.CookieAuthentication;
 
 public class CookieAuthenticationService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly CookieAuthenticationOptions _options;
+    private readonly CookieAuthenticationSettings _settings;
 
-    public CookieAuthenticationService(IHttpContextAccessor httpContextAccessor, IOptions<CookieAuthenticationOptions> options)
+    public CookieAuthenticationService(IHttpContextAccessor httpContextAccessor, CookieAuthenticationSettings settings)
     {
-        _options = options != null ? options.Value : throw new ArgumentNullException(nameof(options));
+        _settings = settings;
         _httpContextAccessor = httpContextAccessor;
     }
 
@@ -24,7 +23,7 @@ public class CookieAuthenticationService
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var authProperties = new AuthenticationProperties
         {
-            AllowRefresh = _options.AllowRefresh,
+            AllowRefresh = _settings.AllowRefresh,
             IsPersistent = isPersistent,
             IssuedUtc = DateTime.UtcNow,
         };
