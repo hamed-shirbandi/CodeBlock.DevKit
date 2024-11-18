@@ -49,6 +49,13 @@
                 </a>
             }
 
+            @if (CookieAuthenticationSettings.Microsoft.Enabled)
+            {
+                <a href="/externalLoginChallenge/microsoft/@(returnUrlQuery)" class="btn btn-outline-primary">
+                    <i class="bi bi-microsoft"></i> Microsoft
+                </a>
+            }
+
         </div>
 
     </div>

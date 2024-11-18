@@ -23,15 +23,16 @@ public static class CookieAuthenticationConfiguration
             .AddCookie(option =>
             {
                 option.Cookie.SecurePolicy = CookieSecurePolicy.None;
-                option.Cookie.Name = authenticationSettings.CookieName;
-                option.Cookie.HttpOnly = authenticationSettings.CookieHttpOnly;
+                option.Cookie.Name = authenticationSettings.Cookie.CookieName;
+                option.Cookie.HttpOnly = authenticationSettings.Cookie.CookieHttpOnly;
                 option.Cookie.SameSite = SameSiteMode.Lax;
-                option.LoginPath = authenticationSettings.LoginPath;
-                option.LogoutPath = authenticationSettings.LogoutPath;
-                option.ExpireTimeSpan = TimeSpan.FromMinutes(authenticationSettings.ExpireFromMinute);
-                option.SlidingExpiration = authenticationSettings.SlidingExpiration;
+                option.LoginPath = authenticationSettings.Cookie.LoginPath;
+                option.LogoutPath = authenticationSettings.Cookie.LogoutPath;
+                option.ExpireTimeSpan = TimeSpan.FromMinutes(authenticationSettings.Cookie.ExpireFromMinute);
+                option.SlidingExpiration = authenticationSettings.Cookie.SlidingExpiration;
             })
             .AddGoogle(authenticationSettings)
+            .AddMicrosoft(authenticationSettings)
             .AddTwitter(authenticationSettings);
     }
 }

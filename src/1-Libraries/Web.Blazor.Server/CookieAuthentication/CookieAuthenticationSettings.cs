@@ -4,9 +4,26 @@ public class CookieAuthenticationSettings
 {
     public CookieAuthenticationSettings()
     {
+        Cookie = new();
         Google = new();
+        Twitter = new();
+        Microsoft = new();
     }
 
+    public CookieAuthentication Cookie { get; set; }
+    public GoogleAuthentication Google { get; set; }
+    public TwitterAuthentication Twitter { get; set; }
+    public MicrosoftAuthentication Microsoft { get; set; }
+}
+
+public class CookieAuthentication
+{
+    public CookieAuthentication()
+    {
+        Enabled = false;
+    }
+
+    public bool Enabled { get; set; }
     public string CookieName { get; set; }
     public bool CookieHttpOnly { get; set; }
     public string LoginPath { get; set; }
@@ -14,8 +31,6 @@ public class CookieAuthenticationSettings
     public int ExpireFromMinute { get; set; }
     public bool SlidingExpiration { get; set; }
     public bool AllowRefresh { get; set; }
-    public GoogleAuthentication Google { get; set; }
-    public TwitterAuthentication Twitter { get; set; }
 }
 
 public class GoogleAuthentication
@@ -43,5 +58,19 @@ public class TwitterAuthentication
     public bool Enabled { get; set; }
     public string ConsumerKey { get; set; }
     public string ConsumerSecret { get; set; }
+    public string CallbackPath { get; set; }
+}
+
+public class MicrosoftAuthentication
+{
+    public MicrosoftAuthentication()
+    {
+        Enabled = false;
+        CallbackPath = "/signin-microsoft";
+    }
+
+    public bool Enabled { get; set; }
+    public string ClientId { get; set; }
+    public string ClientSecret { get; set; }
     public string CallbackPath { get; set; }
 }
