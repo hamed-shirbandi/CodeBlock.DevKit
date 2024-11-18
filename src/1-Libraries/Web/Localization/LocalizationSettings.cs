@@ -62,6 +62,13 @@ public class LocalizationSettings
         return language?.Font;
     }
 
+    public string GetCurrentLanguageName()
+    {
+        var language = Languages.FirstOrDefault(l => l.Code == GetCurrentLanguageCode());
+
+        return language?.Name;
+    }
+
     public static LocalizationSettings CreateDefault()
     {
         return new LocalizationSettings
