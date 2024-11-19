@@ -5,7 +5,6 @@ using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Core.Extensions;
 using CodeBlock.DevKit.Core.Helpers;
 using MediatR;
-using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUserWithRandomPassword;
 
@@ -13,19 +12,19 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordService _passwordService;
-    private readonly AuthorizationOptions _options;
+    private readonly AuthorizationSettings _authorizationSettings;
 
     public RegisterUserWithRandomPasswordUseCase(
         IUserRepository userRepository,
         IPasswordService passwordService,
         IBus bus,
-        IOptions<AuthorizationOptions> options
+        AuthorizationSettings authorizationSettings
     )
         : base(bus)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
-        _options = options.Value;
+        _authorizationSettings = authorizationSettings;
     }
 
     public async Task<CommandResult> Handle(RegisterUserWithRandomPasswordRequest request, CancellationToken cancellationToken)
@@ -34,7 +33,7 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
 
         var user = User.Register(_userRepository, _passwordService, request.Email, randomPassword);
 
-        user.AddRole(_options.DefaultRole);
+        user.AddRole(_authorizationSettings.Roles.DefaultRole);
 
         await _userRepository.AddAsync(user);
 

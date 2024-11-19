@@ -14,7 +14,7 @@ public static class Startup
     {
         services.AddMediatR(handlerAssemblyMarkerTypes: typeof(Startup));
         services.AddMongoDbContext(configuration);
-        services.AddAddAuthorizationOptions(configuration);
+        services.AddAuthorizationSettings(configuration);
         services.AddRepositories();
         services.AddDomainServices();
         services.AddMapper();
@@ -43,15 +43,13 @@ public static class Startup
         services.AddAutoMapper(typeof(MappingProfile));
     }
 
-    private static void AddAddAuthorizationOptions(this IServiceCollection services, IConfiguration configuration)
+    private static void AddAuthorizationSettings(this IServiceCollection services, IConfiguration configuration)
     {
-        var authConfig = configuration.GetSection("Authorization");
-        if (!authConfig.Exists())
+        var authorizationSettings = configuration.GetSection("Authorization").Get<AuthorizationSettings>();
+        if (authorizationSettings is null)
             return;
 
-        Action<AuthorizationOptions> setupAction = authConfig.Bind;
-
-        services.Configure(setupAction);
+        services.AddSingleton<AuthorizationSettings>();
     }
 
     public static void AddDomainServices(this IServiceCollection services)

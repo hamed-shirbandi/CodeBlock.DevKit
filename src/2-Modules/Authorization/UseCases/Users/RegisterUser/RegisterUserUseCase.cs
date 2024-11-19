@@ -4,7 +4,6 @@ using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Core.Helpers;
 using MediatR;
-using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 
@@ -12,26 +11,26 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordService _passwordService;
-    private readonly AuthorizationOptions _authorizationOptions;
+    private readonly AuthorizationSettings _authorizationSettings;
 
     public RegisterUserUseCase(
         IUserRepository userRepository,
         IPasswordService passwordService,
         IBus bus,
-        IOptions<AuthorizationOptions> authorizationOptions
+        AuthorizationSettings authorizationSettings
     )
         : base(bus)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
-        _authorizationOptions = authorizationOptions.Value;
+        _authorizationSettings = authorizationSettings;
     }
 
     public async Task<CommandResult> Handle(RegisterUserRequest request, CancellationToken cancellationToken)
     {
         var user = User.Register(_userRepository, _passwordService, request.Email, request.Password);
 
-        user.AddRole(_authorizationOptions.DefaultRole);
+        user.AddRole(_authorizationSettings.Roles.DefaultRole);
 
         await _userRepository.AddAsync(user);
 

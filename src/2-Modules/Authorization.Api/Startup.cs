@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CodeBlock.DevKit.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,12 +14,12 @@ public static class Startup
 
     private static void AddAdminRolePolicy(this WebApplicationBuilder builder)
     {
-        var authorizationOptions = builder.Configuration.GetSection("Authorization").Get<Infrastructure.AuthorizationOptions>();
+        var authorizationSettings = builder.Configuration.GetSection("Authorization").Get<AuthorizationSettings>();
 
         builder.Services.PostConfigure(
             (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>
             {
-                options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationOptions.AdminRole));
+                options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationSettings.Roles.AdminRole));
             }
         );
     }
