@@ -15,6 +15,11 @@ public class AuthenticationSettings
     public TwitterAuthenticationSettings Twitter { get; set; }
     public MicrosoftAuthenticationSettings Microsoft { get; set; }
     public FacebookAuthenticationSettings Facebook { get; set; }
+
+    public bool AnyExternalLoginProvider()
+    {
+        return Google.Enabled || Twitter.Enabled || Microsoft.Enabled || Facebook.Enabled;
+    }
 }
 
 public class CookieAuthenticationSettings

@@ -1,0 +1,43 @@
+﻿@inject AuthenticationSettings AuthenticationSettings
+@{
+    string returnUrl = Context.Request.Query["returnUrl"].ToString();
+    string returnUrlQuery = string.IsNullOrEmpty(returnUrl) ? "" : $"?returnUrl={returnUrl}";
+}
+
+@if (AuthenticationSettings.AnyExternalLoginProvider())
+{
+    <div class="card-footer p-3">
+        <p class="text-secondary">@AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Title]</p>
+        <div class="form-group p-2">
+
+            @if (AuthenticationSettings.Google.Enabled)
+            {
+                <a href="/externalLoginChallenge/google/@(returnUrlQuery)" class="btn btn-outline-secondary text-info">
+                    <i class="bi bi-google"></i> @AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Google]
+                </a>
+            }
+
+            @if (AuthenticationSettings.Twitter.Enabled)
+            {
+                <a href="/externalLoginChallenge/twitter/@(returnUrlQuery)" class="btn btn-outline-secondary text-info">
+                    <i class="bi bi-twitter"></i> @AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Twitter]
+                </a>
+            }
+
+            @if (AuthenticationSettings.Microsoft.Enabled)
+            {
+                <a href="/externalLoginChallenge/microsoft/@(returnUrlQuery)" class="btn btn-outline-secondary text-info">
+                    <i class="bi bi-microsoft"></i> @AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Microsoft]
+                </a>
+            }
+
+            @if (AuthenticationSettings.Facebook.Enabled)
+            {
+                <a href="/externalLoginChallenge/facebook/@(returnUrlQuery)" class="btn btn-outline-secondary text-info">
+                    <i class="bi bi-facebook"></i> @AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Facebook]
+                </a>
+            }
+
+        </div>
+    </div>
+}

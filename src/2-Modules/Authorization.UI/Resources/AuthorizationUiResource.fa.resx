@@ -141,4 +141,19 @@
   <data name="Register_Page_Title" xml:space="preserve">
     <value>ایجاد پروفایل</value>
   </data>
+  <data name="External_Login_Title" xml:space="preserve">
+    <value>همچنین میتوانید با استفاده از روش های زیر وارد شوید:</value>
+  </data>
+  <data name="External_Login_Twitter" xml:space="preserve">
+    <value>توییتر</value>
+  </data>
+  <data name="External_Login_Google" xml:space="preserve">
+    <value>گوگل</value>
+  </data>
+  <data name="External_Login_Facebook" xml:space="preserve">
+    <value>فیسبوک</value>
+  </data>
+  <data name="External_Login_Microsoft" xml:space="preserve">
+    <value>مایکروسافت</value>
+  </data>
 </root>

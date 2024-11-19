@@ -61,6 +61,51 @@ namespace CodeBlock.DevKit.Authorization.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string External_Login_Facebook {
+            get {
+                return ResourceManager.GetString("External_Login_Facebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Google.
+        /// </summary>
+        public static string External_Login_Google {
+            get {
+                return ResourceManager.GetString("External_Login_Google", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft.
+        /// </summary>
+        public static string External_Login_Microsoft {
+            get {
+                return ResourceManager.GetString("External_Login_Microsoft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can also log in using:.
+        /// </summary>
+        public static string External_Login_Title {
+            get {
+                return ResourceManager.GetString("External_Login_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitter.
+        /// </summary>
+        public static string External_Login_Twitter {
+            get {
+                return ResourceManager.GetString("External_Login_Twitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log in to your account!.
         /// </summary>
         public static string Login_Page_Form_Title {
