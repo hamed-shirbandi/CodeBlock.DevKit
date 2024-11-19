@@ -8,6 +8,13 @@ namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUserWithRandomPa
 
 public class RegisterUserWithRandomPasswordRequest : BaseCommand
 {
+    public RegisterUserWithRandomPasswordRequest() { }
+
+    public RegisterUserWithRandomPasswordRequest(string email)
+    {
+        Email = email;
+    }
+
     [Display(Name = nameof(AuthorizationResource.User_Email), ResourceType = typeof(AuthorizationResource))]
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     [ValidateEmail(ErrorMessageResourceName = nameof(CoreResource.Invalid), ErrorMessageResourceType = typeof(CoreResource))]
