@@ -10,7 +10,7 @@
 		<VersionPrefix>1.1.9</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>CodeBlock.DevKit.Application</PackageId>
+		<PackageId>CodeBlock.DevKit.Web.Blazor.Server</PackageId>
 		<PackageTags>devkit;startup;entrepreneurship;starterkit</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/CodeBlock-Dev/CodeBlock.DevKit</RepositoryUrl>

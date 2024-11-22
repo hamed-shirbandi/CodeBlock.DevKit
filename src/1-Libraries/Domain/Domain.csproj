@@ -9,7 +9,7 @@
 		<VersionPrefix>1.1.1</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>CodeBlock.DevKit.Application</PackageId>
+		<PackageId>CodeBlock.DevKit.Domain</PackageId>
 		<PackageTags>devkit;startup;entrepreneurship;starterkit</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/CodeBlock-Dev/CodeBlock.DevKit</RepositoryUrl>
