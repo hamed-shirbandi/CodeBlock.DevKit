@@ -6,19 +6,24 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Api</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Api</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.0</VersionPrefix>
-		<Authors>Hamed Shirbandi</Authors>
+		<VersionPrefix>1.1.1</VersionPrefix>
+		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>CodeBlock.DevKit.Web.Api</PackageId>
-		<PackageTags>ddd;cqrs;devkit;aspnet;blazor</PackageTags>
-		<PackageProjectUrl>https://github.com/hamed-shirbandi/CodeBlock.DevKit</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<copyright>Copyright 2024 hamed shirbandi</copyright>
+		<PackageId>CodeBlock.DevKit.Application</PackageId>
+		<PackageTags>devkit;startup;entrepreneurship;starterkit</PackageTags>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<RepositoryUrl>https://github.com/CodeBlock-Dev/CodeBlock.DevKit</RepositoryUrl>
+		<PackageProjectUrl>https://codeblock.dev</PackageProjectUrl>
+		<copyright>Copyright 2024 CodeBlock.Dev</copyright>
 		<PackageTargetFallback></PackageTargetFallback>
 		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="LICENSE.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
