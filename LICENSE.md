@@ -1,5 +1,6 @@
 CodeBlock.Dev License Agreement (Version 1.0)
 Copyright (c) 2025 CodeBlock.Dev ([https://codeblock.dev](https://codeblock.dev))
+
 Contact: support@codeblock.dev
 
 1. **License Grant**  
