@@ -49,7 +49,7 @@ public static class Startup
         if (authorizationSettings is null)
             return;
 
-        services.AddSingleton<AuthorizationSettings>();
+        services.AddSingleton(authorizationSettings);
     }
 
     public static void AddDomainServices(this IServiceCollection services)
