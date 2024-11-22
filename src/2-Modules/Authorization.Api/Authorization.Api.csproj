@@ -23,7 +23,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="LICENSE.md" Pack="true" PackagePath="/" />
+		<None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
