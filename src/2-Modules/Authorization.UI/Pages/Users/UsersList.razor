@@ -29,7 +29,7 @@
 
     private async Task GetUsers()
     {
-        var result = await Bus.SendQuery(new GetUsersRequest());
+        var result = await RequestDispatcher.SendQuery(new GetUsersRequest());
         result.ShowErrorToast(ToastService);
 
         if (result.IsSuccess)

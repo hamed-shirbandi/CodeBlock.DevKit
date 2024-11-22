@@ -1,17 +1,16 @@
-﻿using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Application.Commands;
+﻿using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Events;
 using MediatR;
 
-namespace CodeBlock.DevKit.Infrastructure.Bus;
+namespace CodeBlock.DevKit.Infrastructure.Services;
 
 /// <summary>
-///
+/// Implementation of IRequestDispatcher using MediatR.
 /// </summary>
-public class InMemoryBus : IBus
+public class MediatRDispatcher : IRequestDispatcher
 {
     #region Fields
 
@@ -22,7 +21,7 @@ public class InMemoryBus : IBus
 
     #region Ctors
 
-    public InMemoryBus(IMediator mediator, INotificationService notifications)
+    public MediatRDispatcher(IMediator mediator, INotificationService notifications)
     {
         _mediator = mediator;
         _notifications = notifications;

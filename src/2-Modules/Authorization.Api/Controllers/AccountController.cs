@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Bus;
+﻿using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Api.Models;
 using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.LoginUser;
@@ -15,8 +15,8 @@ public class AccountController : BaseApiController
 {
     private readonly JwtAuthenticationService _jwtAuthenticationService;
 
-    public AccountController(IBus bus, JwtAuthenticationService jwtAuthenticationService)
-        : base(bus)
+    public AccountController(IRequestDispatcher requestDispatcher, JwtAuthenticationService jwtAuthenticationService)
+        : base(requestDispatcher)
     {
         _jwtAuthenticationService = jwtAuthenticationService;
     }
@@ -28,7 +28,7 @@ public class AccountController : BaseApiController
     [HttpPost]
     public async Task<Result<LoginUserResponse>> Login(LoginUserRequest loginUserRequest)
     {
-        var loginUserResult = await _bus.SendQuery(loginUserRequest);
+        var loginUserResult = await _requestDispatcher.SendQuery(loginUserRequest);
         if (!loginUserResult.IsSuccess)
             return Result.Failure<LoginUserResponse>(loginUserResult.Errors, loginUserResult.Message);
 
@@ -48,12 +48,12 @@ public class AccountController : BaseApiController
     [HttpPost]
     public async Task<Result<RegisterUserResponse>> Register(RegisterUserRequest registerUserRequest)
     {
-        var registerUserResult = await _bus.SendCommand(registerUserRequest);
+        var registerUserResult = await _requestDispatcher.SendCommand(registerUserRequest);
 
         if (!registerUserResult.IsSuccess)
             return Result.Failure<RegisterUserResponse>(registerUserResult.Errors, registerUserResult.Message);
 
-        var getUserResult = await _bus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
+        var getUserResult = await _requestDispatcher.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
 
         var loginUserResponse = new RegisterUserResponse
         {

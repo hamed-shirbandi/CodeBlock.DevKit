@@ -3,12 +3,12 @@ using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Domain.Events;
 
-namespace CodeBlock.DevKit.Application.Bus;
+namespace CodeBlock.DevKit.Application.Srvices;
 
 /// <summary>
-/// It is used as a mediator to send and handle requests inside a service (in-process)
+/// Dispatches commands, queries, and domain events within the application (in-process).
 /// </summary>
-public interface IBus
+public interface IRequestDispatcher
 {
     Task<Result<CommandResult>> SendCommand<TCommand>(TCommand cmd)
         where TCommand : BaseCommand;

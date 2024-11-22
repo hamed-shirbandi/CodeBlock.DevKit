@@ -1,4 +1,4 @@
-using CodeBlock.DevKit.Application.Bus;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.UseCases.Users.LoginUser;
 using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Pages;
@@ -12,8 +12,8 @@ public class LoginModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
 
-    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IBus bus)
-        : base(bus)
+    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
     }
@@ -34,7 +34,7 @@ public class LoginModel : BasePageModel
         if (!ModelState.IsValid)
             return Page();
 
-        var verifyUserPasswordResult = await _bus.SendQuery(VerifyUserPasswordRequest);
+        var verifyUserPasswordResult = await _requestDispatcher.SendQuery(VerifyUserPasswordRequest);
 
         if (!verifyUserPasswordResult.IsSuccess)
         {

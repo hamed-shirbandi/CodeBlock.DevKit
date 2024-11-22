@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Bus;
+﻿using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Domain.Events;
 
 namespace CodeBlock.DevKit.Application.Commands;
@@ -11,16 +11,16 @@ public abstract class BaseCommandHandler
     #region Fields
 
 
-    private readonly IBus _bus;
+    private readonly IRequestDispatcher _requestDispatcher;
 
     #endregion
 
     #region Ctors
 
 
-    protected BaseCommandHandler(IBus bus)
+    protected BaseCommandHandler(IRequestDispatcher requestDispatcher)
     {
-        _bus = bus;
+        _requestDispatcher = requestDispatcher;
     }
 
     #endregion
@@ -43,7 +43,7 @@ public abstract class BaseCommandHandler
     /// </summary>
     protected async Task PublishDomainEventsAsync(DomainEvent domainEvent)
     {
-        await _bus.PublishEvent(domainEvent);
+        await _requestDispatcher.PublishEvent(domainEvent);
     }
 
     #endregion

@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Application.Commands;
+﻿using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Authorization.Exceptions;
 using CodeBlock.DevKit.Core.Helpers;
@@ -11,8 +11,8 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
 {
     private readonly IRoleRepository _roleRepository;
 
-    public UpdateRoleUseCase(IRoleRepository roleRepository, IBus bus)
-        : base(bus)
+    public UpdateRoleUseCase(IRoleRepository roleRepository, IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher)
     {
         _roleRepository = roleRepository;
     }

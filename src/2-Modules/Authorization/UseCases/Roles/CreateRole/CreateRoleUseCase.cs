@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Application.Commands;
+﻿using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Core.Helpers;
 using MediatR;
@@ -10,8 +10,8 @@ public class CreateRoleUseCase : BaseCommandHandler, IRequestHandler<CreateRoleR
 {
     private readonly IRoleRepository _roleRepository;
 
-    public CreateRoleUseCase(IRoleRepository roleRepository, IBus bus)
-        : base(bus)
+    public CreateRoleUseCase(IRoleRepository roleRepository, IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher)
     {
         _roleRepository = roleRepository;
     }

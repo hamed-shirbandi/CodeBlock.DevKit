@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Bus;
+﻿using CodeBlock.DevKit.Application.Srvices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeBlock.DevKit.Web.Api.Filters;
@@ -8,10 +8,10 @@ namespace CodeBlock.DevKit.Web.Api.Filters;
 [ModelStateValidating]
 public class BaseApiController : ControllerBase
 {
-    protected readonly IBus _bus;
+    protected readonly IRequestDispatcher _requestDispatcher;
 
-    public BaseApiController(IBus bus)
+    public BaseApiController(IRequestDispatcher requestDispatcher)
     {
-        _bus = bus;
+        _requestDispatcher = requestDispatcher;
     }
 }

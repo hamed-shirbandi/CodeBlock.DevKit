@@ -2,7 +2,8 @@
 @using Blazored.Modal.Services
 @using Blazored.Toast.Services
 @using Blazored.Modal
-@using CodeBlock.DevKit.Application.Bus
+
+@using CodeBlock.DevKit.Application.Srvices
 @using CodeBlock.DevKit.Authorization.Resources
 @using CodeBlock.DevKit.Authorization.UI.Resources
 @using CodeBlock.DevKit.Web.Blazor.Server.Authentication
@@ -29,4 +30,4 @@
 @inject IStringLocalizer<AuthorizationResource> AuthorizationLocalizer
 @inject IToastService ToastService
 @inject IModalService ModalService
-@inject IBus Bus
+@inject IRequestDispatcher RequestDispatcher

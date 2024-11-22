@@ -3,7 +3,7 @@
 @using CodeBlock.DevKit.Authorization.UseCases.Users.IsEmailRegistered
 @using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUserWithRandomPassword
 @inject CookieAuthenticationService CookieAuthenticationService
-@inject IBus Bus
+@inject IRequestDispatcher RequestDispatcher
 
 @functions
 {
@@ -14,11 +14,11 @@
         // Find the claim for email
         var emailClaim = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
 
-        var IsEmailRegisteredResult = await Bus.SendQuery(new IsEmailRegisteredRequest(emailClaim.Value));
+        var IsEmailRegisteredResult = await RequestDispatcher.SendQuery(new IsEmailRegisteredRequest(emailClaim.Value));
         if (IsEmailRegisteredResult.Value)
-            await Bus.SendCommand(new RegisterUserWithRandomPasswordRequest(emailClaim.Value));
+            await RequestDispatcher.SendCommand(new RegisterUserWithRandomPasswordRequest(emailClaim.Value));
 
-        var getUserResult = await Bus.SendQuery(new GetUserByEmailRequest(emailClaim.Value));
+        var getUserResult = await RequestDispatcher.SendQuery(new GetUserByEmailRequest(emailClaim.Value));
 
         await CookieAuthenticationService.SignInAsync(
             getUserResult.Value.Id,

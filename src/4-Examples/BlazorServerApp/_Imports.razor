@@ -2,7 +2,7 @@
 @using Blazored.Modal.Services
 @using Blazored.Toast.Services
 @using Blazored.Modal
-@using CodeBlock.DevKit.Application.Bus
+@using CodeBlock.DevKit.Application.Srvices
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -23,7 +23,7 @@
 @attribute [Authorize(Policy = "AdminRolePolicy")]
 @inject IToastService ToastService
 @inject IModalService ModalService
-@inject IBus Bus
+@inject IRequestDispatcher RequestDispatcher
 
 @inject IStringLocalizer<BlazorServerAppResource> AppLocalizer
 @inject IStringLocalizer<BlazorResource> BlazorLocalizer

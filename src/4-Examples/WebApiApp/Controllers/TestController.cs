@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Bus;
+﻿using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Web.Api.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,8 +11,8 @@ namespace WebApiApp.Controllers;
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TestController : BaseApiController
 {
-    public TestController(IBus bus)
-        : base(bus) { }
+    public TestController(IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher) { }
 
     /// <summary>
     /// This is just a test!

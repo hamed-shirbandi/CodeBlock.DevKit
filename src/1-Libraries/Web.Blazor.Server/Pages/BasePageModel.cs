@@ -1,4 +1,4 @@
-﻿using CodeBlock.DevKit.Application.Bus;
+﻿using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -6,11 +6,11 @@ namespace CodeBlock.DevKit.Web.Blazor.Server.Pages;
 
 public class BasePageModel : PageModel
 {
-    protected readonly IBus _bus;
+    protected readonly IRequestDispatcher _requestDispatcher;
 
-    protected BasePageModel(IBus bus)
+    protected BasePageModel(IRequestDispatcher requestDispatcher)
     {
-        _bus = bus;
+        _requestDispatcher = requestDispatcher;
     }
 
     protected void ParseResultToViewData<T>(Result<T> result)

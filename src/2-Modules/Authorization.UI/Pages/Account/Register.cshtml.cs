@@ -1,4 +1,4 @@
-using CodeBlock.DevKit.Application.Bus;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
 using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
@@ -13,8 +13,8 @@ public class RegisterModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
 
-    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IBus bus)
-        : base(bus)
+    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
     }
@@ -35,7 +35,7 @@ public class RegisterModel : BasePageModel
         if (!ModelState.IsValid)
             return Page();
 
-        var registerUserResult = await _bus.SendCommand(RegisterUserRequest);
+        var registerUserResult = await _requestDispatcher.SendCommand(RegisterUserRequest);
 
         if (!registerUserResult.IsSuccess)
         {
@@ -43,7 +43,7 @@ public class RegisterModel : BasePageModel
             return Page();
         }
 
-        var getUserResult = await _bus.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
+        var getUserResult = await _requestDispatcher.SendQuery(new GetUserByIdRequest(registerUserResult.Value.EntityId));
 
         await _cookieAuthenticationService.SignInAsync(
             getUserResult.Value.Id,

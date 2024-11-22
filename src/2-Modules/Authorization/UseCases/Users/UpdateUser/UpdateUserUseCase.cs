@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Application.Commands;
+﻿using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Exceptions;
 using CodeBlock.DevKit.Core.Helpers;
@@ -11,8 +11,8 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
 {
     private readonly IUserRepository _userRepository;
 
-    public UpdateUserUseCase(IUserRepository userRepository, IBus bus)
-        : base(bus)
+    public UpdateUserUseCase(IUserRepository userRepository, IRequestDispatcher requestDispatcher)
+        : base(requestDispatcher)
     {
         _userRepository = userRepository;
     }

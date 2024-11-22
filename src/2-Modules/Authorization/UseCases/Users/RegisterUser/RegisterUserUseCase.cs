@@ -1,5 +1,5 @@
-﻿using CodeBlock.DevKit.Application.Bus;
-using CodeBlock.DevKit.Application.Commands;
+﻿using CodeBlock.DevKit.Application.Commands;
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Core.Helpers;
@@ -16,10 +16,10 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
     public RegisterUserUseCase(
         IUserRepository userRepository,
         IPasswordService passwordService,
-        IBus bus,
+        IRequestDispatcher requestDispatcher,
         AuthorizationSettings authorizationSettings
     )
-        : base(bus)
+        : base(requestDispatcher)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;

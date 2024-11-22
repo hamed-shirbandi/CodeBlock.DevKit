@@ -1,6 +1,5 @@
 ﻿using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure.Behaviors;
-using CodeBlock.DevKit.Infrastructure.Bus;
 using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Mapping;
 using CodeBlock.DevKit.Infrastructure.Models;
@@ -25,7 +24,7 @@ public static class Startup
     )
     {
         services.AddMediatR(handlerAssemblyMarkerType);
-        services.AddInMemoryBus();
+        services.AddMediatRDispatcher();
         services.AddApplicationExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
@@ -54,5 +53,10 @@ public static class Startup
 
         services.Configure(setupAction);
         services.AddScoped<IEmailService, EmailService>();
+    }
+
+    private static void AddMediatRDispatcher(this IServiceCollection services)
+    {
+        services.AddScoped<IRequestDispatcher, MediatRDispatcher>();
     }
 }
