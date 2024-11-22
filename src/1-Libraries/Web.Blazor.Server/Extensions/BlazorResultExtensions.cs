@@ -76,7 +76,7 @@ public static class BlazorResultExtensions
     {
         RenderFragment content = null;
 
-        if (!errors.Any())
+        if (errors.Count == 0)
             return content;
 
         foreach (var error in errors)
