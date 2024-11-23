@@ -1,8 +1,9 @@
-﻿using CodeBlock.DevKit.Infrastructure;
+﻿using CodeBlock.DevKit.Application.Srvices;
+using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
 using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Serilog;
-using CodeBlock.DevKit.Web.Services.AuthenticatedUser;
+using CodeBlock.DevKit.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,9 +52,9 @@ public static class Startup
         app.UseMetrics();
     }
 
-    private static IServiceCollection AddAuthenticatedUserService(this IServiceCollection services)
+    private static void AddAuthenticatedUserService(this IServiceCollection services)
     {
-        return services.AddScoped<AuthenticatedUserService>();
+        services.AddScoped<IAuthenticatedUserService, AuthenticatedUserService>();
     }
 
     private static void AddWebServerOptions(this IServiceCollection services)
