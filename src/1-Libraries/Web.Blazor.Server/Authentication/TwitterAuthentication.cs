@@ -16,6 +16,8 @@ public static class TwitterAuthentication
             options.ConsumerKey = cookieAuthenticationOptions.Twitter.ConsumerKey;
             options.ConsumerSecret = cookieAuthenticationOptions.Twitter.ConsumerSecret;
             options.CallbackPath = cookieAuthenticationOptions.Twitter.CallbackPath;
+
+            options.RetrieveUserDetails = true;
         });
 
         return builder;
