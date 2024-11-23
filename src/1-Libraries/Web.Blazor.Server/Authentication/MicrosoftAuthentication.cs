@@ -12,9 +12,9 @@ public static class MicrosoftAuthentication
 
         builder.AddMicrosoftAccount(options =>
         {
-            options.ClientId = cookieAuthenticationOptions.Google.ClientId;
-            options.ClientSecret = cookieAuthenticationOptions.Google.ClientSecret;
-            options.CallbackPath = cookieAuthenticationOptions.Google.CallbackPath;
+            options.ClientId = cookieAuthenticationOptions.Microsoft.ClientId;
+            options.ClientSecret = cookieAuthenticationOptions.Microsoft.ClientSecret;
+            options.CallbackPath = cookieAuthenticationOptions.Microsoft.CallbackPath;
         });
 
         return builder;
