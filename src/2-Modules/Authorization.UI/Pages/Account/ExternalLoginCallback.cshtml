@@ -15,7 +15,7 @@
         var emailClaim = userClaims.FirstOrDefault(c => c.Type == ClaimTypes.Email);
 
         var IsEmailRegisteredResult = await RequestDispatcher.SendQuery(new IsEmailRegisteredRequest(emailClaim.Value));
-        if (IsEmailRegisteredResult.Value)
+        if (!IsEmailRegisteredResult.Value)
             await RequestDispatcher.SendCommand(new RegisterUserWithRandomPasswordRequest(emailClaim.Value));
 
         var getUserResult = await RequestDispatcher.SendQuery(new GetUserByEmailRequest(emailClaim.Value));
