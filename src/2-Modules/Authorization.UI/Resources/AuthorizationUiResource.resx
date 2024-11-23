@@ -142,7 +142,7 @@
     <value>Register</value>
   </data>
   <data name="External_Login_Title" xml:space="preserve">
-    <value>You can also log in using:</value>
+    <value>You can also log in or register using:</value>
   </data>
   <data name="External_Login_Twitter" xml:space="preserve">
     <value>Twitter</value>

@@ -88,7 +88,7 @@ namespace CodeBlock.DevKit.Authorization.UI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can also log in using:.
+        ///   Looks up a localized string similar to You can also log in or register using:.
         /// </summary>
         public static string External_Login_Title {
             get {
