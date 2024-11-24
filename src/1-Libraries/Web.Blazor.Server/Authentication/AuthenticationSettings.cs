@@ -4,12 +4,14 @@ public class AuthenticationSettings
 {
     public AuthenticationSettings()
     {
+        Settings = new();
         Cookie = new();
         Google = new();
         Twitter = new();
         Microsoft = new();
     }
 
+    public AuthenticationControlSettings Settings { get; set; }
     public CookieAuthenticationSettings Cookie { get; set; }
     public GoogleAuthenticationSettings Google { get; set; }
     public TwitterAuthenticationSettings Twitter { get; set; }
@@ -20,6 +22,22 @@ public class AuthenticationSettings
     {
         return Google.Enabled || Twitter.Enabled || Microsoft.Enabled || Facebook.Enabled;
     }
+}
+
+public class AuthenticationControlSettings
+{
+    public AuthenticationControlSettings()
+    {
+        EnableLogin = true;
+        EnableRegister = true;
+        ShowLogo = false;
+        ShowAppName = false;
+    }
+
+    public bool EnableLogin { get; set; }
+    public bool EnableRegister { get; set; }
+    public bool ShowLogo { get; set; }
+    public bool ShowAppName { get; set; }
 }
 
 public class CookieAuthenticationSettings

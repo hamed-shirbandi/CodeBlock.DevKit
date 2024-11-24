@@ -1,0 +1,13 @@
+﻿@using CodeBlock.DevKit.Web.Models
+@inject AuthenticationSettings AuthenticationSettings
+@inject ApplicationSettings ApplicationSettings
+
+@if (AuthenticationSettings.Settings.ShowLogo)
+{
+    <img class="width-xs-60 width-sm-20 width-md-20 mb-3" src="@ApplicationSettings.Localized.LogoUrl" alt="@ApplicationSettings.Localized.DisplayName" />
+}
+
+@if (AuthenticationSettings.Settings.ShowAppName)
+{
+    <h1 class="text-white">@ApplicationSettings.Localized.DisplayName</h1>
+}

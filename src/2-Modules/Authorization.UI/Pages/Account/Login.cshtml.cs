@@ -11,24 +11,30 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 public class LoginModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
+    private readonly AuthenticationSettings _authenticationSettings;
 
-    public LoginModel(CookieAuthenticationService cookieAuthenticationService, IRequestDispatcher requestDispatcher)
+    public LoginModel(
+        CookieAuthenticationService cookieAuthenticationService,
+        IRequestDispatcher requestDispatcher,
+        AuthenticationSettings authenticationSettings
+    )
         : base(requestDispatcher)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
+        _authenticationSettings = authenticationSettings;
     }
 
     [BindProperty]
     public LoginUserRequest VerifyUserPasswordRequest { get; set; }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public async Task OnGetAsync() { }
+    public async Task<IActionResult> OnGetAsync()
+    {
+        if (!_authenticationSettings.Settings.EnableLogin)
+            return LocalRedirect("/non-existent-page");
 
-    /// <summary>
-    ///
-    /// </summary>
+        return Page();
+    }
+
     public async Task<IActionResult> OnPostAsync([FromQuery] string returnUrl)
     {
         if (!ModelState.IsValid)

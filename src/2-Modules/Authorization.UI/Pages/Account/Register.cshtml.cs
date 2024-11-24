@@ -12,24 +12,30 @@ namespace CodeBlock.DevKit.Authorization.UI.Pages.Account;
 public class RegisterModel : BasePageModel
 {
     private readonly CookieAuthenticationService _cookieAuthenticationService;
+    private readonly AuthenticationSettings _authenticationSettings;
 
-    public RegisterModel(CookieAuthenticationService cookieAuthenticationService, IRequestDispatcher requestDispatcher)
+    public RegisterModel(
+        CookieAuthenticationService cookieAuthenticationService,
+        IRequestDispatcher requestDispatcher,
+        AuthenticationSettings authenticationSettings
+    )
         : base(requestDispatcher)
     {
         _cookieAuthenticationService = cookieAuthenticationService;
+        _authenticationSettings = authenticationSettings;
     }
 
     [BindProperty]
     public RegisterUserRequest RegisterUserRequest { get; set; }
 
-    /// <summary>
-    ///
-    /// </summary>
-    public async Task OnGetAsync() { }
+    public async Task<IActionResult> OnGetAsync()
+    {
+        if (!_authenticationSettings.Settings.EnableRegister)
+            return LocalRedirect("/non-existent-page");
 
-    /// <summary>
-    ///
-    /// </summary>
+        return Page();
+    }
+
     public async Task<IActionResult> OnPostAsync([FromQuery] string returnUrl)
     {
         if (!ModelState.IsValid)

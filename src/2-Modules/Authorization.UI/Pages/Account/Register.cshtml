@@ -1,10 +1,14 @@
 ﻿@page "/register"
 @model CodeBlock.DevKit.Authorization.UI.Pages.Account.RegisterModel
+@inject AuthenticationSettings AuthenticationSettings
+
 @{
     ViewData["Title"] = @AuthorizationUiLocalizer[AuthorizationUiResource.Login_Page_Title];
     Layout = "_Layout";
     string returnUrl = Request.Query["returnUrl"].ToString();
 }
+
+<partial name="_Heading" />
 
 <div class="card bg-form text-white-50 shadow mb-5 min-height-20rem width-xs-90 width-sm-40 width-md-40">
     <div class="card-header h2 p-3">@AuthorizationUiLocalizer[AuthorizationUiResource.Register_Page_Form_Title]</div>
@@ -25,7 +29,10 @@
             </div>
             <div class="form-group p-2">
                 <button id="loginBtn" type="submit" class="btn btn-success">@AuthorizationUiLocalizer[AuthorizationUiResource.Register_Page_Submit_Btn]</button>
-                <a class="btn btn-outline-primary" href="/login@(string.IsNullOrEmpty(returnUrl)?"": $"?returnUrl={returnUrl}")">@AuthorizationUiLocalizer[AuthorizationUiResource.Register_Page_Login_Btn]</a>
+                @if (AuthenticationSettings.Settings.EnableLogin)
+                {
+                    <a class="btn btn-outline-primary" href="/login@(string.IsNullOrEmpty(returnUrl)?"": $"?returnUrl={returnUrl}")">@AuthorizationUiLocalizer[AuthorizationUiResource.Register_Page_Login_Btn]</a>
+                }
             </div>
         </form>
     </div>
