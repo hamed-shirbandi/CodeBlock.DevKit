@@ -2,10 +2,12 @@
 using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
 using CodeBlock.DevKit.Web.Metric;
+using CodeBlock.DevKit.Web.Models;
 using CodeBlock.DevKit.Web.Serilog;
 using CodeBlock.DevKit.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -21,6 +23,8 @@ public static class Startup
     )
     {
         builder.AddCustomSerilog();
+
+        builder.AddApplicationSettings();
 
         builder.AddLocalization();
 
@@ -50,6 +54,13 @@ public static class Startup
             app.UseDeveloperExceptionPage();
 
         app.UseMetrics();
+    }
+
+    public static void AddApplicationSettings(this WebApplicationBuilder builder)
+    {
+        var applicationSettings = builder.Configuration.GetSection("Application").Get<ApplicationSettings>();
+
+        builder.Services.AddSingleton(applicationSettings);
     }
 
     private static void AddAuthenticatedUserService(this IServiceCollection services)

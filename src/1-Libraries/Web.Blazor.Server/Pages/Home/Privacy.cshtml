@@ -1,6 +1,7 @@
 ﻿@page "/privacy-policy"
+@using CodeBlock.DevKit.Web.Models
+@inject ApplicationSettings ApplicationSettings
 @{
-    ViewData["Title"] = "Privacy Policy";
     Layout = null;
 }
 
@@ -10,6 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy</title>
+    <link rel="icon" href="@ApplicationSettings.FaviconUrl" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,12 +28,13 @@
 
         a {
             color: #007BFF;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy</h1>
-    <p>Effective Date: <strong>January 1, 2025</strong>
+    <h1><a href="/">@ApplicationSettings.DisplayName</a> Privacy Policy</h1>
+    <p>Effective Date: <strong>@ApplicationSettings.TermsEffectiveDate</strong></p>
 
     <p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our application and services.</p>
 
@@ -68,14 +71,14 @@
         <li>Correction: You can request corrections to inaccurate or incomplete information.</li>
         <li>Deletion: You can request the deletion of your account and associated data.</li>
     </ul>
-    <p>To exercise these rights, please contact us at <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>.</p>
+    <p>To exercise these rights, please contact us at <a href="mailto:@ApplicationSettings.SupportEmail">@ApplicationSettings.SupportEmail</a>.</p>
 
     <h2>7. Changes to This Privacy Policy</h2>
     <p>We reserve the right to update this Privacy Policy at any time. Any changes will be posted on this page, and the Effective Date will be updated accordingly.</p>
 
     <h2>8. Contact Us</h2>
     <p>If you have any questions about this Privacy Policy or how we handle your data, please contact us at:</p>
-    <p>Email: <a href="mailto:support@yourdomain.com">support@yourdomain.com</a></p>
+    <p>Email: <a href="mailto:@ApplicationSettings.SupportEmail">@ApplicationSettings.SupportEmail</a></p>
 
     <p>By using our platform, you agree to this Privacy Policy.</p>
 </body>
