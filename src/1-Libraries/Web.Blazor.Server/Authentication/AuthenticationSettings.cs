@@ -29,12 +29,14 @@ public class AuthenticationControlSettings
     public AuthenticationControlSettings()
     {
         EnableLogin = true;
+        EnableExternalLogin = true;
         EnableRegister = true;
         ShowLogo = false;
         ShowAppName = false;
     }
 
     public bool EnableLogin { get; set; }
+    public bool EnableExternalLogin { get; set; }
     public bool EnableRegister { get; set; }
     public bool ShowLogo { get; set; }
     public bool ShowAppName { get; set; }

@@ -4,7 +4,7 @@
     string returnUrlQuery = string.IsNullOrEmpty(returnUrl) ? "" : $"?returnUrl={returnUrl}";
 }
 
-@if (AuthenticationSettings.AnyExternalLoginProvider())
+@if (AuthenticationSettings.Settings.EnableExternalLogin && AuthenticationSettings.AnyExternalLoginProvider())
 {
     <div class="card-footer p-3">
         <p class="text-secondary">@AuthorizationUiLocalizer[AuthorizationUiResource.External_Login_Title]</p>
