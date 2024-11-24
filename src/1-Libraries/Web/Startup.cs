@@ -59,7 +59,6 @@ public static class Startup
     public static void AddApplicationSettings(this WebApplicationBuilder builder)
     {
         var applicationSettings = builder.Configuration.GetSection("Application").Get<ApplicationSettings>();
-
         builder.Services.AddSingleton(applicationSettings);
     }
 
