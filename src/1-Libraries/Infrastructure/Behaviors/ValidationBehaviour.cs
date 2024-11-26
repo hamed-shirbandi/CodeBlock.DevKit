@@ -31,12 +31,7 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
     #region Public Methods
 
-
-
-    /// <summary>
-    ///
-    /// </summary>
-    public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         //Check fluent validations
         var isValidFluentValidation = !_validators.Any() || await ValidateFluentValidation(request, cancellationToken);

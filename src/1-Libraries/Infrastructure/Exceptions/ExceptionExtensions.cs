@@ -8,7 +8,7 @@ public static class ExceptionExtensions
     /// <summary>
     ///
     /// </summary>
-    public static void AddApplicationExceptionHandlers(this IServiceCollection services)
+    public static void AddExceptionHandlers(this IServiceCollection services)
     {
         services.AddManagedExceptionsHandler();
         services.AddUnmanagedExceptionsHandler();

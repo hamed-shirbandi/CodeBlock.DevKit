@@ -4,7 +4,6 @@ using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Mapping;
 using CodeBlock.DevKit.Infrastructure.Models;
 using CodeBlock.DevKit.Infrastructure.Services;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,9 +22,14 @@ public static class Startup
         Type mappingProfileMarkerType = null
     )
     {
-        services.AddMediatR(handlerAssemblyMarkerType);
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterGenericHandlers = false;
+            cfg.RegisterServicesFromAssemblyContaining(handlerAssemblyMarkerType);
+            cfg.RegisterServicesFromAssemblyContaining(typeof(ManagedExceptionHandler<,,>));
+        });
         services.AddMediatRDispatcher();
-        services.AddApplicationExceptionHandlers();
+        services.AddExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
         services.AddEncryptionService();

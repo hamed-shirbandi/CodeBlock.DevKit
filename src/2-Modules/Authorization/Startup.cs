@@ -2,7 +2,6 @@
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Infrastructure.MongoDB;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,7 +11,11 @@ public static class Startup
 {
     public static void AddAuthorizationModule(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMediatR(handlerAssemblyMarkerTypes: typeof(Startup));
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterGenericHandlers = false;
+            cfg.RegisterServicesFromAssemblyContaining(typeof(Startup));
+        });
         services.AddMongoDbContext(configuration);
         services.AddAuthorizationSettings(configuration);
         services.AddRepositories();
