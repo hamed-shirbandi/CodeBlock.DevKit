@@ -7,8 +7,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj" />
-		<ProjectReference Include="..\..\2-Modules\Authorization.UI\Authorization.UI.csproj" />
-		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.UI\Authorization.UI.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization\Authorization.csproj" />
 	</ItemGroup>
 	
 	<ItemGroup>

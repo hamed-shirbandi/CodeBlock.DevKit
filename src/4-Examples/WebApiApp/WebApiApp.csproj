@@ -15,8 +15,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\1-Libraries\Web.Api\Web.Api.csproj" />
-		<ProjectReference Include="..\..\2-Modules\Authorization.Api\Authorization.Api.csproj" />
-		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization.Api\Authorization.Api.csproj" />
+		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization\Authorization.csproj" />
 	</ItemGroup>
 
 </Project>

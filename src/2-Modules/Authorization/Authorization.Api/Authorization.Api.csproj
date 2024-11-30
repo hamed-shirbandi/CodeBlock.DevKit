@@ -32,7 +32,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\1-Libraries\Web.Api\Web.Api.csproj" />
-		<ProjectReference Include="..\Authorization.Base\Authorization.Base.csproj" />
+		<ProjectReference Include="..\Authorization\Authorization.csproj" />
 	</ItemGroup>
 
 </Project>
