@@ -1,16 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<AssemblyName>CodeBlock.DevKit.Authorization.UI</AssemblyName>
-		<RootNamespace>CodeBlock.DevKit.Authorization.UI</RootNamespace>
+		<AssemblyName>CodeBlock.DevKit.Authorization</AssemblyName>
+		<RootNamespace>CodeBlock.DevKit.Authorization</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.9</VersionPrefix>
+		<VersionPrefix>1.1.4</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>CodeBlock.DevKit.Authorization.UI</PackageId>
+		<PackageId>CodeBlock.DevKit.Authorization</PackageId>
 		<PackageTags>devkit;startup;entrepreneurship;starterkit</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/CodeBlock-Dev/CodeBlock.DevKit</RepositoryUrl>
@@ -23,7 +22,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="/" />
+		<None Include="..\..\..\..\LICENSE.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
@@ -31,27 +30,23 @@
 	</Target>
 
 	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<ProjectReference Include="..\..\..\1-Libraries\Infrastructure\Infrastructure.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\1-Libraries\Web.Blazor.Server\Web.Blazor.Server.csproj" />
-		<ProjectReference Include="..\Authorization\Authorization.csproj" />
+	  <Compile Update="Resources\AuthorizationResource.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AuthorizationResource.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="Resources\AuthorizationUiResource.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>AuthorizationUiResource.resx</DependentUpon>
-		</Compile>
+	  <EmbeddedResource Update="Resources\AuthorizationResource.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AuthorizationResource.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Update="Resources\AuthorizationUiResource.resx">
-			<Generator>PublicResXFileCodeGenerator</Generator>
-			<LastGenOutput>AuthorizationUiResource.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-	</ItemGroup>
 
 </Project>

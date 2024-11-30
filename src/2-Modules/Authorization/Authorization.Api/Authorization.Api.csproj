@@ -23,7 +23,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="/" />
+		<None Include="..\..\..\..\LICENSE.md" Pack="true" PackagePath="/" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
@@ -31,8 +31,8 @@
 	</Target>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\1-Libraries\Web.Api\Web.Api.csproj" />
-		<ProjectReference Include="..\Authorization\Authorization.csproj" />
+		<ProjectReference Include="..\..\..\1-Libraries\Web.Api\Web.Api.csproj" />
+		<ProjectReference Include="..\Authorization.Base\Authorization.Base.csproj" />
 	</ItemGroup>
 
 </Project>
