@@ -18,27 +18,14 @@ public static class Startup
         });
         services.AddMongoDbContext(configuration);
         services.AddAuthorizationSettings(configuration);
-        services.AddRepositories();
         services.AddDomainServices();
         services.AddMapper();
     }
 
-    /// <summary>
-    ///
-    /// </summary>
     private static void AddMongoDbContext(this IServiceCollection services, IConfiguration configuration)
     {
         var options = configuration.GetSection("MongoDB");
         services.AddScoped<AuthorizationDbContext>().AddOptions<MongoDbOptions>().Bind(options);
-    }
-
-    /// <summary>
-    ///
-    /// </summary>
-    private static void AddRepositories(this IServiceCollection services)
-    {
-        services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<IRoleRepository, RoleRepository>();
     }
 
     private static void AddMapper(this IServiceCollection services)
@@ -57,6 +44,8 @@ public static class Startup
 
     public static void AddDomainServices(this IServiceCollection services)
     {
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IPasswordService, PasswordService>();
     }
 }
