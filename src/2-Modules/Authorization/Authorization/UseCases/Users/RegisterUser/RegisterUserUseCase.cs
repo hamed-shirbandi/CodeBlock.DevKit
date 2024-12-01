@@ -2,7 +2,6 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Infrastructure;
-using CodeBlock.DevKit.Core.Helpers;
 using MediatR;
 
 namespace CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;

@@ -1,4 +1,4 @@
-﻿namespace CodeBlock.DevKit.Core.Helpers;
+﻿namespace CodeBlock.DevKit.Application.Commands;
 
 public class CommandResult
 {
