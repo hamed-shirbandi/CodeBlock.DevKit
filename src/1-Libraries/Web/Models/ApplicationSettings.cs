@@ -2,6 +2,11 @@
 
 public class ApplicationSettings
 {
+    public ApplicationSettings()
+    {
+        Localizations = new Dictionary<string, LocalizedApplicationSettings>();
+    }
+
     public LocalizedApplicationSettings Default { get; set; }
     public IDictionary<string, LocalizedApplicationSettings> Localizations { get; set; }
 
