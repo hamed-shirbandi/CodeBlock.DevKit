@@ -1,4 +1,5 @@
-﻿using CodeBlock.DevKit.Application.Commands;
+﻿using System.ComponentModel;
+using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Authorization.Exceptions;
@@ -22,9 +23,11 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
         if (role is null)
             throw AuthorizationExceptions.RoleNotFound(request.Id);
 
+        var loadedVersion = role.Version;
+
         role.Update(_roleRepository, request.Name);
 
-        await _roleRepository.UpdateAsync(role);
+        await _roleRepository.ConcurrencySafeUpdateAsync(role, loadedVersion);
 
         return CommandResult.Create(entityId: role.Id);
     }

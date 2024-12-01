@@ -34,7 +34,7 @@ public class MongoDbBaseAggregateRepository<TEntity> : MongoDbBaseRepository<TEn
     /// <summary>
     ///
     /// </summary>
-    public async Task ConcurrencySafeUpdate(TEntity entity, string loadedVersion)
+    public async Task ConcurrencySafeUpdateAsync(TEntity entity, string loadedVersion)
     {
         await CheckIfVersionIsChangedAndThrowExceptionAsync(entity.Id, loadedVersion);
         await _collection.ReplaceOneAsync(p => p.Id == entity.Id && p.Version == loadedVersion, entity, new ReplaceOptions() { IsUpsert = false });

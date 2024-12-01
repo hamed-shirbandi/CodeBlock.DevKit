@@ -22,9 +22,11 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
         if (user is null)
             throw AuthorizationExceptions.UserNotFound(request.Id);
 
+        var loadedVersion = user.Version;
+
         user.Update(_userRepository, request.Email);
 
-        await _userRepository.UpdateAsync(user);
+        await _userRepository.ConcurrencySafeUpdateAsync(user, loadedVersion);
 
         return CommandResult.Create(entityId: user.Id);
     }

@@ -5,5 +5,5 @@ namespace CodeBlock.DevKit.Domain.Services;
 public interface IBaseAggregateRepository<TEntity> : IBaseRepository<TEntity>
     where TEntity : AggregateRoot
 {
-    Task ConcurrencySafeUpdate(TEntity entity, string loadedVersion);
+    Task ConcurrencySafeUpdateAsync(TEntity entity, string loadedVersion);
 }
