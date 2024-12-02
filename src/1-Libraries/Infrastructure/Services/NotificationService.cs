@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 
 namespace CodeBlock.DevKit.Infrastructure.Services;
 
@@ -43,3 +46,4 @@ public class NotificationService : INotificationService
         notifications = new List<string>();
     }
 }
+

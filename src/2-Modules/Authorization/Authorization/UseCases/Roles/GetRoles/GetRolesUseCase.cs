@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using AutoMapper;
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Authorization.Domain.Users;
@@ -31,3 +34,4 @@ public class GetRolesUseCase : BaseQueryHandler, IRequestHandler<GetRolesRequest
         return rolesDto;
     }
 }
+

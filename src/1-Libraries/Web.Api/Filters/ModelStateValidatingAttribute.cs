@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Text.Json;
 using CodeBlock.DevKit.Core.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,3 +42,4 @@ public class ModelStateValidatingAttribute : ActionFilterAttribute
         return errors;
     }
 }
+

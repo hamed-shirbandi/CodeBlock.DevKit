@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Infrastructure;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,3 +27,4 @@ public static class Startup
         );
     }
 }
+

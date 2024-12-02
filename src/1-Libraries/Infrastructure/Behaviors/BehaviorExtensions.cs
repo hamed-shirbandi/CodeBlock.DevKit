@@ -1,4 +1,7 @@
-﻿using FluentValidation;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -43,3 +46,4 @@ public static class BehaviorExtensions
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
     }
 }
+

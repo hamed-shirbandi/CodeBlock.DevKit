@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Services;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Web.Blazor.Server.Services;
 
 public class MessageService
 {
@@ -9,3 +12,4 @@ public class MessageService
         OnMessage?.Invoke(messageKey);
     }
 }
+

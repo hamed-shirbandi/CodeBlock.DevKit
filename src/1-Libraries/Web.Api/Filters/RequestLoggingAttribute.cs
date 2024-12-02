@@ -1,4 +1,7 @@
-﻿using System.Text;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -47,3 +50,4 @@ public class RequestLoggingAttribute : Attribute, IAuthorizationFilter
         return body;
     }
 }
+

@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Options;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace CodeBlock.DevKit.Infrastructure.MongoDB;
@@ -54,3 +57,4 @@ public abstract class MongoDbContext
 
     #endregion
 }
+

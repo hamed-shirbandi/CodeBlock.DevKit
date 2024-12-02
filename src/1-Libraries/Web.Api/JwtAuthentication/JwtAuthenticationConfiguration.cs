@@ -1,4 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -49,3 +52,4 @@ public static class JwtAuthenticationConfiguration
             });
     }
 }
+

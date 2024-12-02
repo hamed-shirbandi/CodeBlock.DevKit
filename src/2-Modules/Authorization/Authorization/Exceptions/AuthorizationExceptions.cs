@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Resources;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Exceptions;
 using CodeBlock.DevKit.Core.Resources;
 using ApplicationException = CodeBlock.DevKit.Application.Exceptions.ApplicationException;
@@ -38,3 +41,4 @@ internal static class AuthorizationExceptions
         return new ApplicationException(nameof(AuthorizationResource.User_Password_Is_Wrong), typeof(AuthorizationResource));
     }
 }
+

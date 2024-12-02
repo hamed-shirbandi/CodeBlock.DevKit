@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Domain.Roles;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Infrastructure.MongoDB;
 using MongoDB.Driver;
 
@@ -20,3 +23,4 @@ internal class RoleRepository : MongoDbBaseAggregateRepository<Role>, IRoleRepos
         return role == null || role.Id == roleId;
     }
 }
+

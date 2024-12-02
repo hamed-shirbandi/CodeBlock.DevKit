@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Core.Extensions;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Core.Extensions;
 
 public static class RandomDataGenerator
 {
@@ -43,3 +46,4 @@ public static class RandomDataGenerator
         return start.AddDays(_rand.Next(range));
     }
 }
+

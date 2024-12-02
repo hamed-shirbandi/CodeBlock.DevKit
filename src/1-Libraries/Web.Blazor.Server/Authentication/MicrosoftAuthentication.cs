@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
@@ -20,3 +23,4 @@ public static class MicrosoftAuthentication
         return builder;
     }
 }
+

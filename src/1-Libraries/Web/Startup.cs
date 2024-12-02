@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
 using CodeBlock.DevKit.Web.Metric;
@@ -81,3 +84,4 @@ public static class Startup
         });
     }
 }
+

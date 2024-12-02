@@ -1,4 +1,7 @@
-﻿using MediatR;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using MediatR;
 using Newtonsoft.Json;
 
 namespace CodeBlock.DevKit.Domain.Events;
@@ -36,3 +39,4 @@ public class DomainEvent : INotification
 
     public DateTime OccurredOn { get; }
 }
+

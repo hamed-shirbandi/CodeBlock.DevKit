@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Web.Api.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -23,3 +26,4 @@ public class TestController : BaseApiController
         return Result.Success();
     }
 }
+

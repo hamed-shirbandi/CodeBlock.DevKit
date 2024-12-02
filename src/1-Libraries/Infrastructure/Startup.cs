@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure.Behaviors;
 using CodeBlock.DevKit.Infrastructure.Exceptions;
 using CodeBlock.DevKit.Infrastructure.Mapping;
@@ -64,3 +67,4 @@ public static class Startup
         services.AddScoped<IRequestDispatcher, MediatRDispatcher>();
     }
 }
+

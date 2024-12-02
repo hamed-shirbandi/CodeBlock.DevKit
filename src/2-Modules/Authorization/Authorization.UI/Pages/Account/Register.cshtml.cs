@@ -1,3 +1,6 @@
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.UseCases.Users.GetUserById;
 using CodeBlock.DevKit.Authorization.UseCases.Users.RegisterUser;
@@ -61,3 +64,4 @@ public class RegisterModel : BasePageModel
         return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }
 }
+

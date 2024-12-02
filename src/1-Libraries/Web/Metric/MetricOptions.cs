@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Web.Metric;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Web.Metric;
 
 public class MetricOptions
 {
@@ -31,3 +34,4 @@ public class MetricOptions
     /// </summary>
     public bool SuppressDefaultMetrics { get; set; }
 }
+

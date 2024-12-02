@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.ComponentModel.DataAnnotations;
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Attributes;
@@ -16,3 +19,4 @@ public class UpdateUserRequest : BaseCommand
     [ValidateEmail(ErrorMessageResourceName = nameof(CoreResource.Invalid), ErrorMessageResourceType = typeof(CoreResource))]
     public string Email { get; set; }
 }
+

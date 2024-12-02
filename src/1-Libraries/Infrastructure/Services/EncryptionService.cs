@@ -1,4 +1,7 @@
-﻿using System.Security.Cryptography;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Security.Cryptography;
 using System.Text;
 using CodeBlock.DevKit.Application.Srvices;
 
@@ -88,3 +91,4 @@ public class EncryptionService : IEncryptionService
         }
     }
 }
+

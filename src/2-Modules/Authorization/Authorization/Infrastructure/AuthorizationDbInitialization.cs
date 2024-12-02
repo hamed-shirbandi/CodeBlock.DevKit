@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Domain.Roles;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Domain.Roles;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -86,3 +89,4 @@ public static class AuthorizationDbInitialization
         );
     }
 }
+

@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Infrastructure.Mapping;
 
@@ -20,3 +23,4 @@ public static class MapperExtensions
         services.AddAutoMapper(typeof(CommonMappingProfile));
     }
 }
+

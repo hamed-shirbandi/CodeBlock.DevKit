@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.ComponentModel;
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
@@ -32,3 +35,4 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
         return CommandResult.Create(entityId: role.Id);
     }
 }
+

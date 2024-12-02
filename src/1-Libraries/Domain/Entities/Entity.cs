@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Domain.ValueObjects;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Domain.ValueObjects;
 using MongoDB.Bson;
 
 namespace CodeBlock.DevKit.Domain.Entities;
@@ -29,3 +32,4 @@ public abstract class Entity
         CreationTime = CreationTime.UpdateModifiedDateTime();
     }
 }
+

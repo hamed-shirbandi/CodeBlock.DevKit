@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Text.RegularExpressions;
 
 namespace CodeBlock.DevKit.Core.Helpers;
 
@@ -14,3 +17,4 @@ public static class EmailValidator
         return _emailRegex.IsMatch(email);
     }
 }
+

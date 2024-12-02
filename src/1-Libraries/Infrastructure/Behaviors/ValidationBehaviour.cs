@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Commands;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Extensions;
 using FluentValidation;
@@ -96,3 +99,4 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
     #endregion
 }
+

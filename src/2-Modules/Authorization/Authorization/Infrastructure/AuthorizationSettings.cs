@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Authorization.Infrastructure;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
 public class AuthorizationSettings
 {
@@ -17,3 +20,4 @@ public class AuthorizationRoleSettings
     public string AdminRole { get; set; }
     public string DefaultRole { get; set; }
 }
+

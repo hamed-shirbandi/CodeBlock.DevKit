@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Web.Localization;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Web.Localization;
 
 public class LocalizationSettings
 {
@@ -107,3 +110,4 @@ public class SupportedLanguage
         };
     }
 }
+

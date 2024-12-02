@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Commands;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Authorization.Exceptions;
@@ -31,3 +34,4 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
         return CommandResult.Create(entityId: user.Id);
     }
 }
+

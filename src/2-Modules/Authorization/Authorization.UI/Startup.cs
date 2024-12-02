@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Reflection;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
@@ -42,3 +45,4 @@ public static class Startup
         );
     }
 }
+

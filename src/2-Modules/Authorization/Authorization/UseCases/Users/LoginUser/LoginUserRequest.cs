@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.ComponentModel.DataAnnotations;
 using CodeBlock.DevKit.Application.Queries;
 using CodeBlock.DevKit.Authorization.Dtos;
 using CodeBlock.DevKit.Authorization.Resources;
@@ -19,3 +22,4 @@ public class LoginUserRequest : BaseQuery<GetUserDto>
     [DataType(DataType.Password)]
     public string Password { get; set; }
 }
+

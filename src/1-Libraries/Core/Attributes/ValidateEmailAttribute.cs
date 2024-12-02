@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.ComponentModel.DataAnnotations;
 using CodeBlock.DevKit.Core.Helpers;
 
 namespace CodeBlock.DevKit.Core.Attributes;
@@ -21,3 +24,4 @@ public class ValidateEmailAttribute : ValidationAttribute
         return new ValidationResult(errorMessage);
     }
 }
+

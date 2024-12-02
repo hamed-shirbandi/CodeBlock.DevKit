@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Domain.Entities;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
@@ -36,3 +39,4 @@ public sealed class Role : AggregateRoot
             throw RoleExceptions.NameMustBeUnique();
     }
 }
+

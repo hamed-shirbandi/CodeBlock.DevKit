@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Core.Exceptions;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Core.Exceptions;
 
 public abstract class ManagedException : Exception
 {
@@ -67,3 +70,4 @@ public enum MessagePlaceholderType
     Resource,
     PlainText,
 }
+

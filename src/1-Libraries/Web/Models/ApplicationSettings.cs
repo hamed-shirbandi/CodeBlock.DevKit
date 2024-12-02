@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Web.Models;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Web.Models;
 
 public class ApplicationSettings
 {
@@ -44,3 +47,4 @@ public class LocalizedApplicationSettings
     public string PrivacyEffectiveDate { get; init; }
     public string TermsEffectiveDate { get; init; }
 }
+

@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Security.Claims;
 using CodeBlock.DevKit.Application.Srvices;
 using Microsoft.AspNetCore.Http;
 
@@ -42,3 +45,4 @@ public class AuthenticatedUserService : IAuthenticatedUserService
         return _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
     }
 }
+

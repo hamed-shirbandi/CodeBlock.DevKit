@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Domain.Events;
 
 namespace CodeBlock.DevKit.Application.Commands;
@@ -57,3 +60,4 @@ public abstract class BaseCommandHandler
 
     #endregion
 }
+

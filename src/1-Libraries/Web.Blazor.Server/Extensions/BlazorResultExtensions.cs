@@ -1,4 +1,7 @@
-﻿using Blazored.Modal;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Blazored.Modal;
 using Blazored.Toast.Services;
 using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Core.Helpers;
@@ -92,3 +95,4 @@ public static class BlazorResultExtensions
             builder.AddMarkupContent(1, txt);
         };
 }
+

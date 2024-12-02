@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,3 +26,4 @@ public static class TwitterAuthentication
         return builder;
     }
 }
+

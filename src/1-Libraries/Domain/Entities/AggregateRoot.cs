@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Domain.Events;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Domain.Events;
 
 namespace CodeBlock.DevKit.Domain.Entities;
 
@@ -94,3 +97,4 @@ public abstract class AggregateRoot : Entity
 
     #endregion
 }
+

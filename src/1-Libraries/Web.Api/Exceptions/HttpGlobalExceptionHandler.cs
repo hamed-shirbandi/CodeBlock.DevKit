@@ -1,4 +1,7 @@
-﻿using System.Net;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Net;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Core.Resources;
 using Microsoft.AspNetCore.Http;
@@ -40,3 +43,4 @@ public class HttpGlobalExceptionHandler : IMiddleware
         await httpContext.Response.WriteAsJsonAsync(result);
     }
 }
+

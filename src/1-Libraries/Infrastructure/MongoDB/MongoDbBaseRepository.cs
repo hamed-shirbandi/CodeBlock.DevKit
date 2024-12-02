@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Domain.Entities;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Domain.Entities;
 using CodeBlock.DevKit.Domain.Services;
 using MongoDB.Driver;
 
@@ -89,3 +92,4 @@ public class MongoDbBaseRepository<TEntity> : IBaseRepository<TEntity>
 
     #endregion
 }
+

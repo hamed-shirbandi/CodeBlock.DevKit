@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Web.Api.Exceptions;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Web.Api.Exceptions;
 using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
@@ -71,3 +74,4 @@ public static class Startup
         services.AddTransient<HttpGlobalExceptionHandler>();
     }
 }
+

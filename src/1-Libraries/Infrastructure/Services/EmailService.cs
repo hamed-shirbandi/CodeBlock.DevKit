@@ -1,4 +1,7 @@
-﻿using System.Net;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Net;
 using System.Net.Mail;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure.Models;
@@ -35,3 +38,4 @@ public class EmailService : IEmailService
         }
     }
 }
+

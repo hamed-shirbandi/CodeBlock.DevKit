@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Commands;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Commands;
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Roles;
 using MediatR;
@@ -24,3 +27,4 @@ public class CreateRoleUseCase : BaseCommandHandler, IRequestHandler<CreateRoleR
         return CommandResult.Create(entityId: role.Id);
     }
 }
+

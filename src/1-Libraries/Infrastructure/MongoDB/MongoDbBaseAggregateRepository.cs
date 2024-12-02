@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Domain.Entities;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Domain.Entities;
 using CodeBlock.DevKit.Domain.Services;
 using CodeBlock.DevKit.Infrastructure.Resources;
 using MongoDB.Driver;
@@ -56,3 +59,4 @@ public class MongoDbBaseAggregateRepository<TEntity> : MongoDbBaseRepository<TEn
 
     #endregion
 }
+

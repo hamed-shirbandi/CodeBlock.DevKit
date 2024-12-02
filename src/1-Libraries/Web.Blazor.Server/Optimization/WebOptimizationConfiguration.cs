@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -46,3 +49,4 @@ public static class WebOptimizationConfiguration
         app.UseWebOptimizer();
     }
 }
+

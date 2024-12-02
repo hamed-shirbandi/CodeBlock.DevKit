@@ -1,3 +1,6 @@
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
 using CodeBlock.DevKit.Authorization;
 using CodeBlock.DevKit.Authorization.Infrastructure;
 using CodeBlock.DevKit.Authorization.UI;
@@ -26,3 +29,4 @@ public class Program
         app.Run();
     }
 }
+

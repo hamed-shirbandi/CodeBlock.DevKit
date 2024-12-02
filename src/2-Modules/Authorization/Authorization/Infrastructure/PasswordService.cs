@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Authorization.Domain.Users;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
@@ -22,3 +25,4 @@ internal class PasswordService : IPasswordService
         return _encryptionService.CreateSalt(size);
     }
 }
+

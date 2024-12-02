@@ -1,3 +1,6 @@
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
 using System.ComponentModel;
 using Nuke.Common.Tooling;
 
@@ -14,3 +17,4 @@ public class Configuration : Enumeration
         return configuration.Value;
     }
 }
+

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CodeBlock.DevKit.Web.Blazor.Server.Pages;
@@ -11,3 +14,4 @@ public class ErrorModel : PageModel
 
     public void OnGet() { }
 }
+

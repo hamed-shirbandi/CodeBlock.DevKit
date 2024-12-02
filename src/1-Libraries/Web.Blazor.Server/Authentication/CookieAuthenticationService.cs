@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
@@ -50,3 +53,4 @@ public class CookieAuthenticationService
         return claims;
     }
 }
+

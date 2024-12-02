@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.ComponentModel.DataAnnotations;
 using CodeBlock.DevKit.Authorization.Resources;
 
 namespace CodeBlock.DevKit.Authorization.Dtos;
@@ -13,3 +16,4 @@ public class GetRoleDto
     [Display(Name = nameof(AuthorizationResource.Role_Users_Count), ResourceType = typeof(AuthorizationResource))]
     public long UsersCount { get; set; }
 }
+

@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Domain.Users;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Domain.Users;
 using CodeBlock.DevKit.Infrastructure.MongoDB;
 using MongoDB.Driver;
 
@@ -30,3 +33,4 @@ internal class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepos
         return await _users.CountDocumentsAsync(u => u.Roles.Contains(role));
     }
 }
+

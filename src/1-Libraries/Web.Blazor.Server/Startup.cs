@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Reflection;
 using Blazored.Modal;
 using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
@@ -110,3 +113,4 @@ public static class Startup
             .AddFacebook(authenticationSettings);
     }
 }
+

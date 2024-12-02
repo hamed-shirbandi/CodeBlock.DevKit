@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Infrastructure.Models;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Infrastructure.Models;
 
 public class EmailOptions
 {
@@ -8,3 +11,4 @@ public class EmailOptions
     public string SmtpPassword { get; set; }
     public bool EnableSsl { get; set; }
 }
+

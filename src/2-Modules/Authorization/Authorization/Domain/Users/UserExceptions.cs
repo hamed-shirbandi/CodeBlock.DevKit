@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Authorization.Resources;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Authorization.Resources;
 using CodeBlock.DevKit.Core.Exceptions;
 using CodeBlock.DevKit.Core.Resources;
 using CodeBlock.DevKit.Domain.Exceptions;
@@ -43,3 +46,4 @@ internal static class UserExceptions
         );
     }
 }
+

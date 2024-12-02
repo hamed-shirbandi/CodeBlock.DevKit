@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Application.Commands;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Application.Commands;
 
 public class CommandResult
 {
@@ -16,3 +19,4 @@ public class CommandResult
     public string EntityId { get; }
     public string Message { get; }
 }
+

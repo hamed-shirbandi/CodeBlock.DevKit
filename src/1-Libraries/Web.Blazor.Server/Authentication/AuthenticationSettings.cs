@@ -1,4 +1,7 @@
-﻿namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+namespace CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 
 public class AuthenticationSettings
 {
@@ -114,3 +117,4 @@ public class FacebookAuthenticationSettings
     public string AppSecret { get; set; }
     public string CallbackPath { get; set; }
 }
+

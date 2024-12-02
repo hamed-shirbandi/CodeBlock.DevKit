@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Reflection;
 using CodeBlock.DevKit.Application.Queries;
 using EasyCaching.Core;
 using MediatR;
@@ -89,3 +92,4 @@ public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 
     #endregion
 }
+

@@ -1,4 +1,7 @@
-﻿using CodeBlock.DevKit.Application.Srvices;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using CodeBlock.DevKit.Application.Srvices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeBlock.DevKit.Web.Api.Filters;
@@ -15,3 +18,4 @@ public class BaseApiController : ControllerBase
         _requestDispatcher = requestDispatcher;
     }
 }
+

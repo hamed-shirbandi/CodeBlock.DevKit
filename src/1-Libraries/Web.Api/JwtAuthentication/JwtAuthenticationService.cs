@@ -1,4 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
@@ -44,3 +47,4 @@ public class JwtAuthenticationService
         return claims;
     }
 }
+

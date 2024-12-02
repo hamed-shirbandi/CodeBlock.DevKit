@@ -1,3 +1,6 @@
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.IO;
@@ -173,3 +176,4 @@ public class Build : NukeBuild
                     );
                 });
 }
+

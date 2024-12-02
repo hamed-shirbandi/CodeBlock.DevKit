@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using System.Globalization;
 using CodeBlock.DevKit.Web.Localization;
 using Microsoft.AspNetCore.Http;
 
@@ -36,3 +39,4 @@ public class LocalizationMiddleware
         return culture;
     }
 }
+

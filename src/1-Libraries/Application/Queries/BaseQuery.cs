@@ -1,4 +1,7 @@
-﻿using MediatR;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using MediatR;
 
 namespace CodeBlock.DevKit.Application.Queries;
 
@@ -25,3 +28,4 @@ public abstract class BaseQuery<TQueryResult> : ICacheableQuery, IRequest<TQuery
         EnableCache = true;
     }
 }
+

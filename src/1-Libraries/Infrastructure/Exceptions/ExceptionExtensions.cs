@@ -1,4 +1,7 @@
-﻿using MediatR.Pipeline;
+// Copyright (c) CodeBlock.Dev. All rights reserved.
+// See LICENSE in the project root for license information.
+
+using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Infrastructure.Exceptions;
@@ -30,3 +33,4 @@ public static class ExceptionExtensions
         services.AddScoped(typeof(IRequestExceptionHandler<,,>), typeof(UnmanagedExceptionHandler<,,>));
     }
 }
+
