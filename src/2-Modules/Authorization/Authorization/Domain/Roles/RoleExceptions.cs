@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Domain.Exceptions;
 
 namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
-public static class RoleExceptions
+internal static class RoleExceptions
 {
     public static DomainException NameIsRequired()
     {

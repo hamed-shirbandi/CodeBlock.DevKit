@@ -2,7 +2,7 @@
 
 namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
-public record UserPassword : BaseValueObject
+internal record UserPassword : BaseValueObject
 {
     private const int PASSWORD_SALT_SIZE = 5;
 

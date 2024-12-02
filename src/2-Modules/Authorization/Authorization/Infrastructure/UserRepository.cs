@@ -4,25 +4,15 @@ using MongoDB.Driver;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-public class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepository
+internal class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepository
 {
-    #region Fields
-
     private readonly IMongoCollection<User> _users;
-
-    #endregion
-
-    #region Ctors
 
     public UserRepository(AuthorizationDbContext dbContext)
         : base(dbContext)
     {
         _users = dbContext.GetCollection<User>();
     }
-
-    #endregion
-
-    #region Public Methods
 
     public async Task<User> GetByEmailAsync(string email)
     {
@@ -39,12 +29,4 @@ public class UserRepository : MongoDbBaseAggregateRepository<User>, IUserReposit
     {
         return await _users.CountDocumentsAsync(u => u.Roles.Contains(role));
     }
-
-    #endregion
-
-    #region Private Methods
-
-
-
-    #endregion
 }

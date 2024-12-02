@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Authorization.Dtos;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-public class MappingProfile : Profile
+internal class MappingProfile : Profile
 {
     public MappingProfile()
     {

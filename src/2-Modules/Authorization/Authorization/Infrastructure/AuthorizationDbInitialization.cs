@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-public static class AuthorizationDbInitialization
+internal static class AuthorizationDbInitialization
 {
     public static void InitialAuthorizationDb(this IServiceProvider serviceProvider)
     {

@@ -3,7 +3,7 @@ using CodeBlock.DevKit.Domain.Entities;
 
 namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
-public class User : AggregateRoot
+internal class User : AggregateRoot
 {
     private User(IUserRepository userRepository, IPasswordService passwordService, string email, string password)
     {

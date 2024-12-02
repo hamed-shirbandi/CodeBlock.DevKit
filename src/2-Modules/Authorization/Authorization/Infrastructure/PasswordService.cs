@@ -3,7 +3,7 @@ using CodeBlock.DevKit.Authorization.Domain.Users;
 
 namespace CodeBlock.DevKit.Authorization.Infrastructure;
 
-public class PasswordService : IPasswordService
+internal class PasswordService : IPasswordService
 {
     private readonly IEncryptionService _encryptionService;
 

@@ -9,7 +9,7 @@ namespace CodeBlock.DevKit.Authorization.Infrastructure;
 /// <summary>
 ///
 /// </summary>
-public class AuthorizationDbContext : MongoDbContext
+internal class AuthorizationDbContext : MongoDbContext
 {
     public AuthorizationDbContext(IOptions<MongoDbOptions> mongoDbOptions)
         : base(mongoDbOptions)

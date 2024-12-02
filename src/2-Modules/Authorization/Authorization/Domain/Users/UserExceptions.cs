@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Domain.Exceptions;
 
 namespace CodeBlock.DevKit.Authorization.Domain.Users;
 
-public static class UserExceptions
+internal static class UserExceptions
 {
     public static DomainException EmailIsRequired()
     {
