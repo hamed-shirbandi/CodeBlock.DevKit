@@ -2,7 +2,7 @@
 
 namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
-internal interface IRoleRepository : IBaseAggregateRepository<Role>
+public interface IRoleRepository : IBaseAggregateRepository<Role>
 {
     bool NameIsUnique(string id, string name);
 }

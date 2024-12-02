@@ -2,7 +2,7 @@
 
 namespace CodeBlock.DevKit.Authorization.Domain.Roles;
 
-internal class Role : AggregateRoot
+public sealed class Role : AggregateRoot
 {
     private Role(IRoleRepository roleRepository, string name)
     {
