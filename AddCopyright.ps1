@@ -12,8 +12,13 @@ foreach ($file in $csFiles) {
 
     # Check if the copyright header already exists at the beginning of the file
     if ($trimmedContent -notlike "$copyrightHeader*") {
+        # Remove any trailing blank lines before adding the copyright header
+        $newContent = $fileContent.TrimEnd()
+
         # Add the copyright header to the beginning of the file
-        $newContent = $copyrightHeader + "`r`n" + $fileContent
+        $newContent = $copyrightHeader + "`r`n" + $newContent
+
+        # Write the content back to the file without an extra blank line
         Set-Content -Path $file.FullName -Value $newContent -Force
     }
 }
