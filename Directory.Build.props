@@ -3,4 +3,8 @@
         <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <NoWarn>CS1998;IDE0270;CA2254;CA1822;TS1109;TS6385</NoWarn>
     </PropertyGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+       <Exec Command="powershell.exe -ExecutionPolicy Bypass -File &quot;$(SolutionDir)AddCopyright.ps1&quot;" />
+    </Target>
 </Project>
