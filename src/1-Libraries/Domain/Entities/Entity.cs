@@ -32,4 +32,3 @@ public abstract class Entity
         CreationTime = CreationTime.UpdateModifiedDateTime();
     }
 }
-

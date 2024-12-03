@@ -33,4 +33,3 @@ internal class UserRepository : MongoDbBaseAggregateRepository<User>, IUserRepos
         return await _users.CountDocumentsAsync(u => u.Roles.Contains(role));
     }
 }
-

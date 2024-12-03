@@ -15,4 +15,3 @@ public interface IBaseRepository<TEntity> : IDisposable
     Task<IEnumerable<TEntity>> GetListAsync();
     Task<long> CountAsync();
 }
-

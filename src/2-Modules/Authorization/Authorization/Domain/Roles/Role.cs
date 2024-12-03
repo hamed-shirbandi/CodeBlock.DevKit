@@ -39,4 +39,3 @@ public sealed class Role : AggregateRoot
             throw RoleExceptions.NameMustBeUnique();
     }
 }
-

@@ -24,4 +24,3 @@ internal class AuthorizationDbContext : MongoDbContext
     public IMongoCollection<User> Users { get; }
     public IMongoCollection<Role> Roles { get; }
 }
-

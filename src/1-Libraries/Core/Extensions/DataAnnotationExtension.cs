@@ -20,4 +20,3 @@ public static class DataAnnotationExtension
         return enumValue.GetType().GetMember(enumValue.ToString()).First().GetCustomAttribute<DisplayAttribute>().GetName();
     }
 }
-

@@ -20,4 +20,3 @@ public class AuthorizationRoleSettings
     public string AdminRole { get; set; }
     public string DefaultRole { get; set; }
 }
-

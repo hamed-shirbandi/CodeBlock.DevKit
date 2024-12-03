@@ -89,4 +89,3 @@ public static class AuthorizationDbInitialization
         );
     }
 }
-

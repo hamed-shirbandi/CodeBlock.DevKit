@@ -15,4 +15,3 @@ public class GetUserByEmailRequest : BaseQuery<GetUserDto>
 
     public string Email { get; set; }
 }
-

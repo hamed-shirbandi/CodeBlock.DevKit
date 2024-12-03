@@ -10,4 +10,3 @@ public class GetUsersRequest : BaseQuery<IEnumerable<GetUserDto>>
 {
     public GetUsersRequest() { }
 }
-

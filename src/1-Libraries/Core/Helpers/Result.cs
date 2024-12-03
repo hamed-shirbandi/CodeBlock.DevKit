@@ -105,4 +105,3 @@ public struct Result<TValue> : IResult
 
     #endregion
 }
-

@@ -18,4 +18,3 @@ public class BaseApiController : ControllerBase
         _requestDispatcher = requestDispatcher;
     }
 }
-

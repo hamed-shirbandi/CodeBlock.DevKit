@@ -27,4 +27,3 @@ public class CreateRoleUseCase : BaseCommandHandler, IRequestHandler<CreateRoleR
         return CommandResult.Create(entityId: role.Id);
     }
 }
-

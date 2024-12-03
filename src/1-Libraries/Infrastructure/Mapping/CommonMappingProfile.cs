@@ -14,4 +14,3 @@ public class CommonMappingProfile : Profile
         //    .ForMember(dest => dest.ModifiedDateTimeString, opt => opt.MapFrom(src => src.ModifiedDateTime.ToLongDateString()));
     }
 }
-

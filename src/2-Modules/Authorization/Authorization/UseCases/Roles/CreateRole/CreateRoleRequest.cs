@@ -14,4 +14,3 @@ public class CreateRoleRequest : BaseCommand
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     public string Name { get; set; }
 }
-

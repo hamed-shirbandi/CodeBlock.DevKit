@@ -37,4 +37,3 @@ public static class LocalizationConfiguration
         app.UseRequestLocalization(localizationOptions);
     }
 }
-

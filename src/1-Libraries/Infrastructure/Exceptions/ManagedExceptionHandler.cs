@@ -73,4 +73,3 @@ public class ManagedExceptionHandler<TRequest, TResponse, TException> : IRequest
         return string.Format(mainMessage, placeholders);
     }
 }
-

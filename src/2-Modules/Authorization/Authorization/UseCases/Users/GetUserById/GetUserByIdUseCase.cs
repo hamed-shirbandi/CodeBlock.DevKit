@@ -29,4 +29,3 @@ public class GetUserByIdUseCase : BaseQueryHandler, IRequestHandler<GetUserByIdR
         return _mapper.Map<GetUserDto>(user);
     }
 }
-

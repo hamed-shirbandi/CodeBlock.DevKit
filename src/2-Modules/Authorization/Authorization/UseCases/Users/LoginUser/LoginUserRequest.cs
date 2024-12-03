@@ -22,4 +22,3 @@ public class LoginUserRequest : BaseQuery<GetUserDto>
     [DataType(DataType.Password)]
     public string Password { get; set; }
 }
-

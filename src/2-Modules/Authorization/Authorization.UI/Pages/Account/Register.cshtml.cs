@@ -64,4 +64,3 @@ public class RegisterModel : BasePageModel
         return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }
 }
-

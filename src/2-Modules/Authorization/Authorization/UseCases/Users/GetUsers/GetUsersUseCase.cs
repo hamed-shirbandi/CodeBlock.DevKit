@@ -26,4 +26,3 @@ public class GetUsersUseCase : BaseQueryHandler, IRequestHandler<GetUsersRequest
         return _mapper.Map<IEnumerable<GetUserDto>>(users);
     }
 }
-

@@ -35,4 +35,3 @@ public class UpdateRoleUseCase : BaseCommandHandler, IRequestHandler<UpdateRoleR
         return CommandResult.Create(entityId: role.Id);
     }
 }
-

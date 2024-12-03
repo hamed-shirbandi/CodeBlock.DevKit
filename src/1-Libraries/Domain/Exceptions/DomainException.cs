@@ -16,4 +16,3 @@ public class DomainException : ManagedException
     public DomainException(string message)
         : base(message) { }
 }
-

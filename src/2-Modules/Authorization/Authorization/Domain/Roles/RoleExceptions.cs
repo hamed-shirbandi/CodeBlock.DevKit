@@ -28,4 +28,3 @@ internal static class RoleExceptions
         );
     }
 }
-

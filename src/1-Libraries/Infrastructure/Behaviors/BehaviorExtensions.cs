@@ -46,4 +46,3 @@ public static class BehaviorExtensions
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
     }
 }
-

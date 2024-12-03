@@ -15,4 +15,3 @@ public class GetUserByIdRequest : BaseQuery<GetUserDto>
 
     public string Id { get; set; }
 }
-

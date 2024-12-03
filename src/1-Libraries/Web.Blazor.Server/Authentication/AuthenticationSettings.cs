@@ -117,4 +117,3 @@ public class FacebookAuthenticationSettings
     public string AppSecret { get; set; }
     public string CallbackPath { get; set; }
 }
-

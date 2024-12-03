@@ -17,4 +17,3 @@ public static class EmailValidator
         return _emailRegex.IsMatch(email);
     }
 }
-

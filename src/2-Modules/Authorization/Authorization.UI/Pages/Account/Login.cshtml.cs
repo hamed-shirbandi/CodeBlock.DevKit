@@ -61,4 +61,3 @@ public class LoginModel : BasePageModel
         return LocalRedirect(returnUrl ?? Url.Content("~/"));
     }
 }
-

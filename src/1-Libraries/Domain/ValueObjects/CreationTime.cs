@@ -35,4 +35,3 @@ public record CreationTime : BaseValueObject
 
     protected override void CheckPolicies() { }
 }
-

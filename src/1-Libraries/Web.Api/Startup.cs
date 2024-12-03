@@ -74,4 +74,3 @@ public static class Startup
         services.AddTransient<HttpGlobalExceptionHandler>();
     }
 }
-

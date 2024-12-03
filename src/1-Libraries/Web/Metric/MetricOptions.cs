@@ -34,4 +34,3 @@ public class MetricOptions
     /// </summary>
     public bool SuppressDefaultMetrics { get; set; }
 }
-

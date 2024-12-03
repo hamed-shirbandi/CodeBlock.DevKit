@@ -92,4 +92,3 @@ public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 
     #endregion
 }
-

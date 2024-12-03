@@ -67,4 +67,3 @@ public class AccountController : BaseApiController
         return Result.Success(loginUserResponse);
     }
 }
-

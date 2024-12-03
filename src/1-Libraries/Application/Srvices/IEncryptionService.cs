@@ -10,4 +10,3 @@ public interface IEncryptionService
     string DecryptText(string cipherText, string encryptionPrivateKey);
     string EncryptText(string plainText, string privateKey);
 }
-

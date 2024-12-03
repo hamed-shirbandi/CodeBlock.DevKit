@@ -11,4 +11,3 @@ public class EmailOptions
     public string SmtpPassword { get; set; }
     public bool EnableSsl { get; set; }
 }
-

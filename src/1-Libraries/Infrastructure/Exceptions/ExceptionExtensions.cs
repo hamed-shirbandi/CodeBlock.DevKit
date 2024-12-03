@@ -33,4 +33,3 @@ public static class ExceptionExtensions
         services.AddScoped(typeof(IRequestExceptionHandler<,,>), typeof(UnmanagedExceptionHandler<,,>));
     }
 }
-

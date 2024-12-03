@@ -95,4 +95,3 @@ public static class BlazorResultExtensions
             builder.AddMarkupContent(1, txt);
         };
 }
-

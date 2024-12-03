@@ -46,4 +46,3 @@ public static class RandomDataGenerator
         return start.AddDays(_rand.Next(range));
     }
 }
-

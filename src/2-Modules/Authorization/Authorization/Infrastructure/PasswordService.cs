@@ -25,4 +25,3 @@ internal class PasswordService : IPasswordService
         return _encryptionService.CreateSalt(size);
     }
 }
-

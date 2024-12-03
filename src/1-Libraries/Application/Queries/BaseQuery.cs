@@ -28,4 +28,3 @@ public abstract class BaseQuery<TQueryResult> : ICacheableQuery, IRequest<TQuery
         EnableCache = true;
     }
 }
-

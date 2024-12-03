@@ -67,4 +67,3 @@ public static class Startup
         services.AddScoped<IRequestDispatcher, MediatRDispatcher>();
     }
 }
-

@@ -23,4 +23,3 @@ public static class MapperExtensions
         services.AddAutoMapper(typeof(CommonMappingProfile));
     }
 }
-

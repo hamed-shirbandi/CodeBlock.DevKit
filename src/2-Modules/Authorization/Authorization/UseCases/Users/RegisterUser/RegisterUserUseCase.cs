@@ -39,4 +39,3 @@ public class RegisterUserUseCase : BaseCommandHandler, IRequestHandler<RegisterU
         return CommandResult.Create(entityId: user.Id);
     }
 }
-

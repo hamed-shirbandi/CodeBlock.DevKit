@@ -25,4 +25,3 @@ public class IsEmailRegisteredUseCase : BaseQueryHandler, IRequestHandler<IsEmai
         return user != null;
     }
 }
-

@@ -34,4 +34,3 @@ public class GetRolesUseCase : BaseQueryHandler, IRequestHandler<GetRolesRequest
         return rolesDto;
     }
 }
-

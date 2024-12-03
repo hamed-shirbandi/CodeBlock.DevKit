@@ -46,4 +46,3 @@ public class NotificationService : INotificationService
         notifications = new List<string>();
     }
 }
-

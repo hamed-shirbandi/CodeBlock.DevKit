@@ -10,4 +10,3 @@ public interface IBaseAggregateRepository<TEntity> : IBaseRepository<TEntity>
 {
     Task ConcurrencySafeUpdateAsync(TEntity entity, string loadedVersion);
 }
-

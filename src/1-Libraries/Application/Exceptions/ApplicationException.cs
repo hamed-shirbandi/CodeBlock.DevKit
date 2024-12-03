@@ -13,4 +13,3 @@ public class ApplicationException : ManagedException
     public ApplicationException(string message)
         : base(message) { }
 }
-

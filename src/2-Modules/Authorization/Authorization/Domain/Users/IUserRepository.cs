@@ -11,4 +11,3 @@ public interface IUserRepository : IBaseAggregateRepository<User>
     public bool EmailIsUnique(string id, string email);
     Task<long> CountByRoleAsync(string name);
 }
-

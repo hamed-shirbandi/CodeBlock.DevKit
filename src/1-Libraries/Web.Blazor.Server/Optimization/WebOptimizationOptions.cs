@@ -26,4 +26,3 @@ public class OptimizationBundleModel
     public string BundledFile { get; init; }
     public string[] FilesToBundle { get; set; }
 }
-

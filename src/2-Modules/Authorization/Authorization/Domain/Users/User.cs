@@ -64,4 +64,3 @@ public sealed class User : AggregateRoot
             throw UserExceptions.EmailMustBeUnique();
     }
 }
-

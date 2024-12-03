@@ -23,4 +23,3 @@ internal class RoleRepository : MongoDbBaseAggregateRepository<Role>, IRoleRepos
         return role == null || role.Id == roleId;
     }
 }
-

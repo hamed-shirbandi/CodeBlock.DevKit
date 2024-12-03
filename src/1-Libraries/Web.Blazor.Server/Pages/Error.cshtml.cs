@@ -14,4 +14,3 @@ public class ErrorModel : PageModel
 
     public void OnGet() { }
 }
-

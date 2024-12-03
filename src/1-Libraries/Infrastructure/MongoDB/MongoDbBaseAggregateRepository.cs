@@ -59,4 +59,3 @@ public class MongoDbBaseAggregateRepository<TEntity> : MongoDbBaseRepository<TEn
 
     #endregion
 }
-

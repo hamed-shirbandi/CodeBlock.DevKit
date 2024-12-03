@@ -17,4 +17,3 @@ public interface ICacheableQuery
     void EnableCaching();
     bool CachingIsEnabled();
 }
-

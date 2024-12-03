@@ -39,4 +39,3 @@ public class DomainEvent : INotification
 
     public DateTime OccurredOn { get; }
 }
-

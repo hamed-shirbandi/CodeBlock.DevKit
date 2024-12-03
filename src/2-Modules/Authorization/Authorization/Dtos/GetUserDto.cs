@@ -16,4 +16,3 @@ public class GetUserDto
     [Display(Name = nameof(AuthorizationResource.User_Roles), ResourceType = typeof(AuthorizationResource))]
     public IEnumerable<string> Roles { get; set; }
 }
-

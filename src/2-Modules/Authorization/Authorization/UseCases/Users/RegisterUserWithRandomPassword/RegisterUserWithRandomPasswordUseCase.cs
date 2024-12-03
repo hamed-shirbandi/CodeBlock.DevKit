@@ -42,4 +42,3 @@ public class RegisterUserWithRandomPasswordUseCase : BaseCommandHandler, IReques
         return CommandResult.Create(entityId: user.Id);
     }
 }
-

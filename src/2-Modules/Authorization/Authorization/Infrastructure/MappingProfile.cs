@@ -16,4 +16,3 @@ internal class MappingProfile : Profile
         CreateMap<Role, GetRoleDto>();
     }
 }
-

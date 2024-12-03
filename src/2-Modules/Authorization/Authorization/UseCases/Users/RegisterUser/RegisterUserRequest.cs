@@ -21,4 +21,3 @@ public class RegisterUserRequest : BaseCommand
     [DataType(DataType.Password)]
     public string Password { get; set; }
 }
-

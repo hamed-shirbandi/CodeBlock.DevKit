@@ -10,4 +10,3 @@ public class GetRolesRequest : BaseQuery<IEnumerable<GetRoleDto>>
 {
     public GetRolesRequest() { }
 }
-

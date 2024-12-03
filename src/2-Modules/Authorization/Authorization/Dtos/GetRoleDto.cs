@@ -16,4 +16,3 @@ public class GetRoleDto
     [Display(Name = nameof(AuthorizationResource.Role_Users_Count), ResourceType = typeof(AuthorizationResource))]
     public long UsersCount { get; set; }
 }
-

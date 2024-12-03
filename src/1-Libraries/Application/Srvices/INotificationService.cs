@@ -12,4 +12,3 @@ public interface INotificationService
     bool HasAny();
     void Reset();
 }
-

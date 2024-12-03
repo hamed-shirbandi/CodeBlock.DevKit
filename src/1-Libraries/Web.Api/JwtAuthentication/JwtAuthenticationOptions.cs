@@ -9,4 +9,3 @@ public class JwtAuthenticationOptions
     public string Issuer { get; set; }
     public int ExpireDays { get; set; }
 }
-

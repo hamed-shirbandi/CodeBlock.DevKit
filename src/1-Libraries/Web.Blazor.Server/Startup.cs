@@ -113,4 +113,3 @@ public static class Startup
             .AddFacebook(authenticationSettings);
     }
 }
-

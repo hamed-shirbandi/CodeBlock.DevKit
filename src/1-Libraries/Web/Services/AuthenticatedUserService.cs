@@ -45,4 +45,3 @@ public class AuthenticatedUserService : IAuthenticatedUserService
         return _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
     }
 }
-

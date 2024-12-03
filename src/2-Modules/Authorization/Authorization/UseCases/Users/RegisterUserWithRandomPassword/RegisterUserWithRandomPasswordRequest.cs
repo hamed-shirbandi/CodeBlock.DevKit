@@ -23,4 +23,3 @@ public class RegisterUserWithRandomPasswordRequest : BaseCommand
     [ValidateEmail(ErrorMessageResourceName = nameof(CoreResource.Invalid), ErrorMessageResourceType = typeof(CoreResource))]
     public string Email { get; set; }
 }
-

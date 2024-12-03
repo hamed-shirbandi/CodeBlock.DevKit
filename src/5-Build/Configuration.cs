@@ -17,4 +17,3 @@ public class Configuration : Enumeration
         return configuration.Value;
     }
 }
-

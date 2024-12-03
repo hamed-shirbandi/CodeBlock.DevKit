@@ -43,4 +43,3 @@ public class HttpGlobalExceptionHandler : IMiddleware
         await httpContext.Response.WriteAsJsonAsync(result);
     }
 }
-

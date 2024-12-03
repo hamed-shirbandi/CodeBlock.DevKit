@@ -43,4 +43,3 @@ public record UserPassword : BaseValueObject
             throw UserExceptions.PasswordIsRequired();
     }
 }
-

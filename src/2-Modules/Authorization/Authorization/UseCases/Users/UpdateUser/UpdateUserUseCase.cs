@@ -34,4 +34,3 @@ public class UpdateUserUseCase : BaseCommandHandler, IRequestHandler<UpdateUserR
         return CommandResult.Create(entityId: user.Id);
     }
 }
-

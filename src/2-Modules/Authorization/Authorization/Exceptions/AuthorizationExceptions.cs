@@ -41,4 +41,3 @@ internal static class AuthorizationExceptions
         return new ApplicationException(nameof(AuthorizationResource.User_Password_Is_Wrong), typeof(AuthorizationResource));
     }
 }
-

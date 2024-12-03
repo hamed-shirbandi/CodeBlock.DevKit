@@ -10,4 +10,3 @@ public interface IAuthenticatedUserService
     string GetUserName();
     string GetEmail();
 }
-

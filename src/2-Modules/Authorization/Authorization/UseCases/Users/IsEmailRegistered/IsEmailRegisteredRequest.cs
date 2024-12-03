@@ -14,4 +14,3 @@ public class IsEmailRegisteredRequest : BaseQuery<bool>
 
     public string Email { get; set; }
 }
-

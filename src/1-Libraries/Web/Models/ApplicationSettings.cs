@@ -47,4 +47,3 @@ public class LocalizedApplicationSettings
     public string PrivacyEffectiveDate { get; init; }
     public string TermsEffectiveDate { get; init; }
 }
-

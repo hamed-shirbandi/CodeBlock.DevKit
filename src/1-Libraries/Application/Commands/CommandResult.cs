@@ -19,4 +19,3 @@ public class CommandResult
     public string EntityId { get; }
     public string Message { get; }
 }
-

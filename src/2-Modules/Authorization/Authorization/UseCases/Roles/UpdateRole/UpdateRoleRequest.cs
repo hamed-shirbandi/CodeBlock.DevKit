@@ -17,4 +17,3 @@ public class UpdateRoleRequest : BaseCommand
     [Required(ErrorMessageResourceName = nameof(CoreResource.Required), ErrorMessageResourceType = typeof(CoreResource))]
     public string Name { get; set; }
 }
-

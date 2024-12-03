@@ -24,4 +24,3 @@ public class ValidateEmailAttribute : ValidationAttribute
         return new ValidationResult(errorMessage);
     }
 }
-

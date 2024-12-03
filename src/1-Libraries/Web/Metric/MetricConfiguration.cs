@@ -53,4 +53,3 @@ public static class MetricConfiguration
             Metrics.SuppressDefaultMetrics();
     }
 }
-

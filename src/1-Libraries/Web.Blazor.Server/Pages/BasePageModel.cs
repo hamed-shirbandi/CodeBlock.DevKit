@@ -23,4 +23,3 @@ public class BasePageModel : PageModel
         ViewData["Errors"] = result.Errors;
     }
 }
-

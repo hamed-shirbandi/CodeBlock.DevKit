@@ -50,4 +50,3 @@ public class RequestLoggingAttribute : Attribute, IAuthorizationFilter
         return body;
     }
 }
-

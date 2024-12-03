@@ -34,4 +34,3 @@ public class LoginUserUseCase : BaseQueryHandler, IRequestHandler<LoginUserReque
         return _mapper.Map<GetUserDto>(user);
     }
 }
-

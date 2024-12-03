@@ -9,4 +9,3 @@ public interface IRoleRepository : IBaseAggregateRepository<Role>
 {
     bool NameIsUnique(string id, string name);
 }
-

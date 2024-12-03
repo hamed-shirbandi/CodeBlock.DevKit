@@ -26,4 +26,3 @@ public class TestController : BaseApiController
         return Result.Success();
     }
 }
-

@@ -7,4 +7,3 @@ public abstract record BaseValueObject
 {
     protected abstract void CheckPolicies();
 }
-

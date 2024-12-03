@@ -18,4 +18,3 @@ public interface IRequestDispatcher
     Task<Result<TQueryResult>> SendQuery<TQueryResult>(BaseQuery<TQueryResult> query);
     Task PublishEvent(DomainEvent @event);
 }
-

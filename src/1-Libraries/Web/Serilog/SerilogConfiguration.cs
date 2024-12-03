@@ -31,4 +31,3 @@ public static class SerilogConfiguration
         app.UseSerilogRequestLogging();
     }
 }
-
