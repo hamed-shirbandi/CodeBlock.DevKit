@@ -13,7 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CodeBlock.DevKit.Web.Api.JwtAuthentication;
 
-public static class JwtAuthenticationConfiguration
+internal static class JwtAuthenticationConfiguration
 {
     public static void AddJwtAuthentication(this WebApplicationBuilder builder)
     {
@@ -27,7 +27,7 @@ public static class JwtAuthenticationConfiguration
 
         var options = builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtAuthenticationOptions>>();
 
-        builder.Services.TryAddSingleton<JwtAuthenticationService>();
+        builder.Services.TryAddSingleton<IJwtAuthenticationService, JwtAuthenticationService>();
 
         JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

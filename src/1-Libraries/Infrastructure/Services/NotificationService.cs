@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Application.Srvices;
 
 namespace CodeBlock.DevKit.Infrastructure.Services;
 
-public class NotificationService : INotificationService
+internal class NotificationService : INotificationService
 {
     private List<string> notifications;
 

@@ -3,7 +3,7 @@
 
 namespace CodeBlock.DevKit.Web.Api.JwtAuthentication;
 
-public class JwtAuthenticationOptions
+internal class JwtAuthenticationOptions
 {
     public string Key { get; set; }
     public string Issuer { get; set; }

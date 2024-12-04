@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CodeBlock.DevKit.Web.Api.JwtAuthentication;
 
-public class JwtAuthenticationService
+internal class JwtAuthenticationService : IJwtAuthenticationService
 {
     private readonly JwtAuthenticationOptions _options;
 

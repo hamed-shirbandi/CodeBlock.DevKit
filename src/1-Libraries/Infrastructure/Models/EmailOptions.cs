@@ -3,7 +3,7 @@
 
 namespace CodeBlock.DevKit.Infrastructure.Models;
 
-public class EmailOptions
+internal class EmailOptions
 {
     public string SmtpServer { get; set; }
     public int SmtpPort { get; set; }

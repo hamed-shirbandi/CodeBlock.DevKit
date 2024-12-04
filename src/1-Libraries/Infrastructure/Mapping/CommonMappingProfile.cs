@@ -5,7 +5,7 @@ using AutoMapper;
 
 namespace CodeBlock.DevKit.Infrastructure.Mapping;
 
-public class CommonMappingProfile : Profile
+internal class CommonMappingProfile : Profile
 {
     public CommonMappingProfile()
     {

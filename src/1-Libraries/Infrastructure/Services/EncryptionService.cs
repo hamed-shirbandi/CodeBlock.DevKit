@@ -7,7 +7,7 @@ using CodeBlock.DevKit.Application.Srvices;
 
 namespace CodeBlock.DevKit.Infrastructure.Services;
 
-public class EncryptionService : IEncryptionService
+internal class EncryptionService : IEncryptionService
 {
     public EncryptionService() { }
 

@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Infrastructure.Behaviors;
 
-public static class BehaviorExtensions
+internal static class BehaviorExtensions
 {
     /// <summary>
     ///

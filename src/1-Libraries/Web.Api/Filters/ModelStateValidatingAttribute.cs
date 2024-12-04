@@ -11,7 +11,7 @@ using Serilog;
 
 namespace CodeBlock.DevKit.Web.Api.Filters;
 
-public class ModelStateValidatingAttribute : ActionFilterAttribute
+internal class ModelStateValidatingAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {

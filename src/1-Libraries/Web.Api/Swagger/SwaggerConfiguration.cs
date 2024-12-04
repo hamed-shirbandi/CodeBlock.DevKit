@@ -8,7 +8,7 @@ using Microsoft.OpenApi.Models;
 
 namespace CodeBlock.DevKit.Web.Api.Swagger;
 
-public static class SwaggerConfiguration
+internal static class SwaggerConfiguration
 {
     /// <summary>
     ///

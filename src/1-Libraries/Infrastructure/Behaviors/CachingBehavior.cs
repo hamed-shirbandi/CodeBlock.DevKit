@@ -12,7 +12,7 @@ namespace CodeBlock.DevKit.Infrastructure.Behaviors;
 /// <summary>
 /// Caching response for queries that are mareked by ICacheableQuery
 /// </summary>
-public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+internal class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : BaseQuery<TResponse>
 {
     #region Fields

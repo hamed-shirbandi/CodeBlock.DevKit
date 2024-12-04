@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace CodeBlock.DevKit.Web.Api.Exceptions;
 
-public class HttpGlobalExceptionHandler : IMiddleware
+internal class HttpGlobalExceptionHandler : IMiddleware
 {
     private readonly ILogger<HttpGlobalExceptionHandler> _logger;
     private readonly IStringLocalizer<CoreResource> _localizer;

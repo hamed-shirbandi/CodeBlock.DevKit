@@ -8,7 +8,7 @@ namespace CodeBlock.DevKit.Infrastructure.Mapping;
 /// <summary>
 ///
 /// </summary>
-public static class MapperExtensions
+internal static class MapperExtensions
 {
     /// <summary>
     ///

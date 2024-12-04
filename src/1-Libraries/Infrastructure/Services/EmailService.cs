@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 
 namespace CodeBlock.DevKit.Infrastructure.Services;
 
-public class EmailService : IEmailService
+internal class EmailService : IEmailService
 {
     private readonly EmailOptions _emailOptions;
 

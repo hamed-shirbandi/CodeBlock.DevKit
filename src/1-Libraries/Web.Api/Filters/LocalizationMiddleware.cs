@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace CodeBlock.DevKit.Web.Api.Filters;
 
-public class LocalizationMiddleware
+internal class LocalizationMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly LocalizationSettings _localizationSettings;

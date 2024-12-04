@@ -13,7 +13,7 @@ namespace CodeBlock.DevKit.Infrastructure.Services;
 /// <summary>
 /// Implementation of IRequestDispatcher using MediatR.
 /// </summary>
-public class MediatRDispatcher : IRequestDispatcher
+internal class MediatRDispatcher : IRequestDispatcher
 {
     #region Fields
 

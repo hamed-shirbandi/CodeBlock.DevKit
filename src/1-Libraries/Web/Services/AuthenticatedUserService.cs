@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace CodeBlock.DevKit.Web.Services;
 
-public class AuthenticatedUserService : IAuthenticatedUserService
+internal class AuthenticatedUserService : IAuthenticatedUserService
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
 

@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Web.Localization;
 
-public static class LocalizationConfiguration
+internal static class LocalizationConfiguration
 {
     public static void AddLocalization(this WebApplicationBuilder builder)
     {

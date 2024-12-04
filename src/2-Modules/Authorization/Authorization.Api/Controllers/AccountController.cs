@@ -16,9 +16,9 @@ namespace CodeBlock.DevKit.Authorization.Api.Controllers;
 [Route("account")]
 public class AccountController : BaseApiController
 {
-    private readonly JwtAuthenticationService _jwtAuthenticationService;
+    private readonly IJwtAuthenticationService _jwtAuthenticationService;
 
-    public AccountController(IRequestDispatcher requestDispatcher, JwtAuthenticationService jwtAuthenticationService)
+    public AccountController(IRequestDispatcher requestDispatcher, IJwtAuthenticationService jwtAuthenticationService)
         : base(requestDispatcher)
     {
         _jwtAuthenticationService = jwtAuthenticationService;

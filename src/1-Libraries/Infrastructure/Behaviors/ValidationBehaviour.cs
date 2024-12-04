@@ -12,7 +12,7 @@ namespace CodeBlock.DevKit.Infrastructure.Behaviors;
 /// <summary>
 /// Automatic validation by checking data annotation and fluent validations (if any)
 /// </summary>
-public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+internal class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : BaseCommand
 {
     #region Fields
