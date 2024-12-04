@@ -5,7 +5,7 @@ using CodeBlock.DevKit.Web.Api.Exceptions;
 using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
-using CodeBlock.DevKit.Web.Serilog;
+using CodeBlock.DevKit.Web.Observation.Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

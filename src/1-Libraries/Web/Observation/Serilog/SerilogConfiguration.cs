@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 
-namespace CodeBlock.DevKit.Web.Serilog;
+namespace CodeBlock.DevKit.Web.Observation.Serilog;
 
 public static class SerilogConfiguration
 {

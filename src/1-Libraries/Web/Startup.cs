@@ -4,9 +4,9 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
-using CodeBlock.DevKit.Web.Metric;
 using CodeBlock.DevKit.Web.Models;
-using CodeBlock.DevKit.Web.Serilog;
+using CodeBlock.DevKit.Web.Observation.OpenTelemetry;
+using CodeBlock.DevKit.Web.Observation.Serilog;
 using CodeBlock.DevKit.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -27,6 +27,8 @@ public static class Startup
     {
         builder.AddCustomSerilog();
 
+        builder.AddOpenTelemetry();
+
         builder.AddApplicationSettings();
 
         builder.AddLocalization();
@@ -43,8 +45,6 @@ public static class Startup
         builder.Services.AddAuthenticatedUserService();
 
         builder.Services.AddWebServerOptions();
-
-        builder.AddMetrics();
     }
 
     public static void UseCodeBlockDevKitWeb(this WebApplication app)
@@ -55,8 +55,6 @@ public static class Startup
 
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();
-
-        app.UseMetrics();
     }
 
     public static void AddApplicationSettings(this WebApplicationBuilder builder)
