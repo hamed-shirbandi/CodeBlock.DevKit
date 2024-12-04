@@ -51,7 +51,7 @@ internal class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest
             return await next();
 
         var cacheKey = GenerateKeyFromRequest(request);
-        var cachedResponse = await _cachingProvider.GetAsync<TResponse>(cacheKey);
+        var cachedResponse = await _cachingProvider.GetAsync<TResponse>(cacheKey, cancellationToken);
 
         if (cachedResponse.Value != null)
             return cachedResponse.Value;
@@ -60,7 +60,7 @@ internal class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest
 
         var cacheTimeInMinutes = int.Parse(_configuration["Caching:CacheTimeInMinutes"]);
         var expirationTime = DateTime.Now.AddMinutes(cacheTimeInMinutes);
-        await _cachingProvider.SetAsync(cacheKey, response, expirationTime.TimeOfDay);
+        await _cachingProvider.SetAsync(cacheKey, response, expirationTime.TimeOfDay, cancellationToken);
 
         return response;
     }

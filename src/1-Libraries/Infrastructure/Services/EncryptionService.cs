@@ -22,9 +22,7 @@ internal class EncryptionService : IEncryptionService
     public string CreateHash(string plainText, string salt)
     {
         var saltAndText = string.Concat(plainText, salt);
-        HashAlgorithm algorithm = SHA256.Create();
-
-        var hashByteArray = algorithm.ComputeHash(Encoding.UTF8.GetBytes(saltAndText));
+        var hashByteArray = SHA256.HashData(Encoding.UTF8.GetBytes(saltAndText));
         return BitConverter.ToString(hashByteArray).Replace("-", "");
     }
 
@@ -64,7 +62,7 @@ internal class EncryptionService : IEncryptionService
     /// <summary>
     ///
     /// </summary>
-    private byte[] EncryptTextToMemory(string data, byte[] key, byte[] iv)
+    private static byte[] EncryptTextToMemory(string data, byte[] key, byte[] iv)
     {
         using (var ms = new MemoryStream())
         {
@@ -79,7 +77,7 @@ internal class EncryptionService : IEncryptionService
         }
     }
 
-    private string DecryptTextFromMemory(byte[] data, byte[] key, byte[] iv)
+    private static string DecryptTextFromMemory(byte[] data, byte[] key, byte[] iv)
     {
         using (var ms = new MemoryStream(data))
         {

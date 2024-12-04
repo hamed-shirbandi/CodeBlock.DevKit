@@ -9,6 +9,7 @@ using Serilog;
 
 namespace CodeBlock.DevKit.Web.Api.Filters;
 
+[AttributeUsage(AttributeTargets.Class)]
 internal class RequestLoggingAttribute : Attribute, IAuthorizationFilter
 {
     public void OnAuthorization(AuthorizationFilterContext context)
