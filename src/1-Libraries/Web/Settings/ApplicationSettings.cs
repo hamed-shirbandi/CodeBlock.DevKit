@@ -1,7 +1,7 @@
 // Copyright (c) CodeBlock.Dev. All rights reserved.
 // See LICENSE in the project root for license information.
 
-namespace CodeBlock.DevKit.Web.Models;
+namespace CodeBlock.DevKit.Web.Settings;
 
 public class ApplicationSettings
 {

@@ -4,10 +4,10 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
-using CodeBlock.DevKit.Web.Models;
 using CodeBlock.DevKit.Web.Observation.OpenTelemetry;
 using CodeBlock.DevKit.Web.Observation.Serilog;
 using CodeBlock.DevKit.Web.Services;
+using CodeBlock.DevKit.Web.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
