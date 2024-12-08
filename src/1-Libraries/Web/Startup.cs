@@ -4,8 +4,7 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Infrastructure;
 using CodeBlock.DevKit.Web.Localization;
-using CodeBlock.DevKit.Web.Observation.OpenTelemetry;
-using CodeBlock.DevKit.Web.Observation.Serilog;
+using CodeBlock.DevKit.Web.Observation;
 using CodeBlock.DevKit.Web.Security;
 using CodeBlock.DevKit.Web.Services;
 using CodeBlock.DevKit.Web.Settings;
@@ -26,13 +25,9 @@ public static class Startup
         Type mappingProfileMarkerType = null
     )
     {
-        builder.AddCustomSerilog();
+        builder.AddObservation();
 
         builder.AddSecurity();
-
-        builder.AddOpenTelemetry();
-
-        builder.Services.AddHealthChecks();
 
         builder.AddApplicationSettings();
 
@@ -54,11 +49,9 @@ public static class Startup
 
     public static void UseCodeBlockDevKitWeb(this WebApplication app)
     {
-        app.UseCustomSerilog();
+        app.UseObservation();
 
         app.UseLocalization();
-
-        app.MapHealthChecks("/health");
 
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();

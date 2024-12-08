@@ -7,12 +7,9 @@ using Serilog;
 
 namespace CodeBlock.DevKit.Web.Observation.Serilog;
 
-public static class SerilogConfiguration
+internal static class SerilogConfiguration
 {
-    /// <summary>
-    ///
-    /// </summary>
-    public static void AddCustomSerilog(this WebApplicationBuilder builder)
+    internal static void AddCustomSerilog(this WebApplicationBuilder builder)
     {
         var serilogConfig = builder.Configuration.GetSection("Serilog");
         if (!serilogConfig.Exists())
@@ -22,7 +19,7 @@ public static class SerilogConfiguration
         builder.Host.UseSerilog((ctx, lc) => lc.ReadFrom.Configuration(ctx.Configuration));
     }
 
-    public static void UseCustomSerilog(this WebApplication app)
+    internal static void UseCustomSerilog(this WebApplication app)
     {
         var serilogConfig = app.Configuration.GetSection("Serilog");
         if (!serilogConfig.Exists())
