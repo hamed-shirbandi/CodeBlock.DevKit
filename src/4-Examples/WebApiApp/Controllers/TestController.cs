@@ -4,32 +4,47 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Web.Api.Filters;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 
 namespace WebApiApp.Controllers;
 
 [Route("test")]
-//[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TestController : BaseApiController
 {
     public TestController(IRequestDispatcher requestDispatcher)
         : base(requestDispatcher) { }
 
     /// <summary>
-    /// This is just a test!
+    /// This api is protected by authorization
     /// </summary>
     [HttpGet]
-    [Route("t1")]
-    public async Task<Result> Get()
+    [Route("authorized")]
+    public async Task<Result> Authorized()
     {
         return Result.Success();
     }
 
+    /// <summary>
+    /// This api has no rate limit
+    /// </summary>
     [HttpGet]
-    [Route("t2")]
+    [Route("unlimited")]
     [DisableRateLimiting]
-    public async Task<Result> Get2()
+    public async Task<Result> Unlimited()
+    {
+        return Result.Success();
+    }
+
+    /// <summary>
+    /// This api is proteted by rate limit
+    /// </summary>
+    [HttpGet]
+    [Route("limited")]
+    public async Task<Result> Limited()
     {
         return Result.Success();
     }
