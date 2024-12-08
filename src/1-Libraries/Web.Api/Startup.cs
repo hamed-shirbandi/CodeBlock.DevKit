@@ -5,10 +5,9 @@ using CodeBlock.DevKit.Web.Api.Exceptions;
 using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
 using CodeBlock.DevKit.Web.Api.Swagger;
-using CodeBlock.DevKit.Web.Observation.Serilog;
+using CodeBlock.DevKit.Web.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace CodeBlock.DevKit.Web.Api;
 
@@ -36,10 +35,7 @@ public static class Startup
 
     public static void UseWebApiPreConfigured(this WebApplication app)
     {
-        app.UseCustomSerilog();
-
-        if (app.Environment.IsDevelopment())
-            app.UseDeveloperExceptionPage();
+        app.UseCodeBlockDevKitWeb();
 
         app.UseMiddleware<LocalizationMiddleware>();
 
@@ -49,11 +45,15 @@ public static class Startup
 
         app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
+        app.UseRouting();
+
         app.UseAuthentication();
 
         app.UseAuthorization();
 
-        app.MapControllers();
+        app.UseGlobalFixedRateLimiter();
+
+        app.MapControllers().RequireGlobalFixedRateLimiting(app.Configuration);
     }
 
     private static void WithPreventAutoValidation(this IMvcBuilder builder)

@@ -7,6 +7,7 @@ using Blazored.Toast;
 using CodeBlock.DevKit.Web.Blazor.Server.Authentication;
 using CodeBlock.DevKit.Web.Blazor.Server.Optimization;
 using CodeBlock.DevKit.Web.Blazor.Server.Services;
+using CodeBlock.DevKit.Web.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
@@ -69,6 +70,10 @@ public static class Startup
         app.UseAuthentication();
 
         app.UseAuthorization();
+
+        app.UseGlobalFixedRateLimiter();
+
+        app.MapRazorPages().RequireGlobalFixedRateLimiting(app.Configuration);
 
         app.MapBlazorHub();
 
