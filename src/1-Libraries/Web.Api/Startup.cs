@@ -1,6 +1,7 @@
 // Copyright (c) CodeBlock.Dev. All rights reserved.
 // See LICENSE in the project root for license information.
 
+using CodeBlock.DevKit.Web.Api.CORS;
 using CodeBlock.DevKit.Web.Api.Exceptions;
 using CodeBlock.DevKit.Web.Api.Filters;
 using CodeBlock.DevKit.Web.Api.JwtAuthentication;
@@ -28,7 +29,7 @@ public static class Startup
 
         builder.AddJwtAuthentication();
 
-        builder.Services.AddCors();
+        builder.AddConfiguredCors();
 
         builder.Services.AddGlobalExceptionHandler();
     }
@@ -43,7 +44,7 @@ public static class Startup
 
         app.UseSwaggerPreConfigured(app.Configuration);
 
-        app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        app.UseConfiguredCors();
 
         app.UseRouting();
 
