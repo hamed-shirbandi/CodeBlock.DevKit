@@ -32,6 +32,8 @@ public static class Startup
 
         builder.AddOpenTelemetry();
 
+        builder.Services.AddHealthChecks();
+
         builder.AddApplicationSettings();
 
         builder.AddLocalization();
@@ -54,9 +56,9 @@ public static class Startup
     {
         app.UseCustomSerilog();
 
-        app.UseSecurity();
-
         app.UseLocalization();
+
+        app.MapHealthChecks("/health");
 
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();

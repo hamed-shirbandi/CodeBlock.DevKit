@@ -18,15 +18,4 @@ internal static class SecurityConfiguration
 
         builder.AddGlobalFixedRateLimiter(securitySettings.RateLimiter);
     }
-
-    internal static void UseSecurity(this WebApplication app)
-    {
-        ArgumentNullException.ThrowIfNull(app);
-
-        var securitySettings = app.Configuration.GetSection("Security").Get<SecuritySettings>();
-        securitySettings ??= SecuritySettings.CreateDefault();
-
-        if (!securitySettings.Enabled)
-            return;
-    }
 }
