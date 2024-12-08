@@ -42,17 +42,17 @@ public static class Startup
         services.AddMapper(mappingProfileMarkerType);
     }
 
-    public static void AddNotificationService(this IServiceCollection services)
+    private static void AddNotificationService(this IServiceCollection services)
     {
         services.AddScoped<INotificationService, NotificationService>();
     }
 
-    public static void AddEncryptionService(this IServiceCollection services)
+    private static void AddEncryptionService(this IServiceCollection services)
     {
         services.AddScoped<IEncryptionService, EncryptionService>();
     }
 
-    public static void AddEmailService(this IServiceCollection services, IConfiguration configuration)
+    private static void AddEmailService(this IServiceCollection services, IConfiguration configuration)
     {
         var EmailConfig = configuration.GetSection("Email");
         if (!EmailConfig.Exists())
@@ -64,7 +64,7 @@ public static class Startup
         services.AddScoped<IEmailService, EmailService>();
     }
 
-    public static void AddEnvironmentService(this IServiceCollection services, string environmentName)
+    private static void AddEnvironmentService(this IServiceCollection services, string environmentName)
     {
         var environmentService = new EnvironmentService(environmentName);
         services.AddSingleton(environmentService);
