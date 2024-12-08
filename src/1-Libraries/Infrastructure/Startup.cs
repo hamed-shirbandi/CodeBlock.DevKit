@@ -26,6 +26,8 @@ public static class Startup
         Type mappingProfileMarkerType = null
     )
     {
+        services.ValidateLicense(environmentName);
+
         services.AddMediatR(cfg =>
         {
             cfg.RegisterGenericHandlers = false;
@@ -36,7 +38,6 @@ public static class Startup
         services.AddExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
-        services.AddEnvironmentService(environmentName);
         services.AddEncryptionService();
         services.AddEmailService(configuration);
         services.AddMapper(mappingProfileMarkerType);
@@ -62,12 +63,6 @@ public static class Startup
 
         services.Configure(setupAction);
         services.AddScoped<IEmailService, EmailService>();
-    }
-
-    private static void AddEnvironmentService(this IServiceCollection services, string environmentName)
-    {
-        var environmentService = new EnvironmentService(environmentName);
-        services.AddSingleton(environmentService);
     }
 
     private static void AddMediatRDispatcher(this IServiceCollection services)

@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Infrastructure</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Infrastructure</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.6</VersionPrefix>
+		<VersionPrefix>1.1.7</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Infrastructure</PackageId>
@@ -32,6 +32,7 @@
 		<PackageReference Include="EasyCaching.InMemory" Version="1.9.2" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.10" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+		<PackageReference Include="CodeBlock.DevKit.Licensing.Validator" Version="1.0.7" />
 	</ItemGroup>
 
 	<Target Name="PostcompileScript" AfterTargets="Build">
