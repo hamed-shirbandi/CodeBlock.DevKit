@@ -41,6 +41,7 @@ public static class Startup
 
         builder.Services.AddCodeBlockDevKitInfrastructure(
             builder.Configuration,
+            builder.Environment.EnvironmentName,
             handlerAssemblyMarkerType,
             validatorAssemblyMarkerType,
             mappingProfileMarkerType

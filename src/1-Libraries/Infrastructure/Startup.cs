@@ -20,6 +20,7 @@ public static class Startup
     public static void AddCodeBlockDevKitInfrastructure(
         this IServiceCollection services,
         IConfiguration configuration,
+        string environmentName,
         Type handlerAssemblyMarkerType,
         Type validatorAssemblyMarkerType = null,
         Type mappingProfileMarkerType = null
@@ -35,6 +36,7 @@ public static class Startup
         services.AddExceptionHandlers();
         services.AddBehaviors(validatorAssemblyMarkerType, configuration);
         services.AddNotificationService();
+        services.AddEnvironmentService(environmentName);
         services.AddEncryptionService();
         services.AddEmailService(configuration);
         services.AddMapper(mappingProfileMarkerType);
@@ -60,6 +62,12 @@ public static class Startup
 
         services.Configure(setupAction);
         services.AddScoped<IEmailService, EmailService>();
+    }
+
+    public static void AddEnvironmentService(this IServiceCollection services, string environmentName)
+    {
+        var environmentService = new EnvironmentService(environmentName);
+        services.AddSingleton(environmentService);
     }
 
     private static void AddMediatRDispatcher(this IServiceCollection services)

@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Web.Api</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Web.Api</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.3</VersionPrefix>
+		<VersionPrefix>1.1.4</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Web.Api</PackageId>
