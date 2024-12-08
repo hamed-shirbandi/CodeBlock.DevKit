@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Domain</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Domain</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.3</VersionPrefix>
+		<VersionPrefix>1.1.4</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Domain</PackageId>

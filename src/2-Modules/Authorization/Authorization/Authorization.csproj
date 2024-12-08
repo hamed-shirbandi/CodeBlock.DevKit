@@ -6,7 +6,7 @@
 		<AssemblyName>CodeBlock.DevKit.Authorization</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Authorization</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.5</VersionPrefix>
+		<VersionPrefix>1.1.6</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Authorization</PackageId>
