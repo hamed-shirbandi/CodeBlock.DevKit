@@ -7,7 +7,7 @@
 		<AssemblyName>CodeBlock.DevKit.Authorization.Api</AssemblyName>
 		<RootNamespace>CodeBlock.DevKit.Authorization.Api</RootNamespace>
 		<Description>CodeBlock Development Kit</Description>
-		<VersionPrefix>1.1.8</VersionPrefix>
+		<VersionPrefix>1.1.9</VersionPrefix>
 		<Authors>CodeBlock.Dev</Authors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>CodeBlock.DevKit.Authorization.Api</PackageId>

@@ -2,9 +2,9 @@
 // See LICENSE in the project root for license information.
 
 using CodeBlock.DevKit.Authorization.Infrastructure;
+using CodeBlock.DevKit.Web.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CodeBlock.DevKit.Authorization.Api;
 
@@ -19,11 +19,6 @@ public static class Startup
     {
         var authorizationSettings = builder.Configuration.GetSection("Authorization").Get<AuthorizationSettings>();
 
-        builder.Services.PostConfigure(
-            (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>
-            {
-                options.AddPolicy("AdminRole", policy => policy.RequireRole(authorizationSettings.Roles.AdminRole));
-            }
-        );
+        builder.AddAdminRolePolicy(authorizationSettings.Roles.AdminRole);
     }
 }

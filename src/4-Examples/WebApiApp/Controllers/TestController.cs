@@ -4,6 +4,7 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Web.Api.Filters;
+using CodeBlock.DevKit.Web.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -19,7 +20,7 @@ public class TestController : BaseApiController
     /// <summary>
     /// This api is protected by authorization
     /// </summary>
-    [Authorize(policy: "AdminRole")]
+    [Authorize(Policies.ADMIN_ROLE)]
     [HttpGet]
     [Route("authorized")]
     public async Task<Result> Authorized()

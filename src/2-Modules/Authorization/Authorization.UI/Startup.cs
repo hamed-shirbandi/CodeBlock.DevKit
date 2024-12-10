@@ -3,6 +3,7 @@
 
 using System.Reflection;
 using CodeBlock.DevKit.Authorization.Infrastructure;
+using CodeBlock.DevKit.Web.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.Configuration;
@@ -37,11 +38,6 @@ public static class Startup
     {
         var authorizationSettings = builder.Configuration.GetSection("Authorization").Get<AuthorizationSettings>();
 
-        builder.Services.PostConfigure(
-            (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>
-            {
-                options.AddPolicy("AdminRole", policy => policy.RequireRole(authorizationSettings.Roles.AdminRole));
-            }
-        );
+        builder.AddAdminRolePolicy(authorizationSettings.Roles.AdminRole);
     }
 }
