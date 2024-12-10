@@ -22,7 +22,7 @@ public static class Startup
         builder.Services.PostConfigure(
             (Microsoft.AspNetCore.Authorization.AuthorizationOptions options) =>
             {
-                options.AddPolicy("AdminRolePolicy", policy => policy.RequireRole(authorizationSettings.Roles.AdminRole));
+                options.AddPolicy("AdminRole", policy => policy.RequireRole(authorizationSettings.Roles.AdminRole));
             }
         );
     }

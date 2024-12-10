@@ -4,7 +4,6 @@
 using CodeBlock.DevKit.Application.Srvices;
 using CodeBlock.DevKit.Core.Helpers;
 using CodeBlock.DevKit.Web.Api.Filters;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -12,7 +11,6 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace WebApiApp.Controllers;
 
 [Route("test")]
-[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TestController : BaseApiController
 {
     public TestController(IRequestDispatcher requestDispatcher)
@@ -21,6 +19,7 @@ public class TestController : BaseApiController
     /// <summary>
     /// This api is protected by authorization
     /// </summary>
+    [Authorize(policy: "AdminRole")]
     [HttpGet]
     [Route("authorized")]
     public async Task<Result> Authorized()
