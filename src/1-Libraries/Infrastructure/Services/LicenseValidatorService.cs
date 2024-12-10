@@ -12,16 +12,13 @@ public static class LicenseValidatorService
 {
     public static void ValidateLicense(this IServiceCollection services, string environmentName)
     {
-        var licensePath = Path.Combine(GetRootDirectory(), "codeblock.dev.license.lic");
+        var licensePath = GetLicensePath();
 
-        if (!File.Exists(licensePath))
+        var loggerFactory = LoggerFactory.Create(loggingBuilder =>
         {
-            throw new FileNotFoundException(
-                $"License file not found at the expected path: {licensePath}. Ensure that the file exists in the root directory of your solution."
-            );
-        }
-
-        var loggerFactory = LoggerFactory.Create(loggingBuilder => { });
+            loggingBuilder.AddConsole();
+            loggingBuilder.SetMinimumLevel(LogLevel.Information);
+        });
 
         var logger = loggerFactory.CreateLogger("License");
 
@@ -73,20 +70,19 @@ public static class LicenseValidatorService
         return licenseType >= requiredLicenseType;
     }
 
-    private static string GetRootDirectory()
+    private static string GetLicensePath()
     {
-        var currentDirectory = Directory.GetCurrentDirectory();
+        var licenseFileName = "codeblock.dev.license.lic";
 
-        while (currentDirectory != null)
-        {
-            if (Directory.GetFiles(currentDirectory, "*.sln").Length > 0)
-            {
-                return currentDirectory;
-            }
+        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            currentDirectory = Directory.GetParent(currentDirectory)?.FullName;
-        }
+        var licensePath = Path.Combine(baseDirectory, licenseFileName);
 
-        throw new FileNotFoundException("Finding License file failed! Solution (.sln) file not found in any parent directory.");
+        if (File.Exists(licensePath))
+            return licensePath;
+
+        throw new FileNotFoundException(
+            $"Finding License file failed! {licenseFileName} not found! Make sure you have it in the root folder where your (.sln) file is. Also, make sure to copy it into your client (web) project by having this line in your (.csproj) file : <None Update=\"codeblock.dev.license.lic\"><CopyToOutputDirectory>eserveNewest</CopyToOutputDirectory>/None>"
+        );
     }
 }

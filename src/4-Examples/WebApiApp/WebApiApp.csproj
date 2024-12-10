@@ -19,4 +19,10 @@
 		<ProjectReference Include="..\..\2-Modules\Authorization\Authorization\Authorization.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Content Include="..\..\..\codeblock.dev.license.lic">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
 </Project>
